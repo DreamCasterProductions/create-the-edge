@@ -35,7 +35,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Montserrat', sans-serif; background: var(--cream-light); color: var(--ink); font-size: 15px; line-height: 1.65; display: flex; }
+body { font-family: 'Montserrat', sans-serif; background: var(--navy); color: var(--ink); font-size: 15px; line-height: 1.65; display: flex; }
 
 /* ── TOPBAR ── */
 .topbar {
@@ -197,7 +197,7 @@ mark.search-highlight.current {
 }
 
 /* ── MAIN ── */
-main { margin-left: 240px; margin-top: 44px; flex: 1; max-width: 960px; padding: 0 0 80px; }
+main { margin-left: 240px; margin-top: 44px; flex: 1; max-width: none; width: calc(100% - 240px); padding: 0 0 80px; }
 
 /* ── PAGES ── */
 .page { background: var(--paper); padding: 56px 64px; margin-bottom: 2px; }
@@ -277,7 +277,7 @@ main { margin-left: 240px; margin-top: 44px; flex: 1; max-width: 960px; padding:
 table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
 thead { background: var(--navy); }
 thead th { color: var(--gold); font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 12px 14px; text-align: left; font-weight: 700; }
-tbody tr:nth-child(even) { background: var(--cream-light); }
+tbody tr:nth-child(even) { background: var(--navy); }
 tbody tr:nth-child(odd) { background: var(--paper); }
 td { padding: 11px 14px; color: var(--ink-soft); vertical-align: top; }
 td strong { color: var(--ink); font-weight: 600; }
@@ -340,7 +340,7 @@ td strong { color: var(--ink); font-weight: 600; }
 .cut-card .def { background: var(--paper); color: var(--ink-soft); padding: 14px 16px; font-size: 12px; line-height: 1.5; }
 
 /* ── MEDIA ── */
-.media { margin: 24px 0; padding: 20px; background: var(--cream-light); border-top: 3px solid var(--brass); border-radius: 2px; }
+.media { margin: 24px 0; padding: 20px; background: var(--navy); border-top: 3px solid var(--brass); border-radius: 2px; }
 .media-byline { font-family: 'Montserrat', sans-serif; font-size: 10px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
 .media-asset { display: block; width: 100%; max-width: 100%; margin: 8px 0; border-radius: 2px; }
 .media-caption { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; color: var(--ink-soft); margin-top: 8px; }

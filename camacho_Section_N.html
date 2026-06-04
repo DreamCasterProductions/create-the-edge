@@ -23,7 +23,7 @@
   --warn-bg:#FFF8ED; --warn-border:#B8893B;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Montserrat',sans-serif;background:var(--cream-light);color:var(--ink);font-size:14px;line-height:1.6;display:flex;}
+body{font-family:'Montserrat',sans-serif;background:var(--navy);color:var(--ink);font-size:14px;line-height:1.6;display:flex;}
 
 /* TOPBAR */
 .topbar{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--navy);height:52px;display:flex;align-items:center;padding:0 24px;border-bottom:2px solid var(--brass);}
@@ -43,7 +43,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--cream-light);color:var
 .sidebar-list a:hover,.sidebar-list a.active{color:var(--gold);border-left-color:var(--gold);background:rgba(197,167,111,.06);}
 
 /* MAIN */
-main{margin-left:244px;margin-top:52px;flex:1;max-width:980px;padding:0 0 100px 0;}
+main{margin-left:244px;margin-top:52px;flex:1;max-width:none;width:calc(100% - 244px);padding:0 0 100px 0;}
 
 /* PAGES */
 .page{background:var(--paper);padding:56px 64px;margin-bottom:2px;}
@@ -87,7 +87,7 @@ main{margin-left:244px;margin-top:52px;flex:1;max-width:980px;padding:0 0 100px 
 .legend-swatch{width:14px;height:14px;border-radius:2px;flex-shrink:0;}
 .ls-input{background:var(--input-bg);border:1px solid var(--input-border);}
 .ls-output{background:var(--output-bg);}
-.ls-auto{background:var(--cream-light);border:1px solid var(--rule);}
+.ls-auto{background:var(--navy);border:1px solid var(--rule);}
 
 /* ============================================================
    CALCULATOR SHARED COMPONENTS
@@ -166,7 +166,7 @@ select{cursor:pointer;background-image:none;}
 .phase-summary thead{background:var(--navy);}
 .phase-summary thead th{color:var(--gold);font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:10px 12px;text-align:left;font-weight:700;}
 .phase-summary thead th:last-child,.phase-summary tbody td:last-child{text-align:right;}
-.phase-summary tbody tr:nth-child(even){background:var(--cream-light);}
+.phase-summary tbody tr:nth-child(even){background:var(--navy);}
 .phase-summary tbody tr:nth-child(odd){background:var(--paper);}
 .phase-summary tbody td{padding:10px 12px;color:var(--ink-soft);vertical-align:middle;}
 .phase-summary tbody td strong{color:var(--ink);}
@@ -177,7 +177,7 @@ select{cursor:pointer;background-image:none;}
 .person-table thead{background:var(--navy-mid);}
 .person-table thead th{color:var(--text-secondary);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:8px 10px;text-align:left;font-weight:600;}
 .person-table thead th:not(:first-child){text-align:right;}
-.person-table tbody tr:nth-child(even){background:var(--cream-light);}
+.person-table tbody tr:nth-child(even){background:var(--navy);}
 .person-table tbody tr:nth-child(odd){background:var(--paper);}
 .person-table tbody td{padding:8px 10px;color:var(--ink-soft);vertical-align:middle;}
 .person-table tbody td:not(:first-child){text-align:right;}
@@ -727,7 +727,7 @@ select{cursor:pointer;background-image:none;}
       <span class="phase-badge" id="lc-proj-badge">Project</span>
     </div>
     <div style="padding:0 0 2px;">
-      <div class="calc-row row-2col" style="background:var(--cream-light);">
+      <div class="calc-row row-2col" style="background:var(--navy);">
         <div class="row-label">Project Name / Reference</div>
         <div><input type="text" id="lc-proj" value="Major Transportation Hospitality Project (TPA) - Tampa, FL" oninput="calcLabor()" style="font-weight:600;"></div>
       </div>
