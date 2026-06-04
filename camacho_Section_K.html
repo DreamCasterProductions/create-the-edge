@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business OS &middot; Section K &middot; File Naming &amp; Systems &middot; 2026 Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0a1628; --navy-mid:#0f2040; --navy-top:#11354A;
+  --gold:#C5A76F; --brass:#B8893B; --brass-soft:#D4AB5E;
+  --cream:#F4EFE4; --cream-light:#FAF7F1; --paper:#FFFFFF;
+  --ink:#162630; --ink-soft:#2C3B45; --ink-muted:#5D7079;
+  --text-primary:#e8e0d0; --text-secondary:#b8aa90;
+  --camacho-blue:#266889; --blue-tint:#EDF3F6;
+  --green:#2F7D54; --green-tint:#E8F2EC;
+  --red:#B23B2E; --red-tint:#F8E9E6;
+  --rule:#D6CCB6;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Montserrat',sans-serif;background:var(--cream-light);color:var(--ink);font-size:15px;line-height:1.65;display:flex;}
+
+/* TOPBAR */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:300;background:var(--navy);height:44px;display:flex;align-items:center;padding:0 20px;border-bottom:1px solid var(--brass);gap:16px;}
+.topbar-logo{font-family:'Playfair Display',serif;color:var(--gold);font-size:15px;font-weight:700;letter-spacing:.08em;}
+.topbar-section{color:var(--text-secondary);font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
+.topbar-links{margin-left:auto;display:flex;gap:20px;}
+.topbar-links a{color:var(--text-secondary);font-size:11px;text-decoration:none;letter-spacing:.08em;text-transform:uppercase;}
+.topbar-links a:hover{color:var(--gold);}
+
+/* SIDEBAR */
+.sidebar{position:fixed;top:44px;left:0;bottom:0;width:240px;background:var(--navy);overflow-y:auto;z-index:100;padding:28px 18px 40px 20px;box-sizing:border-box;border-right:1px solid rgba(197,167,111,.18);}
+.sidebar-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:0 8px 10px 8px;margin-bottom:16px;border-bottom:1px solid rgba(197,167,111,.22);}
+.sidebar-group-label{color:var(--gold);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:16px 8px 6px 8px;opacity:.9;}
+.sidebar-list{list-style:none;}
+.sidebar-list a{display:flex;align-items:baseline;gap:8px;color:#FFF;text-decoration:none;font-size:11px;padding:8px 8px 8px 6px;border-left:2px solid transparent;transition:all .15s;}
+.sidebar-list a .code{color:var(--gold);font-size:10px;min-width:26px;}
+.sidebar-list a:hover,.sidebar-list a.active,.sidebar-list li.active a{color:var(--gold);border-left-color:var(--gold);background:rgba(197,167,111,.06);}
+
+/* MAIN */
+main{margin-left:240px;margin-top:44px;flex:1;max-width:960px;padding:0 0 80px;}
+
+/* PAGES */
+.page{background:var(--paper);padding:56px 64px;margin-bottom:2px;}
+.page.cover{background:var(--navy);min-height:100vh;display:flex;flex-direction:column;padding:72px 72px 56px;}
+.legend-page{background:var(--navy);padding:56px 64px;margin-bottom:2px;}
+
+/* COVER */
+.cover-eyebrow{font-family:'Montserrat',sans-serif;color:var(--gold);font-size:10px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:28px;}
+.cover-letter{font-family:'Playfair Display',serif;color:var(--gold);font-size:120px;font-weight:700;line-height:1;margin-bottom:4px;}
+.cover-title{font-family:'Playfair Display',serif;color:#FFF;font-size:38px;font-weight:600;line-height:1.2;margin-bottom:12px;}
+.cover-sub{color:var(--text-secondary);font-size:14px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-bottom:48px;max-width:480px;}
+.cover-rule{height:1px;background:rgba(197,167,111,.3);margin-bottom:40px;}
+.nav-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:auto;}
+.nav-card{background:rgba(255,255,255,.05);border:1px solid rgba(197,167,111,.2);border-top:2px solid var(--gold);padding:16px 18px;text-decoration:none;}
+.nav-card-code{color:var(--gold);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;}
+.nav-card-title{color:#FFF;font-size:12px;font-weight:600;font-family:'Playfair Display',serif;}
+.cover-credit{margin-top:40px;color:var(--text-secondary);font-size:10px;letter-spacing:.08em;border-top:1px solid rgba(197,167,111,.15);padding-top:16px;}
+
+/* SUBSEC ELEMENTS */
+.crumb{font-size:10px;color:var(--ink-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;}
+.crumb .dot{margin:0 6px;color:var(--brass);}
+.subsec-tag{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--brass);letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.subsec-title{font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);font-weight:700;line-height:1.2;margin-bottom:16px;}
+.subsec-lede{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink-soft);line-height:1.55;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--rule);}
+.figure-title{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--brass);letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+
+/* BODY */
+.section-body p{margin-bottom:16px;}
+.section-body ul,.section-body ol{margin:0 0 16px 20px;}
+.section-body li{margin-bottom:6px;}
+
+/* CALLOUTS */
+.callout{margin:24px 0;padding:20px 22px;border-radius:2px;break-inside:avoid;}
+.callout .label{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:7px;margin-bottom:10px;}
+.callout .icon{font-size:14px;}
+.callout .body{font-size:14px;line-height:1.6;}
+.callout .attrib{font-size:11px;margin-top:10px;font-style:italic;opacity:.8;}
+.callout.expert{background:var(--navy);color:var(--text-primary);border-left:4px solid var(--gold);}
+.callout.expert .label{color:var(--gold);}
+.callout.expert .body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;}
+.callout.rule{background:var(--cream);border-left:4px solid var(--navy);}
+.callout.rule .label{color:var(--navy);}
+.callout.files{background:var(--blue-tint);border-left:4px solid var(--camacho-blue);}
+.callout.files .label{color:var(--camacho-blue);}
+.callout.best{background:var(--green-tint);border-left:4px solid var(--green);}
+.callout.best .label{color:var(--green);}
+.callout.warn{background:var(--red-tint);border-left:4px solid var(--red);}
+.callout.warn .label{color:var(--red);}
+
+/* BRAND NAME */
+.your-company{font-weight:700;color:#266889;}
+
+/* NUM CARDS */
+.cards-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:24px 0;}
+.num-card{background:var(--cream);border-top:3px solid var(--brass);padding:20px 22px;break-inside:avoid;}
+.num-card .num{font-family:'Playfair Display',serif;font-size:36px;color:var(--brass);font-weight:700;line-height:1;margin-bottom:4px;}
+.num-card .kicker{font-size:9px;color:var(--ink-muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;}
+.num-card .title{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);font-weight:600;margin-bottom:8px;}
+.num-card .desc{font-size:13px;color:var(--ink-soft);}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+thead{background:var(--navy);}
+thead th{color:var(--gold);font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:12px 14px;text-align:left;font-weight:700;}
+tbody tr:nth-child(even){background:var(--cream-light);}
+tbody tr:nth-child(odd){background:var(--paper);}
+td{padding:11px 14px;color:var(--ink-soft);vertical-align:top;}
+td strong{color:var(--ink);font-weight:600;}
+
+/* CHECKLIST */
+.checklist{list-style:none;margin:16px 0;}
+.checklist li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--rule);font-size:14px;color:var(--ink-soft);}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:'☐';color:var(--brass);font-size:16px;flex-shrink:0;margin-top:1px;}
+.checklist-head{font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);font-weight:600;margin:24px 0 10px;}
+
+/* MEDIA */
+.media-block{margin:24px 0;padding:20px;background:var(--cream);border-top:3px solid var(--brass);}
+.media-byline{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--brass);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:12px;}
+.media-iframe-wrap{position:relative;width:100%;padding-bottom:56.25%;margin-bottom:8px;}
+.media-iframe-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:2px;}
+.audio-wrap iframe{width:100%;height:80px;border:0;border-radius:2px;}
+.media-caption{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--ink-muted);margin-top:8px;}
+.media-img{width:100%;border-radius:2px;display:block;}
+
+/* QUIZ */
+.quiz-q{margin-bottom:28px;break-inside:avoid;border-left:3px solid var(--rule);padding-left:18px;}
+.qnum{font-family:'Playfair Display',serif;font-size:22px;color:var(--brass);font-weight:700;margin-bottom:6px;}
+.qtext{font-size:14px;color:var(--ink);margin-bottom:12px;font-weight:500;}
+.opts{list-style:none;}
+.opt{display:flex;align-items:baseline;gap:10px;padding:6px 0;font-size:13px;color:var(--ink-soft);border-bottom:1px solid var(--cream);}
+.opt:last-child{border-bottom:none;}
+.letter{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--cream);color:var(--brass);font-size:11px;font-weight:700;flex-shrink:0;}
+
+/* LEGEND */
+.legend-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:28px;font-weight:700;margin-bottom:8px;}
+.legend-sub{color:var(--text-secondary);font-size:14px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid rgba(197,167,111,.25);}
+.legend-q{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(197,167,111,.12);break-inside:avoid;}
+.legend-q .head{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:4px;}
+.legend-q .answer{font-size:14px;color:var(--text-primary);font-weight:600;margin-bottom:4px;}
+.legend-q .explain{font-size:13px;color:var(--text-secondary);font-style:italic;}
+
+/* FLASHCARD GRID */
+.flash-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+.flash-grid-card{border:1px solid var(--rule);}
+.flash-grid-front{background:var(--navy);color:var(--gold);padding:14px 16px;font-family:'Playfair Display',serif;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;}
+.flash-grid-num{background:var(--brass);color:var(--navy);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;}
+.flash-grid-back{background:var(--paper);color:var(--ink-soft);padding:12px 16px;font-size:12px;line-height:1.5;}
+.flash-grid-ref{font-size:10px;color:var(--ink-muted);margin-top:6px;font-style:italic;}
+
+/* FLIP CARDS */
+.flip-container{max-width:600px;margin:0 auto 24px;}
+.flip-card{background:var(--navy);border-top:3px solid var(--gold);padding:48px 40px;text-align:center;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;}
+.flip-front-label{font-size:9px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;font-weight:700;}
+.flip-front-text{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;}
+.flip-back-text{font-size:14px;color:var(--text-primary);line-height:1.6;display:none;}
+.flip-card.flipped{background:var(--navy-mid);}
+.flip-card.flipped .flip-front-text{display:none;}
+.flip-card.flipped .flip-back-text{display:block;}
+.flip-hint{text-align:center;font-size:11px;color:var(--ink-muted);margin-top:8px;font-style:italic;}
+.flip-nav{display:flex;justify-content:center;align-items:center;gap:20px;margin-top:16px;}
+.flip-btn{background:var(--navy);color:var(--gold);border:1px solid var(--brass);padding:8px 22px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;cursor:pointer;text-transform:uppercase;}
+.flip-btn:hover{background:var(--brass);color:var(--navy);}
+.flip-counter{font-size:12px;color:var(--ink-muted);font-weight:600;}
+.flip-dots{display:flex;gap:6px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
+.flip-dot{width:8px;height:8px;border-radius:50%;background:var(--rule);cursor:pointer;}
+.flip-dot.active{background:var(--gold);}
+
+/* CUT CARDS */
+.cut-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0;}
+.cut-card{border:1px dashed var(--rule);break-inside:avoid;}
+.cut-card .term{background:var(--navy);color:var(--gold);padding:14px 16px;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;}
+.cut-card .def{background:var(--paper);color:var(--ink-soft);padding:12px 16px;font-size:12px;line-height:1.5;}
+
+/* PRINT */
+@media print{
+  body{background:#fff;font-size:11pt;}
+  .topbar,.sidebar{display:none!important;}
+  main{margin:0;max-width:100%;}
+  .page{padding:.6in .85in;margin:0;break-before:always;}
+  .page:first-of-type{break-before:auto;}
+  .cover{min-height:11in;break-after:always;}
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  .flip-container{display:none;}
+  h1,h2,h3,.subsec-title,.subsec-tag,.crumb,.figure-title{break-inside:avoid;break-after:avoid;}
+  .callout,.num-card,.cards-row,.cut-card,.quiz-q,.legend-q{break-inside:avoid;}
+  p,li{orphans:3;widows:3;}
+  .legend-page{break-before:always;}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-logo"><span class="your-company">Your Company</span></div>
+  <div class="topbar-section">Section K &middot; File Naming &amp; Systems</div>
+  <div class="topbar-links">
+    <a href="#cover">Top</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#flash-grid">Study Cards</a>
+  </div>
+</header>
+
+<aside class="sidebar">
+  <div class="sidebar-title">Section K &middot; File Naming</div>
+  <ul class="sidebar-list">
+    <li class="sidebar-group-label">Overview</li>
+    <li><a href="#cover"><span class="code">K</span>Cover</a></li>
+    <li><a href="#k-media"><span class="code">&#9654;</span>Briefings</a></li>
+    <li><a href="#k-slides"><span class="code">&#9674;</span>Slides (K)</a></li>
+    <li class="sidebar-group-label">Foundations</li>
+    <li><a href="#k0"><span class="code">K.0</span>Why File Discipline</a></li>
+    <li><a href="#k1"><span class="code">K.1</span>Year-Month-XX</a></li>
+    <li><a href="#k2"><span class="code">K.2</span>Anatomy of a Name</a></li>
+    <li class="sidebar-group-label">Structure</li>
+    <li><a href="#k3"><span class="code">K.3</span>Project Folder</a></li>
+    <li><a href="#k4"><span class="code">K.4</span>Version Control</a></li>
+    <li><a href="#k5"><span class="code">K.5</span>Storage System</a></li>
+    <li><a href="#k6"><span class="code">K.6</span>Naming the Lifecycle</a></li>
+    <li class="sidebar-group-label">Protection</li>
+    <li><a href="#k7"><span class="code">K.7</span>Confidential Files</a></li>
+    <li><a href="#k8"><span class="code">K.8</span>Filing Cadence</a></li>
+    <li><a href="#k9"><span class="code">K.9</span>Archiving</a></li>
+    <li class="sidebar-group-label">Discipline</li>
+    <li><a href="#k10"><span class="code">K.10</span>Common Errors</a></li>
+    <li><a href="#k11"><span class="code">K.11</span>Checklist</a></li>
+    <li class="sidebar-group-label">Assessment</li>
+    <li><a href="#quiz"><span class="code">&#10003;</span>Quiz (15 Q)</a></li>
+    <li><a href="#legend1"><span class="code">&#9745;</span>Answer Legend</a></li>
+    <li><a href="#flash-grid"><span class="code">&#9635;</span>Flashcard Grid</a></li>
+    <li><a href="#flip-cards"><span class="code">&#9654;</span>Flip Cards</a></li>
+    <li><a href="#cut-cards"><span class="code">&#9986;</span>Cut Cards</a></li>
+  </ul>
+</aside>
+
+<main>
+
+<!-- COVER -->
+<div class="page cover" id="cover">
+  <div class="cover-eyebrow"><span class="your-company">Your Company</span> Sales &amp; Proposal Development Training Guide &middot; 2026 Edition</div>
+  <div class="cover-letter">K</div>
+  <div class="cover-title">File Naming, Organization &amp; Systems</div>
+  <div class="cover-sub">A proposal that cannot be found is a proposal that was never written. This section is the filing discipline that lets any person at <span class="your-company">Your Company</span> locate any document, in any project, in seconds, from draft through signed contract.</div>
+  <div class="cover-rule"></div>
+  <div class="nav-cards">
+    <a class="nav-card" href="#k1"><div class="nav-card-code">K.1</div><div class="nav-card-title">Year-Month-XX Convention</div></a>
+    <a class="nav-card" href="#k2"><div class="nav-card-code">K.2</div><div class="nav-card-title">Anatomy of a File Name</div></a>
+    <a class="nav-card" href="#k3"><div class="nav-card-code">K.3</div><div class="nav-card-title">Project Folder Structure</div></a>
+    <a class="nav-card" href="#k4"><div class="nav-card-code">K.4</div><div class="nav-card-title">Version Control</div></a>
+    <a class="nav-card" href="#k5"><div class="nav-card-code">K.5</div><div class="nav-card-title">Storage System</div></a>
+    <a class="nav-card" href="#k6"><div class="nav-card-code">K.6</div><div class="nav-card-title">Naming the Lifecycle</div></a>
+    <a class="nav-card" href="#k7"><div class="nav-card-code">K.7</div><div class="nav-card-title">Confidential Files</div></a>
+    <a class="nav-card" href="#k8"><div class="nav-card-code">K.8</div><div class="nav-card-title">Filing Cadence</div></a>
+    <a class="nav-card" href="#k9"><div class="nav-card-code">K.9</div><div class="nav-card-title">Archiving &amp; Retrieval</div></a>
+    <a class="nav-card" href="#k10"><div class="nav-card-code">K.10</div><div class="nav-card-title">Common Errors</div></a>
+    <a class="nav-card" href="#k11"><div class="nav-card-code">K.11</div><div class="nav-card-title">File Discipline Checklist</div></a>
+    <a class="nav-card" href="#quiz"><div class="nav-card-code">&#10003;</div><div class="nav-card-title">15-Question Assessment</div></a>
+  </div>
+  <div class="cover-credit"><span class="your-company">Your Company</span> Associates, Inc. &middot; [Company Address] &middot; Internal Use Only &middot; 2026</div>
+</div>
+
+<!-- MEDIA PAGE -->
+<div class="page" id="k-media">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> BRIEFINGS</div>
+  <div class="subsec-tag">Watch and Listen</div>
+  <h2 class="subsec-title">Section Briefings</h2>
+  <div class="subsec-lede">Watch the walkthrough on the filing system, listen to the deep dive on the file naming rules, then study the section for the detail. The same filing discipline in three formats.</div>
+  <div class="media-block">
+    <div class="media-byline">Video &middot; File Naming, Organization &amp; Systems</div>
+    <div class="media-iframe-wrap"><video controls preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;border-radius:2px;"><source src="media/k/video.mp4" type="video/mp4"></video></div>
+    <div class="media-caption">The filing system walkthrough: naming conventions, version control, and the three-day cadence.</div>
+  </div>
+  <div class="media-block">
+    <div class="media-byline">Audio &middot; File Naming Rules</div>
+    <div class="audio-wrap"><audio controls preload="metadata" style="width:100%;display:block;"><source src="media/k/audio.m4a" type="audio/mp4"></audio></div>
+    <div class="media-caption">The full file naming and organization walkthrough, narrated.</div>
+  </div>
+  <div class="figure-title" style="margin-top:32px;">Section K &middot; Infographic</div>
+  <img class="media-img" src="media/k/infographic.png" alt="Section K File Discipline Infographic" loading="lazy">
+  <div class="figure-title" style="margin-top:32px;">Section K &middot; Concept Mind Map</div>
+  <img class="media-img" src="media/k/mindmap.png" alt="Section K Mind Map" loading="lazy">
+</div>
+
+
+<!-- K-SLIDES -->
+<div class="page" id="k-slides">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> PRESENTATION</div>
+  <div class="subsec-tag">Full Slide Deck</div>
+  <h2 class="subsec-title">The Digital Vault</h2>
+  <div class="subsec-lede">The complete presentation for this section. Each slide is embedded directly. Scroll through all 21 slides below.</div>
+  <style>.slide-img{width:100%;display:block;border-radius:2px;border:1px solid var(--rule);margin-bottom:8px;}</style>
+  <img class="slide-img" src="media/k/slides/slide01.png" alt="Slide 1 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide02.png" alt="Slide 2 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide03.png" alt="Slide 3 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide04.png" alt="Slide 4 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide05.png" alt="Slide 5 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide06.png" alt="Slide 6 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide07.png" alt="Slide 7 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide08.png" alt="Slide 8 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide09.png" alt="Slide 9 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide10.png" alt="Slide 10 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide11.png" alt="Slide 11 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide12.png" alt="Slide 12 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide13.png" alt="Slide 13 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide14.png" alt="Slide 14 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide15.png" alt="Slide 15 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide16.png" alt="Slide 16 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide17.png" alt="Slide 17 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide18.png" alt="Slide 18 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide19.png" alt="Slide 19 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide20.png" alt="Slide 20 of 21" loading="lazy">
+  <img class="slide-img" src="media/k/slides/slide21.png" alt="Slide 21 of 21" loading="lazy">
+</div>
+
+<!-- K.0 -->
+<div class="page" id="k0">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> FOUNDATIONS</div>
+  <div class="subsec-tag">K.0 &middot; Overview</div>
+  <h2 class="subsec-title">Why File Discipline Decides Whether Work Can Be Found</h2>
+  <div class="subsec-lede">The best proposal in the firm is worthless if no one can find it when the client calls back. File discipline is not clerical work. It is the system that turns one person's effort into something the whole firm can rely on, today and three years from now.</div>
+  <div class="section-body">
+    <p>Every proposal, scope, fee table, and contract <span class="your-company">Your Company</span> produces becomes part of the firm's institutional memory only if it can be found again. A document saved with a random name in the wrong folder is functionally lost: the hours that went into it cannot be reused, the precedent it sets cannot be cited, and the next person who needs it rebuilds it from scratch. File discipline is what separates a firm that compounds its knowledge from one that repeats its work.</p>
+    <p>This section codifies the conventions that make every <span class="your-company">Your Company</span> document findable: the Year-Month-XX naming standard introduced in Section G, the project folder structure, the way a file is named and versioned from first draft through signed contract, how confidential work is protected, and the filing cadence that keeps the system current. These are not suggestions. They are the operating standard, and the cost of ignoring them is measured in lost hours and lost documents.</p>
+  </div>
+  <div class="callout expert">
+    <div class="label"><span class="icon">&#10078;</span> Expert Insight</div>
+    <div class="body">"The proposal you cannot find in two minutes might as well not exist. When a client calls about a project from eighteen months ago, the person who named the file correctly looks like a professional, and the person who did not is still searching while the client waits."</div>
+    <div class="attrib">&middot; Marketing Director</div>
+  </div>
+  <div class="figure-title">Figure K.0.1 &middot; What File Discipline Protects</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num">1</div><div class="kicker">Protects</div><div class="title">Retrievability</div><div class="desc">Any document can be found by anyone in the firm, in seconds, without asking the person who made it. The name and the folder do the work.</div></div>
+    <div class="num-card"><div class="num">2</div><div class="kicker">Protects</div><div class="title">Reusability</div><div class="desc">Past proposals become templates and precedents. Effort spent once is reused many times, which is the foundation of the firm's speed.</div></div>
+    <div class="num-card"><div class="num">3</div><div class="kicker">Protects</div><div class="title">Continuity</div><div class="desc">When someone is out or moves on, the work does not leave with them. The system holds the knowledge, not a single person's memory.</div></div>
+    <div class="num-card"><div class="num">4</div><div class="kicker">Protects</div><div class="title">Credibility</div><div class="desc">A firm that produces the right document instantly looks competent. One that hunts through unnamed files in front of a client does not.</div></div>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">Name the file correctly the moment it is created, not later. A file named right at creation is never lost. A file named later is named only if someone remembers, and the one nobody remembers to rename is the one nobody can find when it matters.</div>
+  </div>
+</div>
+
+<!-- K.1 -->
+<div class="page" id="k1">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> FOUNDATIONS</div>
+  <div class="subsec-tag">K.1 &middot; The Naming Convention</div>
+  <h2 class="subsec-title">The Year-Month-XX Naming Convention</h2>
+  <div class="subsec-lede">Every <span class="your-company">Your Company</span> file begins with the same date-based stem. It is alphabetical and chronological at the same time, which means a folder sorted by name is automatically sorted by time.</div>
+  <div class="section-body">
+    <p>The core of the system is the Year-Month-XX convention introduced in Section G. Every proposal file is named in the format YYYY-MM-NN, where YYYY is the year, MM is the two-digit month, and NN is the sequential number of that proposal within the month. Because the date leads, sorting a folder alphabetically also sorts it chronologically. There is no separate step to organize by date; the name does it automatically.</p>
+  </div>
+  <div class="figure-title">Figure K.1.1 &middot; The Convention Decoded</div>
+  <table>
+    <thead><tr><th>Segment</th><th>Meaning</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td><strong>YYYY</strong></td><td>Four-digit year the proposal was created</td><td>2026</td></tr>
+      <tr><td><strong>MM</strong></td><td>Two-digit month, zero-padded</td><td>05</td></tr>
+      <tr><td><strong>NN</strong></td><td>Sequential proposal number for that month</td><td>01, 02, 44</td></tr>
+      <tr><td><strong>Full stem</strong></td><td>The combined date-sequence prefix</td><td>2026-05-0144</td></tr>
+    </tbody>
+  </table>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">Zero-pad every number. Write 2026-05, not 2026-5, and 01 rather than 1. Padding is what keeps the alphabetical sort and the chronological sort identical. Without it, a folder sorts 1, 10, 11, 2, which scatters the timeline and defeats the entire purpose of leading with the date.</div>
+  </div>
+  <div class="callout files">
+    <div class="label"><span class="icon">&#9776;</span> From the Files</div>
+    <div class="body">The Year-Month-XX convention is alphabetical and chronological at once. A reviewer scanning the project folder sees every proposal in the order it was created without sorting by anything other than name. This is why the date leads the file name and never trails it.</div>
+  </div>
+</div>
+
+<!-- K.2 -->
+<div class="page" id="k2">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> FOUNDATIONS</div>
+  <div class="subsec-tag">K.2 &middot; Anatomy of a File Name</div>
+  <h2 class="subsec-title">Anatomy of a Complete File Name</h2>
+  <div class="subsec-lede">The date stem is only the start. A complete <span class="your-company">Your Company</span> file name carries the confidentiality flag, the project, the location, and the document type, so the name alone tells you everything before you open it.</div>
+  <div class="section-body">
+    <p>A full file name extends the date stem with the information a reader needs to identify the document without opening it. After the date sequence comes a confidentiality flag where required, then the project name, the location in US state abbreviation form, and the document type. A name built this way is a complete label: anyone scanning the folder knows what each file is, who it concerns, and whether it is sensitive, at a glance.</p>
+  </div>
+  <div class="figure-title">Figure K.2.1 &middot; A Complete File Name, Part by Part</div>
+  <table>
+    <thead><tr><th>Part</th><th>Purpose</th><th>Example Fragment</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Date stem</strong></td><td>Chronological and sequential identity</td><td>2026-05-0144</td></tr>
+      <tr><td><strong>Confidential flag</strong></td><td>Marks sensitive files so they are handled with care</td><td>CONFIDENTIAL</td></tr>
+      <tr><td><strong>Project name</strong></td><td>The client or project the document concerns</td><td>Regional Restaurant Client</td></tr>
+      <tr><td><strong>Location</strong></td><td>City and US state abbreviation</td><td>Atlanta, GA</td></tr>
+      <tr><td><strong>Document type</strong></td><td>What the file is</td><td>Food and Bev Design - Fee Proposal</td></tr>
+    </tbody>
+  </table>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">Use US state abbreviations in file names, never the full state spelled out. GA, not Georgia. NC, not North Carolina. This keeps names compact and consistent with the convention used across every proposal and project record in the firm.</div>
+  </div>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Common Failure</div>
+    <div class="body">Burying the date in the middle of the name or dropping it entirely in favor of just the project name. A file named only "Regional Restaurant Client Proposal" cannot be placed in time, cannot be sequenced against other proposals that month, and will not sort correctly. The date stem leads, every time.</div>
+  </div>
+</div>
+
+<!-- K.3 -->
+<div class="page" id="k3">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> STRUCTURE AND VERSIONING</div>
+  <div class="subsec-tag">K.3 &middot; The Project Folder</div>
+  <h2 class="subsec-title">The Project Folder Structure</h2>
+  <div class="subsec-lede">A correctly named file still needs the right home. Every project has a folder, and every document for that project lives in it, so the whole history of an engagement sits in one place.</div>
+  <div class="section-body">
+    <p>The file name identifies the document; the folder structure groups documents by the project they belong to. Each engagement has a single project folder, and everything that engagement produces, the proposal, the scope, the fee table, correspondence, the signed contract, lives inside it. The result is that the complete history of a project sits in one location, and no one has to assemble it from scattered files when a question comes up months later.</p>
+  </div>
+  <div class="figure-title">Figure K.3.1 &middot; What Lives in a Project Folder</div>
+  <table>
+    <thead><tr><th>Contents</th><th>Why It Belongs There</th></tr></thead>
+    <tbody>
+      <tr><td><strong>The proposal and fee documents</strong></td><td>The priced offer and the math behind it, kept with the project they priced</td></tr>
+      <tr><td><strong>The scope of work</strong></td><td>The defined deliverables, where they can be checked against the contract</td></tr>
+      <tr><td><strong>Correspondence and discovery notes</strong></td><td>The record of what was confirmed and decided, in context</td></tr>
+      <tr><td><strong>The signed contract</strong></td><td>The executed agreement, filed with everything that led to it</td></tr>
+      <tr><td><strong>Drawings and supporting files</strong></td><td>The technical record tied to the same engagement</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">One project, one folder, everything inside it. A document saved outside its project folder is a document that will be looked for in the folder and not found. If it concerns the project, it lives in the project folder, with no exceptions for convenience.</div>
+  </div>
+  <div class="callout files">
+    <div class="label"><span class="icon">&#9776;</span> From the Files</div>
+    <div class="body">When a signed package comes back, it is filed in the project folder under the Year-Month-XX naming convention alongside the proposal that produced it. The draft, the sent proposal, and the signed contract all carry the same date stem and sit together, so the full arc of the engagement reads in one glance.</div>
+  </div>
+</div>
+
+<!-- K.4 -->
+<div class="page" id="k4">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> STRUCTURE AND VERSIONING</div>
+  <div class="subsec-tag">K.4 &middot; Version Control</div>
+  <h2 class="subsec-title">Version Control: Draft Through Signed Contract</h2>
+  <div class="subsec-lede">A proposal is not one file. It is a series of versions from first draft to signed contract, and the naming has to make clear which version is current without anyone guessing.</div>
+  <div class="section-body">
+    <p>Every proposal moves through stages: an internal draft, the version reviewed by Anja and James, the version sent to the client, and finally the signed contract. The filing convention carries through all of them, with the same date stem so they stay together, and a clear marker of stage so the current version is never in doubt. The goal is that anyone opening the folder can tell at a glance which file is the live one and which are superseded.</p>
+  </div>
+  <div class="figure-title">Figure K.4.1 &middot; The Version Progression</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num">1</div><div class="kicker">Stage</div><div class="title">Draft</div><div class="desc">The working version, named with the date stem and marked as a draft. This is where the proposal is built before it goes to review.</div></div>
+    <div class="num-card"><div class="num">2</div><div class="kicker">Stage</div><div class="title">Reviewed</div><div class="desc">The version after Anja and James review. Edits from review are incorporated here before anything goes to the client.</div></div>
+    <div class="num-card"><div class="num">3</div><div class="kicker">Stage</div><div class="title">Sent</div><div class="desc">The version delivered to the client. This is the record of exactly what was offered and at what fee.</div></div>
+    <div class="num-card"><div class="num">4</div><div class="kicker">Stage</div><div class="title">Signed</div><div class="desc">The executed contract, filed alongside the proposal that produced it under the same date stem.</div></div>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">Never overwrite the sent version. Once a proposal goes to the client, that file is the record of what was offered and stays unchanged. Further edits become a new version. Overwriting the sent file destroys the only evidence of what the client actually received.</div>
+  </div>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Common Failure</div>
+    <div class="body">Naming versions "final," then "final2," then "final-real." This tells no one which file is current and buries the actual live version in a pile of look-alikes. The date stem plus a clear stage marker removes the guesswork that "final" naming creates.</div>
+  </div>
+</div>
+
+<!-- K.5 -->
+<div class="page" id="k5">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> STRUCTURE AND VERSIONING</div>
+  <div class="subsec-tag">K.5 &middot; The Storage System</div>
+  <h2 class="subsec-title">The Storage System and Where Files Live</h2>
+  <div class="subsec-lede">Naming and folders only work if everyone saves to the same place. The firm's shared storage is the single source of truth, and a file that lives only on a laptop is a file the firm does not have.</div>
+  <div class="section-body">
+    <p>A naming convention is only as good as the storage everyone shares. <span class="your-company">Your Company</span> keeps project files in the firm's shared storage system, not on individual desktops or personal drives. A document saved only to a local machine is invisible to everyone else and lost the moment that machine is unavailable. Saving to the shared system is what makes the naming and folder conventions actually function, because the whole firm is looking at the same set of files.</p>
+  </div>
+  <div class="figure-title">Figure K.5.1 &middot; Where a File Should and Should Not Live</div>
+  <table>
+    <thead><tr><th>Location</th><th>Verdict</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Shared project folder</strong></td><td style="color:#2F7D54;font-weight:600;">Correct</td><td>Visible to the firm, backed up, findable by anyone</td></tr>
+      <tr><td><strong>Local desktop</strong></td><td style="color:#B23B2E;font-weight:600;">Wrong</td><td>Invisible to others, not backed up, lost if the machine fails</td></tr>
+      <tr><td><strong>Personal email as attachment</strong></td><td style="color:#B23B2E;font-weight:600;">Wrong</td><td>Not a filing system; cannot be browsed or searched by the team</td></tr>
+      <tr><td><strong>Loose in a shared drive root</strong></td><td style="color:#B23B2E;font-weight:600;">Wrong</td><td>Outside any project folder; will not be found where it is expected</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">If it is not in the shared system, the firm does not have it. Work in progress saved only to a laptop does not count as filed. Save to the shared project folder from the start, so the document is part of the firm's record the moment it exists.</div>
+  </div>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">Save to the shared folder first and work from there, rather than working locally and uploading at the end. The end-of-day upload is the step that gets skipped under deadline pressure, and the skipped upload is the file that goes missing. Working in the shared location from the start removes that risk entirely.</div>
+  </div>
+</div>
+
+<!-- K.6 -->
+<div class="page" id="k6">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> STRUCTURE AND VERSIONING</div>
+  <div class="subsec-tag">K.6 &middot; The Document Lifecycle</div>
+  <h2 class="subsec-title">Naming Across the Document Lifecycle</h2>
+  <div class="subsec-lede">A single engagement produces several document types: the proposal, the scope, the fee table, the contract. Each carries the same date stem so they group together, with the document type making each one distinct.</div>
+  <div class="section-body">
+    <p>One project generates more than a proposal. There is the cover letter and proposal, the scope of work, the fee calculation, supporting correspondence, and the eventual contract. The convention keeps them unified by carrying the same date stem across all of them, while the document-type portion of the name keeps each one distinct. The whole set sorts together in the folder, and the type label tells you which is which without opening anything.</p>
+  </div>
+  <div class="figure-title">Figure K.6.1 &middot; Document Types Under One Date Stem</div>
+  <table>
+    <thead><tr><th>Document</th><th>Role in the Engagement</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Cover letter and proposal</strong></td><td>The priced offer and the narrative that frames it</td></tr>
+      <tr><td><strong>Scope of work</strong></td><td>The defined deliverables, phase by phase</td></tr>
+      <tr><td><strong>Fee calculation</strong></td><td>The working math behind the fee, kept for defense and reference</td></tr>
+      <tr><td><strong>Correspondence</strong></td><td>The record of what was asked, answered, and agreed</td></tr>
+      <tr><td><strong>Signed contract</strong></td><td>The executed agreement that closes the loop</td></tr>
+    </tbody>
+  </table>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">Keep the date stem identical across every document for one proposal, and let the document type be the only thing that changes between them. This is what makes the full set sort together and read as a single engagement rather than scattering across the folder as unrelated files.</div>
+  </div>
+  <div class="callout files">
+    <div class="label"><span class="icon">&#9776;</span> From the Files</div>
+    <div class="body">The fee calculation is filed with the proposal it produced, not kept separately. When a client questions a number months later, the math sits beside the offer, and the person answering can defend the fee from the same folder rather than reconstructing how it was built.</div>
+  </div>
+</div>
+
+<!-- K.7 -->
+<div class="page" id="k7">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> PROTECTION AND CADENCE</div>
+  <div class="subsec-tag">K.7 &middot; Confidential Files</div>
+  <h2 class="subsec-title">Handling Confidential and Sensitive Files</h2>
+  <div class="subsec-lede">Some projects are confidential before they are public. The file name itself carries the flag, so anyone who sees the file knows to handle it with care before they ever open it.</div>
+  <div class="section-body">
+    <p>Not every project is public knowledge. A new restaurant location, an unannounced renovation, or a sensitive client relationship may be confidential until the client says otherwise. The convention handles this by carrying a CONFIDENTIAL flag in the file name itself, placed right after the date stem. The marker travels with the file everywhere it goes, so the sensitivity is visible at the folder level, before anyone opens the document or forwards it.</p>
+  </div>
+  <div class="figure-title">Figure K.7.1 &middot; How the Confidential Flag Works</div>
+  <table>
+    <thead><tr><th>Practice</th><th>Effect</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Flag in the file name</strong></td><td>Sensitivity is visible before the file is opened or sent</td></tr>
+      <tr><td><strong>Flag travels with the file</strong></td><td>The marker is not lost when the file is copied or moved</td></tr>
+      <tr><td><strong>Restricted sharing</strong></td><td>Confidential files go only to those who need them, never broadly</td></tr>
+      <tr><td><strong>Removed only on client clearance</strong></td><td>The flag comes off when the client confirms the project is public</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">When in doubt, mark it confidential. The cost of an unnecessary flag is nothing; the cost of a leaked unannounced project is a damaged client relationship. Add the flag when sensitivity is even possible, and remove it only when the client confirms the project is public.</div>
+  </div>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Common Failure</div>
+    <div class="body">Forwarding a confidential file without noticing the flag. The marker exists precisely so this does not happen, but it only works if people read the name before they send. Check the file name for the flag before any file leaves the firm, and confirm the recipient is cleared to receive it.</div>
+  </div>
+</div>
+
+<!-- K.8 -->
+<div class="page" id="k8">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> PROTECTION AND CADENCE</div>
+  <div class="subsec-tag">K.8 &middot; Filing Cadence</div>
+  <h2 class="subsec-title">The Three-Business-Day Turnaround and Filing Cadence</h2>
+  <div class="subsec-lede">The filing system runs on a rhythm. The firm's standard is a proposal in the client's inbox within three business days of the request, and the filing happens as part of that rhythm, not after it.</div>
+  <div class="section-body">
+    <p><span class="your-company">Your Company</span>'s standard turnaround from RFP receipt to a proposal in the client's inbox is three business days. Filing is built into that cadence rather than treated as cleanup afterward. The file is named and saved to the project folder when it is created, the sent version is preserved when it goes out, and the signed contract is filed when it returns. Because filing happens at each step, the record is always current and nothing is left to a later catch-up pass that may never come.</p>
+  </div>
+  <div class="figure-title">Figure K.8.1 &middot; Filing Within the Three-Day Cadence</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num">1</div><div class="kicker">Day 1</div><div class="title">Create and Name</div><div class="desc">On receipt, the draft is created in the shared project folder with the correct date-stem name. Filing starts at the first keystroke.</div></div>
+    <div class="num-card"><div class="num">2</div><div class="kicker">Day 2</div><div class="title">Review</div><div class="desc">The reviewed version is saved in place, edits incorporated, the live version always clearly identified in the folder.</div></div>
+    <div class="num-card"><div class="num">3</div><div class="kicker">Day 3</div><div class="title">Send and Preserve</div><div class="desc">The pre-flight check runs, the proposal is sent, and the sent version is preserved unchanged as the record of what was offered.</div></div>
+    <div class="num-card"><div class="num">4</div><div class="kicker">On Return</div><div class="title">File the Signed</div><div class="desc">When the contract is signed, it is filed in the same folder under the same date stem, closing the engagement record.</div></div>
+  </div>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">File as you go, not at the end. Filing folded into each step of the three-day cadence is filing that actually happens. The separate "I will organize it later" pass is the one that competes with the next deadline and loses, leaving the record incomplete.</div>
+  </div>
+  <div class="callout expert">
+    <div class="label"><span class="icon">&#10078;</span> Expert Insight</div>
+    <div class="body">"The three-day turnaround only works because the filing is part of it, not a chore saved for Friday. Name it when you make it, file it when you send it, and the system is always current without anyone running a cleanup."</div>
+    <div class="attrib">&middot; Marketing Director</div>
+  </div>
+</div>
+
+<!-- K.9 -->
+<div class="page" id="k9">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> PROTECTION AND CADENCE</div>
+  <div class="subsec-tag">K.9 &middot; Archiving and Retrieval</div>
+  <h2 class="subsec-title">Archiving, Retention, and Retrieval</h2>
+  <div class="subsec-lede">A project does not end when the contract is signed. The record has to stay retrievable for years, because the call that needs it most often comes long after the work is done.</div>
+  <div class="section-body">
+    <p>Completed projects move from active to archived, but archived is not gone. A client may call about a kitchen <span class="your-company">Your Company</span> designed years earlier, an architect may reference a past engagement, or the firm may want to reuse a proven approach. Because every file was named with the Year-Month-XX convention and kept in its project folder, retrieval years later is a search, not an excavation. The discipline applied at creation is what makes the document findable long after everyone has forgotten the details.</p>
+  </div>
+  <div class="figure-title">Figure K.9.1 &middot; Why Naming Pays Off at Retrieval</div>
+  <table>
+    <thead><tr><th>At Creation</th><th>At Retrieval Years Later</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Named with the date stem</strong></td><td>Found by year and month in seconds</td></tr>
+      <tr><td><strong>Filed in the project folder</strong></td><td>The whole engagement is in one place</td></tr>
+      <tr><td><strong>Document type in the name</strong></td><td>The right file is identified without opening several</td></tr>
+      <tr><td><strong>Confidential flag preserved</strong></td><td>Sensitivity is still visible, even years on</td></tr>
+    </tbody>
+  </table>
+  <div class="callout files">
+    <div class="label"><span class="icon">&#9776;</span> From the Files</div>
+    <div class="body">The proposals filed correctly become the firm's library of precedent. When a similar project arrives, the closest past engagement is retrieved by date and project, and its proposal becomes the starting template. The hour spent naming and filing it correctly is repaid every time it is reused.</div>
+  </div>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">Treat every file as something a stranger will need to find in three years. The person retrieving it may not be you, and they will not have your memory of the project. The name and the folder are the only clues they get, so make them carry the full story.</div>
+  </div>
+</div>
+
+<!-- K.10 -->
+<div class="page" id="k10">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> DISCIPLINE</div>
+  <div class="subsec-tag">K.10 &middot; Common Errors</div>
+  <h2 class="subsec-title">Common Filing Errors and Their Cost</h2>
+  <div class="subsec-lede">The same handful of filing mistakes recur, and each one has a concrete cost measured in lost time, lost documents, or lost credibility. Knowing them by name is how you avoid them.</div>
+  <div class="section-body">
+    <p>Filing failures are predictable. The same errors appear again and again, and each one carries a real cost the moment a document needs to be found. The table below maps the recurring mistakes to what they cost the firm, so the discipline is not abstract: each rule in this section exists to prevent a specific, expensive failure.</p>
+  </div>
+  <div class="figure-title">Figure K.10.1 &middot; Filing Errors and What They Cost</div>
+  <table>
+    <thead><tr><th>Error</th><th>What It Costs</th></tr></thead>
+    <tbody>
+      <tr><td><strong>No date stem in the name</strong></td><td>The file cannot be placed in time or found by date later</td></tr>
+      <tr><td><strong>Numbers not zero-padded</strong></td><td>The folder sorts out of order, scattering the timeline</td></tr>
+      <tr><td><strong>Saved to a local desktop</strong></td><td>Invisible to the firm and lost if the machine fails</td></tr>
+      <tr><td><strong>Saved outside the project folder</strong></td><td>Not found where it is expected; effectively missing</td></tr>
+      <tr><td><strong>"final," "final2," "final-real"</strong></td><td>No one can tell which version is current</td></tr>
+      <tr><td><strong>Overwriting the sent version</strong></td><td>The record of what the client received is destroyed</td></tr>
+      <tr><td><strong>Missing confidential flag</strong></td><td>A sensitive file is forwarded without anyone realizing</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Common Failure</div>
+    <div class="body">The most expensive error is the one that looks harmless: saving "just this once" to the desktop under deadline pressure, meaning to file it properly later. Later does not come, the file is never in the shared system, and weeks afterward no one can find the work that was actually done. Save it right the first time.</div>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">Every error in this list is prevented by one habit: name it correctly and save it to the shared project folder at the moment of creation. The discipline is small and takes seconds. The cost of skipping it is paid later, by someone, at the worst possible time.</div>
+  </div>
+</div>
+
+<!-- K.11 -->
+<div class="page" id="k11">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> DISCIPLINE</div>
+  <div class="subsec-tag">K.11 &middot; The Checklist</div>
+  <h2 class="subsec-title">The File Discipline Checklist</h2>
+  <div class="subsec-lede">The whole section reduces to a short checklist run on every file. It is the same discipline as the fee defense checklist in Section H and the compliance checklist in Section I, applied to filing.</div>
+  <div class="section-body">
+    <p>File discipline is a habit, and habits hold when they are reduced to a checklist run every time. The list below consolidates Section K into the few checks that matter on every document. Run it as the file is created and again before it is sent, and the filing system stays current and complete without any separate cleanup effort.</p>
+  </div>
+  <div class="figure-title">Figure K.11.1 &middot; The File Discipline Check</div>
+  <div class="checklist-head">Confirm at Creation</div>
+  <ul class="checklist">
+    <li>Name starts with the Year-Month-XX date stem (YYYY-MM-NN)</li>
+    <li>All numbers zero-padded so name sort equals time sort</li>
+    <li>Confidential flag added if the project is sensitive</li>
+    <li>Project name and US state abbreviation in the name</li>
+    <li>Document type clear in the name</li>
+    <li>Saved to the shared project folder, not a local drive</li>
+  </ul>
+  <div class="checklist-head">Confirm Before Sending</div>
+  <ul class="checklist">
+    <li>Current version is unambiguous; no "final2" confusion</li>
+    <li>Sent version will be preserved, not overwritten later</li>
+    <li>Confidential flag checked before the file leaves the firm</li>
+    <li>Recipient is cleared to receive a flagged file</li>
+    <li>Fee calculation filed with the proposal it produced</li>
+    <li><span class="your-company">Your Company</span> lowercase; no name placeholders remain</li>
+  </ul>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">If a file fails any item on this list, it is not filed correctly, regardless of how good the document inside it is. The quality of the work and the discipline of the filing are separate things, and the firm needs both. A brilliant proposal that cannot be found helps no one.</div>
+  </div>
+  <div class="callout expert">
+    <div class="label"><span class="icon">&#10078;</span> Expert Insight</div>
+    <div class="body">"File naming feels like the smallest thing in the firm until the day it is the only thing that matters. The person who can produce the right document in ten seconds, two years later, is the person the client trusts with the next project."</div>
+    <div class="attrib">&middot; Marketing Director</div>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div class="page" id="quiz">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag">&#10003; Comprehensive Test</div>
+  <h2 class="subsec-title">Fifteen Questions on File Naming and Systems</h2>
+  <div class="subsec-lede">Fifteen questions across all twelve subsections. Each has one correct answer. Work through them in one sitting, mark your answers, then check against the answer legend. A passing score is twelve correct. Below ten, re-read the subsections referenced in the legend.</div>
+
+  <div class="quiz-q"><div class="qnum">1</div><div class="qtext">The <span class="your-company">Your Company</span> file naming convention leads with:</div><ul class="opts"><li class="opt"><span class="letter">A</span>The project name</li><li class="opt"><span class="letter">B</span>The date stem in Year-Month-XX format</li><li class="opt"><span class="letter">C</span>The client's initials</li><li class="opt"><span class="letter">D</span>The document type</li></ul></div>
+  <div class="quiz-q"><div class="qnum">2</div><div class="qtext">The Year-Month-XX convention is valuable because it is:</div><ul class="opts"><li class="opt"><span class="letter">A</span>Shorter than other formats</li><li class="opt"><span class="letter">B</span>Alphabetical and chronological at the same time</li><li class="opt"><span class="letter">C</span>Easier to type</li><li class="opt"><span class="letter">D</span>Required by the client</li></ul></div>
+  <div class="quiz-q"><div class="qnum">3</div><div class="qtext">Why must numbers in the file name be zero-padded (05, not 5)?</div><ul class="opts"><li class="opt"><span class="letter">A</span>It looks more professional</li><li class="opt"><span class="letter">B</span>So the alphabetical sort matches the chronological sort</li><li class="opt"><span class="letter">C</span>The software requires it</li><li class="opt"><span class="letter">D</span>It is not actually necessary</li></ul></div>
+  <div class="quiz-q"><div class="qnum">4</div><div class="qtext">In the format 2026-05-0144, the "44" portion represents:</div><ul class="opts"><li class="opt"><span class="letter">A</span>The day of the month</li><li class="opt"><span class="letter">B</span>The sequential proposal number for that month</li><li class="opt"><span class="letter">C</span>The client's ID</li><li class="opt"><span class="letter">D</span>The fee in thousands</li></ul></div>
+  <div class="quiz-q"><div class="qnum">5</div><div class="qtext">Locations in file names should be written as:</div><ul class="opts"><li class="opt"><span class="letter">A</span>The full state name spelled out</li><li class="opt"><span class="letter">B</span>US state abbreviations (GA, NC, FL)</li><li class="opt"><span class="letter">C</span>Zip codes</li><li class="opt"><span class="letter">D</span>Left out entirely</li></ul></div>
+  <div class="quiz-q"><div class="qnum">6</div><div class="qtext">How many folders does a single project use?</div><ul class="opts"><li class="opt"><span class="letter">A</span>One folder holding everything for that project</li><li class="opt"><span class="letter">B</span>A separate folder for each document type</li><li class="opt"><span class="letter">C</span>None; files are loose in the drive root</li><li class="opt"><span class="letter">D</span>One per person working on it</li></ul></div>
+  <div class="quiz-q"><div class="qnum">7</div><div class="qtext">Once a proposal has been sent to the client, the sent file should be:</div><ul class="opts"><li class="opt"><span class="letter">A</span>Overwritten with any later edits</li><li class="opt"><span class="letter">B</span>Preserved unchanged as the record of what was offered</li><li class="opt"><span class="letter">C</span>Deleted to save space</li><li class="opt"><span class="letter">D</span>Moved out of the project folder</li></ul></div>
+  <div class="quiz-q"><div class="qnum">8</div><div class="qtext">The problem with naming versions "final," "final2," "final-real" is that:</div><ul class="opts"><li class="opt"><span class="letter">A</span>The names are too long</li><li class="opt"><span class="letter">B</span>No one can tell which version is current</li><li class="opt"><span class="letter">C</span>They sort alphabetically</li><li class="opt"><span class="letter">D</span>There is no problem</li></ul></div>
+  <div class="quiz-q"><div class="qnum">9</div><div class="qtext">A file saved only to a local desktop is a problem because:</div><ul class="opts"><li class="opt"><span class="letter">A</span>Desktops are slower</li><li class="opt"><span class="letter">B</span>It is invisible to the firm and lost if the machine fails</li><li class="opt"><span class="letter">C</span>It cannot be printed</li><li class="opt"><span class="letter">D</span>It uses too much storage</li></ul></div>
+  <div class="quiz-q"><div class="qnum">10</div><div class="qtext">The CONFIDENTIAL flag is placed:</div><ul class="opts"><li class="opt"><span class="letter">A</span>Inside the document only</li><li class="opt"><span class="letter">B</span>In the file name itself, after the date stem</li><li class="opt"><span class="letter">C</span>In a separate spreadsheet</li><li class="opt"><span class="letter">D</span>Nowhere; it is remembered</li></ul></div>
+  <div class="quiz-q"><div class="qnum">11</div><div class="qtext">When you are unsure whether a project is sensitive, you should:</div><ul class="opts"><li class="opt"><span class="letter">A</span>Leave the flag off to avoid clutter</li><li class="opt"><span class="letter">B</span>Mark it confidential until the client confirms it is public</li><li class="opt"><span class="letter">C</span>Ask every person in the firm first</li><li class="opt"><span class="letter">D</span>Delete the file</li></ul></div>
+  <div class="quiz-q"><div class="qnum">12</div><div class="qtext"><span class="your-company">Your Company</span>'s standard turnaround from RFP receipt to proposal in the client's inbox is:</div><ul class="opts"><li class="opt"><span class="letter">A</span>Same day</li><li class="opt"><span class="letter">B</span>Three business days</li><li class="opt"><span class="letter">C</span>Two weeks</li><li class="opt"><span class="letter">D</span>Whenever it is ready</li></ul></div>
+  <div class="quiz-q"><div class="qnum">13</div><div class="qtext">Filing should happen:</div><ul class="opts"><li class="opt"><span class="letter">A</span>As a weekly cleanup pass</li><li class="opt"><span class="letter">B</span>As part of each step, named at creation and filed when sent</li><li class="opt"><span class="letter">C</span>Only after the contract is signed</li><li class="opt"><span class="letter">D</span>Whenever there is free time</li></ul></div>
+  <div class="quiz-q"><div class="qnum">14</div><div class="qtext">Correctly named and filed past proposals are valuable later because they:</div><ul class="opts"><li class="opt"><span class="letter">A</span>Take up space</li><li class="opt"><span class="letter">B</span>Become the firm's library of retrievable precedent and templates</li><li class="opt"><span class="letter">C</span>Can be deleted safely</li><li class="opt"><span class="letter">D</span>Are only useful to the original author</li></ul></div>
+  <div class="quiz-q"><div class="qnum">15</div><div class="qtext">The single habit that prevents nearly every filing error is:</div><ul class="opts"><li class="opt"><span class="letter">A</span>Cleaning up the drive monthly</li><li class="opt"><span class="letter">B</span>Naming correctly and saving to the shared folder at the moment of creation</li><li class="opt"><span class="letter">C</span>Emailing files to yourself</li><li class="opt"><span class="letter">D</span>Keeping a personal copy</li></ul></div>
+</div>
+
+<!-- LEGEND 1 -->
+<div class="legend-page" id="legend1">
+  <div class="crumb" style="color:var(--text-secondary);">SECTION K <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag" style="color:var(--brass-soft);">&#9745; Answer Legend &middot; Part 1 of 2</div>
+  <div class="legend-title">Answers and Explanations &middot; Questions 1 through 8</div>
+  <div class="legend-sub">The correct answer is given for each question, followed by the reasoning and a cross-reference to the subsection where the concept was taught. If an explanation surprises you, return to the source subsection and re-read with the answer in hand.</div>
+  <div class="legend-q"><div class="head">Question 1</div><div class="answer">Correct: B &middot; The date stem in Year-Month-XX format</div><div class="explain">Every file name leads with the date stem. Because the date comes first, sorting by name sorts by time, which is the entire point of the convention. See K.1.</div></div>
+  <div class="legend-q"><div class="head">Question 2</div><div class="answer">Correct: B &middot; Alphabetical and chronological at the same time</div><div class="explain">A folder sorted alphabetically by a date-led name is automatically sorted chronologically. There is no separate sort step; the name does the work. See K.1.</div></div>
+  <div class="legend-q"><div class="head">Question 3</div><div class="answer">Correct: B &middot; So the alphabetical sort matches the chronological sort</div><div class="explain">Without zero-padding, a folder sorts 1, 10, 11, 2, scattering the timeline. Padding (01, 02) keeps the alphabetical and chronological orders identical. See K.1.</div></div>
+  <div class="legend-q"><div class="head">Question 4</div><div class="answer">Correct: B &middot; The sequential proposal number for that month</div><div class="explain">In YYYY-MM-NN, the NN is the sequential number of that proposal within the month, not the day. It distinguishes multiple proposals created in the same month. See K.1.</div></div>
+  <div class="legend-q"><div class="head">Question 5</div><div class="answer">Correct: B &middot; US state abbreviations (GA, NC, FL)</div><div class="explain">File names use US state abbreviations, never the full state spelled out. This keeps names compact and consistent across every record in the firm. See K.2.</div></div>
+  <div class="legend-q"><div class="head">Question 6</div><div class="answer">Correct: A &middot; One folder holding everything for that project</div><div class="explain">One project, one folder, everything inside it. The complete history of an engagement sits in a single location so no one has to assemble it from scattered files. See K.3.</div></div>
+  <div class="legend-q"><div class="head">Question 7</div><div class="answer">Correct: B &middot; Preserved unchanged as the record of what was offered</div><div class="explain">The sent version is the evidence of exactly what the client received. Overwriting it destroys that record. Later edits become a new version instead. See K.4.</div></div>
+  <div class="legend-q"><div class="head">Question 8</div><div class="answer">Correct: B &middot; No one can tell which version is current</div><div class="explain">"final," "final2," "final-real" buries the live version among look-alikes. The date stem plus a clear stage marker removes the guesswork. See K.4.</div></div>
+</div>
+
+<!-- LEGEND 2 -->
+<div class="legend-page" id="legend2">
+  <div class="crumb" style="color:var(--text-secondary);">SECTION K <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag" style="color:var(--brass-soft);">&#9745; Answer Legend &middot; Part 2 of 2</div>
+  <div class="legend-title">Answers and Explanations &middot; Questions 9 through 15</div>
+  <div class="legend-sub">The remaining answers, with reasoning and subsection cross-references. Review every question you missed against its source subsection before moving on to the flashcards.</div>
+  <div class="legend-q"><div class="head">Question 9</div><div class="answer">Correct: B &middot; It is invisible to the firm and lost if the machine fails</div><div class="explain">A file on a local desktop is not in the shared system, so the firm effectively does not have it, and it disappears if the machine fails. Save to the shared folder from the start. See K.5.</div></div>
+  <div class="legend-q"><div class="head">Question 10</div><div class="answer">Correct: B &middot; In the file name itself, after the date stem</div><div class="explain">The CONFIDENTIAL flag lives in the file name, right after the date stem, so sensitivity is visible at the folder level before anyone opens or forwards the file. See K.7.</div></div>
+  <div class="legend-q"><div class="head">Question 11</div><div class="answer">Correct: B &middot; Mark it confidential until the client confirms it is public</div><div class="explain">An unnecessary flag costs nothing; a leaked unannounced project costs a relationship. When in doubt, flag it, and remove the flag only on client clearance. See K.7.</div></div>
+  <div class="legend-q"><div class="head">Question 12</div><div class="answer">Correct: B &middot; Three business days</div><div class="explain">The firm's standard turnaround from RFP receipt to a proposal in the client's inbox is three business days, and filing is built into that cadence. See K.8.</div></div>
+  <div class="legend-q"><div class="head">Question 13</div><div class="answer">Correct: B &middot; As part of each step, named at creation and filed when sent</div><div class="explain">Filing folded into each step actually happens; the separate "organize it later" pass competes with the next deadline and loses. File as you go. See K.8.</div></div>
+  <div class="legend-q"><div class="head">Question 14</div><div class="answer">Correct: B &middot; Become the firm's library of retrievable precedent and templates</div><div class="explain">Correctly filed proposals are retrieved by date and project years later and reused as templates. The effort spent naming them is repaid every time. See K.9.</div></div>
+  <div class="legend-q"><div class="head">Question 15</div><div class="answer">Correct: B &middot; Naming correctly and saving to the shared folder at the moment of creation</div><div class="explain">Every filing error is prevented by one habit: name it right and save it to the shared project folder when it is created. The discipline takes seconds; skipping it is paid for later. See K.10 and K.11.</div></div>
+</div>
+
+<!-- FLASHCARD GRID -->
+<div class="page" id="flash-grid">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9670; Flashcards &middot; Reference Grid</div>
+  <h2 class="subsec-title">Twelve Cards &middot; Front and Back</h2>
+  <div class="subsec-lede">Twelve flashcards covering the working vocabulary of Section K. Read the front, recall the back, then check. The interactive flip cards on the next page are for active practice.</div>
+  <div class="flash-grid">
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">1</span>Year-Month-XX Convention</div><div class="flash-grid-back">Every file is named YYYY-MM-NN. The date leads, so a name sort is also a time sort. Alphabetical and chronological at once.<div class="flash-grid-ref">(K.1)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">2</span>The NN Segment</div><div class="flash-grid-back">The sequential proposal number for that month, not the day. Distinguishes multiple proposals created in the same month.<div class="flash-grid-ref">(K.1)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">3</span>Zero-Padding</div><div class="flash-grid-back">Write 05 not 5, 01 not 1. Keeps the alphabetical sort identical to the chronological sort. Without it the timeline scatters.<div class="flash-grid-ref">(K.1)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">4</span>File Name Anatomy</div><div class="flash-grid-back">Date stem, then confidential flag if needed, then project, then city and US state abbreviation, then document type.<div class="flash-grid-ref">(K.2)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">5</span>One Project, One Folder</div><div class="flash-grid-back">Everything for an engagement lives in a single project folder. The whole history sits in one place.<div class="flash-grid-ref">(K.3)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">6</span>Version Stages</div><div class="flash-grid-back">Draft, reviewed, sent, signed. Same date stem throughout, clear stage marker, so the current version is never in doubt.<div class="flash-grid-ref">(K.4)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">7</span>Never Overwrite the Sent Version</div><div class="flash-grid-back">The sent file is the record of what the client received. Later edits become a new version; the sent file stays unchanged.<div class="flash-grid-ref">(K.4)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">8</span>Shared Storage Is Truth</div><div class="flash-grid-back">If it is not in the shared system, the firm does not have it. Save to the shared project folder from the start, not the desktop.<div class="flash-grid-ref">(K.5)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">9</span>The Confidential Flag</div><div class="flash-grid-back">CONFIDENTIAL sits in the file name after the date stem. Visible before the file is opened. When in doubt, flag it.<div class="flash-grid-ref">(K.7)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">10</span>Three-Day Turnaround</div><div class="flash-grid-back">RFP receipt to client inbox in three business days, with filing built into the cadence rather than saved for later.<div class="flash-grid-ref">(K.8)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">11</span>File As You Go</div><div class="flash-grid-back">Name at creation, preserve when sent, file the signed contract on return. Filing folded into each step actually happens.<div class="flash-grid-ref">(K.8)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">12</span>Naming Pays Off at Retrieval</div><div class="flash-grid-back">Correctly named files are found years later in seconds and reused as templates. The library of precedent is built one file at a time.<div class="flash-grid-ref">(K.9)</div></div></div>
+  </div>
+</div>
+
+<!-- FLIP CARDS -->
+<div class="page" id="flip-cards">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9633; Flashcards &middot; Interactive</div>
+  <h2 class="subsec-title">Tap the Card to See the Answer</h2>
+  <div class="subsec-lede">The same twelve cards, one at a time. Read the front, attempt the back from memory, then tap to check.</div>
+  <div class="flip-container">
+    <div class="flip-card" id="flip-card" onclick="flipCard()">
+      <div class="flip-front-label" id="flip-label">Term &middot; Tap to Reveal</div>
+      <div class="flip-front-text" id="flip-front">Year-Month-XX Convention</div>
+      <div class="flip-back-text" id="flip-back">Every file is named YYYY-MM-NN. The date leads, so a name sort is also a time sort. Alphabetical and chronological at once. (K.1)</div>
+    </div>
+    <div class="flip-hint">Tap card to flip &middot; Use arrows to navigate</div>
+    <div class="flip-nav">
+      <button class="flip-btn" onclick="prevCard()">&#8592; Previous</button>
+      <span class="flip-counter" id="flip-counter">1 of 12</span>
+      <button class="flip-btn" onclick="nextCard()">Next &#8594;</button>
+    </div>
+    <div class="flip-dots" id="flip-dots"></div>
+  </div>
+</div>
+
+<!-- CUT CARDS -->
+<div class="page" id="cut-cards">
+  <div class="crumb">SECTION K <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9986; Printable Cut-Out Study Cards</div>
+  <h2 class="subsec-title">Print, Cut, Carry</h2>
+  <div class="subsec-lede">Twelve cards arranged for printing. Cut along the borders. Keep them on your desk. Within thirty days, the filing discipline will be muscle memory.</div>
+  <div class="cut-grid">
+    <div class="cut-card"><div class="term">Year-Month-XX Convention</div><div class="def">Name files YYYY-MM-NN. Date leads, so name sort equals time sort. Alphabetical and chronological at once.</div></div>
+    <div class="cut-card"><div class="term">The NN Segment</div><div class="def">The sequential proposal number for that month, not the day. Distinguishes proposals made the same month.</div></div>
+    <div class="cut-card"><div class="term">Zero-Padding</div><div class="def">05 not 5, 01 not 1. Keeps alphabetical and chronological sort identical. Without it the timeline scatters.</div></div>
+    <div class="cut-card"><div class="term">File Name Anatomy</div><div class="def">Date stem, confidential flag if needed, project, city and US state abbreviation, document type.</div></div>
+    <div class="cut-card"><div class="term">One Project, One Folder</div><div class="def">Everything for an engagement lives in a single project folder. The whole history in one place.</div></div>
+    <div class="cut-card"><div class="term">Version Stages</div><div class="def">Draft, reviewed, sent, signed. Same date stem, clear stage marker. Current version never in doubt.</div></div>
+    <div class="cut-card"><div class="term">Never Overwrite the Sent Version</div><div class="def">The sent file is the record of what the client received. Later edits become a new version.</div></div>
+    <div class="cut-card"><div class="term">Shared Storage Is Truth</div><div class="def">If it is not in the shared system, the firm does not have it. Save to the shared folder from the start.</div></div>
+    <div class="cut-card"><div class="term">The Confidential Flag</div><div class="def">CONFIDENTIAL in the file name after the date stem. Visible before opening. When in doubt, flag it.</div></div>
+    <div class="cut-card"><div class="term">Three-Day Turnaround</div><div class="def">RFP receipt to client inbox in three business days. Filing built into the cadence, not saved for later.</div></div>
+    <div class="cut-card"><div class="term">File As You Go</div><div class="def">Name at creation, preserve when sent, file the signed on return. Filing folded into each step happens.</div></div>
+    <div class="cut-card"><div class="term">Naming Pays Off at Retrieval</div><div class="def">Correctly named files are found years later in seconds and reused as templates. Precedent, one file at a time.</div></div>
+  </div>
+</div>
+
+</main>
+
+<script>
+const cards=[
+  {front:'Year-Month-XX Convention',back:'Every file is named YYYY-MM-NN. The date leads, so a name sort is also a time sort. Alphabetical and chronological at once. (K.1)'},
+  {front:'The NN Segment',back:'The sequential proposal number for that month, not the day. Distinguishes multiple proposals created in the same month. (K.1)'},
+  {front:'Zero-Padding',back:'Write 05 not 5, 01 not 1. Keeps the alphabetical sort identical to the chronological sort. Without it the timeline scatters. (K.1)'},
+  {front:'File Name Anatomy',back:'Date stem, then confidential flag if needed, then project, then city and US state abbreviation, then document type. The name is a full label. (K.2)'},
+  {front:'One Project, One Folder',back:'Everything for an engagement lives in a single project folder. The whole history sits in one place. (K.3)'},
+  {front:'Version Stages',back:'Draft, reviewed, sent, signed. Same date stem throughout, clear stage marker, so the current version is never in doubt. (K.4)'},
+  {front:'Never Overwrite the Sent Version',back:'The sent file is the record of what the client received. Later edits become a new version; the sent file stays unchanged. (K.4)'},
+  {front:'Shared Storage Is Truth',back:'If it is not in the shared system, the firm does not have it. Save to the shared project folder from the start, not the desktop. (K.5)'},
+  {front:'The Confidential Flag',back:'CONFIDENTIAL sits in the file name after the date stem. Visible before the file is opened. When in doubt, flag it. (K.7)'},
+  {front:'Three-Day Turnaround',back:'RFP receipt to client inbox in three business days, with filing built into the cadence rather than saved for later. (K.8)'},
+  {front:'File As You Go',back:'Name at creation, preserve when sent, file the signed contract on return. Filing folded into each step actually happens. (K.8)'},
+  {front:'Naming Pays Off at Retrieval',back:'Correctly named files are found years later in seconds and reused as templates. The library of precedent is built one file at a time. (K.9)'}
+];
+let current=0,flipped=false;
+function buildDots(){const d=document.getElementById('flip-dots');d.innerHTML='';cards.forEach((_,i)=>{const dot=document.createElement('span');dot.className='flip-dot'+(i===0?' active':'');dot.onclick=()=>goToCard(i);d.appendChild(dot);});}
+function updateCard(){document.getElementById('flip-front').textContent=cards[current].front;document.getElementById('flip-back').textContent=cards[current].back;document.getElementById('flip-counter').textContent=(current+1)+' of '+cards.length;document.getElementById('flip-card').classList.remove('flipped');document.getElementById('flip-label').textContent='Term · Tap to Reveal';flipped=false;document.querySelectorAll('.flip-dot').forEach((d,i)=>d.classList.toggle('active',i===current));}
+function flipCard(){flipped=!flipped;document.getElementById('flip-card').classList.toggle('flipped',flipped);document.getElementById('flip-label').textContent=flipped?'Answer · Tap to Reset':'Term · Tap to Reveal';}
+function nextCard(){current=(current+1)%cards.length;updateCard();}
+function prevCard(){current=(current-1+cards.length)%cards.length;updateCard();}
+function goToCard(i){current=i;updateCard();}
+buildDots();
+const pages=document.querySelectorAll('main [id]');
+const links=document.querySelectorAll('.sidebar-list a');
+window.addEventListener('scroll',()=>{let active='';pages.forEach(p=>{if(window.scrollY>=p.offsetTop-80)active=p.id;});links.forEach(a=>{const href=a.getAttribute('href').replace('#','');a.classList.toggle('active',href===active);});});
+</script>
+</body>
+</html>

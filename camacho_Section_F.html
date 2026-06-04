@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business OS &middot; Section F &middot; The Procurement Documents &middot; 2026 Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--navy-mid:#0f2040;--gold:#C5A76F;--brass:#B8893B;--brass-soft:#D4AB5E;--cream:#F4EFE4;--cream-light:#FAF7F1;--paper:#FFFFFF;--ink:#162630;--ink-soft:#2C3B45;--ink-muted:#5D7079;--text-primary:#e8e0d0;--text-secondary:#b8aa90;--camacho-blue:#266889;--blue-tint:#EDF3F6;--green:#2F7D54;--green-tint:#E8F2EC;--red:#B23B2E;--red-tint:#F8E9E6;--rule:#D6CCB6;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Montserrat',sans-serif;background:var(--cream-light);color:var(--ink);font-size:15px;line-height:1.65;display:flex;}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:300;background:var(--navy);height:44px;display:flex;align-items:center;padding:0 20px;border-bottom:1px solid var(--brass);gap:16px;}
+.topbar-logo{font-family:'Playfair Display',serif;color:var(--gold);font-size:15px;font-weight:700;letter-spacing:.08em;}
+.topbar-section{color:var(--text-secondary);font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
+.topbar-links{margin-left:auto;display:flex;gap:20px;}
+.topbar-links a{color:var(--text-secondary);font-size:11px;text-decoration:none;letter-spacing:.08em;text-transform:uppercase;}
+.topbar-links a:hover{color:var(--gold);}
+.sidebar{position:fixed;top:44px;left:0;bottom:0;width:240px;background:var(--navy);overflow-y:auto;z-index:100;padding:28px 18px 40px 20px;box-sizing:border-box;border-right:1px solid rgba(197,167,111,.18);}
+.sidebar-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:0 8px 10px 8px;margin-bottom:16px;border-bottom:1px solid rgba(197,167,111,.22);}
+.sidebar-group-label{color:var(--gold);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:16px 8px 6px 8px;opacity:.9;}
+.sidebar-list{list-style:none;}
+.sidebar-list a{display:flex;align-items:baseline;gap:8px;color:#FFF;text-decoration:none;font-size:11px;padding:8px 8px 8px 6px;border-left:2px solid transparent;transition:all .15s;}
+.sidebar-list a .code{color:var(--gold);font-size:10px;min-width:26px;}
+.sidebar-list a:hover,.sidebar-list a.active{color:var(--gold);border-left-color:var(--gold);background:rgba(197,167,111,.06);}
+main{margin-left:240px;margin-top:44px;flex:1;max-width:960px;padding:0 0 80px;}
+.page{background:var(--paper);padding:56px 64px;margin-bottom:2px;}
+.page.cover{background:var(--navy);min-height:100vh;display:flex;flex-direction:column;padding:72px 72px 56px;}
+.legend-page{background:var(--navy);padding:56px 64px;margin-bottom:2px;}
+.cover-eyebrow{font-family:'Montserrat',sans-serif;color:var(--gold);font-size:10px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:28px;}
+.cover-letter{font-family:'Playfair Display',serif;color:var(--gold);font-size:120px;font-weight:700;line-height:1;margin-bottom:4px;}
+.cover-title{font-family:'Playfair Display',serif;color:#FFF;font-size:38px;font-weight:600;line-height:1.2;margin-bottom:12px;}
+.cover-sub{color:var(--text-secondary);font-size:14px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-bottom:48px;max-width:480px;}
+.cover-rule{height:1px;background:rgba(197,167,111,.3);margin-bottom:40px;}
+.nav-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:auto;}
+.nav-card{background:rgba(255,255,255,.05);border:1px solid rgba(197,167,111,.2);border-top:2px solid var(--gold);padding:16px 18px;text-decoration:none;}
+.nav-card-code{color:var(--gold);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;}
+.nav-card-title{color:#FFF;font-size:12px;font-weight:600;font-family:'Playfair Display',serif;}
+.cover-credit{margin-top:40px;color:var(--text-secondary);font-size:10px;letter-spacing:.08em;border-top:1px solid rgba(197,167,111,.15);padding-top:16px;}
+.crumb{font-size:10px;color:var(--ink-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;}
+.crumb .dot{margin:0 6px;color:var(--brass);}
+.subsec-tag{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--brass);letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.subsec-title{font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);font-weight:700;line-height:1.2;margin-bottom:16px;}
+.subsec-lede{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink-soft);line-height:1.55;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--rule);}
+.figure-title{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--brass);letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.section-body p{margin-bottom:16px;}
+.section-body ul{margin:0 0 16px 20px;}
+.section-body ol{margin:0 0 16px 20px;}
+.section-body li{margin-bottom:6px;}
+.callout{margin:24px 0;padding:20px 22px;border-radius:2px;break-inside:avoid;}
+.callout .label{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:7px;margin-bottom:10px;}
+.callout .icon{font-size:14px;}
+.callout .body{font-size:14px;line-height:1.6;}
+.callout .attrib{font-size:11px;margin-top:10px;font-style:italic;opacity:.8;}
+.callout.expert{background:var(--navy);color:var(--text-primary);border-left:4px solid var(--gold);}
+.callout.expert .label{color:var(--gold);}
+.callout.expert .body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;}
+.callout.rule{background:var(--cream);border-left:4px solid var(--navy);}
+.callout.rule .label{color:var(--navy);}
+.callout.files{background:var(--blue-tint);border-left:4px solid var(--camacho-blue);}
+.callout.files .label{color:var(--camacho-blue);}
+.callout.best{background:var(--green-tint);border-left:4px solid var(--green);}
+.callout.best .label{color:var(--green);}
+.callout.warn{background:var(--red-tint);border-left:4px solid var(--red);}
+.callout.warn .label{color:var(--red);}
+.your-company{font-weight:700;color:#266889;}
+.cards-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:24px 0;}
+.num-card{background:var(--cream);border-top:3px solid var(--brass);padding:20px 22px;break-inside:avoid;}
+.num-card .num{font-family:'Playfair Display',serif;font-size:36px;color:var(--brass);font-weight:700;line-height:1;margin-bottom:4px;}
+.num-card .kicker{font-size:9px;color:var(--ink-muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;}
+.num-card .title{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);font-weight:600;margin-bottom:8px;}
+.num-card .desc{font-size:13px;color:var(--ink-soft);}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin:24px 0;}
+.stat-cell{background:var(--navy);padding:20px 16px;text-align:center;}
+.stat-num{font-family:'Playfair Display',serif;font-size:28px;color:var(--gold);font-weight:700;margin-bottom:4px;}
+.stat-label{font-size:10px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.1em;}
+.bullseye{display:grid;grid-template-columns:1fr;gap:4px;margin:24px 0;max-width:480px;}
+.bull-ring{padding:12px 20px;text-align:center;font-size:13px;color:var(--ink-soft);}
+.bull-ring:nth-child(1){background:var(--navy);color:var(--gold);font-weight:700;border-radius:4px 4px 0 0;}
+.bull-ring:nth-child(2){background:#1a2a40;color:var(--text-primary);}
+.bull-ring:nth-child(3){background:#22344d;color:var(--text-secondary);}
+.bull-ring:nth-child(4){background:#2a3e5a;color:var(--text-secondary);}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+thead{background:var(--navy);}
+thead th{color:var(--gold);font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:12px 14px;text-align:left;font-weight:700;}
+tbody tr:nth-child(even){background:var(--cream-light);}
+tbody tr:nth-child(odd){background:var(--paper);}
+td{padding:11px 14px;color:var(--ink-soft);vertical-align:top;}
+td strong{color:var(--ink);font-weight:600;}
+.steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:24px 0;}
+.step-item{background:var(--cream);padding:14px 16px;border-left:3px solid var(--brass);break-inside:avoid;}
+.step-num{font-family:'Playfair Display',serif;font-size:20px;color:var(--brass);font-weight:700;margin-bottom:4px;}
+.step-title{font-size:12px;color:var(--navy);font-weight:700;margin-bottom:4px;}
+.step-desc{font-size:12px;color:var(--ink-soft);line-height:1.4;}
+.media-block{margin:24px 0;padding:20px;background:var(--cream);border-top:3px solid var(--brass);}
+.media-byline{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--brass);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:12px;}
+.media-iframe-wrap{position:relative;width:100%;padding-bottom:56.25%;margin-bottom:8px;}
+.media-iframe-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:2px;}
+.audio-wrap iframe{width:100%;height:80px;border:0;border-radius:2px;}
+.media-caption{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--ink-muted);margin-top:8px;}
+.media-img{width:100%;border-radius:2px;display:block;margin-top:16px;}
+.quiz-q{margin-bottom:28px;break-inside:avoid;border-left:3px solid var(--rule);padding-left:18px;}
+.qnum{font-family:'Playfair Display',serif;font-size:22px;color:var(--brass);font-weight:700;margin-bottom:6px;}
+.qtext{font-size:14px;color:var(--ink);margin-bottom:12px;font-weight:500;}
+.opts{list-style:none;}
+.opt{display:flex;align-items:baseline;gap:10px;padding:6px 0;font-size:13px;color:var(--ink-soft);border-bottom:1px solid var(--cream);}
+.opt:last-child{border-bottom:none;}
+.letter{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--cream);color:var(--brass);font-size:11px;font-weight:700;flex-shrink:0;}
+.legend-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:28px;font-weight:700;margin-bottom:8px;}
+.legend-sub{color:var(--text-secondary);font-size:14px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid rgba(197,167,111,.25);}
+.legend-q{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(197,167,111,.12);break-inside:avoid;}
+.legend-q .head{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:4px;}
+.legend-q .answer{font-size:14px;color:var(--text-primary);font-weight:600;margin-bottom:4px;}
+.legend-q .explain{font-size:13px;color:var(--text-secondary);font-style:italic;}
+.flash-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+.flash-grid-card{border:1px solid var(--rule);}
+.flash-grid-front{background:var(--navy);color:var(--gold);padding:14px 16px;font-family:'Playfair Display',serif;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;}
+.flash-grid-num{background:var(--brass);color:var(--navy);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;}
+.flash-grid-back{background:var(--paper);color:var(--ink-soft);padding:12px 16px;font-size:12px;line-height:1.5;}
+.flash-grid-ref{font-size:10px;color:var(--ink-muted);margin-top:6px;font-style:italic;}
+.flip-container{max-width:600px;margin:0 auto 24px;}
+.flip-card{background:var(--navy);border-top:3px solid var(--gold);padding:48px 40px;text-align:center;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;}
+.flip-front-label{font-size:9px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;font-weight:700;}
+.flip-front-text{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;}
+.flip-back-text{font-size:14px;color:var(--text-primary);line-height:1.6;display:none;}
+.flip-card.flipped{background:var(--navy-mid);}
+.flip-card.flipped .flip-front-text{display:none;}
+.flip-card.flipped .flip-back-text{display:block;}
+.flip-hint{text-align:center;font-size:11px;color:var(--ink-muted);margin-top:8px;font-style:italic;}
+.flip-nav{display:flex;justify-content:center;align-items:center;gap:20px;margin-top:16px;}
+.flip-btn{background:var(--navy);color:var(--gold);border:1px solid var(--brass);padding:8px 22px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;cursor:pointer;text-transform:uppercase;}
+.flip-btn:hover{background:var(--brass);color:var(--navy);}
+.flip-counter{font-size:12px;color:var(--ink-muted);font-weight:600;}
+.flip-dots{display:flex;gap:6px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
+.flip-dot{width:8px;height:8px;border-radius:50%;background:var(--rule);cursor:pointer;}
+.flip-dot.active{background:var(--gold);}
+.cut-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0;}
+.cut-card{border:1px dashed var(--rule);break-inside:avoid;}
+.cut-card .term{background:var(--navy);color:var(--gold);padding:14px 16px;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;}
+.cut-card .def{background:var(--paper);color:var(--ink-soft);padding:12px 16px;font-size:12px;line-height:1.5;}
+@media print{body{background:#fff;font-size:11pt;}.topbar,.sidebar{display:none!important;}main{margin:0;max-width:100%;}.page{padding:.6in .85in;margin:0;break-before:always;}.page:first-of-type{break-before:auto;}.cover{min-height:11in;break-after:always;}-webkit-print-color-adjust:exact;print-color-adjust:exact;.flip-container{display:none;}h1,h2,h3,.subsec-title,.subsec-tag,.crumb,.figure-title{break-inside:avoid;break-after:avoid;}.callout,.num-card,.cards-row,.cut-card,.quiz-q,.legend-q{break-inside:avoid;}p,li{orphans:3;widows:3;}.legend-page{break-before:always;}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-logo"><span class="your-company">Your Company</span></div>
+  <div class="topbar-section">Section F &middot; The Procurement Documents</div>
+  <div class="topbar-links">
+    <a href="#cover">Top</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#flash-grid">Study Cards</a>
+  </div>
+</header>
+
+<aside class="sidebar">
+  <div class="sidebar-title">Section F &middot; RFP vs. RFQ</div>
+  <ul class="sidebar-list">
+    <li class="sidebar-group-label">Overview</li>
+    <li><a href="#cover"><span class="code">F</span>Cover</a></li>
+    <li><a href="#f-media"><span class="code">&#9654;</span>Briefings</a></li>
+    <li><a href="#f-slides"><span class="code">&#9674;</span>Slides (F)</a></li>
+    <li class="sidebar-group-label">The Documents</li>
+    <li><a href="#f1"><span class="code">F.1</span>What Is an RFP</a></li>
+    <li><a href="#f2"><span class="code">F.2</span>What Is an RFQ</a></li>
+    <li><a href="#f3"><span class="code">F.3</span>Critical Differences</a></li>
+    <li><a href="#f4"><span class="code">F.4</span>How to Read an RFP</a></li>
+    <li><a href="#f5"><span class="code">F.5</span>How to Read an RFQ</a></li>
+    <li><a href="#f6"><span class="code">F.6</span>The SF330 Form</a></li>
+    <li><a href="#f7"><span class="code">F.7</span>Go / No-Go Framework</a></li>
+    <li class="sidebar-group-label">Responses</li>
+    <li><a href="#f8"><span class="code">F.8</span>Structuring the RFP Response</a></li>
+    <li><a href="#f9"><span class="code">F.9</span>Structuring the RFQ Response</a></li>
+    <li><a href="#f10"><span class="code">F.10</span>Common Mistakes</a></li>
+    <li><a href="#f11"><span class="code">F.11</span>File Naming &amp; Submission</a></li>
+    <li class="sidebar-group-label">Assessment</li>
+    <li><a href="#quiz"><span class="code">&#10003;</span>Quiz (15 Q)</a></li>
+    <li><a href="#legend1"><span class="code">&#9745;</span>Answer Legend</a></li>
+    <li><a href="#flash-grid"><span class="code">&#9635;</span>Flashcard Grid</a></li>
+    <li><a href="#flip-cards"><span class="code">&#9654;</span>Flip Cards</a></li>
+    <li><a href="#cut-cards"><span class="code">&#9986;</span>Cut Cards</a></li>
+  </ul>
+</aside>
+
+<main>
+
+<div class="page cover" id="cover">
+  <div class="cover-eyebrow"><span class="your-company">Your Company</span> Sales &amp; Proposal Development Training Guide &middot; 2026 Edition</div>
+  <div class="cover-letter">F</div>
+  <div class="cover-title">RFP vs. RFQ</div>
+  <div class="cover-sub">The two documents that start almost every pursuit. Read them correctly and you advance. Misread them and you are disqualified before anyone reviews your expertise.</div>
+  <div class="cover-rule"></div>
+  <div class="nav-cards">
+    <a class="nav-card" href="#f1"><div class="nav-card-code">F.1</div><div class="nav-card-title">What Is an RFP</div></a>
+    <a class="nav-card" href="#f2"><div class="nav-card-code">F.2</div><div class="nav-card-title">What Is an RFQ</div></a>
+    <a class="nav-card" href="#f3"><div class="nav-card-code">F.3</div><div class="nav-card-title">Critical Differences</div></a>
+    <a class="nav-card" href="#f4"><div class="nav-card-code">F.4</div><div class="nav-card-title">How to Read an RFP</div></a>
+    <a class="nav-card" href="#f5"><div class="nav-card-code">F.5</div><div class="nav-card-title">How to Read an RFQ</div></a>
+    <a class="nav-card" href="#f6"><div class="nav-card-code">F.6</div><div class="nav-card-title">The SF330 Form</div></a>
+    <a class="nav-card" href="#f7"><div class="nav-card-code">F.7</div><div class="nav-card-title">Go / No-Go Framework</div></a>
+    <a class="nav-card" href="#f8"><div class="nav-card-code">F.8</div><div class="nav-card-title">Structuring the RFP Response</div></a>
+    <a class="nav-card" href="#f9"><div class="nav-card-code">F.9</div><div class="nav-card-title">Structuring the RFQ Response</div></a>
+    <a class="nav-card" href="#f10"><div class="nav-card-code">F.10</div><div class="nav-card-title">Common Mistakes</div></a>
+    <a class="nav-card" href="#f11"><div class="nav-card-code">F.11</div><div class="nav-card-title">File Naming &amp; Submission</div></a>
+    <a class="nav-card" href="#quiz"><div class="nav-card-code">&#10003;</div><div class="nav-card-title">15-Question Assessment</div></a>
+  </div>
+  <div class="cover-credit"><span class="your-company">Your Company</span> Associates, Inc. &middot; [Company Address] &middot; Internal Use Only &middot; 2026</div>
+</div>
+
+<div class="page" id="f-media">
+  <div class="crumb">SECTION F <span class="dot">&middot;</span> BRIEFINGS</div>
+  <div class="subsec-tag">Watch and Listen</div>
+  <h2 class="subsec-title">Section Briefings</h2>
+  <div class="subsec-lede">Watch the video, listen to the podcast, then read the section. The same procurement discipline in three formats.</div>
+  <div class="media-block">
+    <div class="media-byline">Video &middot; The Gauntlet: Surviving the Procurement Elimination Funnel</div>
+    <div class="media-iframe-wrap"><video controls preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;border-radius:2px;"><source src="media/f/video.mp4" type="video/mp4"></video></div>
+    <div class="media-caption">Why qualified firms lose: the hidden reasons firms get eliminated before their expertise is reviewed.</div>
+  </div>
+  <div class="media-block">
+    <div class="media-byline">Audio &middot; Why Public Procurement Is a Reading Test</div>
+    <div class="audio-wrap"><audio controls preload="metadata" style="width:100%;display:block;"><source src="media/f/audio.m4a" type="audio/mp4"></audio></div>
+    <div class="media-caption">The procurement discipline that keeps Your Company in the running and out of the elimination funnel, narrated.</div>
+  </div>
+  <div class="figure-title" style="margin-top:32px;">Section F &middot; RFP vs. RFQ Decision Guide</div>
+  <img class="media-img" src="media/f/infographic.png" alt="Section F RFP vs RFQ Decision Guide" loading="lazy">
+  <div class="figure-title" style="margin-top:32px;">Section F &middot; Concept Mind Map</div>
+  <img class="media-img" src="media/f/mindmap.png" alt="Section F Mind Map" loading="lazy">
+</div>
+
+<div class="page" id="f1">
+  <div class="crumb">SECTION F <span class="dot">&middot;</span> THE DOCUMENTS</div>
+  <div class="subsec-tag">F.1 &middot; What Is an RFP</div>
+  <h2 class="subsec-title">What Is an RFP</h2>
+  <div class="subsec-lede">An RFP is a request for a proposal. The client is asking a direct question: what will you do, how will you do it, and what will it cost. If the document asks for a fee, you are holding an RFP.</div>
+  <div class="section-body">
+    <p>RFP stands for Request for Proposal. It is a formal invitation from a client, an architect, or a public agency asking <span class="your-company">Your Company</span> to describe the work we would perform and to state the fee we would charge to perform it. An RFP is fundamentally a buying document. The party issuing it has already decided that the project is moving forward and now wants to compare competing approaches and prices before selecting a consultant.</p>
+    <p>The defining feature of an RFP is the request for a fee. When a document asks how much the work will cost, asks for a fee schedule, asks for hourly rates, or asks you to price a defined scope, it is an RFP. Confusing the two document types is one of the fastest ways to look untrained in front of a client, so the test for which document you are holding should become automatic.</p>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">If the document asks for a fee, a price, hourly rates, or a cost for a defined scope of work, it is an RFP. If it asks only for who you are and what you have done before, it is an RFQ. The fee is the dividing line.</div>
+  </div>
+  <div class="figure-title">Figure F.1.1 &middot; What an RFP Contains</div>
+  <table>
+    <thead><tr><th>RFP Element</th><th>What It Tells You</th><th>Why It Matters to <span class="your-company">Your Company</span></th></tr></thead>
+    <tbody>
+      <tr><td><strong>Project description</strong></td><td>The facility type, location, and purpose</td><td>Sets the sector rate and the bullseye for relevant past work</td></tr>
+      <tr><td><strong>Scope of work</strong></td><td>The deliverables the client expects, by phase</td><td>Drives which of the five core phases appear in the fee</td></tr>
+      <tr><td><strong>Due date and time</strong></td><td>The submission deadline and delivery method</td><td>Anchors the three business day internal turnaround target</td></tr>
+      <tr><td><strong>Submittal requirements</strong></td><td>Format, forms, and required statements</td><td>Missing a requirement is an automatic disqualification</td></tr>
+      <tr><td><strong>Drawings or program</strong></td><td>Square footage, capacity, or a space program</td><td>Lets you size the kitchen and build the equipment budget</td></tr>
+      <tr><td><strong>Fee request</strong></td><td>The explicit ask for a price</td><td>This is the signal that confirms the document is an RFP</td></tr>
+    </tbody>
+  </table>
+  <div class="callout files">
+    <div class="label"><span class="icon">&#9776;</span> From the Files</div>
+    <div class="body">An architect emailed a project labeled in the subject line as a request for proposal for a correctional facility. The body said: find attached the request for proposal, proposals will be received until the twenty-fifth at four o'clock. The attachment defined the project, gave preliminary drawings, and asked for a fee. Every signal pointed to an RFP, so the response was a priced fee proposal delivered well ahead of the deadline, not a qualifications package.</div>
+  </div>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Watch Out</div>
+    <div class="body">The label on the email is not proof of the document type. Senders routinely write request for proposal when they mean request for qualifications, and the reverse. Read the body and the attachment, find out whether a fee is being requested, and classify the document yourself. Never trust the subject line alone.</div>
+  </div>
+</div>
+
+<div class="page" id="f2">
+  <div class="crumb">SECTION F <span class="dot">&middot;</span> THE DOCUMENTS</div>
+  <div class="subsec-tag">F.2 &middot; What Is an RFQ</div>
+  <h2 class="subsec-title">What Is an RFQ</h2>
+  <div class="subsec-lede">An RFQ is a request for qualifications. The client is not yet asking what you will charge. They are asking a simpler question: are you qualified to be considered at all.</div>
+  <div class="section-body">
+    <p>RFQ stands for Request for Qualifications. Instead of asking for a price, the issuer asks <span class="your-company">Your Company</span> to prove that the firm has the experience, the credentials, and the relevant past projects to be trusted with the work. An RFQ is a screening document. The client is building a shortlist, and the question on the table is whether the firm belongs on it.</p>
+    <p>This is why an RFQ asks for resumes of key personnel, descriptions of comparable past projects, professional credentials, and firm history. It rarely asks for a fee, because pricing happens later, after the field has been narrowed to qualified firms.</p>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">An RFQ asks who you are and what you have done. It wants resumes, relevant project descriptions, and credentials, and it usually does not request a fee. Respond by proving qualification, not by pricing scope.</div>
+  </div>
+  <div class="figure-title">Figure F.2.1 &middot; The Bullseye: Selecting Relevant Past Work</div>
+  <div class="bullseye">
+    <div class="bull-ring">CENTER: Same architect + same facility type + same city + same state</div>
+    <div class="bull-ring">Same facility type, same city, different architect</div>
+    <div class="bull-ring">Same facility type, same state</div>
+    <div class="bull-ring">Same facility type, anywhere in the country</div>
+  </div>
+  <div class="callout expert">
+    <div class="label"><span class="icon">&#10078;</span> The Advocate Principle</div>
+    <div class="body">"An RFQ is a reading test before it is anything else. If we can read what they asked for and answer exactly that, we pass to the next level. We do not win the job yet, but we are qualified. If we cannot read it, or we will not take the time to fill it out correctly, we are immediately disqualified."</div>
+    <div class="attrib">&middot; Marketing Director</div>
+  </div>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">When an RFQ targets a K-12 school, pull past K-12 school projects first. When it targets a healthcare campus, pull healthcare projects. Matching the facility type is what proves <span class="your-company">Your Company</span> has expertise in the exact area the client is screening for. Generic project lists do not persuade.</div>
+  </div>
+</div>
+
+<div class="page" id="f3">
+  <div class="crumb">SECTION F <span class="dot">&middot;</span> THE DOCUMENTS</div>
+  <div class="subsec-tag">F.3 &middot; Critical Differences</div>
+  <h2 class="subsec-title">Critical Differences Between RFP and RFQ</h2>
+  <div class="subsec-lede">Same three letters rearranged, completely different jobs. One asks for a price. The other asks for proof. Knowing which is which decides what you build and how you win.</div>
+  <div class="figure-title">Figure F.3.1 &middot; RFP vs. RFQ at a Glance</div>
+  <table>
+    <thead><tr><th>Dimension</th><th>RFP (Request for Proposal)</th><th>RFQ (Request for Qualifications)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Core question</strong></td><td>What will you do and what will it cost</td><td>Are you qualified to be considered</td></tr>
+      <tr><td><strong>Fee requested</strong></td><td>Yes, a price is required</td><td>No, pricing comes later</td></tr>
+      <tr><td><strong>Primary content</strong></td><td>Scope, methodology, phases, fee</td><td>Resumes, past projects, credentials</td></tr>
+      <tr><td><strong>What you submit</strong></td><td>A priced fee proposal</td><td>A qualifications package</td></tr>
+      <tr><td><strong>Decides what</strong></td><td>Who is selected to do the work</td><td>Who advances to the shortlist</td></tr>
+      <tr><td><strong>Common forms</strong></td><td>Firm proposal template</td><td>SF330, SF254, agency forms</td></tr>
+      <tr><td><strong>Internal routing</strong></td><td>Fee calculations, then review, then draft</td><td>Research past work, then assemble, then review</td></tr>
+    </tbody>
+  </table>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice: 30-Second Classification</div>
+    <div class="body">Open the document, scan for the word fee, price, rate, or cost, then scan for the words qualifications, resume, or experience. Decide RFP, RFQ, or hybrid before you do anything else. The classification determines your entire workflow, so it comes first.</div>
+  </div>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Watch Out: The Hybrid Document</div>
+    <div class="body">Some documents are genuinely both. When a document mixes both, treat it as a hybrid: satisfy every requirement it lists, the qualifications and the pricing. Do not assume a single category and drop a requirement, because dropping any requirement risks disqualification.</div>
+  </div>
+</div>
+
+<div class="page" id="f4">
+  <div class="crumb">SECTION F <span class="dot">&middot;</span> THE DOCUMENTS</div>
+  <div class="subsec-tag">F.4 &middot; How to Read an RFP</div>
+  <h2 class="subsec-title">How to Read an RFP</h2>
+  <div class="subsec-lede">Reading an RFP is not skimming. It is a structured hunt for the handful of facts that decide your fee, your scope, and your deadline. Miss one and the whole response is built on sand.</div>
+  <div class="figure-title">Figure F.4.1 &middot; The Four-Pass Method</div>
+  <div class="section-body">
+    <ol>
+      <li><strong>Pass one, classify.</strong> Confirm it is an RFP by finding the fee request. If it also asks for qualifications, flag it as a hybrid.</li>
+      <li><strong>Pass two, capture the hard facts.</strong> Mark the project name, the location, the facility type, the due date and time, and the delivery method. These become the reference line and the deadline.</li>
+      <li><strong>Pass three, extract the scope and the numbers.</strong> Find the square footage, the capacity, any space program, and the phases the client expects. These feed the fee calculation.</li>
+      <li><strong>Pass four, list every submittal requirement.</strong> Write down each required form, statement, format rule, and page limit. Treat this as a checklist you must satisfy completely.</li>
+    </ol>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">Read content, not labels. Respond to what the document actually asks for, line by line, not to what you assume a project of this type usually wants. Then confirm anything ambiguous with the architect before you build the response.</div>
+  </div>
+  <div class="callout files">
+    <div class="label"><span class="icon">&#9776;</span> From the Files</div>
+    <div class="body">A correctional facility RFP gave preliminary drawings totaling roughly four thousand square feet and stated a population of four hundred twenty-eight inmates, with a note about expanding to four hundred ninety. Using ten square feet per inmate for a population under five hundred, the kitchen should have been about four thousand nine hundred square feet. The response designed to the larger number, then added a note: based on the drawings received <span class="your-company">Your Company</span> will design to the stated area, but based on correctional industry data the kitchen may be undersized. That note both protected the firm and flagged a likely future add service.</div>
+  </div>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">Acknowledge receipt fast. If the RFP asks for confirmation by a certain date, respond the same day to say <span class="your-company">Your Company</span> received it and is reviewing. A quick, professional acknowledgment opens the relationship and signals that the firm is on it.</div>
+  </div>
+</div>
+
+<div class="page" id="f5">
+  <div class="crumb">SECTION F <span class="dot">&middot;</span> THE DOCUMENTS</div>
+  <div class="subsec-tag">F.5 &middot; How to Read an RFQ</div>
+  <h2 class="subsec-title">How to Read an RFQ</h2>
+  <div class="subsec-lede">An RFQ rewards precision. Answer exactly what is asked, in the order it is asked, with the most relevant proof you have. Nothing more, nothing missing.</div>
+  <div class="section-body">
+    <p>Reading an RFQ follows the same disciplined spirit as reading an RFP, but the hunt is for different things. You are not pricing scope; you are identifying what the client wants you to prove and gathering the strongest evidence to prove it.</p>
+  </div>
+  <div class="figure-title">Figure F.5.1 &middot; What to Extract from an RFQ</div>
+  <div class="section-body">
+    <ul>
+      <li><strong>The facility type being screened.</strong> This sets the bullseye for which past projects to feature.</li>
+      <li><strong>The required forms.</strong> Government RFQs frequently require an SF330 and sometimes an SF254 or SF330 Part Two. Note exactly which are requested.</li>
+      <li><strong>The number of past projects required.</strong> Many forms ask for a specific number of comparable projects, often around five. Provide the number requested.</li>
+      <li><strong>The personnel requested.</strong> Identify whose resumes are required and in what format.</li>
+      <li><strong>The submission method and deadline.</strong> Confirm where and how the package is delivered and by when.</li>
+    </ul>
+  </div>
+  <div class="callout expert">
+    <div class="label"><span class="icon">&#10078;</span> Expert Insight</div>
+    <div class="body">"It is just like the RFQ, thinking of the bullseye. If they are going after a K-12 school, you look for K-12 schools. You want to address exactly what they are asking for, because they are trying to show the customer that they have experience and that Your Company can show expertise in that particular area."</div>
+    <div class="attrib">&middot; Marketing Director</div>
+  </div>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Watch Out: One Team Is Not Exclusive</div>
+    <div class="body">An architect may ask whether <span class="your-company">Your Company</span> will commit to their team alone. The firm cannot promise exclusivity, because multiple architects pursuing the same public project may each place the firm on their team, sometimes without the firm even knowing. Be honest that the firm works on multiple teams. This is normal in public procurement.</div>
+  </div>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">When you want to sharpen the response, offer the architect a brief call. A short conversation to confirm what they are looking for shows service, builds the relationship, and lets you customize the qualifications to their criteria.</div>
+  </div>
+</div>
+
+<div class="page" id="f6">
+  <div class="crumb">SECTION F <span class="dot">&middot;</span> THE DOCUMENTS</div>
+  <div class="subsec-tag">F.6 &middot; The SF330 Form</div>
+  <h2 class="subsec-title">The SF330 Form</h2>
+  <div class="subsec-lede">The SF330 looks intimidating and is not. It is a standard government qualifications form, and most of what it wants you already have in past proposals. Find the material, paste it in, done.</div>
+  <div class="section-body">
+    <p>The SF330 is Standard Form 330, the federal government form used to collect architect and engineering qualifications for public projects. When a public agency or an architect pursuing public work asks <span class="your-company">Your Company</span> to qualify, they will often request an SF330, and sometimes a companion form such as the SF330 Part Two or the older SF254.</p>
+  </div>
+  <div class="figure-title">Figure F.6.1 &middot; SF330 Fields and Sources</div>
+  <table>
+    <thead><tr><th>SF330 Field</th><th>What to Enter</th><th>Where the Content Comes From</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Project title and location</strong></td><td>The anonymized project name and city, state</td><td>Past proposal reference line</td></tr>
+      <tr><td><strong>Year completed / in progress</strong></td><td>Start year and current status</td><td>Project records</td></tr>
+      <tr><td><strong>Brief description</strong></td><td>Scope, size, cost, and specific role</td><td>First one to two paragraphs of the past proposal</td></tr>
+      <tr><td><strong>Estimated cost</strong></td><td>Estimated cost of foodservice equipment</td><td>AutoQuotes equipment estimate for that project</td></tr>
+      <tr><td><strong>Key personnel resumes</strong></td><td>Roles and relevant project history</td><td>Existing personnel records</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">For the cost field, enter the estimated cost of foodservice equipment, not the total cost of the entire facility. The marketing team rarely knows the final all-in project cost, and AutoQuotes gives a reliable equipment estimate. Labeling the figure as estimated equipment cost is accurate and defensible.</div>
+  </div>
+  <div class="callout expert">
+    <div class="label"><span class="icon">&#10078;</span> Expert Insight</div>
+    <div class="body">"The first couple of paragraphs that I tell you to put into your proposal, identifying why we are doing the project and what the customer wants, that is literally this section right here on the SF330. It becomes a copy and paste, and you are done."</div>
+    <div class="attrib">&middot; Marketing Director</div>
+  </div>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Watch Out</div>
+    <div class="body">Older proposals are sometimes sparse and missing details like square footage. When you reuse them for an SF330, fill the gaps with current data rather than copying the gap forward. Square footage matters and should be in the description when you have it.</div>
+  </div>
+</div>
+
+<div class="page" id="f7">
+  <div class="crumb">SECTION F <span class="dot">&middot;</span> THE DOCUMENTS</div>
+  <div class="subsec-tag">F.7 &middot; Go / No-Go Decision Framework</div>
+  <h2 class="subsec-title">The Go / No-Go Decision Framework</h2>
+  <div class="subsec-lede">Not every request deserves a response. A disciplined go or no-go decision protects the team's hours for the pursuits where <span class="your-company">Your Company</span> can genuinely compete and win.</div>
+  <div class="figure-title">Figure F.7.1 &middot; Go / No-Go Gates</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num">1</div><div class="kicker">Gate One</div><div class="title">Can we meet the deadline?</div><div class="desc">Within the three business day internal turnaround target. If the deadline is unreachable, escalate before declining.</div></div>
+    <div class="num-card"><div class="num">2</div><div class="kicker">Gate Two</div><div class="title">Do we have bullseye past work?</div><div class="desc">Relevant past work matching the facility type being screened. Generic project lists do not persuade; bullseye work does.</div></div>
+    <div class="num-card"><div class="num">3</div><div class="kicker">Gate Three</div><div class="title">Is the scope within our expertise?</div><div class="desc">Within Your Company's foodservice and laundry design expertise. If unclear, verify with James before investing time.</div></div>
+    <div class="num-card"><div class="num">4</div><div class="kicker">Gate Four</div><div class="title">Can we satisfy every requirement?</div><div class="desc">Every required form, statement, and format rule. A strong submission missing one requirement is an automatic disqualification.</div></div>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House: Three-Day Target</div>
+    <div class="body">The internal turnaround target is three business days or less. Aim to deliver well before the client's actual deadline so there is room for a revision. Never submit on the exact date the client needs it, because if they require a change you have left them no time.</div>
+  </div>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice: A No-Go Is a Leadership Decision</div>
+    <div class="body">A no-go is a decision to be made with leadership, not alone. Relationships matter, and an architect who calls <span class="your-company">Your Company</span> for help on a thin project is building a connection worth honoring. When a pursuit looks marginal, flag it to James or Anja with your reasoning rather than declining quietly.</div>
+  </div>
+</div>
+
+<div class="page" id="f8">
+  <div class="crumb">SECTION F <span class="dot">&middot;</span> RESPONSES</div>
+  <div class="subsec-tag">F.8 &middot; Structuring the RFP Response</div>
+  <h2 class="subsec-title">Structuring the RFP Response</h2>
+  <div class="subsec-lede">An RFP response is a priced proposal, and it travels a defined path: classify, calculate, review, draft, review again, submit. The path exists so that no fee leaves the building unchecked.</div>
+  <div class="figure-title">Figure F.8.1 &middot; The RFP Response Workflow</div>
+  <div class="steps-grid">
+    <div class="step-item"><div class="step-num">1</div><div class="step-title">Classify and Acknowledge</div><div class="step-desc">Confirm it is an RFP and acknowledge receipt to the client the same day.</div></div>
+    <div class="step-item"><div class="step-num">2</div><div class="step-title">Build the Fee Calculation</div><div class="step-desc">Use the fee and scope template to size the kitchen, set the sector rate, and produce the equipment budget and fee.</div></div>
+    <div class="step-item"><div class="step-num">3</div><div class="step-title">Route Fee for Review</div><div class="step-desc">Send the fee calculation to Anja, or to James when Anja is unavailable. Nothing drafts until the fee is approved.</div></div>
+    <div class="step-item"><div class="step-num">4</div><div class="step-title">Draft the Proposal</div><div class="step-desc">Transfer the approved numbers into the proposal: cover letter, scope by phase, square footage section, consultation agreement.</div></div>
+    <div class="step-item"><div class="step-num">5</div><div class="step-title">Route Proposal for Review</div><div class="step-desc">Send the draft back to Anja or James. Revisions go into the revision column, get corrected, and return for another review.</div></div>
+    <div class="step-item"><div class="step-num">6</div><div class="step-title">Submit Ahead of Deadline</div><div class="step-desc">When it is marked good to go, deliver it ahead of the client's deadline, leaving room for any last-minute adjustment.</div></div>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">The fee calculation is your basis, not your proposal. You take the information from the fee calculation and put it into the proposal. Never paste a raw calculation worksheet into a client document, and never draft a fee proposal before the calculation has been reviewed.</div>
+  </div>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Watch Out</div>
+    <div class="body">There can be healthy tension between speed and completeness. James may push to get the proposal out quickly, and that instinct is valid. Balance that against the requirements the RFP actually lists. Fast is good, but a fast submission that drops a required statement or form is still disqualified.</div>
+  </div>
+</div>
+
+<div class="page" id="f9">
+  <div class="crumb">SECTION F <span class="dot">&middot;</span> RESPONSES</div>
+  <div class="subsec-tag">F.9 &middot; Structuring the RFQ Response</div>
+  <h2 class="subsec-title">Structuring the RFQ Response</h2>
+  <div class="subsec-lede">An RFQ response is an evidence package. Assemble the right past work, complete every required form, and answer exactly what was asked, in the order it was asked.</div>
+  <div class="figure-title">Figure F.9.1 &middot; The RFQ Response Workflow</div>
+  <div class="steps-grid">
+    <div class="step-item"><div class="step-num">1</div><div class="step-title">Classify and Acknowledge</div><div class="step-desc">Confirm it is an RFQ and acknowledge receipt to the client.</div></div>
+    <div class="step-item"><div class="step-num">2</div><div class="step-title">Identify Forms and Counts</div><div class="step-desc">Note whether an SF330, SF254, or SF330 Part Two is required and how many past projects are requested.</div></div>
+    <div class="step-item"><div class="step-num">3</div><div class="step-title">Select Bullseye Past Work</div><div class="step-desc">Choose projects matching the facility type, working outward from the center of the bullseye.</div></div>
+    <div class="step-item"><div class="step-num">4</div><div class="step-title">Assemble the Package</div><div class="step-desc">Pull project descriptions from past proposals, add estimated equipment costs from AutoQuotes, complete personnel resumes.</div></div>
+    <div class="step-item"><div class="step-num">5</div><div class="step-title">Route for Review</div><div class="step-desc">Send to Anja or James, correct any revisions, and return for a final check.</div></div>
+    <div class="step-item"><div class="step-num">6</div><div class="step-title">Submit Ahead of Deadline</div><div class="step-desc">Deliver the qualifications package early, leaving room for any adjustment.</div></div>
+  </div>
+  <div class="figure-title" style="margin-top:24px;">Figure F.9.2 &middot; RFQ Package Components</div>
+  <table>
+    <thead><tr><th>Component</th><th>Source</th><th>Quality Standard</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Project descriptions</strong></td><td>Opening paragraphs of past proposals</td><td>Match the facility type being screened</td></tr>
+      <tr><td><strong>Estimated equipment cost</strong></td><td>AutoQuotes for each featured project</td><td>Labeled as estimated equipment cost</td></tr>
+      <tr><td><strong>Square footage</strong></td><td>Project records or measured drawings</td><td>Included whenever available</td></tr>
+      <tr><td><strong>Key personnel resumes</strong></td><td>Existing personnel records</td><td>Format requested by the form</td></tr>
+      <tr><td><strong>Required government forms</strong></td><td>SF330, SF254, Part Two as requested</td><td>Every requested field completed</td></tr>
+    </tbody>
+  </table>
+  <div class="callout expert">
+    <div class="label"><span class="icon">&#10078;</span> The Advocate Principle</div>
+    <div class="body">"The more qualified information you can provide that meets their criteria, the more likely they are going to want us on their team. We make sure we read the request, understand the request, and provide them information that meets the requirements."</div>
+    <div class="attrib">&middot; Marketing Director</div>
+  </div>
+</div>
+
+<div class="page" id="f10">
+  <div class="crumb">SECTION F <span class="dot">&middot;</span> RESPONSES</div>
+  <div class="subsec-tag">F.10 &middot; Common Mistakes</div>
+  <h2 class="subsec-title">Common Mistakes</h2>
+  <div class="subsec-lede">Most lost pursuits are not lost on expertise. They are lost on a misread document, a missing form, or a deadline managed without margin. These mistakes are all avoidable.</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num" style="font-size:20px;">&#9888;</div><div class="kicker">Mistake 1</div><div class="title">Trusting the Label</div><div class="desc">Treating a document as an RFP or RFQ based on the email subject line. Senders mislabel constantly. Always classify from the content by checking whether a fee is requested.</div></div>
+    <div class="num-card"><div class="num" style="font-size:20px;">&#9888;</div><div class="kicker">Mistake 2</div><div class="title">Missing a Submittal Requirement</div><div class="desc">Skipping a required form, statement, or format rule. Any missing requirement is grounds for immediate disqualification, no matter how strong the rest of the submission is.</div></div>
+    <div class="num-card"><div class="num" style="font-size:20px;">&#9888;</div><div class="kicker">Mistake 3</div><div class="title">Generic Past Work in an RFQ</div><div class="desc">Featuring a generic list of projects instead of bullseye-relevant work. If the screen is for a school, lead with schools, not with whatever is most recent.</div></div>
+    <div class="num-card"><div class="num" style="font-size:20px;">&#9888;</div><div class="kicker">Mistake 4</div><div class="title">Submitting on the Deadline</div><div class="desc">Delivering at the exact date and time the client set. If they need a revision, there is no room left. Aim to submit well ahead so there is margin.</div></div>
+    <div class="num-card"><div class="num" style="font-size:20px;">&#9888;</div><div class="kicker">Mistake 5</div><div class="title">Pasting Raw Numbers</div><div class="desc">Dropping a fee calculation worksheet directly into a client proposal. The calculation is the internal basis. The proposal translates it into client-facing language.</div></div>
+    <div class="num-card"><div class="num" style="font-size:20px;">&#9888;</div><div class="kicker">Mistake 6</div><div class="title">Carrying Forward Old Gaps</div><div class="desc">Reusing a sparse old proposal for an SF330 and copying its missing data forward. Fill gaps such as square footage with current information instead.</div></div>
+  </div>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice: Run the Pre-Flight Checklist</div>
+    <div class="body">Before anything goes to review: classification confirmed, every submittal requirement listed and satisfied, bullseye work selected, numbers reviewed, deadline set with margin. The checklist turns these six mistakes into six questions you answer before they can hurt you.</div>
+  </div>
+</div>
+
+<div class="page" id="f11">
+  <div class="crumb">SECTION F <span class="dot">&middot;</span> RESPONSES</div>
+  <div class="subsec-tag">F.11 &middot; File Naming &amp; Submission Standards</div>
+  <h2 class="subsec-title">File Naming and Submission Standards</h2>
+  <div class="subsec-lede">A consistent file name is not bureaucracy. It is how the team matches a document to a project months later, when memory has faded and the pipeline has moved on.</div>
+  <div class="section-body">
+    <p>Naming discipline matters because the firm carries many pursuits at once, sometimes several proposals for the same project, and the procurement cycle can run for years. A consistent naming standard lets anyone match a document to its project and its pending number long after the original author has moved on.</p>
+  </div>
+  <div class="figure-title">Figure F.11.1 &middot; The Naming Convention</div>
+  <div class="section-body">
+    <ul>
+      <li><strong>Use the pending project number.</strong> Each pursuit gets a pending number. That number becomes part of the folder and the document name so the proposal can always be matched to the project.</li>
+      <li><strong>Tag the document type.</strong> When the pursuit is an RFQ, append a dash-RFQ at the end of the folder name so the type is visible at a glance.</li>
+      <li><strong>Include the number in the Word file and the project name.</strong> Put the proposal number inside the actual Word document name along with the project name, so multiple proposals for one project never get confused.</li>
+      <li><strong>Match the PDF to the source.</strong> When you create the PDF, it should be a faithful copy of the Word document you just wrote, carrying the same number and name.</li>
+    </ul>
+  </div>
+  <div class="figure-title">Figure F.11.2 &middot; Key Metrics</div>
+  <div class="stat-row">
+    <div class="stat-cell"><div class="stat-num">3</div><div class="stat-label">Business day internal turnaround target</div></div>
+    <div class="stat-cell"><div class="stat-num">~5</div><div class="stat-label">Comparable past projects a typical SF330 requests</div></div>
+    <div class="stat-cell"><div class="stat-num">2-5</div><div class="stat-label">Years a public procurement cycle can run</div></div>
+    <div class="stat-cell"><div class="stat-num">1</div><div class="stat-label">Signal that classifies the document: the fee request</div></div>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">The pending number on the project becomes the number on the folder and on the Word file. Track that number and match it everywhere. When there are multiple proposals for the same project, the number plus the project name is what keeps them straight.</div>
+  </div>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">Save the originating email and every attachment into the project folder at intake. When the email or scope is missing later, reconstructing what the client actually asked for is slow and error-prone. Capturing it once, at the start, protects the whole pursuit.</div>
+  </div>
+</div>
+
+<div class="page" id="quiz">
+  <div class="crumb">SECTION F <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag">&#10003; Comprehensive Test</div>
+  <h2 class="subsec-title">The Procurement Documents: Assessment</h2>
+  <div class="subsec-lede">15 questions progressing from Knowledge through Application to Judgment. Do not check answers until you have completed the entire test.</div>
+
+  <div class="quiz-q"><div class="qnum">F.1</div><div class="qtext">What does the abbreviation RFP stand for?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Request for Pricing</li><li class="opt"><span class="letter">B</span>Request for Procurement</li><li class="opt"><span class="letter">C</span>Required Foodservice Plan</li><li class="opt"><span class="letter">D</span>Request for Proposal</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">F.2</div><div class="qtext">What does an RFQ primarily ask a firm to provide?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Proof of qualifications and relevant past work</li><li class="opt"><span class="letter">B</span>A detailed fee schedule</li><li class="opt"><span class="letter">C</span>A construction timeline</li><li class="opt"><span class="letter">D</span>A signed consultation agreement</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">F.3</div><div class="qtext">Which single signal most reliably tells you a document is an RFP rather than an RFQ?</div><ul class="opts"><li class="opt"><span class="letter">A</span>It comes from an architect</li><li class="opt"><span class="letter">B</span>It requests a fee or price</li><li class="opt"><span class="letter">C</span>It arrives by email</li><li class="opt"><span class="letter">D</span>It is several pages long</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">F.4</div><div class="qtext">What is the SF330?</div><ul class="opts"><li class="opt"><span class="letter">A</span>A standard government form for architect and engineering qualifications</li><li class="opt"><span class="letter">B</span>A health department permit</li><li class="opt"><span class="letter">C</span>A federal foodservice equipment list</li><li class="opt"><span class="letter">D</span>A fee calculation worksheet</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">F.5</div><div class="qtext">What is <span class="your-company">Your Company</span>'s internal turnaround target for getting a response out the door?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Two weeks</li><li class="opt"><span class="letter">B</span>Three business days or less</li><li class="opt"><span class="letter">C</span>Same day</li><li class="opt"><span class="letter">D</span>On the client deadline</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">F.6</div><div class="qtext">On an SF330, what figure should you enter for a project's cost?</div><ul class="opts"><li class="opt"><span class="letter">A</span>The client's annual budget</li><li class="opt"><span class="letter">B</span>The total all-in cost of the entire facility</li><li class="opt"><span class="letter">C</span>The estimated cost of foodservice equipment</li><li class="opt"><span class="letter">D</span>The architect's design fee</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">F.7</div><div class="qtext">An RFQ targets a K-12 school. Applying the bullseye, which past project should you feature first?</div><ul class="opts"><li class="opt"><span class="letter">A</span>A past K-12 school project</li><li class="opt"><span class="letter">B</span>A healthcare campus project</li><li class="opt"><span class="letter">C</span>The firm's most recent project of any type</li><li class="opt"><span class="letter">D</span>The largest project by dollar value</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">F.8</div><div class="qtext">An RFP's drawings show a kitchen that looks undersized for the stated inmate capacity. What is the right move?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Refuse to submit the proposal</li><li class="opt"><span class="letter">B</span>Double the fee without explanation</li><li class="opt"><span class="letter">C</span>Design to the drawings and add a note flagging possible undersizing based on industry data</li><li class="opt"><span class="letter">D</span>Ignore it and design exactly to the drawings</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">F.9</div><div class="qtext">In the RFP response workflow, what must happen before drafting the proposal begins?</div><ul class="opts"><li class="opt"><span class="letter">A</span>The folder must be archived</li><li class="opt"><span class="letter">B</span>The PDF must be created</li><li class="opt"><span class="letter">C</span>The fee calculation must be reviewed and approved by Anja or James</li><li class="opt"><span class="letter">D</span>The client must sign a contract</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">F.10</div><div class="qtext">An architect asks <span class="your-company">Your Company</span> to commit to their team exclusively for a public project. What is the correct response?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Ignore the question</li><li class="opt"><span class="letter">B</span>Agree to exclusivity to win favor</li><li class="opt"><span class="letter">C</span>Decline the pursuit entirely</li><li class="opt"><span class="letter">D</span>Explain honestly that the firm works on multiple teams</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">F.11</div><div class="qtext">Why does <span class="your-company">Your Company</span> append a dash-RFQ tag and the pending number to a project folder name?</div><ul class="opts"><li class="opt"><span class="letter">A</span>To make the folder appear first alphabetically</li><li class="opt"><span class="letter">B</span>To satisfy a government regulation</li><li class="opt"><span class="letter">C</span>To hide the project from competitors</li><li class="opt"><span class="letter">D</span>So the document type and project can be identified and matched later</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">F.12</div><div class="qtext">A document is labeled "request for proposal" but also asks for resumes and relevant past projects in addition to a fee. How should you treat it?</div><ul class="opts"><li class="opt"><span class="letter">A</span>As a hybrid and satisfy every requirement, both qualifications and pricing</li><li class="opt"><span class="letter">B</span>As a pure RFQ and skip the fee</li><li class="opt"><span class="letter">C</span>Return it to the sender for clarification before reading</li><li class="opt"><span class="letter">D</span>As a pure RFP and skip the resumes</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">F.13</div><div class="qtext">Your team finishes a strong RFQ package but realizes it omitted one required government form. What is the consequence?</div><ul class="opts"><li class="opt"><span class="letter">A</span>The submission is still competitive on expertise</li><li class="opt"><span class="letter">B</span>The submission can be immediately disqualified</li><li class="opt"><span class="letter">C</span>The client will request it later</li><li class="opt"><span class="letter">D</span>It only matters for federal projects</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">F.14</div><div class="qtext">Leadership pushes to submit a fee proposal immediately, but the RFP lists a required independence statement you have not added. What do you do?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Remove the scope section to save time</li><li class="opt"><span class="letter">B</span>Submit now, since speed wins projects</li><li class="opt"><span class="letter">C</span>Submit without it and send it separately later</li><li class="opt"><span class="letter">D</span>Add the required statement first, then submit as quickly as possible</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">F.15</div><div class="qtext">A pursuit is marginal: thin scope, weak bullseye match, but the architect personally called to ask for help. What is the best action?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Submit a low-effort package</li><li class="opt"><span class="letter">B</span>Promise the architect exclusivity</li><li class="opt"><span class="letter">C</span>Flag it to James or Anja with your reasoning and let leadership decide</li><li class="opt"><span class="letter">D</span>Quietly decline to save hours</li></ul></div>
+</div>
+
+<div class="legend-page" id="legend1">
+  <div class="crumb" style="color:var(--text-secondary);">SECTION F <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag" style="color:var(--brass-soft);">&#9745; Answer Legend &middot; Part 1 of 2</div>
+  <div class="legend-title">Answers &middot; F.1 through F.8</div>
+  <div class="legend-sub">Do not review until the test is complete.</div>
+  <div class="legend-q"><div class="head">F.1</div><div class="answer">Correct: D &middot; Request for Proposal</div><div class="explain">RFP means Request for Proposal: the client is asking what you will do and what it will cost. See F.1.</div></div>
+  <div class="legend-q"><div class="head">F.2</div><div class="answer">Correct: A &middot; Proof of qualifications and relevant past work</div><div class="explain">An RFQ asks the firm to prove it is qualified through resumes, past projects, and credentials. It usually does not request a fee. See F.2.</div></div>
+  <div class="legend-q"><div class="head">F.3</div><div class="answer">Correct: B &middot; It requests a fee or price</div><div class="explain">The fee request is the dividing line. If the document asks for a price, rate, or cost, it is an RFP. See F.3.</div></div>
+  <div class="legend-q"><div class="head">F.4</div><div class="answer">Correct: A &middot; A standard government form for architect and engineering qualifications</div><div class="explain">The SF330 is Standard Form 330, the federal qualifications form used to collect A&amp;E experience for public projects. It is the government's version of an RFQ. See F.6.</div></div>
+  <div class="legend-q"><div class="head">F.5</div><div class="answer">Correct: B &middot; Three business days or less</div><div class="explain">The internal target is three business days or less, delivered ahead of the client's actual deadline to leave room for revisions. See F.7.</div></div>
+  <div class="legend-q"><div class="head">F.6</div><div class="answer">Correct: C &middot; The estimated cost of foodservice equipment</div><div class="explain">Enter the estimated cost of foodservice equipment, available from AutoQuotes. Marketing rarely knows the final facility cost, so the equipment estimate is the accurate, defensible figure. See F.6.</div></div>
+  <div class="legend-q"><div class="head">F.7</div><div class="answer">Correct: A &middot; A past K-12 school project</div><div class="explain">The bullseye prioritizes matching facility type. For a school screen, lead with school projects to prove expertise in exactly what the client is screening for. See F.2.</div></div>
+  <div class="legend-q"><div class="head">F.8</div><div class="answer">Correct: C &middot; Design to the drawings and add a note flagging possible undersizing</div><div class="explain">Design to the area given, then add a value-adding note: based on the drawings Your Company will design the stated area; based on industry data it may be undersized. This protects the firm and flags a possible future add service. See F.4.</div></div>
+</div>
+
+<div class="legend-page" id="legend2">
+  <div class="crumb" style="color:var(--text-secondary);">SECTION F <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag" style="color:var(--brass-soft);">&#9745; Answer Legend &middot; Part 2 of 2</div>
+  <div class="legend-title">Answers &middot; F.9 through F.15</div>
+  <div class="legend-sub">The remaining answers with reasoning and subsection cross-references.</div>
+  <div class="legend-q"><div class="head">F.9</div><div class="answer">Correct: C &middot; The fee calculation must be reviewed and approved by Anja or James</div><div class="explain">Nothing drafts until the fee calculation is approved. The calculation is the basis; review protects the firm before any number reaches the client. See F.8.</div></div>
+  <div class="legend-q"><div class="head">F.10</div><div class="answer">Correct: D &middot; Explain honestly that the firm works on multiple teams</div><div class="explain">The firm cannot promise exclusivity, because multiple architects may place Your Company on their teams for the same public project, sometimes without the firm knowing. Honesty here is normal and expected. See F.5.</div></div>
+  <div class="legend-q"><div class="head">F.11</div><div class="answer">Correct: D &middot; So the document type and project can be identified and matched later</div><div class="explain">The firm runs many long pursuits at once. The pending number plus a type tag lets anyone match a document to its project months later and keep multiple proposals straight. See F.11.</div></div>
+  <div class="legend-q"><div class="head">F.12</div><div class="answer">Correct: A &middot; As a hybrid and satisfy every requirement, both qualifications and pricing</div><div class="explain">When a document mixes both, treat it as a hybrid and satisfy every listed requirement. Dropping any requirement risks disqualification. See F.3.</div></div>
+  <div class="legend-q"><div class="head">F.13</div><div class="answer">Correct: B &middot; The submission can be immediately disqualified</div><div class="explain">Any missing submittal requirement is grounds for immediate disqualification, regardless of how strong the firm's actual expertise is. Completeness is non-negotiable. See F.10.</div></div>
+  <div class="legend-q"><div class="head">F.14</div><div class="answer">Correct: D &middot; Add the required statement first, then submit as quickly as possible</div><div class="explain">Speed is valuable, but a fast submission that drops a required statement is still disqualified. Satisfy the requirement, then move quickly. See F.8 and F.10.</div></div>
+  <div class="legend-q"><div class="head">F.15</div><div class="answer">Correct: C &middot; Flag it to James or Anja with your reasoning and let leadership decide</div><div class="explain">A no-go is a leadership decision, not a solo one. Relationships matter, so escalate marginal pursuits with your reasoning rather than declining silently. See F.7.</div></div>
+</div>
+
+<div class="page" id="flash-grid">
+  <div class="crumb">SECTION F <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9670; Flashcards &middot; Reference Grid</div>
+  <h2 class="subsec-title">Fifteen Cards &middot; Front and Back</h2>
+  <div class="subsec-lede">Fifteen flashcards covering the key terms, rules, and frameworks from Section F.</div>
+  <div class="flash-grid">
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">1</span>RFP vs. RFQ</div><div class="flash-grid-back">RFP = Request for Proposal, asks what you will do and what it costs. RFQ = Request for Qualifications, asks whether you are qualified.<div class="flash-grid-ref">(F.1, F.2)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">2</span>The Fee Signal</div><div class="flash-grid-back">The single fastest classifier: does the document request a price, rate, or cost? A fee request means RFP. No fee, just qualifications, means RFQ.<div class="flash-grid-ref">(F.3)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">3</span>The Bullseye</div><div class="flash-grid-back">Choose past work nearest the center: same architect, same facility type, same city, same state. For a school screen, lead with school projects.<div class="flash-grid-ref">(F.2)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">4</span>SF330</div><div class="flash-grid-back">Standard Form 330, the federal qualifications form for architect and engineering experience. The government's version of an RFQ.<div class="flash-grid-ref">(F.6)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">5</span>SF330 Cost Field</div><div class="flash-grid-back">Enter the estimated cost of foodservice equipment, not the total facility cost. Pull from AutoQuotes and label as estimated equipment cost.<div class="flash-grid-ref">(F.6)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">6</span>The Reading Test</div><div class="flash-grid-back">Completing an RFQ or SF330 correctly and completely keeps the firm qualified. Skip a field or a required form and you are immediately disqualified, regardless of expertise.<div class="flash-grid-ref">(F.6)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">7</span>Hybrid Document</div><div class="flash-grid-back">A request that asks for both qualifications and a fee. Satisfy every requirement it lists. Dropping any one risks disqualification.<div class="flash-grid-ref">(F.3)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">8</span>Three-Day Target</div><div class="flash-grid-back">Your Company aims to respond within three business days, ahead of the client deadline. Never submit on the exact due date; leave room for a revision.<div class="flash-grid-ref">(F.7)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">9</span>Don't Trust the Label</div><div class="flash-grid-back">Senders mislabel RFP and RFQ constantly in subject lines. Classify from the content by checking for a fee request, not from the email subject.<div class="flash-grid-ref">(F.1, F.3)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">10</span>Fee Calc Is the Basis</div><div class="flash-grid-back">The fee calculation is your internal basis, not the proposal itself. Take the numbers from the calculation and translate them into client-facing proposal language.<div class="flash-grid-ref">(F.8)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">11</span>Acknowledge Fast</div><div class="flash-grid-back">Confirm receipt to the client the same day a request arrives. A quick professional acknowledgment opens the relationship and signals the firm is on it.<div class="flash-grid-ref">(F.4, F.8)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">12</span>Not One Team</div><div class="flash-grid-back">Your Company cannot promise exclusivity to a single architect on public work. Multiple architects may place the firm on their teams for the same project.<div class="flash-grid-ref">(F.5)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">13</span>Pending Number</div><div class="flash-grid-back">Each pursuit gets a pending number that flows to the folder and the Word file. Tag qualifications folders with a dash-RFQ so the type is visible at a glance.<div class="flash-grid-ref">(F.11)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">14</span>Save the Email</div><div class="flash-grid-back">Capture the originating email and attachments into the project folder at intake. Scope and drawings travel with the project, so they are never lost later.<div class="flash-grid-ref">(F.11)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">15</span>Undersize Note</div><div class="flash-grid-back">When drawings look small for capacity, design to them and flag it: "based on the drawings Your Company will design the stated area; based on industry data it may be undersized."<div class="flash-grid-ref">(F.4)</div></div></div>
+  </div>
+</div>
+
+<div class="page" id="flip-cards">
+  <div class="crumb">SECTION F <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9633; Flashcards &middot; Interactive</div>
+  <h2 class="subsec-title">Tap the Card to See the Answer</h2>
+  <div class="subsec-lede">Fifteen cards, one at a time. Read the front, attempt the back from memory, then tap to check.</div>
+  <div class="flip-container">
+    <div class="flip-card" id="flip-card" onclick="flipCard()">
+      <div class="flip-front-label" id="flip-label">Term &middot; Tap to Reveal</div>
+      <div class="flip-front-text" id="flip-front">RFP vs. RFQ</div>
+      <div class="flip-back-text" id="flip-back">RFP = Request for Proposal, asks what you will do and what it costs. RFQ = Request for Qualifications, asks whether you are qualified. (F.1, F.2)</div>
+    </div>
+    <div class="flip-hint">Tap card to flip &middot; Use arrows to navigate</div>
+    <div class="flip-nav">
+      <button class="flip-btn" onclick="prevCard()">&#8592; Previous</button>
+      <span class="flip-counter" id="flip-counter">1 of 15</span>
+      <button class="flip-btn" onclick="nextCard()">Next &#8594;</button>
+    </div>
+    <div class="flip-dots" id="flip-dots"></div>
+  </div>
+</div>
+
+<div class="page" id="cut-cards">
+  <div class="crumb">SECTION F <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9986; Printable Cut-Out Study Cards</div>
+  <h2 class="subsec-title">Print, Cut, Carry</h2>
+  <div class="subsec-lede">Fifteen cards arranged for printing. Cut along the borders. Keep them on your desk.</div>
+  <div class="cut-grid">
+    <div class="cut-card"><div class="term">RFP vs. RFQ</div><div class="def">RFP = proposal + fee. RFQ = qualifications only. If it asks for a fee, it is an RFP. If only who you are and what you have done, it is an RFQ.</div></div>
+    <div class="cut-card"><div class="term">The Fee Signal</div><div class="def">The single fastest classifier: does the document request a price, rate, or cost? Fee = RFP. No fee = RFQ. Never trust the subject line alone.</div></div>
+    <div class="cut-card"><div class="term">The Bullseye</div><div class="def">Same architect + same facility type + same city + same state = center. For a school screen, lead with school projects. Work outward only if needed.</div></div>
+    <div class="cut-card"><div class="term">SF330</div><div class="def">Standard Form 330. Federal qualifications form for A&E experience. The government's version of an RFQ. Often paired with SF254 or Part Two.</div></div>
+    <div class="cut-card"><div class="term">SF330 Cost Field</div><div class="def">Estimated cost of foodservice equipment (from AutoQuotes). Not the total facility cost. Label it as estimated equipment cost.</div></div>
+    <div class="cut-card"><div class="term">The Reading Test</div><div class="def">Completing an RFQ or SF330 correctly and completely keeps the firm qualified. Skip one field = disqualified, regardless of expertise.</div></div>
+    <div class="cut-card"><div class="term">Hybrid Document</div><div class="def">A request asking for both qualifications and a fee. Satisfy every requirement. Dropping any one risks immediate disqualification.</div></div>
+    <div class="cut-card"><div class="term">Three-Day Target</div><div class="def">Your Company responds within three business days, ahead of the client deadline. Never submit on the exact due date; leave room for a revision.</div></div>
+    <div class="cut-card"><div class="term">Don't Trust the Label</div><div class="def">Senders mislabel RFP and RFQ constantly. Classify from the content: find the fee request (or lack of one), not the email subject.</div></div>
+    <div class="cut-card"><div class="term">Fee Calc Is the Basis</div><div class="def">The fee calculation is the internal basis. Translate the numbers into client-facing proposal language. Never paste a raw worksheet into a client document.</div></div>
+    <div class="cut-card"><div class="term">Acknowledge Fast</div><div class="def">Confirm receipt to the client the same day a request arrives. Opens the relationship; signals the firm is on it.</div></div>
+    <div class="cut-card"><div class="term">Not One Team</div><div class="def">Your Company cannot promise exclusivity on public work. Multiple architects may place the firm on their teams for the same project. Be honest.</div></div>
+    <div class="cut-card"><div class="term">Pending Number</div><div class="def">Each pursuit gets a pending number that flows to the folder and the Word file. RFQ folders get a dash-RFQ tag. Matches any document to any project later.</div></div>
+    <div class="cut-card"><div class="term">Save the Email</div><div class="def">Capture the originating email and attachments into the project folder at intake. Scope and drawings travel with the project.</div></div>
+    <div class="cut-card"><div class="term">Undersize Note</div><div class="def">When drawings look small for capacity, design to them and flag it: "Your Company will design the stated area; based on industry data it may be undersized."</div></div>
+  </div>
+</div>
+
+
+<!-- F-SLIDES -->
+<div class="page" id="f-slides">
+  <div class="crumb">SECTION F <span class="dot">&middot;</span> PRESENTATION</div>
+  <div class="subsec-tag">Full Slide Deck</div>
+  <h2 class="subsec-title">The Procurement Autopsy</h2>
+  <div class="subsec-lede">The complete presentation for this section. Each slide is embedded directly. Scroll through all 19 slides below.</div>
+  <style>.slide-img{width:100%;display:block;border-radius:2px;border:1px solid var(--rule);margin-bottom:8px;}</style>
+  <img class="slide-img" src="media/f/slides/slide01.png" alt="Slide 1 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide02.png" alt="Slide 2 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide03.png" alt="Slide 3 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide04.png" alt="Slide 4 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide05.png" alt="Slide 5 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide06.png" alt="Slide 6 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide07.png" alt="Slide 7 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide08.png" alt="Slide 8 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide09.png" alt="Slide 9 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide10.png" alt="Slide 10 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide11.png" alt="Slide 11 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide12.png" alt="Slide 12 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide13.png" alt="Slide 13 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide14.png" alt="Slide 14 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide15.png" alt="Slide 15 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide16.png" alt="Slide 16 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide17.png" alt="Slide 17 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide18.png" alt="Slide 18 of 19" loading="lazy">
+  <img class="slide-img" src="media/f/slides/slide19.png" alt="Slide 19 of 19" loading="lazy">
+</div>
+
+</main>
+
+<script>
+const cards=[
+  {front:'RFP vs. RFQ',back:'RFP = Request for Proposal, asks what you will do and what it costs. RFQ = Request for Qualifications, asks whether you are qualified. (F.1, F.2)'},
+  {front:'The Fee Signal',back:'The single fastest classifier: does the document request a price, rate, or cost? A fee request means RFP. No fee, just qualifications, means RFQ. (F.3)'},
+  {front:'The Bullseye',back:'Choose past work nearest the center: same architect, same facility type, same city, same state. For a school screen, lead with school projects. (F.2)'},
+  {front:'SF330',back:'Standard Form 330, the federal qualifications form for architect and engineering experience. The government\'s version of an RFQ. (F.6)'},
+  {front:'SF330 Cost Field',back:'Enter the estimated cost of foodservice equipment, not the total facility cost. Pull from AutoQuotes and label as estimated equipment cost. (F.6)'},
+  {front:'The Reading Test',back:'Completing an RFQ or SF330 correctly and completely keeps the firm qualified. Skip a field or a required form and you are immediately disqualified. (F.6)'},
+  {front:'Hybrid Document',back:'A request that asks for both qualifications and a fee. Satisfy every requirement it lists. Dropping any one risks disqualification. (F.3)'},
+  {front:'Three-Day Target',back:'Your Company aims to respond within three business days, ahead of the client deadline. Never submit on the exact due date; leave room for a revision. (F.7)'},
+  {front:'Don\'t Trust the Label',back:'Senders mislabel RFP and RFQ constantly in subject lines. Classify from the content by checking for a fee request, not from the email subject. (F.1, F.3)'},
+  {front:'Fee Calc Is the Basis',back:'The fee calculation is your internal basis, not the proposal itself. Take the numbers from the calculation and translate them into client-facing language. (F.8)'},
+  {front:'Acknowledge Fast',back:'Confirm receipt to the client the same day a request arrives. A quick professional acknowledgment opens the relationship and signals the firm is on it. (F.4, F.8)'},
+  {front:'Not One Team',back:'Your Company cannot promise exclusivity to a single architect on public work. Multiple architects may place the firm on their teams for the same project. (F.5)'},
+  {front:'Pending Number',back:'Each pursuit gets a pending number that flows to the folder and the Word file. Tag qualifications folders with a dash-RFQ so the type is visible at a glance. (F.11)'},
+  {front:'Save the Email',back:'Capture the originating email and attachments into the project folder at intake. Scope and drawings travel with the project, so they are never lost later. (F.11)'},
+  {front:'Undersize Note',back:'When drawings look small for capacity, design to them and flag it: "based on the drawings Your Company will design the stated area; based on industry data it may be undersized." (F.4)'}
+];
+let current=0,flipped=false;
+function buildDots(){const d=document.getElementById('flip-dots');d.innerHTML='';cards.forEach((_,i)=>{const dot=document.createElement('span');dot.className='flip-dot'+(i===0?' active':'');dot.onclick=()=>goToCard(i);d.appendChild(dot);});}
+function updateCard(){document.getElementById('flip-front').textContent=cards[current].front;document.getElementById('flip-back').textContent=cards[current].back;document.getElementById('flip-counter').textContent=(current+1)+' of '+cards.length;document.getElementById('flip-card').classList.remove('flipped');document.getElementById('flip-label').textContent='Term · Tap to Reveal';flipped=false;document.querySelectorAll('.flip-dot').forEach((d,i)=>d.classList.toggle('active',i===current));}
+function flipCard(){flipped=!flipped;document.getElementById('flip-card').classList.toggle('flipped',flipped);document.getElementById('flip-label').textContent=flipped?'Answer · Tap to Reset':'Term · Tap to Reveal';}
+function nextCard(){current=(current+1)%cards.length;updateCard();}
+function prevCard(){current=(current-1+cards.length)%cards.length;updateCard();}
+function goToCard(i){current=i;updateCard();}
+buildDots();
+const pages=document.querySelectorAll('main [id]');
+const links=document.querySelectorAll('.sidebar-list a');
+window.addEventListener('scroll',()=>{let active='';pages.forEach(p=>{if(window.scrollY>=p.offsetTop-80)active=p.id;});links.forEach(a=>{const href=a.getAttribute('href').replace('#','');a.classList.toggle('active',href===active);});});
+</script>
+</body>
+</html>

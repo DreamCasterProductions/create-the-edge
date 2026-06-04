@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Universal Business Operating System · 2026 Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:         #0a1628;
+  --navy-mid:     #0f2040;
+  --navy-top:     #11354A;
+  --gold:         #C5A76F;
+  --brass:        #B8893B;
+  --brass-soft:   #D4AB5E;
+  --cream:        #F4EFE4;
+  --cream-light:  #FAF7F1;
+  --paper:        #FFFFFF;
+  --ink:          #162630;
+  --ink-soft:     #2C3B45;
+  --ink-muted:    #5D7079;
+  --text-primary: #e8e0d0;
+  --text-secondary:#b8aa90;
+  --camacho-blue: #266889;
+  --blue-tint:    #EDF3F6;
+  --rule:         #D6CCB6;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Montserrat', sans-serif; background: var(--navy); color: var(--text-primary); min-height: 100vh; }
+
+/* ── TOPBAR ── */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+  background: var(--navy); height: 52px;
+  display: flex; align-items: center; padding: 0 32px;
+  border-bottom: 1px solid rgba(197,167,111,.35);
+}
+.topbar-logo {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold); font-size: 16px; font-weight: 700; letter-spacing: .1em;
+  text-decoration: none;
+}
+.topbar-subtitle {
+  margin-left: 20px;
+  color: var(--text-secondary); font-size: 10px; letter-spacing: .18em;
+  text-transform: uppercase; padding-top: 2px;
+}
+.topbar-right {
+  margin-left: auto;
+  color: var(--text-secondary); font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 140px 40px 80px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--navy) 0%, #091220 60%, #0a1628 100%);
+  border-bottom: 1px solid rgba(197,167,111,.2);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(38,104,137,.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-size: 10px; letter-spacing: .26em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 58px); font-weight: 700;
+  line-height: 1.15; color: var(--text-primary);
+  margin-bottom: 20px;
+}
+.hero-rule {
+  width: 60px; height: 1px; background: var(--gold);
+  margin: 24px auto; opacity: .7;
+}
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-style: italic;
+  color: var(--text-secondary); max-width: 540px; margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── PROGRESS BAR ── */
+.progress-bar {
+  background: rgba(255,255,255,.04);
+  border-top: 1px solid rgba(197,167,111,.12);
+  border-bottom: 1px solid rgba(197,167,111,.12);
+  padding: 22px 40px;
+  display: flex; align-items: center; justify-content: center; gap: 48px;
+  flex-wrap: wrap;
+}
+.progress-stat { text-align: center; }
+.progress-stat .num {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; font-weight: 700; color: var(--gold);
+  display: block;
+}
+.progress-stat .label {
+  font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--text-secondary); margin-top: 3px;
+}
+
+/* ── SECTION GRID ── */
+.grid-container {
+  max-width: 1280px; margin: 0 auto;
+  padding: 60px 32px 100px;
+}
+.grid-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 32px; padding-bottom: 12px;
+  border-bottom: 1px solid rgba(197,167,111,.2);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* ── SECTION CARD BASE ── */
+.card {
+  background: var(--navy-mid);
+  border: 1px solid rgba(197,167,111,.18);
+  border-radius: 4px;
+  padding: 28px 28px 24px;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+
+/* CLICKABLE (live) card */
+a.card {
+  text-decoration: none; color: inherit; cursor: pointer;
+  transition: border-color .2s, transform .15s, box-shadow .2s;
+}
+a.card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0; transition: opacity .2s;
+}
+a.card:hover { border-color: rgba(197,167,111,.55); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,.4); }
+a.card:hover::before { opacity: 1; }
+
+/* NON-CLICKABLE (not yet built) card */
+div.card { opacity: .55; }
+
+.card-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px; font-weight: 700;
+  color: var(--gold); opacity: .25;
+  position: absolute; top: 16px; right: 22px;
+  line-height: 1; pointer-events: none;
+}
+.card-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 8px; letter-spacing: .18em; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 2px; margin-bottom: 14px;
+  font-weight: 600; width: fit-content;
+}
+.badge-live   { background: rgba(47,125,84,.2);  color: #6FCF97; border: 1px solid rgba(47,125,84,.4); }
+.badge-build  { background: rgba(197,167,111,.1); color: var(--gold); border: 1px solid rgba(197,167,111,.3); }
+.badge-soon   { background: rgba(255,255,255,.05); color: var(--text-secondary); border: 1px solid rgba(255,255,255,.1); }
+
+.card-code {
+  font-size: 9px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--text-secondary); margin-bottom: 6px;
+}
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px; font-weight: 600; line-height: 1.3;
+  color: var(--text-primary); margin-bottom: 10px;
+}
+.card-desc {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: 14px; line-height: 1.6;
+  color: var(--text-secondary); flex: 1;
+}
+.card-footer {
+  margin-top: 18px; padding-top: 14px;
+  border-top: 1px solid rgba(197,167,111,.12);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.card-meta { font-size: 10px; color: var(--text-secondary); letter-spacing: .06em; }
+.card-arrow {
+  font-size: 13px; color: var(--gold); opacity: 0;
+  transition: opacity .2s, transform .2s;
+}
+a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
+
+/* ── CATEGORY DIVIDER ── */
+.category-divider {
+  grid-column: 1 / -1;
+  display: flex; align-items: center; gap: 14px;
+  margin: 16px 0 4px;
+}
+.category-divider span {
+  font-size: 9px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--gold); white-space: nowrap;
+}
+.category-divider::after {
+  content: ''; flex: 1; height: 1px;
+  background: rgba(197,167,111,.2);
+}
+
+/* ── FOOTER ── */
+.footer {
+  border-top: 1px solid rgba(197,167,111,.15);
+  padding: 28px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold); font-size: 13px; font-weight: 700; letter-spacing: .08em;
+}
+.footer-meta {
+  font-size: 10px; color: var(--text-secondary);
+  letter-spacing: .1em; text-transform: uppercase;
+}
+.camacho { color: var(--camacho-blue); font-weight: 700; }
+
+@media (max-width: 600px) {
+  .topbar { padding: 0 20px; }
+  .topbar-subtitle { display: none; }
+  .hero { padding: 100px 24px 60px; }
+  .progress-bar { gap: 28px; padding: 18px 24px; }
+  .grid-container { padding: 40px 20px 60px; }
+  .grid { grid-template-columns: 1fr; }
+  .footer { padding: 20px 24px; }
+}
+
+/* ── SECTION VIEWER OVERLAY ── */
+.viewer-overlay {
+  display: none; position: fixed; inset: 0; z-index: 1000;
+  background: var(--navy); flex-direction: column;
+  animation: fadeIn .15s ease;
+}
+.viewer-overlay.open { display: flex; }
+@keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+.viewer-bar {
+  background: var(--navy); height: 44px; flex-shrink: 0;
+  display: flex; align-items: center; padding: 0 20px; gap: 16px;
+  border-bottom: 1px solid rgba(197,167,111,.35);
+}
+.viewer-back {
+  background: none; border: 1px solid rgba(197,167,111,.45);
+  color: var(--gold); font-family: 'Montserrat', sans-serif;
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 2px; cursor: pointer;
+  transition: background .15s; white-space: nowrap;
+}
+.viewer-back:hover { background: rgba(197,167,111,.15); }
+.viewer-label {
+  color: var(--text-secondary); font-size: 11px; letter-spacing: .13em;
+  text-transform: uppercase; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.viewer-frame {
+  flex: 1; border: none; width: 100%; min-height: 0;
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="topbar-logo" href="index.html"><span class="camacho">Your Company</span></a>
+  <span class="topbar-subtitle">Universal Business Operating System</span>
+  <span class="topbar-right">2026 Edition</span>
+</header>
+
+<section class="hero">
+  <p class="hero-eyebrow">Sales &amp; Proposal Mastery &middot; Business Operations &middot; Professional Services</p>
+  <h1 class="hero-title">Universal Business<br>Operating System</h1>
+  <div class="hero-rule"></div>
+  <p class="hero-sub">A precision-engineered knowledge system for the art of winning at the highest level of professional services consulting. Fully adaptable to any firm, industry, or service line.</p>
+</section>
+
+<div class="progress-bar">
+  <div class="progress-stat"><span class="num">14</span><span class="label">Total Sections</span></div>
+  <div class="progress-stat"><span class="num">14</span><span class="label">Live Now</span></div>
+  <div class="progress-stat"><span class="num">0</span><span class="label">In Production</span></div>
+</div>
+
+<main class="grid-container">
+  <p class="grid-heading">All Sections</p>
+  <div class="grid">
+
+    <div class="category-divider"><span>Foundations &amp; Role Mastery</span></div>
+
+    <a class="card" href="camacho_Section_A.html">
+      <span class="card-letter">A</span>
+      <span class="card-badge badge-live">&#9679; Live</span>
+      <p class="card-code">Section A &middot; A.1&ndash;A.8</p>
+      <h2 class="card-title">Role Overview &amp; Orientation</h2>
+      <p class="card-desc">The Business Standard. Anatomy of a won deal, the consultant's mindset, and what separates elite performers from the field.</p>
+      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 12-Q Quiz</span><span class="card-arrow">&#8594;</span></div>
+    </a>
+
+    <a class="card" href="camacho_Section_B.html">
+      <span class="card-letter">B</span>
+      <span class="card-badge badge-live">&#9679; Live</span>
+      <p class="card-code">Section B &middot; B.1&ndash;B.9</p>
+      <h2 class="card-title">Industry Terminology</h2>
+      <p class="card-desc">Mastering the Language of Authority. The vocabulary that signals expertise and builds institutional credibility before a word of the proposal is read.</p>
+      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; Quiz</span><span class="card-arrow">&#8594;</span></div>
+    </a>
+
+    <div class="category-divider"><span>Sales &amp; Proposal Framework</span></div>
+
+    <a class="card" href="camacho_Section_C.html">
+      <span class="card-letter">C</span>
+      <span class="card-badge badge-live">&#9679; Live</span>
+      <p class="card-code">Section C &middot; C.1&ndash;C.12</p>
+      <h2 class="card-title">Sales &amp; Marketing</h2>
+      <p class="card-desc">The Authority Blueprint. Diagnostic selling, revenue architecture, and the lifecycle framework that turns relationships into recurring engagements.</p>
+      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; Quiz</span><span class="card-arrow">&#8594;</span></div>
+    </a>
+
+    <a class="card" href="camacho_Section_D.html">
+      <span class="card-letter">D</span>
+      <span class="card-badge badge-live">&#9679; Live</span>
+      <p class="card-code">Section D</p>
+      <h2 class="card-title">Client Psychology</h2>
+      <p class="card-desc">The Architecture of Influence. Reading the decision-making framework behind every client conversation and calibrating your approach accordingly.</p>
+      <div class="card-footer"><span class="card-meta">Quiz &middot; Flashcards</span><span class="card-arrow">&#8594;</span></div>
+    </a>
+
+    <a class="card" href="camacho_Section_E.html">
+      <span class="card-letter">E</span>
+      <span class="card-badge badge-live">&#9679; Live</span>
+      <p class="card-code">Section E</p>
+      <h2 class="card-title">Discovery</h2>
+      <p class="card-desc">The forensic discipline of uncovering what clients actually need versus what they say they need.</p>
+      <div class="card-footer"><span class="card-meta">Guide &middot; Flashcards</span><span class="card-arrow">&#8594;</span></div>
+    </a>
+
+    <a class="card" href="camacho_Section_F.html">
+      <span class="card-letter">F</span>
+      <span class="card-badge badge-live">&#9679; Live</span>
+      <p class="card-code">Section F</p>
+      <h2 class="card-title">Procurement Documents</h2>
+      <p class="card-desc">RFP vs. RFQ. How to read procurement intent and position a response that wins before the committee convenes.</p>
+      <div class="card-footer"><span class="card-meta">Guide &middot; Flashcards</span><span class="card-arrow">&#8594;</span></div>
+    </a>
+
+    <a class="card" href="camacho_Section_G.html">
+      <span class="card-letter">G</span>
+      <span class="card-badge badge-live">&#9679; Live</span>
+      <p class="card-code">Section G &middot; G.1&ndash;G.24</p>
+      <h2 class="card-title">Proposal Writing Mastery</h2>
+      <p class="card-desc">Engineered Proposal Mastery. The complete system for constructing bulletproof proposals that close at the highest fee tier.</p>
+      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span></div>
+    </a>
+
+    <div class="category-divider"><span>Fee Engineering &amp; Compliance</span></div>
+
+    <a class="card" href="camacho_Section_H.html">
+      <span class="card-letter">H</span>
+      <span class="card-badge badge-live">&#9679; Live</span>
+      <p class="card-code">Section H &middot; H.0&ndash;H.12</p>
+      <h2 class="card-title">Fee Calculation</h2>
+      <p class="card-desc">Precision Fee Engineering. The 5-phase labor model, Delta Sky Club methodology, and the arithmetic of profitable project delivery.</p>
+      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span></div>
+    </a>
+
+    <a class="card" href="camacho_Section_I.html">
+      <span class="card-letter">I</span>
+      <span class="card-badge badge-live">&#9679; Live</span>
+      <p class="card-code">Section I &middot; I.0&ndash;I.12</p>
+      <h2 class="card-title">Code &amp; Compliance</h2>
+      <p class="card-desc">Kitchen Compliance &amp; Code Intelligence. The regulatory landscape that shapes every commercial kitchen design decision.</p>
+      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span></div>
+    </a>
+
+    <div class="category-divider"><span>Strategy &amp; Operations</span></div>
+
+    <a class="card" href="camacho_Section_J.html">
+      <span class="card-letter">J</span>
+      <span class="card-badge badge-live">&#9679; Live</span>
+      <p class="card-code">Section J &middot; J.0&ndash;J.10</p>
+      <h2 class="card-title">Meeting Evaluation &amp; SWOT</h2>
+      <p class="card-desc">The Strategic Decision Engine. Real-world SWOT analysis applied to competitive positioning, including a live Golf Tournament case study.</p>
+      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span></div>
+    </a>
+
+    <a class="card" href="camacho_Section_K.html">
+      <span class="card-letter">K</span>
+      <span class="card-badge badge-live">&#9679; Live</span>
+      <p class="card-code">Section K &middot; K.0&ndash;K.11</p>
+      <h2 class="card-title">File Naming &amp; Digital Vault</h2>
+      <p class="card-desc">The Digital Vault protocol. How institutional-grade file architecture protects project integrity and accelerates team performance.</p>
+      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span></div>
+    </a>
+
+    <div class="category-divider"><span>Reference &amp; Tools</span></div>
+
+    <!-- L: LIVE -->
+    <a class="card" href="camacho_Section_L_Master_Glossary.html">
+      <span class="card-letter">L</span>
+      <span class="card-badge badge-live">&#9679; Live</span>
+      <p class="card-code">Section L</p>
+      <h2 class="card-title">Master Glossary</h2>
+      <p class="card-desc">The Forensic Blueprint. Every term, acronym, and institutional phrase in the professional services lexicon, defined and cross-referenced.</p>
+      <div class="card-footer">
+        <span class="card-meta">Video &middot; Podcast &middot; Flashcards</span>
+        <span class="card-arrow">&#8594;</span>
+      </div>
+    </a>
+
+    <!-- M: LIVE -->
+    <a class="card" href="camacho_Section_M_Reference.html">
+      <span class="card-letter">M</span>
+      <span class="card-badge badge-live">&#9679; Live</span>
+      <p class="card-code">Section M</p>
+      <h2 class="card-title">Reference Section</h2>
+      <p class="card-desc">The Blueprint of Consequence. Source documents, standards, and reference frameworks that underpin every client engagement.</p>
+      <div class="card-footer">
+        <span class="card-meta">Video &middot; Podcast &middot; Flashcards</span>
+        <span class="card-arrow">&#8594;</span>
+      </div>
+    </a>
+
+    <a class="card" href="camacho_Section_N.html">
+      <span class="card-letter">N</span>
+      <span class="card-badge badge-live">&#9679; Live</span>
+      <p class="card-code">Section N</p>
+      <h2 class="card-title">Calculation Tools</h2>
+      <p class="card-desc">The precision instruments of fee engineering: laundry sizing, 5-phase labor, Delta Sky Club calculator, and team structure templates.</p>
+      <div class="card-footer"><span class="card-meta">Interactive Calculators</span><span class="card-arrow">&#8594;</span></div>
+    </a>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <span class="footer-logo">Universal Business Operating System</span>
+  <span class="footer-meta">Business Operations Training Manual &middot; 2026 Edition &middot; Internal Use Only</span>
+</footer>
+
+<!-- Section viewer overlay — sections open here instead of navigating away -->
+<div class="viewer-overlay" id="viewer" role="dialog" aria-modal="true" aria-label="Section viewer">
+  <div class="viewer-bar">
+    <button class="viewer-back" id="viewer-back" onclick="closeViewer()">&#8592; Back to Manual</button>
+    <span class="viewer-label" id="viewer-label"></span>
+  </div>
+  <iframe class="viewer-frame" id="viewer-frame" src="" title="Section content" allowfullscreen></iframe>
+</div>
+
+<script>
+(function () {
+  var overlay  = document.getElementById('viewer');
+  var frame    = document.getElementById('viewer-frame');
+  var label    = document.getElementById('viewer-label');
+
+  function openViewer(url, title) {
+    label.textContent = title;
+    frame.src = url;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    history.pushState({ viewer: url, title: title }, title,
+      '#' + url.replace(/\.html$/, ''));
+  }
+
+  window.closeViewer = function () {
+    overlay.classList.remove('open');
+    frame.src = '';
+    document.body.style.overflow = '';
+    history.pushState({}, document.title, window.location.pathname);
+  };
+
+  window.addEventListener('popstate', function (e) {
+    if (!e.state || !e.state.viewer) closeViewer();
+  });
+
+  // Intercept all live section card clicks
+  document.querySelectorAll('a.card').forEach(function (card) {
+    card.addEventListener('click', function (e) {
+      e.preventDefault();
+      var url   = card.getAttribute('href');
+      var code  = (card.querySelector('.card-code')  || {}).textContent || '';
+      var title = (card.querySelector('.card-title') || {}).textContent || '';
+      openViewer(url, code + ' · ' + title);
+    });
+  });
+
+  // Deep-link support: /index.html#camacho_Section_B opens that section
+  (function () {
+    if (!window.location.hash) return;
+    var url  = window.location.hash.slice(1) + '.html';
+    var card = document.querySelector('a.card[href="' + url + '"]');
+    if (card) {
+      var code  = (card.querySelector('.card-code')  || {}).textContent || '';
+      var title = (card.querySelector('.card-title') || {}).textContent || '';
+      openViewer(url, code + ' · ' + title);
+    }
+  })();
+
+  // ESC key closes the viewer
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeViewer();
+  });
+})();
+</script>
+</body>
+</html>

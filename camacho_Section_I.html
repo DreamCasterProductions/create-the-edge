@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business OS &middot; Section I &middot; Code, Compliance &amp; Health Department &middot; 2026 Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--navy-mid:#0f2040;--gold:#C5A76F;--brass:#B8893B;--brass-soft:#D4AB5E;--cream:#F4EFE4;--cream-light:#FAF7F1;--paper:#FFFFFF;--ink:#162630;--ink-soft:#2C3B45;--ink-muted:#5D7079;--text-primary:#e8e0d0;--text-secondary:#b8aa90;--camacho-blue:#266889;--blue-tint:#EDF3F6;--green:#2F7D54;--green-tint:#E8F2EC;--red:#B23B2E;--red-tint:#F8E9E6;--rule:#D6CCB6;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Montserrat',sans-serif;background:var(--cream-light);color:var(--ink);font-size:15px;line-height:1.65;display:flex;}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:300;background:var(--navy);height:44px;display:flex;align-items:center;padding:0 20px;border-bottom:1px solid var(--brass);gap:16px;}
+.topbar-logo{font-family:'Playfair Display',serif;color:var(--gold);font-size:15px;font-weight:700;letter-spacing:.08em;}
+.topbar-section{color:var(--text-secondary);font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
+.topbar-links{margin-left:auto;display:flex;gap:20px;}
+.topbar-links a{color:var(--text-secondary);font-size:11px;text-decoration:none;letter-spacing:.08em;text-transform:uppercase;}
+.topbar-links a:hover{color:var(--gold);}
+.sidebar{position:fixed;top:44px;left:0;bottom:0;width:240px;background:var(--navy);overflow-y:auto;z-index:100;padding:28px 18px 40px 20px;box-sizing:border-box;border-right:1px solid rgba(197,167,111,.18);}
+.sidebar-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:0 8px 10px 8px;margin-bottom:16px;border-bottom:1px solid rgba(197,167,111,.22);}
+.sidebar-group-label{color:var(--gold);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:16px 8px 6px 8px;opacity:.9;}
+.sidebar-list{list-style:none;}
+.sidebar-list a{display:flex;align-items:baseline;gap:8px;color:#FFF;text-decoration:none;font-size:11px;padding:8px 8px 8px 6px;border-left:2px solid transparent;transition:all .15s;}
+.sidebar-list a .code{color:var(--gold);font-size:10px;min-width:26px;}
+.sidebar-list a:hover,.sidebar-list a.active{color:var(--gold);border-left-color:var(--gold);background:rgba(197,167,111,.06);}
+main{margin-left:240px;margin-top:44px;flex:1;max-width:960px;padding:0 0 80px;}
+.page{background:var(--paper);padding:56px 64px;margin-bottom:2px;}
+.page.cover{background:var(--navy);min-height:100vh;display:flex;flex-direction:column;padding:72px 72px 56px;}
+.legend-page{background:var(--navy);padding:56px 64px;margin-bottom:2px;}
+.cover-eyebrow{font-family:'Montserrat',sans-serif;color:var(--gold);font-size:10px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:28px;}
+.cover-letter{font-family:'Playfair Display',serif;color:var(--gold);font-size:120px;font-weight:700;line-height:1;margin-bottom:4px;}
+.cover-title{font-family:'Playfair Display',serif;color:#FFF;font-size:38px;font-weight:600;line-height:1.2;margin-bottom:12px;}
+.cover-sub{color:var(--text-secondary);font-size:14px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-bottom:48px;max-width:480px;}
+.cover-rule{height:1px;background:rgba(197,167,111,.3);margin-bottom:40px;}
+.nav-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:auto;}
+.nav-card{background:rgba(255,255,255,.05);border:1px solid rgba(197,167,111,.2);border-top:2px solid var(--gold);padding:16px 18px;text-decoration:none;}
+.nav-card-code{color:var(--gold);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;}
+.nav-card-title{color:#FFF;font-size:12px;font-weight:600;font-family:'Playfair Display',serif;}
+.cover-credit{margin-top:40px;color:var(--text-secondary);font-size:10px;letter-spacing:.08em;border-top:1px solid rgba(197,167,111,.15);padding-top:16px;}
+.crumb{font-size:10px;color:var(--ink-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;}
+.crumb .dot{margin:0 6px;color:var(--brass);}
+.subsec-tag{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--brass);letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.subsec-title{font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);font-weight:700;line-height:1.2;margin-bottom:16px;}
+.subsec-lede{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink-soft);line-height:1.55;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--rule);}
+.figure-title{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--brass);letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.section-body p{margin-bottom:16px;}
+.section-body ul{margin:0 0 16px 20px;}
+.section-body li{margin-bottom:6px;}
+.callout{margin:24px 0;padding:20px 22px;border-radius:2px;break-inside:avoid;}
+.callout .label{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:7px;margin-bottom:10px;}
+.callout .icon{font-size:14px;}
+.callout .body{font-size:14px;line-height:1.6;}
+.callout .attrib{font-size:11px;margin-top:10px;font-style:italic;opacity:.8;}
+.callout.expert{background:var(--navy);color:var(--text-primary);border-left:4px solid var(--gold);}
+.callout.expert .label{color:var(--gold);}
+.callout.expert .body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;}
+.callout.rule{background:var(--cream);border-left:4px solid var(--navy);}
+.callout.rule .label{color:var(--navy);}
+.callout.files{background:var(--blue-tint);border-left:4px solid var(--camacho-blue);}
+.callout.files .label{color:var(--camacho-blue);}
+.callout.best{background:var(--green-tint);border-left:4px solid var(--green);}
+.callout.best .label{color:var(--green);}
+.callout.warn{background:var(--red-tint);border-left:4px solid var(--red);}
+.callout.warn .label{color:var(--red);}
+.your-company{font-weight:700;color:#266889;}
+.cards-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:24px 0;}
+.num-card{background:var(--cream);border-top:3px solid var(--brass);padding:20px 22px;break-inside:avoid;}
+.num-card .num{font-family:'Playfair Display',serif;font-size:36px;color:var(--brass);font-weight:700;line-height:1;margin-bottom:4px;}
+.num-card .kicker{font-size:9px;color:var(--ink-muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;}
+.num-card .title{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);font-weight:600;margin-bottom:8px;}
+.num-card .desc{font-size:13px;color:var(--ink-soft);}
+.code-stack{display:grid;grid-template-columns:1fr;gap:2px;margin:24px 0;}
+.code-layer{padding:14px 20px;font-size:13px;}
+.code-layer:nth-child(1){background:var(--navy);color:var(--gold);font-weight:700;font-family:'Playfair Display',serif;font-size:15px;}
+.code-layer:nth-child(2){background:#1a2a40;color:var(--text-primary);}
+.code-layer:nth-child(3){background:#22344d;color:var(--text-secondary);}
+.code-layer:nth-child(4){background:#2a3e5a;color:var(--text-secondary);}
+.code-label{font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:4px;}
+.checklist{list-style:none;margin:16px 0;}
+.checklist li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--rule);font-size:14px;color:var(--ink-soft);}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:'☐';color:var(--brass);font-size:16px;flex-shrink:0;margin-top:1px;}
+.checklist-head{font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);font-weight:600;margin:24px 0 10px;}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+thead{background:var(--navy);}
+thead th{color:var(--gold);font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:12px 14px;text-align:left;font-weight:700;}
+tbody tr:nth-child(even){background:var(--cream-light);}
+tbody tr:nth-child(odd){background:var(--paper);}
+td{padding:11px 14px;color:var(--ink-soft);vertical-align:top;}
+td strong{color:var(--ink);font-weight:600;}
+.media-block{margin:24px 0;padding:20px;background:var(--cream);border-top:3px solid var(--brass);}
+.media-byline{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--brass);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:12px;}
+.media-iframe-wrap{position:relative;width:100%;padding-bottom:56.25%;margin-bottom:8px;}
+.media-iframe-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:2px;}
+.audio-wrap iframe{width:100%;height:80px;border:0;border-radius:2px;}
+.media-caption{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--ink-muted);margin-top:8px;}
+.media-img{width:100%;border-radius:2px;display:block;margin-top:16px;}
+.quiz-q{margin-bottom:28px;break-inside:avoid;border-left:3px solid var(--rule);padding-left:18px;}
+.qnum{font-family:'Playfair Display',serif;font-size:22px;color:var(--brass);font-weight:700;margin-bottom:6px;}
+.qtext{font-size:14px;color:var(--ink);margin-bottom:12px;font-weight:500;}
+.opts{list-style:none;}
+.opt{display:flex;align-items:baseline;gap:10px;padding:6px 0;font-size:13px;color:var(--ink-soft);border-bottom:1px solid var(--cream);}
+.opt:last-child{border-bottom:none;}
+.letter{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--cream);color:var(--brass);font-size:11px;font-weight:700;flex-shrink:0;}
+.legend-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:28px;font-weight:700;margin-bottom:8px;}
+.legend-sub{color:var(--text-secondary);font-size:14px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid rgba(197,167,111,.25);}
+.legend-q{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(197,167,111,.12);break-inside:avoid;}
+.legend-q .head{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:4px;}
+.legend-q .answer{font-size:14px;color:var(--text-primary);font-weight:600;margin-bottom:4px;}
+.legend-q .explain{font-size:13px;color:var(--text-secondary);font-style:italic;}
+.flash-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+.flash-grid-card{border:1px solid var(--rule);}
+.flash-grid-front{background:var(--navy);color:var(--gold);padding:14px 16px;font-family:'Playfair Display',serif;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;}
+.flash-grid-num{background:var(--brass);color:var(--navy);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;}
+.flash-grid-back{background:var(--paper);color:var(--ink-soft);padding:12px 16px;font-size:12px;line-height:1.5;}
+.flash-grid-ref{font-size:10px;color:var(--ink-muted);margin-top:6px;font-style:italic;}
+.flip-container{max-width:600px;margin:0 auto 24px;}
+.flip-card{background:var(--navy);border-top:3px solid var(--gold);padding:48px 40px;text-align:center;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;}
+.flip-front-label{font-size:9px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;font-weight:700;}
+.flip-front-text{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;}
+.flip-back-text{font-size:14px;color:var(--text-primary);line-height:1.6;display:none;}
+.flip-card.flipped{background:var(--navy-mid);}
+.flip-card.flipped .flip-front-text{display:none;}
+.flip-card.flipped .flip-back-text{display:block;}
+.flip-hint{text-align:center;font-size:11px;color:var(--ink-muted);margin-top:8px;font-style:italic;}
+.flip-nav{display:flex;justify-content:center;align-items:center;gap:20px;margin-top:16px;}
+.flip-btn{background:var(--navy);color:var(--gold);border:1px solid var(--brass);padding:8px 22px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;cursor:pointer;text-transform:uppercase;}
+.flip-btn:hover{background:var(--brass);color:var(--navy);}
+.flip-counter{font-size:12px;color:var(--ink-muted);font-weight:600;}
+.flip-dots{display:flex;gap:6px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
+.flip-dot{width:8px;height:8px;border-radius:50%;background:var(--rule);cursor:pointer;}
+.flip-dot.active{background:var(--gold);}
+.cut-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0;}
+.cut-card{border:1px dashed var(--rule);break-inside:avoid;}
+.cut-card .term{background:var(--navy);color:var(--gold);padding:14px 16px;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;}
+.cut-card .def{background:var(--paper);color:var(--ink-soft);padding:12px 16px;font-size:12px;line-height:1.5;}
+@media print{body{background:#fff;font-size:11pt;}.topbar,.sidebar{display:none!important;}main{margin:0;max-width:100%;}.page{padding:.6in .85in;margin:0;break-before:always;}.page:first-of-type{break-before:auto;}.cover{min-height:11in;break-after:always;}-webkit-print-color-adjust:exact;print-color-adjust:exact;.flip-container{display:none;}h1,h2,h3,.subsec-title,.subsec-tag,.crumb,.figure-title{break-inside:avoid;break-after:avoid;}.callout,.num-card,.cards-row,.cut-card,.quiz-q,.legend-q{break-inside:avoid;}p,li{orphans:3;widows:3;}.legend-page{break-before:always;}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-logo"><span class="your-company">Your Company</span></div>
+  <div class="topbar-section">Section I &middot; Code, Compliance &amp; Health Department</div>
+  <div class="topbar-links">
+    <a href="#cover">Top</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#flash-grid">Study Cards</a>
+  </div>
+</header>
+
+<aside class="sidebar">
+  <div class="sidebar-title">Section I &middot; Code &amp; Compliance</div>
+  <ul class="sidebar-list">
+    <li class="sidebar-group-label">Overview</li>
+    <li><a href="#cover"><span class="code">I</span>Cover</a></li>
+    <li><a href="#i-media"><span class="code">&#9654;</span>Briefings</a></li>
+    <li><a href="#i-slides"><span class="code">&#9674;</span>Slides (I)</a></li>
+    <li class="sidebar-group-label">Foundations</li>
+    <li><a href="#i1"><span class="code">I.1</span>Why Compliance Comes First</a></li>
+    <li><a href="#i2"><span class="code">I.2</span>The Four Authorities (AHJ)</a></li>
+    <li><a href="#i3"><span class="code">I.3</span>The Code Stack</a></li>
+    <li><a href="#i4"><span class="code">I.4</span>Dual-Track Approval Path</a></li>
+    <li class="sidebar-group-label">Health Department</li>
+    <li><a href="#i5"><span class="code">I.5</span>Designing for Health Dept.</a></li>
+    <li><a href="#i6"><span class="code">I.6</span>NSF Certification</a></li>
+    <li class="sidebar-group-label">Critical Utilities</li>
+    <li><a href="#i7"><span class="code">I.7</span>Plumbing Priorities</a></li>
+    <li><a href="#i8"><span class="code">I.8</span>Exhaust Hoods &amp; Make-Up Air</a></li>
+    <li><a href="#i9"><span class="code">I.9</span>Fire Suppression</a></li>
+    <li><a href="#i10"><span class="code">I.10</span>Electrical Integrity</a></li>
+    <li><a href="#i11"><span class="code">I.11</span>ADA Accessibility</a></li>
+    <li><a href="#i12"><span class="code">I.12</span>Laundry &amp; Mechanical</a></li>
+    <li class="sidebar-group-label">Inspection Readiness</li>
+    <li><a href="#i13"><span class="code">I.13</span>Plan Review Package</a></li>
+    <li><a href="#i14"><span class="code">I.14</span>Inspection Readiness Checklist</a></li>
+    <li class="sidebar-group-label">Assessment</li>
+    <li><a href="#quiz"><span class="code">&#10003;</span>Quiz (15 Q)</a></li>
+    <li><a href="#legend1"><span class="code">&#9745;</span>Answer Legend</a></li>
+    <li><a href="#flash-grid"><span class="code">&#9635;</span>Flashcard Grid</a></li>
+    <li><a href="#flip-cards"><span class="code">&#9654;</span>Flip Cards</a></li>
+    <li><a href="#cut-cards"><span class="code">&#9986;</span>Cut Cards</a></li>
+  </ul>
+</aside>
+
+<main>
+
+<div class="page cover" id="cover">
+  <div class="cover-eyebrow"><span class="your-company">Your Company</span> Sales &amp; Proposal Development Training Guide &middot; 2026 Edition</div>
+  <div class="cover-letter">I</div>
+  <div class="cover-title">Code, Compliance &amp; Health Department</div>
+  <div class="cover-sub">A kitchen does not open because it is built. It opens because it passes. Code compliance is not a final-stage correction. It must be designed into the space from the very first layout.</div>
+  <div class="cover-rule"></div>
+  <div class="nav-cards">
+    <a class="nav-card" href="#i1"><div class="nav-card-code">I.1</div><div class="nav-card-title">Why Compliance Comes First</div></a>
+    <a class="nav-card" href="#i2"><div class="nav-card-code">I.2</div><div class="nav-card-title">The Four Authorities</div></a>
+    <a class="nav-card" href="#i3"><div class="nav-card-code">I.3</div><div class="nav-card-title">The Code Stack</div></a>
+    <a class="nav-card" href="#i4"><div class="nav-card-code">I.4</div><div class="nav-card-title">Dual-Track Approval</div></a>
+    <a class="nav-card" href="#i5"><div class="nav-card-code">I.5</div><div class="nav-card-title">Health Dept. Design</div></a>
+    <a class="nav-card" href="#i6"><div class="nav-card-code">I.6</div><div class="nav-card-title">NSF Certification</div></a>
+    <a class="nav-card" href="#i7"><div class="nav-card-code">I.7</div><div class="nav-card-title">Plumbing Priorities</div></a>
+    <a class="nav-card" href="#i8"><div class="nav-card-code">I.8</div><div class="nav-card-title">Exhaust Hoods</div></a>
+    <a class="nav-card" href="#i9"><div class="nav-card-code">I.9</div><div class="nav-card-title">Fire Suppression</div></a>
+    <a class="nav-card" href="#i10"><div class="nav-card-code">I.10</div><div class="nav-card-title">Electrical Integrity</div></a>
+    <a class="nav-card" href="#i11"><div class="nav-card-code">I.11</div><div class="nav-card-title">ADA Accessibility</div></a>
+    <a class="nav-card" href="#i14"><div class="nav-card-code">I.14</div><div class="nav-card-title">Inspection Readiness</div></a>
+  </div>
+  <div class="cover-credit"><span class="your-company">Your Company</span> Associates, Inc. &middot; [Company Address] &middot; Internal Use Only &middot; 2026</div>
+</div>
+
+<div class="page" id="i-media">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> BRIEFINGS</div>
+  <div class="subsec-tag">Watch and Listen</div>
+  <h2 class="subsec-title">Section Briefings</h2>
+  <div class="subsec-lede">Watch the video, listen to the podcast, then read the section. The same compliance discipline in three formats.</div>
+  <div class="media-block">
+    <div class="media-byline">Video &middot; Code Compliance: Getting Kitchens Approved</div>
+    <div class="media-iframe-wrap"><video controls preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;border-radius:2px;"><source src="media/i/video.mp4" type="video/mp4"></video></div>
+    <div class="media-caption">How to design commercial kitchens that pass all four approval gates, from health department to building department.</div>
+  </div>
+  <div class="media-block">
+    <div class="media-byline">Audio &middot; How to Pass Commercial Kitchen Inspections</div>
+    <div class="audio-wrap"><audio controls preload="metadata" style="width:100%;display:block;"><source src="media/i/audio.m4a" type="audio/mp4"></audio></div>
+    <div class="media-caption">The compliance discipline that prevents failed inspections and costly delays, narrated.</div>
+  </div>
+  <div class="figure-title" style="margin-top:32px;">Section I &middot; Kitchen Code Compliance Guide</div>
+  <img class="media-img" src="media/i/infographic.png" alt="Section I Kitchen Code Compliance Guide" loading="lazy">
+  <div class="figure-title" style="margin-top:32px;">Section I &middot; Concept Mind Map</div>
+  <img class="media-img" src="media/i/mindmap.png" alt="Section I Mind Map" loading="lazy">
+</div>
+
+<div class="page" id="i1">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> FOUNDATIONS</div>
+  <div class="subsec-tag">I.1 &middot; Why Compliance Comes First</div>
+  <h2 class="subsec-title">A Kitchen Opens Because It Passes, Not Because It Is Built</h2>
+  <div class="subsec-lede">Code compliance is not a final-stage correction. It must be designed into the space from the very first layout. A delayed opening costs thousands of dollars a day in lost revenue, idle labor, and extended carrying costs.</div>
+  <div class="section-body">
+    <p>The most technically sophisticated kitchen design on paper fails if it cannot survive the approval process. Every piece of equipment, every drain location, every hand sink placement, every exhaust calculation must satisfy the Authority Having Jurisdiction before a permit is issued and an operation begins. Designing to code from the first layout is not optional; it is the foundation that makes every downstream decision defensible.</p>
+    <p>At <span class="your-company">Your Company</span>, code compliance is integrated into the design process, not appended to it. The compliance checklist in this section is the same discipline as the fee defense checklist in Section H and the file discipline checklist in Section K, applied to regulatory approval.</p>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> The Stricter Code Rule</div>
+    <div class="body">When two codes differ, always design to the stricter requirement. The AHJ's interpretation overrides standard text, and local adoptions frequently modify national standards. Always confirm gray areas with the AHJ in writing before the design is committed.</div>
+  </div>
+  <div class="figure-title">Figure I.1.1 &middot; The Four Gates That Can Stop a Project</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num" style="font-size:22px;">&#9673;</div><div class="kicker">Gate One</div><div class="title">Health Department</div><div class="desc">Sanitation, food flow, and public health. Hand sink placement, clean-to-dirty separation, NSF-listed equipment, finish schedules.</div></div>
+    <div class="num-card"><div class="num" style="font-size:22px;">&#9673;</div><div class="kicker">Gate Two</div><div class="title">Building Department</div><div class="desc">Life safety, structural integrity, and infrastructure. Electrical load, plumbing, fire suppression, mechanical exhaust, ADA clearances.</div></div>
+    <div class="num-card"><div class="num" style="font-size:22px;">&#9673;</div><div class="kicker">Gate Three</div><div class="title">Fire Marshal</div><div class="desc">Life safety systems. Fire suppression alignment, hood certification, egress clearances, suppression nozzle targeting.</div></div>
+    <div class="num-card"><div class="num" style="font-size:22px;">&#9673;</div><div class="kicker">Gate Four</div><div class="title">Accessibility (ADA)</div><div class="desc">Counter heights, reach ranges, clearances, and accessible routes for all users. Federal requirement on all public and commercial projects.</div></div>
+  </div>
+</div>
+
+<div class="page" id="i2">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> FOUNDATIONS</div>
+  <div class="subsec-tag">I.2 &middot; The Four Authorities</div>
+  <h2 class="subsec-title">The Authority Having Jurisdiction</h2>
+  <div class="subsec-lede">The AHJ is the ultimate law of the land. The AHJ's interpretation of any code provision overrides the standard text, which is why confirming gray areas in writing is not optional.</div>
+  <div class="section-body">
+    <p>AHJ stands for Authority Having Jurisdiction. It is the local official, agency, or body responsible for enforcing the requirements of a code. In commercial kitchen design, the AHJ is typically the local health department for sanitation, the building department for structural and MEP systems, the fire marshal for life safety, and a separate accessibility inspector for ADA. In some jurisdictions, one agency handles multiple areas.</p>
+    <p>The critical fact about the AHJ is that its interpretation of any code provision is final. Two kitchens designed identically may face different requirements in different jurisdictions because the AHJ's reading of the applicable code differs. This is why <span class="your-company">Your Company</span> confirms gray areas with the AHJ in writing before the design is committed, not after.</p>
+  </div>
+  <div class="callout files">
+    <div class="label"><span class="icon">&#9776;</span> From the Files</div>
+    <div class="body">A project in one jurisdiction may require hand sinks within 10 feet of every food preparation station; the same code interpreted by a different AHJ may allow 15 feet. Design to what the AHJ in that specific jurisdiction has told you in writing, not to what passed in a different project in a different city. Get the interpretation first, design second.</div>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">Confirm every gray-area code interpretation with the AHJ in writing before finalizing the layout. A verbal approval from a plan reviewer does not bind the AHJ; a written response does. When the answer matters to the design, get it in writing and attach it to the project file.</div>
+  </div>
+</div>
+
+<div class="page" id="i3">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> FOUNDATIONS</div>
+  <div class="subsec-tag">I.3 &middot; The Code Stack</div>
+  <h2 class="subsec-title">The Commercial Kitchen Code Stack</h2>
+  <div class="subsec-lede">Codes are layered. National codes establish the baseline. Local adoptions modify them. The AHJ interprets both. When layers conflict, the stricter requirement governs.</div>
+  <div class="figure-title">Figure I.3.1 &middot; The Code Stack (Top to Bottom = Most to Least Authority)</div>
+  <div class="code-stack">
+    <div class="code-layer"><div class="code-label">AHJ Interpretation</div>The ultimate authority. Overrides standard text in every conflict. Confirm in writing.</div>
+    <div class="code-layer"><div class="code-label">Local Adoptions &amp; Amendments</div>Municipal and state modifications to national standards. Municipalities frequently modify adopted editions. Always confirm the current local edition.</div>
+    <div class="code-layer"><div class="code-label">State Code Adoptions</div>State-level adoptions of national codes, often with amendments. The state version governs where no local amendment exists.</div>
+    <div class="code-layer"><div class="code-label">National Codes (FDA Food Code, IPC, NEC, NFPA)</div>The national baseline: Food Code for sanitation, IPC for plumbing, NEC for electrical, NFPA for fire safety. Establishes the floor, not the ceiling.</div>
+  </div>
+  <div class="figure-title" style="margin-top:24px;">Figure I.3.2 &middot; Key National Codes and Their Scope</div>
+  <table>
+    <thead><tr><th>Code</th><th>Full Name</th><th>What It Governs</th></tr></thead>
+    <tbody>
+      <tr><td><strong>FDA Food Code</strong></td><td>U.S. Food &amp; Drug Administration Food Code</td><td>Sanitation, food safety, equipment standards, and food-handler practices</td></tr>
+      <tr><td><strong>IPC</strong></td><td>International Plumbing Code</td><td>Plumbing systems, drainage, grease interception, water supply</td></tr>
+      <tr><td><strong>NEC</strong></td><td>National Electrical Code (NFPA 70)</td><td>Electrical installations, equipment connections, circuit requirements</td></tr>
+      <tr><td><strong>NFPA 96</strong></td><td>Standard for Ventilation Control and Fire Protection</td><td>Commercial cooking ventilation, hood requirements, fire suppression</td></tr>
+      <tr><td><strong>IBC</strong></td><td>International Building Code</td><td>Structural, occupancy, egress, and ADA baseline requirements</td></tr>
+      <tr><td><strong>IMC</strong></td><td>International Mechanical Code</td><td>HVAC, exhaust systems, make-up air, ventilation</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="page" id="i4">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> FOUNDATIONS</div>
+  <div class="subsec-tag">I.4 &middot; Dual-Track Approval Path</div>
+  <h2 class="subsec-title">The Dual-Track Approval Path</h2>
+  <div class="subsec-lede">Every commercial kitchen project runs two parallel approval tracks: the Health Department track and the Building Department track. A complete, coordinated plan-review package is the single biggest lever on review speed.</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num" style="font-size:18px;">&#9829;</div><div class="kicker">Health Department Track</div><div class="title">Focus: Sanitation</div><div class="desc">Evaluates food flow, sanitation, hand sink placement, clean-to-dirty separation, finish schedules (smooth, cleanable surfaces), and NSF-listed equipment. Outcome: Operational Health Permit.</div></div>
+    <div class="num-card"><div class="num" style="font-size:18px;">&#9780;</div><div class="kicker">Building Department Track</div><div class="title">Focus: Life Safety</div><div class="desc">Evaluates electrical load, plumbing infrastructure, fire suppression, mechanical exhaust, structural connections, and ADA clearances. Outcome: Certificate of Occupancy (CO).</div></div>
+  </div>
+  <div class="section-body">
+    <p>Both tracks run simultaneously from the plan-review stage. A project that clears health but fails building cannot open; neither can a project that clears building but fails health. Coordinating the two packages from the start, ensuring that equipment schedules, utility connections, and spatial layouts satisfy both sets of reviewers, is what produces a first-pass approval rather than a correction cycle that delays opening by weeks.</p>
+  </div>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">Submit the health department and building department packages simultaneously where the jurisdiction allows. Staggered submissions mean staggered corrections. A coordinated simultaneous submission compresses the review timeline and reduces the risk of a correction in one track that requires a change in the other.</div>
+  </div>
+</div>
+
+<div class="page" id="i5">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> HEALTH DEPARTMENT</div>
+  <div class="subsec-tag">I.5 &middot; Designing for the Health Department</div>
+  <h2 class="subsec-title">Designing for the Health Department</h2>
+  <div class="subsec-lede">The health department evaluates the behavior of the kitchen, looking at sanitation, finish schedules, and cross-contamination risks driven by spatial layout. These are design decisions, not installation decisions.</div>
+  <div class="section-body">
+    <p>Health department reviewers read a kitchen layout the same way a food safety inspector reads a kitchen during an operational inspection: they trace the flow of food, staff, and waste to find where cross-contamination risks are highest. A design that fails to establish clear clean-to-dirty separation, or that places hand sinks too far from preparation stations, will receive a correction notice before the first piece of equipment is ordered.</p>
+  </div>
+  <div class="figure-title">Figure I.5.1 &middot; Health Department Design Requirements</div>
+  <table>
+    <thead><tr><th>Requirement</th><th>Standard</th><th>Why It Matters</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Clean-to-Dirty Separation</strong></td><td>Food flow must move from receiving to storage to prep to cooking to service without crossing waste or soiled zones</td><td>Cross-contamination of ready-to-eat food is a primary health violation</td></tr>
+      <tr><td><strong>Hand Sink Placement</strong></td><td>Required within a defined radius of every food preparation station; placement is typically 10 to 15 feet, confirmed with the local AHJ</td><td>Improper placement is one of the most common correction notices on plan review</td></tr>
+      <tr><td><strong>Finish Schedules</strong></td><td>All food-contact and splash surfaces must be smooth, non-absorbent, and cleanable; coved corners required at floor-wall junctions</td><td>Rough or porous surfaces trap bacteria and cannot be sanitized</td></tr>
+      <tr><td><strong>NSF-Listed Equipment</strong></td><td>All food-contact equipment must carry NSF certification (or equivalent)</td><td>Proves to the AHJ that the equipment meets baseline commercial sanitation standards</td></tr>
+      <tr><td><strong>Dedicated Handwashing Sinks</strong></td><td>Handwashing sinks must be dedicated to hand washing only; they cannot double as food prep or equipment sinks</td><td>Mixing uses creates cross-contamination risk and violates the Food Code</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body"><span class="your-company">Your Company</span> designs to the most restrictive standard applicable to the project. When the local code requires hand sinks within 10 feet and the FDA Food Code allows 15 feet, design to 10 feet. The stricter requirement is always the correct baseline.</div>
+  </div>
+</div>
+
+<div class="page" id="i6">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> HEALTH DEPARTMENT</div>
+  <div class="subsec-tag">I.6 &middot; NSF Certification &amp; Sanitation Standards</div>
+  <h2 class="subsec-title">NSF Certification and the Baseline of Sanitation</h2>
+  <div class="subsec-lede">NSF certification is the proof that a piece of commercial equipment meets baseline sanitation standards. Specifying NSF-certified equipment is non-negotiable. It dramatically reduces plan-review rejection risk.</div>
+  <div class="section-body">
+    <p>NSF International certifies commercial foodservice equipment to standards that ensure materials, construction, and cleanability meet commercial sanitation requirements. An AHJ reviewing a kitchen layout looks for NSF certification as the baseline indicator that equipment is appropriate for commercial food service. Equipment without certification, or with certification from an unrecognized body, raises immediate questions that slow the approval process.</p>
+  </div>
+  <div class="figure-title">Figure I.6.1 &middot; NSF Construction Standards</div>
+  <table>
+    <thead><tr><th>Standard</th><th>Requirement</th><th>Why It Matters</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Coved Corners</strong></td><td>Seamless, rounded interior corners at all floor-wall and wall-ceiling junctions in food zones</td><td>Prevents debris buildup and allows complete sanitation without gaps</td></tr>
+      <tr><td><strong>Smooth Welds</strong></td><td>Ground and polished joints at all seams on food-contact surfaces</td><td>Eliminates bacteria traps in crevices between joined surfaces</td></tr>
+      <tr><td><strong>Leg Clearances</strong></td><td>Minimum 6 inches of clearance beneath equipment for floor cleaning</td><td>Allows thorough cleaning under equipment; reduces pest harborage risk</td></tr>
+      <tr><td><strong>Non-Absorbent Materials</strong></td><td>All food-contact surfaces must be smooth, non-porous, and cleanable</td><td>Porous materials cannot be sanitized to commercial standards</td></tr>
+    </tbody>
+  </table>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">Specify NSF certification in every equipment description in the MasterSpec. This language signals to the equipment dealer that <span class="your-company">Your Company</span> will not accept substitutions that lack the certification, protecting the client from a plan-review correction after the equipment is ordered.</div>
+  </div>
+</div>
+
+<div class="page" id="i7">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> CRITICAL UTILITIES</div>
+  <div class="subsec-tag">I.7 &middot; Plumbing Priorities</div>
+  <h2 class="subsec-title">Plumbing Priorities: Drains, Grease, and Air Gaps</h2>
+  <div class="subsec-lede">Commercial kitchen plumbing is more complex than residential plumbing because it must manage grease, food waste, and temperature extremes while satisfying both the health department and public works. Getting it right at the layout stage prevents field corrections.</div>
+  <div class="figure-title">Figure I.7.1 &middot; The Plumbing Trinity</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num">1</div><div class="kicker">Priority One</div><div class="title">Indirect Waste (Air Gap)</div><div class="desc">Required for all food preparation sinks and ice bins. A direct pipe connection to the sewer is illegal because a downstream clog would push raw sewage directly into the food preparation area. The air gap physically breaks the connection.</div></div>
+    <div class="num-card"><div class="num">2</div><div class="kicker">Priority Two</div><div class="title">Floor Sinks and Drains</div><div class="desc">Sized and positioned to capture spills and discharge from food equipment. Sloped floors drain toward floor sinks; improper slope creates standing water and health violations.</div></div>
+    <div class="num-card"><div class="num">3</div><div class="kicker">Priority Three</div><div class="title">Grease Interceptor</div><div class="desc">Mandated by public works to keep fat, oil, and grease out of municipal sewers. Sizing dictates kitchen capacity. Under-sized interceptors back up under production load and cause operational failure.</div></div>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">Every food preparation sink, warewashing sink, and ice bin must discharge through an indirect waste connection, not a direct drain connection. This is the Food Code standard in every jurisdiction <span class="your-company">Your Company</span> works in. A direct connection is a code violation that health departments discover immediately on plan review.</div>
+  </div>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Watch Out: Grease Interceptor Sizing</div>
+    <div class="body">Grease interceptors are sized based on the production volume of the kitchen, not the square footage. An interceptor sized for a school servery will fail under the production load of a hospital kitchen of the same area. Size the interceptor for the actual cooking program, not the footprint.</div>
+  </div>
+</div>
+
+<div class="page" id="i8">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> CRITICAL UTILITIES</div>
+  <div class="subsec-tag">I.8 &middot; Exhaust Hoods &amp; Make-Up Air</div>
+  <h2 class="subsec-title">Exhaust Hoods and the Ventilation Matrix</h2>
+  <div class="subsec-lede">Hood type, coverage, exhaust rate, and make-up air must balance perfectly. An imbalanced ventilation system creates negative pressure, drafts, odor migration, and energy waste, and fails mechanical inspection.</div>
+  <div class="figure-title">Figure I.8.1 &middot; Hood Type Selection Matrix</div>
+  <table>
+    <thead><tr><th>Hood Type</th><th>Primary Function</th><th>Fire Suppression</th><th>Equipment Trigger</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Type I Hood</strong></td><td>Removes grease, smoke, and heat from cooking equipment that produces grease-laden vapors</td><td>Required. Welded exhaust ducting and listed fire suppression system</td><td>Fryers, broilers, griddles, ranges, woks, char-broilers</td></tr>
+      <tr><td><strong>Type II Hood</strong></td><td>Removes heat, moisture, and odors from equipment that does not produce grease vapors</td><td>Not required. Standard galvanized ducting</td><td>High-temp dishwashers, ovens, pasta cookers (AHJ dependent)</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> The Exhaust-to-Make-Up-Air Balance</div>
+    <div class="body">Exhaust volume (CFM out) must equal make-up air (CFM in). A kitchen that exhausts more than it supplies creates negative pressure: doors are hard to open, combustion appliances back-draft, and cold air infiltrates from every unsealed gap. <span class="your-company">Your Company</span> coordinates the exhaust and make-up air calculations with the MEP engineer during Design Development.</div>
+  </div>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice: Ventless Equipment</div>
+    <div class="body">Specify ventless combi ovens where the kitchen layout, budget, or building conditions make hood installation impractical. Ventless models carry UL 710B certification and require no exhaust ducting, eliminating the Type I hood cost ($3,000+ per linear foot) and the make-up air unit. Confirm the ventless certification is current and AHJ-accepted in the specific jurisdiction before committing to the specification.</div>
+  </div>
+</div>
+
+<div class="page" id="i9">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> CRITICAL UTILITIES</div>
+  <div class="subsec-tag">I.9 &middot; Fire Suppression</div>
+  <h2 class="subsec-title">Fire Suppression: Precision Alignment</h2>
+  <div class="subsec-lede">Fire suppression nozzles are engineered to target specific cooking surfaces and vat sizes. The suppression system must perfectly match the final cooking lineup. A change to equipment after the system is designed forces a costly permit resubmittal.</div>
+  <div class="section-body">
+    <p>Commercial kitchen fire suppression systems are listed systems: each system is certified for specific equipment configurations under a listed arrangement. Nozzle positions, coverage areas, and agent quantities are engineered to the exact equipment lineup. Substituting a 14-inch fryer for an 18-inch fryer invalidates the suppression design and requires a new layout, new calculations, and in most cases a new permit submission.</p>
+  </div>
+  <div class="figure-title">Figure I.9.1 &middot; Fire Suppression Design Rules</div>
+  <table>
+    <thead><tr><th>Rule</th><th>What It Means</th><th>What Violating It Costs</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Lock the hotline early</strong></td><td>Finalize the cooking equipment schedule before the suppression design begins</td><td>Equipment changes after design force a full suppression redesign and permit resubmittal</td></tr>
+      <tr><td><strong>Nozzle specificity</strong></td><td>Each nozzle is positioned and sized for the specific appliance it protects</td><td>Improper coverage = failed inspection; potential liability for fire damage</td></tr>
+      <tr><td><strong>No substitutions without re-engineering</strong></td><td>Swapping one piece of cooking equipment for another of different size requires new suppression calculations</td><td>Delayed occupancy; contractor disputes; potential insurance complications</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">Lock the hotline equipment schedule before the fire suppression design begins. Moving equipment means moving suppression nozzles and re-engineering the agent calculations. Any cooking equipment change after the suppression design is issued must be communicated to the suppression contractor immediately. <span class="your-company">Your Company</span> flags this risk in every proposal scope description.</div>
+  </div>
+</div>
+
+<div class="page" id="i10">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> CRITICAL UTILITIES</div>
+  <div class="subsec-tag">I.10 &middot; Electrical Integrity</div>
+  <h2 class="subsec-title">Electrical Integrity: The Tag-to-Schedule Match</h2>
+  <div class="subsec-lede">Every piece of equipment in a commercial kitchen has a nameplate specifying its voltage, phase, amperage, and connection type. The electrical design must match that nameplate exactly. Mismatches create field change orders, delays, and potential equipment warranty voids.</div>
+  <div class="section-body">
+    <p>The tag-to-schedule match is the discipline of verifying that the electrical connection specified in the construction documents matches the actual equipment nameplate. A spec that calls for 208V/1-phase and an equipment nameplate that requires 240V/3-phase creates a field change order the day the equipment is delivered. That change order delays the opening, creates contractor disputes, and may void the equipment warranty if the wrong voltage is applied even temporarily.</p>
+  </div>
+  <div class="figure-title">Figure I.10.1 &middot; Electrical Coordination Checklist</div>
+  <table>
+    <thead><tr><th>Verification Point</th><th>What to Confirm</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Voltage</strong></td><td>Nameplate voltage matches the building's available service (208V, 240V, or 480V systems)</td></tr>
+      <tr><td><strong>Phase</strong></td><td>Single-phase vs. three-phase matches both the equipment requirement and the panel capacity</td></tr>
+      <tr><td><strong>Amperage</strong></td><td>Circuit breaker and wire gauge sized for the nameplate amperage, not a rounded estimate</td></tr>
+      <tr><td><strong>Connection type</strong></td><td>NEMA plug configuration or hard-wired connection matches the equipment specification</td></tr>
+      <tr><td><strong>UL listing</strong></td><td>Equipment carries a current UL or ETL listing number confirming factory testing</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Watch Out</div>
+    <div class="body">Equipment manufacturers sometimes change nameplate specifications between the time the equipment is specified and the time it is delivered. Before the electrical rough-in begins, confirm current nameplate data directly from the dealer. A submittal review at the start of construction prevents the field mismatch that causes opening delays.</div>
+  </div>
+</div>
+
+<div class="page" id="i11">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> CRITICAL UTILITIES</div>
+  <div class="subsec-tag">I.11 &middot; ADA Accessibility</div>
+  <h2 class="subsec-title">ADA Accessibility Requirements</h2>
+  <div class="subsec-lede">The Americans with Disabilities Act applies to all commercial and public facilities. Counter heights, reach ranges, clearances, and accessible routes are federal requirements, not design preferences.</div>
+  <div class="figure-title">Figure I.11.1 &middot; Key ADA Requirements for Foodservice Facilities</div>
+  <table>
+    <thead><tr><th>Element</th><th>ADA Standard</th><th>Design Application</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Counter Heights</strong></td><td>Maximum 34 inches for accessible transaction surfaces</td><td>POS stations, serving counters, and customer-side service areas in serveries</td></tr>
+      <tr><td><strong>Forward Reach</strong></td><td>Maximum 48 inches above finished floor; minimum 15 inches</td><td>Controls, dispensers, and service items accessible from a wheelchair position</td></tr>
+      <tr><td><strong>Side Reach</strong></td><td>Maximum 54 inches above finished floor</td><td>Side-mounted controls and dispensers in serving areas</td></tr>
+      <tr><td><strong>Knee Clearance</strong></td><td>27 inches minimum height, 30 inches minimum width, 19 inches minimum depth</td><td>Under-counter clearance at accessible seating and workstations</td></tr>
+      <tr><td><strong>Accessible Routes</strong></td><td>36 inches minimum clear width; 60 inches at turning radius</td><td>All paths of travel from entry to seating and service areas</td></tr>
+    </tbody>
+  </table>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">Confirm ADA requirements with the building department during the Design Development phase. Some jurisdictions adopt state accessibility codes that differ from the federal ADA standard, typically in the stricter direction. Design to the more restrictive of the two, and document the standard used in the drawing set.</div>
+  </div>
+</div>
+
+<div class="page" id="i12">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> CRITICAL UTILITIES</div>
+  <div class="subsec-tag">I.12 &middot; Laundry &amp; Mechanical Compliance</div>
+  <h2 class="subsec-title">Laundry and Mechanical Compliance</h2>
+  <div class="subsec-lede">Commercial laundry facilities carry their own compliance requirements: venting, water supply, drainage, and utility load that differ from foodservice design. When laundry is in scope, it adds a separate compliance layer to the engagement.</div>
+  <div class="figure-title">Figure I.12.1 &middot; Commercial Laundry Compliance Requirements</div>
+  <table>
+    <thead><tr><th>System</th><th>Requirement</th><th>Design Impact</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Venting</strong></td><td>Commercial dryers require dedicated exhaust runs terminated outdoors; no shared duct runs with kitchen exhaust</td><td>Separate chase or exterior penetration required; coordinate with mechanical early</td></tr>
+      <tr><td><strong>Water Supply</strong></td><td>Hot and cold water supply sized for the combined flow rate of all washers at simultaneous operation</td><td>Undersized supply creates inconsistent wash temperatures and increased cycle times</td></tr>
+      <tr><td><strong>Drainage</strong></td><td>Floor drains positioned beneath washer drain outlets; sized for full discharge during rapid drain cycles</td><td>Undersized drains back up; floor slopes must direct water to drains, not doorways</td></tr>
+      <tr><td><strong>Electrical Load</strong></td><td>Commercial washer-extractor and dryer loads are significant; three-phase power commonly required</td><td>Panel capacity and electrical service confirmed in SD; coordinate with electrical engineer</td></tr>
+      <tr><td><strong>ADA Clearances</strong></td><td>Front-loading equipment requires knee clearance below; accessible controls at required reach range</td><td>Equipment selection affects ADA compliance from the first layout</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">When laundry is in scope alongside foodservice, treat it as a separate compliance track from the start. The health department, building department, and MEP coordination requirements for laundry differ from foodservice. Confirm which AHJ has jurisdiction over the laundry space in the specific facility type, as institutional laundry is sometimes governed by a different regulatory body than the kitchen.</div>
+  </div>
+</div>
+
+<div class="page" id="i13">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> INSPECTION READINESS</div>
+  <div class="subsec-tag">I.13 &middot; The Plan Review Package</div>
+  <h2 class="subsec-title">The Health Department Plan Review Package</h2>
+  <div class="subsec-lede">A complete, coordinated plan-review package is the single biggest lever on review speed. Incomplete submissions cycle back; complete submissions move forward.</div>
+  <div class="section-body">
+    <p>Health departments review a specific set of documents before issuing a plan approval. Missing any element from the required submission delays the review clock: the reviewer returns the package, the resubmission queue restarts, and the project opening timeline extends. <span class="your-company">Your Company</span> assembles the plan review package as a complete submission, not a phased submission, to prevent a correction cycle that costs weeks.</p>
+  </div>
+  <div class="figure-title">Figure I.13.1 &middot; Standard Plan Review Submission Components</div>
+  <table>
+    <thead><tr><th>Document</th><th>What It Shows</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Equipment Schedule</strong></td><td>Full list of all foodservice equipment with model numbers, manufacturer, NSF certification status, and utility connections</td></tr>
+      <tr><td><strong>Equipment Cut Sheets</strong></td><td>Manufacturer specification sheets for each piece of equipment, confirming NSF listing and utility requirements</td></tr>
+      <tr><td><strong>Kitchen Layout Drawing</strong></td><td>Dimensioned floor plan showing equipment placement, hand sink locations, traffic flow, and clean-to-dirty separation</td></tr>
+      <tr><td><strong>Finish Schedule</strong></td><td>All wall, floor, and ceiling finishes in the food prep and storage zones confirming smooth, non-porous, and cleanable materials</td></tr>
+      <tr><td><strong>Plumbing Diagram</strong></td><td>Drain connections, air gaps, grease interceptor, and hand sink locations coordinated with the layout</td></tr>
+      <tr><td><strong>Ventilation Diagram</strong></td><td>Hood coverage, exhaust CFM, make-up air locations, and Type I vs. Type II designations</td></tr>
+    </tbody>
+  </table>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">Request a pre-submittal conference with the health department plan reviewer before submitting. A 30-minute conversation that surfaces jurisdiction-specific requirements prevents a correction notice after the formal submission clock starts. Most health departments offer this service; <span class="your-company">Your Company</span> recommends using it on every project with a new or unfamiliar AHJ.</div>
+  </div>
+</div>
+
+<div class="page" id="i14">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> INSPECTION READINESS</div>
+  <div class="subsec-tag">I.14 &middot; Inspection Readiness Checklist</div>
+  <h2 class="subsec-title">Inspection Readiness Checklist</h2>
+  <div class="subsec-lede">The inspection readiness checklist confirms that every compliance element is in place before the inspector arrives. A single missing item can result in a failed inspection and a delay to opening that costs the client thousands of dollars per day.</div>
+  <div class="checklist-head">Health Department Readiness</div>
+  <ul class="checklist">
+    <li>All equipment matches the approved equipment schedule exactly (model numbers, NSF certification)</li>
+    <li>Hand sinks installed at approved locations, dedicated to handwashing only</li>
+    <li>Clean-to-dirty separation maintained through equipment layout and traffic flow</li>
+    <li>All food-contact surfaces smooth, non-porous, and cleanable</li>
+    <li>Coved corners installed at all floor-wall junctions in food zones</li>
+    <li>Air gaps installed at all food prep sinks, warewashing, and ice bin drains</li>
+    <li>Grease interceptor installed and accessible for maintenance</li>
+  </ul>
+  <div class="checklist-head">Building Department Readiness</div>
+  <ul class="checklist">
+    <li>Type I hoods cover all required cooking equipment; fire suppression system installed and tested</li>
+    <li>Exhaust and make-up air volumes balanced and confirmed by test</li>
+    <li>All electrical connections match approved equipment schedules (voltage, phase, amperage)</li>
+    <li>Equipment has current UL or ETL listing numbers visible on nameplate</li>
+    <li>ADA clearances confirmed at all accessible counters, routes, and controls</li>
+    <li>Floor slopes drain to floor sinks; no standing water in food zones</li>
+    <li>Hotline equipment matches the approved fire suppression layout exactly</li>
+  </ul>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">Run the inspection readiness checklist before requesting the final inspection, not after. A failed inspection restarts the scheduling queue: the inspector returns only when the queue allows, which can add days to weeks to the opening timeline. Inspect yourself first, fix what fails, then call the AHJ.</div>
+  </div>
+</div>
+
+<div class="page" id="quiz">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag">&#10003; Comprehensive Test</div>
+  <h2 class="subsec-title">Code, Compliance &amp; Health Department: Assessment</h2>
+  <div class="subsec-lede">15 questions across the section. Each has one correct answer. A passing score is 12 correct.</div>
+
+  <div class="quiz-q"><div class="qnum">1</div><div class="qtext">AHJ stands for:</div><ul class="opts"><li class="opt"><span class="letter">A</span>Authority Having Jurisdiction</li><li class="opt"><span class="letter">B</span>Approved Health and Janitorial</li><li class="opt"><span class="letter">C</span>Architectural and Housing Journal</li><li class="opt"><span class="letter">D</span>American Hospitality Jurisdiction</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">2</div><div class="qtext">When two applicable codes conflict on a design requirement, which standard governs?</div><ul class="opts"><li class="opt"><span class="letter">A</span>The more lenient standard, to minimize client cost</li><li class="opt"><span class="letter">B</span>The stricter standard always governs</li><li class="opt"><span class="letter">C</span>The national standard overrides local codes</li><li class="opt"><span class="letter">D</span>The designer chooses which standard to apply</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">3</div><div class="qtext">A Type I hood is required above which type of commercial cooking equipment?</div><ul class="opts"><li class="opt"><span class="letter">A</span>High-temperature dishwashers and standard ovens only</li><li class="opt"><span class="letter">B</span>Pasta cookers and steamers only</li><li class="opt"><span class="letter">C</span>Fryers, broilers, griddles, ranges, woks, and char-broilers that produce grease-laden vapors</li><li class="opt"><span class="letter">D</span>Any equipment that produces heat</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">4</div><div class="qtext">NSF certification on commercial foodservice equipment primarily proves:</div><ul class="opts"><li class="opt"><span class="letter">A</span>The equipment was manufactured in the United States</li><li class="opt"><span class="letter">B</span>The equipment meets baseline commercial sanitation standards for materials and cleanability</li><li class="opt"><span class="letter">C</span>The equipment is covered by a commercial warranty</li><li class="opt"><span class="letter">D</span>The equipment qualifies for federal food program use</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">5</div><div class="qtext">Why must food preparation sinks discharge through an indirect waste connection (air gap) rather than a direct drain connection?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Direct connections are more expensive to install</li><li class="opt"><span class="letter">B</span>Indirect connections allow faster draining</li><li class="opt"><span class="letter">C</span>A direct pipe connection allows a downstream sewer backup to push raw sewage into the food preparation area</li><li class="opt"><span class="letter">D</span>Local codes require air gaps only on ice machines, not prep sinks</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">6</div><div class="qtext">The dual-track approval path for commercial kitchens requires simultaneous approval from which two primary authorities?</div><ul class="opts"><li class="opt"><span class="letter">A</span>The fire marshal and the ADA inspector</li><li class="opt"><span class="letter">B</span>The health department and the building department</li><li class="opt"><span class="letter">C</span>The NSF and the USDA</li><li class="opt"><span class="letter">D</span>The state licensing board and the local zoning authority</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">7</div><div class="qtext">A grease interceptor is required primarily to:</div><ul class="opts"><li class="opt"><span class="letter">A</span>Filter cooking odors from the kitchen exhaust</li><li class="opt"><span class="letter">B</span>Reduce the temperature of hot water before it enters the drain</li><li class="opt"><span class="letter">C</span>Capture fat, oil, and grease before it enters the municipal sewer system</li><li class="opt"><span class="letter">D</span>Collect food waste for composting</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">8</div><div class="qtext">What is the consequence of changing a cooking equipment lineup after the fire suppression system design is complete?</div><ul class="opts"><li class="opt"><span class="letter">A</span>No consequence if the new equipment is the same type</li><li class="opt"><span class="letter">B</span>The suppression system must be re-engineered and a new permit submission may be required</li><li class="opt"><span class="letter">C</span>The suppression contractor adjusts nozzles without additional paperwork</li><li class="opt"><span class="letter">D</span>Only the hood design needs to change, not the suppression system</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">9</div><div class="qtext">In the kitchen code stack, the AHJ's interpretation of a code provision:</div><ul class="opts"><li class="opt"><span class="letter">A</span>Can be overridden by the national code if they conflict</li><li class="opt"><span class="letter">B</span>Only applies to new construction, not renovations</li><li class="opt"><span class="letter">C</span>Overrides the standard text in every conflict and is the final authority</li><li class="opt"><span class="letter">D</span>Is advisory only; the designer may choose to follow the national standard instead</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">10</div><div class="qtext">The tag-to-schedule match in electrical coordination means:</div><ul class="opts"><li class="opt"><span class="letter">A</span>Equipment delivery tags must be removed before the health inspection</li><li class="opt"><span class="letter">B</span>The electrical connection specified in the construction documents matches the actual equipment nameplate specifications exactly</li><li class="opt"><span class="letter">C</span>All equipment must be tagged with the contractor's identification number</li><li class="opt"><span class="letter">D</span>Equipment schedule tags must match the floor plan numbering system</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">11</div><div class="qtext">The maximum counter height for an accessible transaction surface under ADA is:</div><ul class="opts"><li class="opt"><span class="letter">A</span>36 inches</li><li class="opt"><span class="letter">B</span>34 inches</li><li class="opt"><span class="letter">C</span>42 inches</li><li class="opt"><span class="letter">D</span>30 inches</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">12</div><div class="qtext">Exhaust volume (CFM out) in a commercial kitchen ventilation system must equal:</div><ul class="opts"><li class="opt"><span class="letter">A</span>At least 150% of the make-up air to create positive pressure</li><li class="opt"><span class="letter">B</span>The make-up air volume (CFM in) to maintain balanced pressure</li><li class="opt"><span class="letter">C</span>Half the make-up air volume to allow for natural infiltration</li><li class="opt"><span class="letter">D</span>Whatever the hood manufacturer specifies regardless of make-up air</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">13</div><div class="qtext">Which of the following is a primary benefit of submitting a complete, coordinated plan-review package to the health department?</div><ul class="opts"><li class="opt"><span class="letter">A</span>It guarantees automatic approval without a site inspection</li><li class="opt"><span class="letter">B</span>It prevents a correction notice that restarts the review queue and delays the opening timeline</li><li class="opt"><span class="letter">C</span>It allows the project to open before final permits are issued</li><li class="opt"><span class="letter">D</span>It reduces the equipment budget by eliminating NSF requirements</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">14</div><div class="qtext">When laundry is in scope alongside a foodservice project, Your Company treats it as:</div><ul class="opts"><li class="opt"><span class="letter">A</span>A minor addition that uses the same compliance track as the kitchen</li><li class="opt"><span class="letter">B</span>A separate compliance track with its own venting, water supply, drainage, and utility load requirements</li><li class="opt"><span class="letter">C</span>An optional scope item that does not require AHJ approval</li><li class="opt"><span class="letter">D</span>An architectural element outside Your Company's engagement scope</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">15</div><div class="qtext">The correct time to run the inspection readiness checklist is:</div><ul class="opts"><li class="opt"><span class="letter">A</span>After the AHJ schedules the final inspection</li><li class="opt"><span class="letter">B</span>Before requesting the final inspection, so that any failures can be corrected before the inspector arrives</li><li class="opt"><span class="letter">C</span>During the construction document phase</li><li class="opt"><span class="letter">D</span>Only if the project has had previous inspection failures</li></ul></div>
+</div>
+
+<div class="legend-page" id="legend1">
+  <div class="crumb" style="color:var(--text-secondary);">SECTION I <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag" style="color:var(--brass-soft);">&#9745; Answer Legend &middot; Part 1 of 2</div>
+  <div class="legend-title">Answers &middot; Questions 1 through 8</div>
+  <div class="legend-sub">Do not review until the test is complete.</div>
+  <div class="legend-q"><div class="head">Question 1</div><div class="answer">Correct: A &middot; Authority Having Jurisdiction</div><div class="explain">AHJ = Authority Having Jurisdiction. The local official whose interpretation of any code provision is final and overrides standard text. See I.2.</div></div>
+  <div class="legend-q"><div class="head">Question 2</div><div class="answer">Correct: B &middot; The stricter standard always governs</div><div class="explain">When two codes conflict, design to the stricter requirement. This applies between national and local codes, and between different national codes governing the same element. See I.3.</div></div>
+  <div class="legend-q"><div class="head">Question 3</div><div class="answer">Correct: C &middot; Fryers, broilers, griddles, ranges, woks, and char-broilers</div><div class="explain">Type I hoods are required above equipment that produces grease-laden vapors. Type II hoods are for equipment that produces only heat and moisture without grease. See I.8.</div></div>
+  <div class="legend-q"><div class="head">Question 4</div><div class="answer">Correct: B &middot; The equipment meets baseline commercial sanitation standards for materials and cleanability</div><div class="explain">NSF certification proves to the AHJ that the equipment is appropriate for commercial food service. It covers materials, construction, smooth welds, coved corners, and cleanability. See I.6.</div></div>
+  <div class="legend-q"><div class="head">Question 5</div><div class="answer">Correct: C &middot; A direct pipe connection allows a downstream sewer backup to push raw sewage into the food preparation area</div><div class="explain">The air gap physically breaks the connection between the drain and the sewer system. A direct connection is illegal under the Food Code in all jurisdictions. See I.7.</div></div>
+  <div class="legend-q"><div class="head">Question 6</div><div class="answer">Correct: B &middot; The health department and the building department</div><div class="explain">The dual-track path runs health (sanitation, food flow, NSF) and building (life safety, MEP, ADA) simultaneously. Both must approve for the project to open. See I.4.</div></div>
+  <div class="legend-q"><div class="head">Question 7</div><div class="answer">Correct: C &middot; Capture fat, oil, and grease before it enters the municipal sewer system</div><div class="explain">Grease interceptors prevent FOG from entering municipal sewers, where it creates blockages. Sizing is based on production volume, not kitchen area. See I.7.</div></div>
+  <div class="legend-q"><div class="head">Question 8</div><div class="answer">Correct: B &middot; The suppression system must be re-engineered and a new permit submission may be required</div><div class="explain">Fire suppression systems are listed to specific equipment configurations. Changing the cooking lineup invalidates the suppression design. Lock the hotline before the suppression design begins. See I.9.</div></div>
+</div>
+
+<div class="legend-page" id="legend2">
+  <div class="crumb" style="color:var(--text-secondary);">SECTION I <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag" style="color:var(--brass-soft);">&#9745; Answer Legend &middot; Part 2 of 2</div>
+  <div class="legend-title">Answers &middot; Questions 9 through 15</div>
+  <div class="legend-sub">The remaining answers with reasoning and subsection cross-references.</div>
+  <div class="legend-q"><div class="head">Question 9</div><div class="answer">Correct: C &middot; Overrides the standard text in every conflict and is the final authority</div><div class="explain">The AHJ's interpretation is final. No national code, state code, or design standard can override a written AHJ determination. This is why gray-area interpretations must be confirmed in writing. See I.2 and I.3.</div></div>
+  <div class="legend-q"><div class="head">Question 10</div><div class="answer">Correct: B &middot; The electrical connection specified in construction documents matches the actual equipment nameplate exactly</div><div class="explain">Voltage, phase, amperage, and connection type must match. A mismatch creates a field change order the day equipment is delivered. Confirm current nameplate data from the dealer before rough-in. See I.10.</div></div>
+  <div class="legend-q"><div class="head">Question 11</div><div class="answer">Correct: B &middot; 34 inches</div><div class="explain">ADA requires accessible transaction surfaces to be no higher than 34 inches above finished floor. This applies to POS stations, serving counters, and customer-facing service areas. See I.11.</div></div>
+  <div class="legend-q"><div class="head">Question 12</div><div class="answer">Correct: B &middot; The make-up air volume (CFM in) to maintain balanced pressure</div><div class="explain">Exhaust volume must equal make-up air volume. An imbalance creates negative pressure: doors are hard to open, combustion appliances back-draft, and cold air infiltrates through every gap. See I.8.</div></div>
+  <div class="legend-q"><div class="head">Question 13</div><div class="answer">Correct: B &middot; It prevents a correction notice that restarts the review queue and delays the opening timeline</div><div class="explain">Incomplete submissions cycle back. A complete submission moves forward. The review queue delay from a correction notice can add weeks to the opening timeline. See I.13.</div></div>
+  <div class="legend-q"><div class="head">Question 14</div><div class="answer">Correct: B &middot; A separate compliance track with its own venting, water supply, drainage, and utility load requirements</div><div class="explain">Laundry compliance differs from foodservice compliance in every utility system. Treating it as a separate track from the start prevents missed requirements at plan review. See I.12.</div></div>
+  <div class="legend-q"><div class="head">Question 15</div><div class="answer">Correct: B &middot; Before requesting the final inspection, so failures can be corrected before the inspector arrives</div><div class="explain">A failed inspection restarts the scheduling queue. The AHJ returns only when the queue allows, which can add days or weeks to the opening timeline. Inspect yourself first, fix what fails, then call the AHJ. See I.14.</div></div>
+</div>
+
+<div class="page" id="flash-grid">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9670; Flashcards &middot; Reference Grid</div>
+  <h2 class="subsec-title">Twelve Cards &middot; Front and Back</h2>
+  <div class="subsec-lede">Twelve flashcards covering the key compliance concepts from Section I.</div>
+  <div class="flash-grid">
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">1</span>AHJ</div><div class="flash-grid-back">Authority Having Jurisdiction. The local official whose interpretation of any code provision is final and overrides standard text. Confirm gray areas in writing.<div class="flash-grid-ref">(I.2)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">2</span>The Stricter Code Rule</div><div class="flash-grid-back">When two codes conflict, always design to the stricter requirement. The AHJ's interpretation overrides standard text. Local adoptions frequently modify national standards.<div class="flash-grid-ref">(I.3)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">3</span>The Four Approval Gates</div><div class="flash-grid-back">Health (sanitation), Building (life safety/MEP), Fire Marshal (suppression), Accessibility (ADA). All four must approve for a project to open.<div class="flash-grid-ref">(I.1)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">4</span>Dual-Track Approval</div><div class="flash-grid-back">Health department (sanitation/food flow) and Building department (life safety/infrastructure) run simultaneously. Missing either approval prevents opening.<div class="flash-grid-ref">(I.4)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">5</span>NSF Certification</div><div class="flash-grid-back">Proves to the AHJ that equipment meets baseline commercial sanitation standards. Coved corners, smooth welds, 6-inch leg clearance, non-absorbent surfaces.<div class="flash-grid-ref">(I.6)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">6</span>Air Gap (Indirect Waste)</div><div class="flash-grid-back">Required at all food prep sinks, warewashing, and ice bins. Physically breaks the connection to the sewer to prevent sewage backflow into food preparation areas.<div class="flash-grid-ref">(I.7)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">7</span>Type I vs. Type II Hood</div><div class="flash-grid-back">Type I: grease-laden vapors, fire suppression required. Equipment: fryers, griddles, broilers. Type II: heat and moisture only, no suppression. Equipment: dishwashers, ovens.<div class="flash-grid-ref">(I.8)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">8</span>CFM Balance</div><div class="flash-grid-back">Exhaust CFM must equal make-up air CFM. An imbalance creates negative pressure: hard-to-open doors, back-drafting combustion appliances, cold air infiltration.<div class="flash-grid-ref">(I.8)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">9</span>Fire Suppression Lineup Lock</div><div class="flash-grid-back">Lock the hotline equipment schedule before the suppression design begins. Any equipment change after the design is issued requires re-engineering and may require a new permit.<div class="flash-grid-ref">(I.9)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">10</span>Tag-to-Schedule Match</div><div class="flash-grid-back">Every electrical connection in the construction documents must match the actual equipment nameplate: voltage, phase, amperage, and connection type. Mismatches cause field change orders.<div class="flash-grid-ref">(I.10)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">11</span>ADA Counter Height</div><div class="flash-grid-back">Maximum 34 inches for accessible transaction surfaces. Minimum 36-inch clear path width. 60-inch turning radius. Knee clearance: 27H x 30W x 19D inches minimum.<div class="flash-grid-ref">(I.11)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">12</span>Inspect Before Calling the AHJ</div><div class="flash-grid-back">Run the inspection readiness checklist before requesting the final inspection. A failed inspection restarts the scheduling queue and can delay opening by days or weeks.<div class="flash-grid-ref">(I.14)</div></div></div>
+  </div>
+</div>
+
+<div class="page" id="flip-cards">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9633; Flashcards &middot; Interactive</div>
+  <h2 class="subsec-title">Tap the Card to See the Answer</h2>
+  <div class="subsec-lede">Twelve cards, one at a time. Read the front, attempt the back from memory, then tap to check.</div>
+  <div class="flip-container">
+    <div class="flip-card" id="flip-card" onclick="flipCard()">
+      <div class="flip-front-label" id="flip-label">Term &middot; Tap to Reveal</div>
+      <div class="flip-front-text" id="flip-front">AHJ</div>
+      <div class="flip-back-text" id="flip-back">Authority Having Jurisdiction. The local official whose interpretation of any code provision is final. Confirm gray areas in writing before finalizing the design. (I.2)</div>
+    </div>
+    <div class="flip-hint">Tap card to flip &middot; Use arrows to navigate</div>
+    <div class="flip-nav">
+      <button class="flip-btn" onclick="prevCard()">&#8592; Previous</button>
+      <span class="flip-counter" id="flip-counter">1 of 12</span>
+      <button class="flip-btn" onclick="nextCard()">Next &#8594;</button>
+    </div>
+    <div class="flip-dots" id="flip-dots"></div>
+  </div>
+</div>
+
+<div class="page" id="cut-cards">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9986; Printable Cut-Out Study Cards</div>
+  <h2 class="subsec-title">Print, Cut, Carry</h2>
+  <div class="subsec-lede">Twelve cards arranged for printing. Cut along the borders. Keep them on your desk.</div>
+  <div class="cut-grid">
+    <div class="cut-card"><div class="term">AHJ</div><div class="def">Authority Having Jurisdiction. Final authority on all code interpretations. Overrides standard text. Confirm gray areas in writing before design is committed.</div></div>
+    <div class="cut-card"><div class="term">The Stricter Code Rule</div><div class="def">When two codes conflict, design to the stricter requirement. Local adoptions frequently modify national standards; AHJ interpretation is always final.</div></div>
+    <div class="cut-card"><div class="term">Four Approval Gates</div><div class="def">Health (sanitation), Building (life safety/MEP), Fire Marshal (suppression), ADA (accessibility). All four must approve for a project to open.</div></div>
+    <div class="cut-card"><div class="term">Dual-Track Approval</div><div class="def">Health department and Building department run simultaneously. A complete, coordinated submission compresses review time and reduces correction cycles.</div></div>
+    <div class="cut-card"><div class="term">NSF Certification</div><div class="def">Proves equipment meets baseline commercial sanitation. Coved corners, smooth welds, 6-inch leg clearance. Required on all food-contact equipment specifications.</div></div>
+    <div class="cut-card"><div class="term">Air Gap (Indirect Waste)</div><div class="def">Required at all food prep sinks, warewashing, and ice bins. Physically breaks the sewer connection. A direct connection is a Food Code violation.</div></div>
+    <div class="cut-card"><div class="term">Type I vs. Type II Hood</div><div class="def">Type I: grease vapors, fire suppression required (fryers, griddles, broilers). Type II: heat/moisture only, no suppression (dishwashers, standard ovens).</div></div>
+    <div class="cut-card"><div class="term">CFM Balance</div><div class="def">Exhaust CFM = Make-up air CFM. Imbalance creates negative pressure: hard-to-open doors, back-drafting, cold air infiltration, and energy waste.</div></div>
+    <div class="cut-card"><div class="term">Fire Suppression Lineup Lock</div><div class="def">Lock hotline equipment schedule before suppression design begins. Any change after design requires re-engineering and possibly a new permit submission.</div></div>
+    <div class="cut-card"><div class="term">Tag-to-Schedule Match</div><div class="def">Electrical connections in construction documents must match equipment nameplates: voltage, phase, amperage, connection type. Mismatches = field change orders.</div></div>
+    <div class="cut-card"><div class="term">ADA Counter Height</div><div class="def">Maximum 34 inches for accessible transaction surfaces. 36-inch clear path. 60-inch turning radius. Federal requirement on all commercial and public projects.</div></div>
+    <div class="cut-card"><div class="term">Inspect Before Calling the AHJ</div><div class="def">Run the checklist before requesting final inspection. A failed inspection restarts the scheduling queue and can delay opening by days or weeks.</div></div>
+  </div>
+</div>
+
+
+<!-- I-SLIDES -->
+<div class="page" id="i-slides">
+  <div class="crumb">SECTION I <span class="dot">&middot;</span> PRESENTATION</div>
+  <div class="subsec-tag">Full Slide Deck</div>
+  <h2 class="subsec-title">Code and Compliance Blueprint</h2>
+  <div class="subsec-lede">The complete presentation for this section. Each slide is embedded directly. Scroll through all 15 slides below.</div>
+  <style>.slide-img{width:100%;display:block;border-radius:2px;border:1px solid var(--rule);margin-bottom:8px;}</style>
+  <img class="slide-img" src="media/i/slides/slide01.png" alt="Slide 1 of 15" loading="lazy">
+  <img class="slide-img" src="media/i/slides/slide02.png" alt="Slide 2 of 15" loading="lazy">
+  <img class="slide-img" src="media/i/slides/slide03.png" alt="Slide 3 of 15" loading="lazy">
+  <img class="slide-img" src="media/i/slides/slide04.png" alt="Slide 4 of 15" loading="lazy">
+  <img class="slide-img" src="media/i/slides/slide05.png" alt="Slide 5 of 15" loading="lazy">
+  <img class="slide-img" src="media/i/slides/slide06.png" alt="Slide 6 of 15" loading="lazy">
+  <img class="slide-img" src="media/i/slides/slide07.png" alt="Slide 7 of 15" loading="lazy">
+  <img class="slide-img" src="media/i/slides/slide08.png" alt="Slide 8 of 15" loading="lazy">
+  <img class="slide-img" src="media/i/slides/slide09.png" alt="Slide 9 of 15" loading="lazy">
+  <img class="slide-img" src="media/i/slides/slide10.png" alt="Slide 10 of 15" loading="lazy">
+  <img class="slide-img" src="media/i/slides/slide11.png" alt="Slide 11 of 15" loading="lazy">
+  <img class="slide-img" src="media/i/slides/slide12.png" alt="Slide 12 of 15" loading="lazy">
+  <img class="slide-img" src="media/i/slides/slide13.png" alt="Slide 13 of 15" loading="lazy">
+  <img class="slide-img" src="media/i/slides/slide14.png" alt="Slide 14 of 15" loading="lazy">
+  <img class="slide-img" src="media/i/slides/slide15.png" alt="Slide 15 of 15" loading="lazy">
+</div>
+
+</main>
+
+<script>
+const cards=[
+  {front:'AHJ',back:'Authority Having Jurisdiction. The local official whose interpretation of any code provision is final. Confirm gray areas in writing before finalizing the design. (I.2)'},
+  {front:'The Stricter Code Rule',back:'When two codes conflict, always design to the stricter requirement. Local adoptions frequently modify national standards; AHJ interpretation overrides standard text. (I.3)'},
+  {front:'The Four Approval Gates',back:'Health (sanitation), Building (life safety/MEP), Fire Marshal (suppression), Accessibility (ADA). All four must approve for a project to open. (I.1)'},
+  {front:'Dual-Track Approval',back:'Health department and Building department run simultaneously. A complete, coordinated plan-review package compresses review time and reduces correction cycles. (I.4)'},
+  {front:'NSF Certification',back:'Proves to the AHJ that equipment meets baseline commercial sanitation standards. Coved corners, smooth welds, 6-inch leg clearance, non-absorbent surfaces. (I.6)'},
+  {front:'Air Gap (Indirect Waste)',back:'Required at all food prep sinks, warewashing, and ice bins. Physically breaks the sewer connection to prevent sewage backflow into food preparation areas. (I.7)'},
+  {front:'Type I vs. Type II Hood',back:'Type I: grease-laden vapors, fire suppression required. Equipment: fryers, griddles, broilers. Type II: heat and moisture only, no suppression required. (I.8)'},
+  {front:'CFM Balance',back:'Exhaust CFM must equal make-up air CFM. An imbalance creates negative pressure: hard-to-open doors, back-drafting combustion appliances, cold air infiltration. (I.8)'},
+  {front:'Fire Suppression Lineup Lock',back:'Lock the hotline equipment schedule before the suppression design begins. Any equipment change after design requires re-engineering and may require a new permit. (I.9)'},
+  {front:'Tag-to-Schedule Match',back:'Electrical connections in construction documents must match equipment nameplates: voltage, phase, amperage, and connection type. Mismatches cause field change orders on delivery day. (I.10)'},
+  {front:'ADA Counter Height',back:'Maximum 34 inches for accessible transaction surfaces. 36-inch minimum clear path width. 60-inch turning radius. Federal requirement on all commercial projects. (I.11)'},
+  {front:'Inspect Before Calling the AHJ',back:'Run the inspection readiness checklist before requesting the final inspection. A failed inspection restarts the scheduling queue, potentially delaying opening by days or weeks. (I.14)'}
+];
+let current=0,flipped=false;
+function buildDots(){const d=document.getElementById('flip-dots');d.innerHTML='';cards.forEach((_,i)=>{const dot=document.createElement('span');dot.className='flip-dot'+(i===0?' active':'');dot.onclick=()=>goToCard(i);d.appendChild(dot);});}
+function updateCard(){document.getElementById('flip-front').textContent=cards[current].front;document.getElementById('flip-back').textContent=cards[current].back;document.getElementById('flip-counter').textContent=(current+1)+' of '+cards.length;document.getElementById('flip-card').classList.remove('flipped');document.getElementById('flip-label').textContent='Term · Tap to Reveal';flipped=false;document.querySelectorAll('.flip-dot').forEach((d,i)=>d.classList.toggle('active',i===current));}
+function flipCard(){flipped=!flipped;document.getElementById('flip-card').classList.toggle('flipped',flipped);document.getElementById('flip-label').textContent=flipped?'Answer · Tap to Reset':'Term · Tap to Reveal';}
+function nextCard(){current=(current+1)%cards.length;updateCard();}
+function prevCard(){current=(current-1+cards.length)%cards.length;updateCard();}
+function goToCard(i){current=i;updateCard();}
+buildDots();
+const pages=document.querySelectorAll('main [id]');
+const links=document.querySelectorAll('.sidebar-list a');
+window.addEventListener('scroll',()=>{let active='';pages.forEach(p=>{if(window.scrollY>=p.offsetTop-80)active=p.id;});links.forEach(a=>{const href=a.getAttribute('href').replace('#','');a.classList.toggle('active',href===active);});});
+</script>
+</body>
+</html>

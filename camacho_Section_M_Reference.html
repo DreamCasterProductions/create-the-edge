@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Company Section M · Reference Section · 2026 Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0a1628; --navy-mid:#0f2040; --navy-top:#11354A;
+  --gold:#C5A76F; --brass:#B8893B; --brass-soft:#D4AB5E;
+  --cream:#F4EFE4; --cream-light:#FAF7F1; --paper:#FFFFFF;
+  --ink:#162630; --ink-soft:#2C3B45; --ink-muted:#5D7079;
+  --text-primary:#e8e0d0; --text-secondary:#b8aa90;
+  --camacho-blue:#266889; --blue-tint:#EDF3F6;
+  --green:#2F7D54; --green-tint:#E8F2EC;
+  --red:#B23B2E; --red-tint:#F8E9E6;
+  --rule:#D6CCB6; --cool-light:#B8CAD5; --cool-white:#E8EEF2;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Montserrat',sans-serif;background:var(--cream-light);color:var(--ink);font-size:15px;line-height:1.65;display:flex;}
+
+/* TOPBAR */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--navy);height:44px;display:flex;align-items:center;padding:0 20px;border-bottom:1px solid var(--brass);}
+.topbar-logo{font-family:'Playfair Display',serif;color:var(--gold);font-size:15px;font-weight:700;letter-spacing:.08em;}
+.topbar-section{margin-left:18px;color:var(--text-secondary);font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
+.topbar-right{margin-left:auto;display:flex;gap:16px;align-items:center;}
+.topbar-right a{color:var(--text-secondary);font-size:11px;text-decoration:none;letter-spacing:.06em;}
+.topbar-right a:hover{color:var(--gold);}
+
+/* SEARCH */
+.search-container{position:relative;}
+#globalSearch{background:rgba(255,255,255,.1);border:1px solid rgba(197,167,111,.35);color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;padding:6px 14px;width:260px;outline:none;border-radius:2px;}
+#globalSearch::placeholder{color:rgba(255,255,255,.4);}
+#globalSearch:focus{border-color:var(--gold);background:rgba(255,255,255,.15);}
+.search-count{font-size:10px;color:var(--gold);letter-spacing:.08em;min-width:80px;}
+.search-dropdown{position:absolute;top:calc(100% + 6px);left:0;width:360px;background:var(--navy-mid);border:1px solid rgba(197,167,111,.3);z-index:999;display:none;max-height:320px;overflow-y:auto;}
+.sr-item{display:flex;align-items:baseline;gap:8px;padding:10px 14px;cursor:pointer;border-bottom:1px solid rgba(255,255,255,.06);transition:background .12s;}
+.sr-item:hover{background:rgba(197,167,111,.12);}
+.sr-type{font-size:9px;color:var(--brass-soft);letter-spacing:.12em;text-transform:uppercase;min-width:70px;flex-shrink:0;}
+.sr-label{font-size:13px;color:#fff;flex:1;}
+.sr-cat{font-size:9px;color:var(--ink-muted);}
+.sr-none{padding:12px 14px;color:var(--ink-muted);font-size:12px;}
+mark.search-highlight{background:rgba(197,167,111,.45);color:var(--ink);border-radius:2px;padding:0 2px;}
+
+/* SIDEBAR */
+.sidebar{position:fixed;top:44px;left:0;bottom:0;width:240px;background:var(--navy);overflow-y:auto;z-index:100;padding:28px 22px 40px 26px;box-sizing:border-box;border-right:1px solid rgba(197,167,111,.18);}
+.sidebar-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(197,167,111,.22);}
+.sidebar-group-label{color:var(--gold);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:14px 0 6px 2px;}
+.sidebar-list{list-style:none;}
+.sidebar-list a{display:flex;align-items:baseline;gap:8px;color:#FFFFFF;text-decoration:none;font-size:11px;padding:5px 0;border-left:2px solid transparent;padding-left:6px;transition:all .15s;}
+.sidebar-list a .code{color:var(--gold);font-size:10px;min-width:22px;}
+.sidebar-list a:hover,.sidebar-list a.active,.sidebar-list li.active a{color:var(--gold);border-left-color:var(--gold);background:rgba(197,167,111,.06);}
+
+/* MAIN */
+main{margin-left:240px;margin-top:44px;flex:1;max-width:960px;padding:0 0 80px 0;}
+
+/* PAGES */
+.page{background:var(--paper);padding:56px 64px;margin-bottom:2px;}
+.page.cover{background:var(--navy);min-height:100vh;display:flex;flex-direction:column;padding:72px 72px 56px 72px;}
+
+/* COVER */
+.cover-eyebrow{font-family:'Montserrat',sans-serif;color:var(--gold);font-size:10px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:28px;}
+.cover-letter{font-family:'Playfair Display',serif;color:var(--gold);font-size:120px;font-weight:700;line-height:1;margin-bottom:4px;}
+.cover-title{font-family:'Playfair Display',serif;color:#FFFFFF;font-size:38px;font-weight:600;line-height:1.2;margin-bottom:12px;}
+.cover-sub{color:var(--text-secondary);font-size:14px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-bottom:48px;max-width:480px;}
+.cover-rule{height:1px;background:rgba(197,167,111,.3);margin-bottom:40px;}
+.nav-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:auto;}
+.nav-card{background:rgba(255,255,255,.05);border:1px solid rgba(197,167,111,.2);border-top:2px solid var(--gold);padding:16px 18px;text-decoration:none;}
+.nav-card-code{color:var(--gold);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;}
+.nav-card-title{color:#FFFFFF;font-size:12px;font-weight:600;font-family:'Playfair Display',serif;}
+.cover-credit{margin-top:40px;color:var(--text-secondary);font-size:10px;letter-spacing:.08em;border-top:1px solid rgba(197,167,111,.15);padding-top:16px;}
+
+/* CONTENT */
+.crumb{font-size:10px;color:var(--ink-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;}
+.crumb .dot{margin:0 6px;color:var(--brass);}
+.subsec-tag{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--brass);letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.subsec-title{font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);font-weight:700;line-height:1.2;margin-bottom:16px;}
+.subsec-lede{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink-soft);line-height:1.55;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--rule);}
+.heading-rule{font-family:'Playfair Display',serif;font-size:17px;color:var(--navy);font-weight:600;margin:32px 0 14px;padding-bottom:6px;border-bottom:1px solid var(--rule);}
+.figure-title{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--brass);letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.section-body p{margin-bottom:16px;}
+.section-body ul,.section-body ol{margin:0 0 16px 20px;}
+.section-body li{margin-bottom:6px;}
+
+/* CALLOUTS */
+.callout{margin:24px 0;padding:20px 22px;border-radius:2px;break-inside:avoid;}
+.callout .label{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:7px;margin-bottom:10px;}
+.callout .icon{font-size:14px;}
+.callout .body{font-size:14px;line-height:1.6;}
+.callout .attrib{font-size:11px;margin-top:10px;font-style:italic;opacity:.8;}
+.callout.expert{background:var(--navy);color:var(--text-primary);border-left:4px solid var(--gold);}
+.callout.expert .label{color:var(--gold);}
+.callout.expert .body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;}
+.callout.rule{background:var(--cream);border-left:4px solid var(--navy);}
+.callout.rule .label{color:var(--navy);}
+.callout.files{background:var(--blue-tint);border-left:4px solid var(--camacho-blue);}
+.callout.files .label{color:var(--camacho-blue);}
+.callout.best{background:var(--green-tint);border-left:4px solid var(--green);}
+.callout.best .label{color:var(--green);}
+.callout.warn{background:var(--red-tint);border-left:4px solid var(--red);}
+.callout.warn .label{color:var(--red);}
+.your-company{font-weight:700;color:#266889;}
+
+/* CARDS */
+.cards-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:24px 0;break-inside:avoid;}
+.num-card{background:var(--cream);border-top:3px solid var(--brass);padding:20px 22px;break-inside:avoid;}
+.num-card .num{font-family:'Playfair Display',serif;font-size:36px;color:var(--brass);font-weight:700;line-height:1;margin-bottom:4px;}
+.num-card .kicker{font-size:9px;color:var(--ink-muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;}
+.num-card .title{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);font-weight:600;margin-bottom:8px;}
+.num-card .desc{font-size:13px;color:var(--ink-soft);}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+thead{background:var(--navy);}
+thead th{color:var(--gold);font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:12px 14px;text-align:left;font-weight:700;}
+tbody tr:nth-child(even){background:var(--cream-light);}
+tbody tr:nth-child(odd){background:var(--paper);}
+td{padding:11px 14px;color:var(--ink-soft);vertical-align:top;}
+td strong{color:var(--ink);font-weight:600;}
+.tbl-total{background:var(--cream)!important;font-weight:700;}
+.tbl-total td{color:var(--navy);font-weight:700;}
+
+/* REF BLOCKS */
+.ref-block{background:var(--cream);border-top:3px solid var(--brass);padding:24px 28px;margin:20px 0;break-inside:avoid;}
+.ref-block-title{font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);font-weight:700;margin-bottom:12px;}
+.ref-block-sub{font-size:10px;color:var(--brass);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:16px;}
+.ref-row{display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--rule);font-size:13px;}
+.ref-row:last-child{border-bottom:none;}
+.ref-label{color:var(--ink-soft);flex:1;}
+.ref-value{color:var(--navy);font-weight:600;text-align:right;margin-left:16px;}
+
+/* CHECKLIST */
+.checklist{list-style:none;margin:0;padding:0;}
+.checklist li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--rule);font-size:13px;color:var(--ink-soft);}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:"&#9633;";color:var(--brass);font-size:14px;flex-shrink:0;margin-top:1px;}
+.checklist li strong{color:var(--ink);}
+
+/* DO/DONT */
+.do-dont{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:24px 0;break-inside:avoid;border:1px solid var(--rule);}
+.do-dont .col{padding:20px 22px;}
+.do-dont .col.do{border-right:1px solid var(--rule);}
+.do-dont .head{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;}
+.do-dont .col.do .head{color:var(--green);}
+.do-dont .col.dont .head{color:var(--red);}
+.do-dont ul{list-style:none;margin:0;padding:0;}
+.do-dont li{font-size:13px;padding:4px 0;border-bottom:1px solid var(--rule);}
+.do-dont li:last-child{border-bottom:none;}
+
+/* DIAGRAM */
+.diagram{margin:24px 0;}
+.diagram svg{width:100%;height:auto;display:block;}
+
+/* QUIZ */
+.quiz-q{margin-bottom:28px;break-inside:avoid;border-left:3px solid var(--rule);padding-left:18px;}
+.qnum{font-family:'Playfair Display',serif;font-size:22px;color:var(--brass);font-weight:700;margin-bottom:6px;}
+.qtext{font-size:14px;color:var(--ink);margin-bottom:12px;font-weight:500;}
+.opts{list-style:none;margin:0;padding:0;}
+.opt{display:flex;align-items:baseline;gap:10px;padding:6px 0;font-size:13px;color:var(--ink-soft);border-bottom:1px solid var(--cream);}
+.opt:last-child{border-bottom:none;}
+.letter{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--cream);color:var(--brass);font-size:11px;font-weight:700;flex-shrink:0;}
+
+/* LEGEND */
+.legend-page{background:var(--navy);padding:40px 48px;margin-bottom:2px;}
+.legend-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:24px;font-weight:700;margin-bottom:28px;padding-bottom:12px;border-bottom:1px solid rgba(197,167,111,.3);}
+.legend-q{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(197,167,111,.12);break-inside:avoid;}
+.legend-q .head{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:4px;}
+.legend-q .answer{font-size:14px;color:var(--text-primary);font-weight:600;margin-bottom:4px;}
+.legend-q .explain{font-size:13px;color:var(--text-secondary);font-style:italic;}
+
+/* FLASHCARDS */
+.flash-widget{margin:24px 0;}
+.flash-card{background:var(--navy);color:var(--text-primary);border-top:3px solid var(--gold);padding:36px 40px;text-align:center;min-height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;position:relative;}
+.flash-card .front-label{font-size:9px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;font-weight:700;}
+.flash-card .front-text{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;}
+.flash-card .back-text{font-size:14px;color:var(--text-primary);line-height:1.6;display:none;}
+.flash-card.flipped{background:var(--navy-mid);}
+.flash-card.flipped .front-text{display:none;}
+.flash-card.flipped .back-text{display:block;}
+.flash-card.flipped .front-label{color:var(--brass-soft);}
+.flash-nav{display:flex;justify-content:center;align-items:center;gap:20px;margin-top:16px;}
+.flash-btn{background:var(--navy);color:var(--gold);border:1px solid var(--brass);padding:8px 22px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;cursor:pointer;text-transform:uppercase;}
+.flash-btn:hover{background:var(--brass);color:var(--navy);}
+.flash-dots{display:flex;gap:6px;}
+.flash-dot{width:8px;height:8px;border-radius:50%;background:var(--rule);}
+.flash-dot.active{background:var(--gold);}
+.flash-hint{text-align:center;font-size:11px;color:var(--ink-muted);margin-top:8px;font-style:italic;}
+
+/* CUT CARDS */
+.cut-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0;}
+.cut-card{border:1px dashed var(--rule);break-inside:avoid;}
+.cut-card .term{background:var(--navy);color:var(--gold);padding:14px 16px;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;}
+.cut-card .def{background:var(--paper);color:var(--ink-soft);padding:14px 16px;font-size:12px;line-height:1.5;}
+
+/* PRINT */
+@media print{
+  body{background:#fff;font-size:11pt;}
+  .topbar,.sidebar{display:none;}
+  main{margin:0;max-width:100%;}
+  .page{padding:.6in .85in;margin:0;break-before:always;}
+  .page:first-of-type{break-before:auto;}
+  .cover{min-height:11in;break-after:always;break-before:auto;}
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+  .flash-widget{display:none;}
+  .cut-cards{display:grid;}
+  h1,h2,h3,h4,.subsec-title,.subsec-tag,.crumb,.figure-title,.heading-rule{break-inside:avoid;break-after:avoid;}
+  .callout,.num-card,.cards-row,.do-dont,.cut-card,.quiz-q,.legend-q,.ref-block{break-inside:avoid;}
+  p,li{orphans:3;widows:3;}
+  .legend-page{break-before:always;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-logo">Your Company</div>
+  <div class="topbar-section">Section M &middot; Reference Section</div>
+  <div class="topbar-right">
+    <div class="search-container">
+      <input type="text" id="globalSearch" placeholder="Search rates, checklists, formulas..." autocomplete="off">
+      <div id="searchResults" class="search-dropdown"></div>
+    </div>
+    <span id="searchCount" class="search-count"></span>
+    <a href="#cover">Top</a>
+    <a href="#m5">Fee Chart</a>
+    <a href="#m9">Pre-Flight</a>
+    <a href="#quiz">Quiz</a>
+  </div>
+</header>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-title">Section M &middot; Reference</div>
+  <ul class="sidebar-list">
+    <li class="sidebar-group-label">Overview</li>
+    <li><a href="#cover"><span class="code">M.0</span>Cover</a></li>
+    <li class="sidebar-group-label">Proposal References</li>
+    <li><a href="#m1"><span class="code">M.1</span>Document Types Quick Guide</a></li>
+    <li><a href="#m2"><span class="code">M.2</span>Five-Phase Structure Reference</a></li>
+    <li><a href="#m3"><span class="code">M.3</span>Proposal Narrative Rules</a></li>
+    <li><a href="#m4"><span class="code">M.4</span>Standard Letter Templates</a></li>
+    <li class="sidebar-group-label">Fee References</li>
+    <li><a href="#m5"><span class="code">M.5</span>Master Fee Chart</a></li>
+    <li><a href="#m6"><span class="code">M.6</span>Rate Schedule 2026</a></li>
+    <li><a href="#m7"><span class="code">M.7</span>Sizing Formulas</a></li>
+    <li class="sidebar-group-label">Operational References</li>
+    <li><a href="#m8"><span class="code">M.8</span>Sector Quick Reference</a></li>
+    <li><a href="#m9"><span class="code">M.9</span>Pre-Flight Checklist</a></li>
+    <li><a href="#m10"><span class="code">M.10</span>Leadership &amp; Offices</a></li>
+    <li class="sidebar-group-label">Assessment</li>
+    <li><a href="#quiz"><span class="code">&#9998;</span>Quiz (15 Q)</a></li>
+    <li><a href="#legend-1"><span class="code">&#9654;</span>Answer Legend</a></li>
+    <li><a href="#flash-grid"><span class="code">&#9635;</span>Flashcard Grid</a></li>
+    <li><a href="#flash-interactive"><span class="code">&#9654;</span>Flip Cards</a></li>
+    <li><a href="#cut-cards"><span class="code">&#9986;</span>Cut Cards</a></li>
+  </ul>
+</aside>
+
+<main>
+
+<!-- COVER -->
+<div class="page cover" id="cover">
+  <div class="cover-eyebrow">Business Operations Training Guide &middot; 2026 Edition</div>
+  <div class="cover-letter">M</div>
+  <div class="cover-title">Reference Section</div>
+  <div class="cover-sub">Ten operational quick-reference tools: fee charts, rate schedules, sizing formulas, sector guides, proposal checklists, standard letter templates, and the complete leadership roster.</div>
+  <div class="cover-rule"></div>
+  <div class="nav-cards">
+    <a class="nav-card" href="#m1"><div class="nav-card-code">M.1</div><div class="nav-card-title">Document Types Quick Guide</div></a>
+    <a class="nav-card" href="#m2"><div class="nav-card-code">M.2</div><div class="nav-card-title">Five-Phase Structure</div></a>
+    <a class="nav-card" href="#m3"><div class="nav-card-code">M.3</div><div class="nav-card-title">Proposal Narrative Rules</div></a>
+    <a class="nav-card" href="#m4"><div class="nav-card-code">M.4</div><div class="nav-card-title">Standard Letter Templates</div></a>
+    <a class="nav-card" href="#m5"><div class="nav-card-code">M.5</div><div class="nav-card-title">Master Fee Chart</div></a>
+    <a class="nav-card" href="#m6"><div class="nav-card-code">M.6</div><div class="nav-card-title">Rate Schedule 2026</div></a>
+    <a class="nav-card" href="#m7"><div class="nav-card-code">M.7</div><div class="nav-card-title">Sizing Formulas</div></a>
+    <a class="nav-card" href="#m8"><div class="nav-card-code">M.8</div><div class="nav-card-title">Sector Quick Reference</div></a>
+    <a class="nav-card" href="#m9"><div class="nav-card-code">M.9</div><div class="nav-card-title">Pre-Flight Checklist</div></a>
+    <a class="nav-card" href="#m10"><div class="nav-card-code">M.10</div><div class="nav-card-title">Leadership &amp; Offices</div></a>
+  </div>
+  <div class="cover-credit"><span class="your-company">Your Company</span> Associates, Inc. &middot; [Company Address] &middot; Internal Use Only &middot; 2026</div>
+</div>
+
+<!-- M.1 DOCUMENT TYPES -->
+<div class="page" id="m1">
+  <div class="crumb">Section M <span class="dot">&middot;</span> Reference <span class="dot">&middot;</span> M.1</div>
+  <div class="subsec-tag">M.1 &middot; Proposal Reference</div>
+  <h2 class="subsec-title">Document Types Quick Guide</h2>
+  <div class="subsec-lede">Four solicitation document types, their focus, what the client wants, and what <span class="your-company">Your Company</span> submits in response. Always read the actual document before classifying.</div>
+  <div class="section-body">
+    <table>
+      <thead><tr><th>Document</th><th>Focus</th><th>Client Wants</th><th>Your Company Submits</th></tr></thead>
+      <tbody>
+        <tr><td><strong>RFQ</strong><br>Request for Qualifications</td><td>Competency</td><td>Proof of relevant experience for this specific scope, sector, and scale</td><td>Resumes, headshots, photos of completed projects, SF 330 Part I &amp; II</td></tr>
+        <tr><td><strong>RFP</strong><br>Request for Proposal</td><td>Objective/Approach</td><td>A decision tool: exactly how will you meet our goals and at what cost?</td><td>Fee calculation + Letter of Objective + full scope of work (four instruments)</td></tr>
+        <tr><td><strong>IDIQ</strong><br>Indefinite Delivery, Indefinite Quantity</td><td>Flexibility/Readiness</td><td>Pre-qualified firm available on short notice for task orders over a contract term</td><td>Full qualifications package; pricing schedule for task-order work</td></tr>
+        <tr><td><strong>On-Call Services</strong></td><td>Readiness</td><td>Pre-established contract; firm starts work immediately as projects arise</td><td>Qualifications package; executed master agreement with pre-negotiated rates</td></tr>
+      </tbody>
+    </table>
+    <div class="callout warn">
+      <div class="label"><span class="icon">&#9873;</span> Watch Out</div>
+      <div class="body">Some clients do not clearly distinguish between RFQ and RFP. Some issue hybrid documents. Submitting a fee in response to a pure RFQ disqualifies you at many institutions. Submitting only qualifications in response to a full RFP costs you the job. Read the actual document before deciding which format applies. When in doubt, ask Anja.</div>
+    </div>
+    <h3 class="heading-rule">SF 330 Quick Reference</h3>
+    <div class="ref-block">
+      <div class="ref-block-title">SF 330 Completion Workflow</div>
+      <div class="ref-block-sub">For government RFQ responses</div>
+      <div class="ref-row"><span class="ref-label"><strong>Step 1</strong> &mdash; Identify five past projects using the bullseye method</span><span class="ref-value">Same architect + sector + location first</span></div>
+      <div class="ref-row"><span class="ref-label"><strong>Step 2</strong> &mdash; Project description</span><span class="ref-value">Copy paragraphs 1&ndash;2 from original proposal verbatim</span></div>
+      <div class="ref-row"><span class="ref-label"><strong>Step 3</strong> &mdash; Estimated equipment cost</span><span class="ref-value">Pull from AutoQuotes project record</span></div>
+      <div class="ref-row"><span class="ref-label"><strong>Step 4</strong> &mdash; Part II (firm stats)</span><span class="ref-value">Update date; signature already in place</span></div>
+      <div class="ref-row"><span class="ref-label"><strong>Anja's rule</strong></span><span class="ref-value">"It is a reading test. If we can read, we pass."</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- M.2 FIVE PHASE -->
+<div class="page" id="m2">
+  <div class="crumb">Section M <span class="dot">&middot;</span> Reference <span class="dot">&middot;</span> M.2</div>
+  <div class="subsec-tag">M.2 &middot; Proposal Reference</div>
+  <h2 class="subsec-title">Five-Phase Structure Reference</h2>
+  <div class="subsec-lede">The standard <span class="your-company">Your Company</span> five-phase structure, phase percentages, meeting counts, deliverables, and variant formats for non-standard project types.</div>
+  <div class="section-body">
+    <table>
+      <thead><tr><th>Phase</th><th>Name</th><th>% of Fee</th><th>Standard Meetings</th><th>Key Deliverables</th><th>Primary Risk Prevented</th></tr></thead>
+      <tbody>
+        <tr><td><strong>I</strong></td><td>Schematic Design (SD)</td><td><strong>20%</strong></td><td>1 in-person + 4 Teams/Zoom</td><td>Space program review, schematic plans, preliminary equipment list, preliminary cost estimate</td><td>Congestion and oversizing</td></tr>
+        <tr><td><strong>II</strong></td><td>Design Development (DD)</td><td><strong>25%</strong></td><td>6 Teams/Zoom</td><td>Equipment plans in Revit at 1/4" scale, data books, connection plans, updated cost estimate</td><td>MEP conflicts</td></tr>
+        <tr><td><strong>III</strong></td><td>Construction Documents (CD)</td><td><strong>35%</strong></td><td>1 in-person + 8 Teams/Zoom</td><td>Final plans, elevations, specifications for bid, regulatory reviews</td><td>Contractor disputes (highest doc risk)</td></tr>
+        <tr><td><strong>IV</strong></td><td>Bidding/Negotiations (BN)</td><td><strong>2%</strong></td><td>No meetings unless requested</td><td>Addenda, bid review and alternates, contractor evaluation</td><td>Owner overpayment</td></tr>
+        <tr><td><strong>V</strong></td><td>Construction Administration (CA)</td><td><strong>18%</strong></td><td>1 site visit (floor penetrations) + 1 site visit with written report</td><td>Submittal review, RFI responses, punch list</td><td>Installation deviation</td></tr>
+        <tr class="tbl-total"><td colspan="2"><strong>TOTAL</strong></td><td><strong>100%</strong></td><td colspan="3">Additional meetings billed at $225/hr. Site visits beyond 50 miles: $1,600/day + $0.665/mile</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="heading-rule">Phase Variant Formats</h3>
+    <table>
+      <thead><tr><th>Format</th><th>Phases</th><th>When to Use</th></tr></thead>
+      <tbody>
+        <tr><td><strong>3-Phase</strong></td><td>SD/DD combined, CD, CA</td><td>Smaller projects, fire stations, simple renovations</td></tr>
+        <tr><td><strong>4-Phase</strong></td><td>Programming + SD, DD, CD, CA</td><td>Renovations requiring pre-design assessment of existing conditions</td></tr>
+        <tr><td><strong>5-Phase (Standard)</strong></td><td>SD, DD, CD, BN, CA</td><td>Default for new construction; most common format</td></tr>
+        <tr><td><strong>6-Phase</strong></td><td>Programming + SD, DD, CD, BN, CA</td><td>Complex renovations; multi-site; staged delivery</td></tr>
+        <tr><td><strong>7-Phase</strong></td><td>Adds Closeout or Equipment Survey</td><td>Large institutional contracts; government multi-phase programs</td></tr>
+      </tbody>
+    </table>
+
+    <div class="figure-title">FIGURE M.2.1 &middot; PHASE FEE DISTRIBUTION</div>
+    <div class="diagram">
+      <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg" font-family="Montserrat,sans-serif">
+        <rect width="700" height="180" fill="#FAF7F1"/>
+        <!-- Phase bars proportional to fee % -->
+        <rect x="20" y="40" width="120" height="80" fill="#B8893B" opacity=".85"/>
+        <rect x="150" y="20" width="150" height="100" fill="#B8893B"/>
+        <rect x="310" y="0" width="210" height="120" fill="#0a1628"/>
+        <rect x="530" y="108" width="12" height="12" fill="#B8893B" opacity=".5"/>
+        <rect x="550" y="96" width="108" height="24" fill="#266889" opacity=".8"/>
+        <!-- Labels -->
+        <text x="80" y="138" text-anchor="middle" font-size="10" fill="#5D7079" font-weight="700">PHASE I</text>
+        <text x="80" y="150" text-anchor="middle" font-size="11" fill="#B8893B" font-weight="700">20%</text>
+        <text x="225" y="138" text-anchor="middle" font-size="10" fill="#5D7079" font-weight="700">PHASE II</text>
+        <text x="225" y="150" text-anchor="middle" font-size="11" fill="#B8893B" font-weight="700">25%</text>
+        <text x="415" y="138" text-anchor="middle" font-size="10" fill="#5D7079" font-weight="700">PHASE III</text>
+        <text x="415" y="150" text-anchor="middle" font-size="11" fill="#FAF7F1" font-weight="700">35%</text>
+        <text x="536" y="138" text-anchor="middle" font-size="10" fill="#5D7079" font-weight="700">IV</text>
+        <text x="536" y="150" text-anchor="middle" font-size="9" fill="#5D7079">2%</text>
+        <text x="604" y="138" text-anchor="middle" font-size="10" fill="#5D7079" font-weight="700">PHASE V</text>
+        <text x="604" y="150" text-anchor="middle" font-size="11" fill="#266889" font-weight="700">18%</text>
+        <text x="350" y="170" text-anchor="middle" font-size="9" fill="#5D7079">Phase III carries highest documentation risk and largest fee percentage</text>
+      </svg>
+    </div>
+
+    <div class="callout rule">
+      <div class="label"><span class="icon">&#8887;</span> Rule of the House</div>
+      <div class="body">Delivery markers (30/60/90/100%) within each phase apply on complex multi-site or phased delivery jobs. Each marker triggers a review meeting and a potential progress invoice. Meetings beyond the standard count are billed at $225/hour without exception. State the meeting count explicitly in every proposal to prevent disputes.</div>
+    </div>
+  </div>
+</div>
+
+<!-- M.3 NARRATIVE RULES -->
+<div class="page" id="m3">
+  <div class="crumb">Section M <span class="dot">&middot;</span> Reference <span class="dot">&middot;</span> M.3</div>
+  <div class="subsec-tag">M.3 &middot; Proposal Reference</div>
+  <h2 class="subsec-title">Proposal Narrative Rules</h2>
+  <div class="subsec-lede">The structural and stylistic rules governing every client-facing sentence <span class="your-company">Your Company</span> writes. These are not guidelines; they are the standard against which every proposal is validated before it leaves the office.</div>
+  <div class="section-body">
+    <h3 class="heading-rule">Two-Paragraph Rule</h3>
+    <div class="ref-block">
+      <div class="ref-block-title">Paragraph 1 &mdash; Context (Why)</div>
+      <div class="ref-block-sub">Identify the project's importance and the client's situation</div>
+      <div class="ref-row"><span class="ref-label">Impact</span><span class="ref-value">What does completing this project accomplish?</span></div>
+      <div class="ref-row"><span class="ref-label">Critical Event</span><span class="ref-value">What happens if the timeline or budget is missed?</span></div>
+      <div class="ref-row"><span class="ref-label">Emotional Decision</span><span class="ref-value">How will the end-user feel when it is done?</span></div>
+      <div class="ref-row"><span class="ref-label">Rational Decision</span><span class="ref-value">Square footage, population, budget, menu preferences</span></div>
+    </div>
+    <div class="ref-block">
+      <div class="ref-block-title">Paragraph 2 &mdash; Scope (What)</div>
+      <div class="ref-block-sub">Describe Your Company's exact design scope</div>
+      <div class="ref-row"><span class="ref-label">Spaces designed</span><span class="ref-value">List every space with exact SF (round to whole numbers)</span></div>
+      <div class="ref-row"><span class="ref-label">Equipment approach</span><span class="ref-value">Key equipment features and Your Company's design strategy</span></div>
+      <div class="ref-row"><span class="ref-label">Client benefit</span><span class="ref-value">How Your Company's approach specifically benefits this client</span></div>
+    </div>
+
+    <div class="do-dont">
+      <div class="col do">
+        <div class="head">&#10003; Write This</div>
+        <ul>
+          <li>"This renovation will modernize kitchen and laundry infrastructure to support projected occupancy increases while minimizing long-term capital, labor, and utility costs."</li>
+          <li>"The 1,167 SF kitchen serving 490 residents will require a design that balances security, operational efficiency, and long-term durability."</li>
+          <li>State abbreviations: GA, NC, FL, AL</li>
+          <li>Round numbers: 438 SF, not 437.86 SF</li>
+        </ul>
+      </div>
+      <div class="col dont">
+        <div class="head">&#10007; Never Write This</div>
+        <ul>
+          <li>"We are pleased to present this proposal."</li>
+          <li>"We hope to meet your expectations."</li>
+          <li>"We look forward to the opportunity."</li>
+          <li>"Emotionally, the client wants..."</li>
+          <li>"Rationally, the decision is driven by..."</li>
+          <li>Em dashes anywhere in any document</li>
+          <li>Full state names: Georgia, Alabama</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="heading-rule">Vendor-Neutral Paragraph Variants</h3>
+    <table>
+      <thead><tr><th>Sector</th><th>Independence Language</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Standard / Hospitality</strong></td><td>"F&amp;B independence" &mdash; emphasis on balanced experience, efficiency, and cost control</td></tr>
+        <tr><td><strong>Correctional</strong></td><td>Emphasizes security, operational efficiency, and long-term durability</td></tr>
+        <tr><td><strong>Education (K-12)</strong></td><td>"Foodservice independence" &mdash; student nutrition, service efficiency, operating cost management</td></tr>
+        <tr><td><strong>Healthcare / Senior Living</strong></td><td>Patient/resident care, nutrition, safety, cost</td></tr>
+        <tr><td><strong>Religious</strong></td><td>Fellowship, community, ministry outreach, stewardship</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout expert">
+      <div class="label"><span class="icon">&#10100;</span> Expert Insight</div>
+      <div class="body">"They don't buy <span class="your-company">Your Company</span> or foodservice equipment. They buy results to their problem. We took out <span class="your-company">Your Company</span>, we took out the I."</div>
+      <div class="attrib">&middot; Marketing Director</div>
+    </div>
+  </div>
+</div>
+
+<!-- M.4 STANDARD LETTERS -->
+<div class="page" id="m4">
+  <div class="crumb">Section M <span class="dot">&middot;</span> Reference <span class="dot">&middot;</span> M.4</div>
+  <div class="subsec-tag">M.4 &middot; Legal Reference</div>
+  <h2 class="subsec-title">Standard Letter Templates</h2>
+  <div class="subsec-lede">Four standard legal documents used in every <span class="your-company">Your Company</span> client engagement. Templates live in the standard templates folder; update the project name and date before every use. Never send without review.</div>
+  <div class="section-body">
+    <div class="cards-row">
+      <div class="num-card">
+        <div class="num">01</div>
+        <div class="kicker">Standard Document</div>
+        <div class="title">Consultation Agreement</div>
+        <div class="desc">Binding contract included as final pages of every fee proposal. Key terms: 7-day termination notice; net-30 payment; reactivation fee after 4-month suspension; no work before signature. Supersedes all prior negotiations. Article II sets the maximum fee and phase breakdown.</div>
+      </div>
+      <div class="num-card">
+        <div class="num">02</div>
+        <div class="kicker">Standard Document</div>
+        <div class="title">Variance Letter</div>
+        <div class="desc">Issued when client requires insurance coverage beyond <span class="your-company">Your Company</span>'s policy. Describes limited scope (drawings only; no products, no installation; 2&ndash;3 site visits per project). Cites 57+ year zero-claims record. Signed: Cathey Your Company, CEO. Attached to proposal; does not modify Consultation Agreement.</div>
+      </div>
+      <div class="num-card">
+        <div class="num">03</div>
+        <div class="kicker">Standard Document</div>
+        <div class="title">Litigation Letter</div>
+        <div class="desc">Certification of legal status required by government/institutional clients. Standard language: "<span class="your-company">Your Company</span> is not or has not been involved in any active or pending litigation... nor have any current or former associates (within past five years)." Signed: James C. Your Company, FCSI, CSI, President.</div>
+      </div>
+      <div class="num-card">
+        <div class="num">04</div>
+        <div class="kicker">Standard Document</div>
+        <div class="title">Proposal Email Template</div>
+        <div class="desc">Standard email language for transmitting a completed proposal. Includes fee amount, invitation to review and contact with questions, instruction to sign and return or send AIA agreement. Signed with Associate's name. Always verify the recipient email before sending.</div>
+      </div>
+    </div>
+
+    <h3 class="heading-rule">Insurance Coverage (2026)</h3>
+    <table>
+      <thead><tr><th>Coverage Type</th><th>Per Occurrence</th><th>Aggregate</th></tr></thead>
+      <tbody>
+        <tr><td>Worker's Compensation</td><td>$1,000,000</td><td>$1,000,000</td></tr>
+        <tr><td>General Liability</td><td>$2,000,000</td><td>$4,000,000</td></tr>
+        <tr><td>Automobile Liability</td><td>$1,000,000</td><td>$1,000,000</td></tr>
+        <tr><td>Excess (Umbrella) Liability</td><td>$6,000,000</td><td>$6,000,000</td></tr>
+        <tr><td>Cyber Liability</td><td>$1,000,000</td><td>$1,000,000</td></tr>
+        <tr><td>Professional Liability</td><td>$2,000,000/claim</td><td>$5,000,000</td></tr>
+      </tbody>
+    </table>
+    <div class="callout best">
+      <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+      <div class="body">In 57+ years of operation across thousands of projects, <span class="your-company">Your Company</span> has never had a claim on any insurance coverage. This record is cited explicitly in the variance letter. It is one of the firm's most powerful credibility signals and must be stated accurately and prominently whenever insurance is discussed.</div>
+    </div>
+  </div>
+</div>
+
+<!-- M.5 FEE CHART -->
+<div class="page" id="m5">
+  <div class="crumb">Section M <span class="dot">&middot;</span> Reference <span class="dot">&middot;</span> M.5</div>
+  <div class="subsec-tag">M.5 &middot; Fee Reference</div>
+  <h2 class="subsec-title">Master Fee Chart 2026</h2>
+  <div class="subsec-lede">The complete per-square-foot equipment cost schedule and fee percentage ranges by sector and space type. All figures from the 2026 Fee Calculations spreadsheet. Verify with Anja before using on any government or correctional project where sector premiums may apply.</div>
+  <div class="section-body">
+    <h3 class="heading-rule">Sector Rates</h3>
+    <table>
+      <thead><tr><th>Sector</th><th>Est. Cost/SF</th><th>Fee %</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Schools (K&ndash;12)</strong></td><td>$300&ndash;$325/SF</td><td>4&ndash;6%</td><td>Includes Programming through CA</td></tr>
+        <tr><td><strong>Higher Education</strong></td><td>$300/SF</td><td>5%</td><td>8 SF/student &times; 40% participation &divide; 2.75 turns</td></tr>
+        <tr><td><strong>Hospitality (Kitchen)</strong></td><td>$325/SF</td><td>3.5&ndash;5%</td><td>F&amp;B storage + zero-step bartending</td></tr>
+        <tr><td><strong>Healthcare / Senior Living</strong></td><td>$300/SF</td><td>4&ndash;5%</td><td>5% unless James specifies otherwise</td></tr>
+        <tr><td><strong>Correctional (&le;10,000 SF)</strong></td><td>$300/SF</td><td>4&ndash;4.5%</td><td>CA % increased for security coordination</td></tr>
+        <tr><td><strong>Correctional (&gt;10,000 SF)</strong></td><td>$225&ndash;$250/SF</td><td>4&ndash;4.5%</td><td>Anja's simplified: 4.5% of equipment budget</td></tr>
+        <tr><td><strong>Catering / Warming Kitchen</strong></td><td>$200&ndash;$250/SF</td><td>5%</td><td>Context-dependent; consider adjacency to dry storage</td></tr>
+        <tr><td><strong>Teaching / Training Kitchen</strong></td><td>$250&ndash;$300/SF</td><td>5%</td><td></td></tr>
+        <tr><td><strong>Stadium / Arena Concessions</strong></td><td>$250&ndash;$300/SF</td><td>5%</td><td></td></tr>
+        <tr><td><strong>Corporate Cafeteria</strong></td><td>$300/SF</td><td>5%</td><td>20 SF/employee &times; 40% participation &divide; 2.5 turns</td></tr>
+        <tr><td><strong>Military / Federal</strong></td><td>Industry SF</td><td>5&ndash;8%</td><td>Multi-station, compliance rigor, 24/7 readiness</td></tr>
+        <tr><td><strong>Religious</strong></td><td>$250/SF</td><td>4.75%</td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="heading-rule">Space-Type Cost Reference</h3>
+    <table>
+      <thead><tr><th>Space Type</th><th>Unit Cost</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Dry Storage / Pantry</td><td>$100/SF</td><td></td></tr>
+        <tr><td>Walk-in Cooler / Freezer</td><td>$300/SF</td><td></td></tr>
+        <tr><td>Servery</td><td>$250/SF</td><td>Verify current pricing</td></tr>
+        <tr><td>Dishwash Area</td><td>$600/SF</td><td>Verify current pricing</td></tr>
+        <tr><td>Exhaust Hood</td><td>$3,000/linear ft</td><td>K&ndash;12 Schools</td></tr>
+        <tr><td>Serving Line</td><td>$2,500/linear ft</td><td>K&ndash;12 Schools</td></tr>
+        <tr><td>Sneeze Guard</td><td>$350/linear ft</td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="heading-rule">Bar &amp; Beverage Estimates</h3>
+    <table>
+      <thead><tr><th>Type</th><th>Est. Cost</th><th>SF Range</th></tr></thead>
+      <tbody>
+        <tr><td>Pool Bar</td><td>$25,000</td><td></td></tr>
+        <tr><td>Small Bar (&lt;12 seats)</td><td>$50,000&ndash;$60,000</td><td>150&ndash;200 SF</td></tr>
+        <tr><td>Medium Bar (12&ndash;24 seats)</td><td>$60,000&ndash;$70,000</td><td>200&ndash;300 SF</td></tr>
+        <tr><td>Large Bar (&gt;24 seats)</td><td>$70,000&ndash;$80,000</td><td>300&ndash;450+ SF</td></tr>
+        <tr><td>Coffee Bar / Caf&eacute;</td><td>$80,000&ndash;$120,000</td><td>Espresso machines alone: $40,000+</td></tr>
+        <tr><td>Senior Living Bar</td><td>$45,000 minimum</td><td></td></tr>
+        <tr><td>Market / Grab-and-Go</td><td>$15,000&ndash;$30,000</td><td>Airscreen, reach-in fridge/freezer</td></tr>
+        <tr><td>School Concessions</td><td>$55,000</td><td>Popcorn, hotdog roller, pizza warmer</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="heading-rule">Fee Calculation Methods</h3>
+    <div class="ref-block">
+      <div class="ref-block-title">Method A &mdash; Square Foot &times; Sector Rate</div>
+      <div class="ref-block-sub">Most common method for kitchen projects</div>
+      <div class="ref-row"><span class="ref-label">Step 1: Calculate equipment cost</span><span class="ref-value">Kitchen SF &times; Sector $/SF = Equipment Cost</span></div>
+      <div class="ref-row"><span class="ref-label">Step 2: Add specialty areas</span><span class="ref-value">Walk-in SF &times; $300 + Hood LF &times; $3,000 etc.</span></div>
+      <div class="ref-row"><span class="ref-label">Step 3: Apply fee %</span><span class="ref-value">Total Equipment Cost &times; Sector Fee % = Proposed Fee</span></div>
+      <div class="ref-row"><span class="ref-label">Example (K&ndash;12)</span><span class="ref-value">1,167 SF &times; $300 = $350,100 + $49,200 cooler = $399,300 &times; 4% = $15,972</span></div>
+    </div>
+    <div class="ref-block">
+      <div class="ref-block-title">Method B &mdash; Equipment Budget Percentage</div>
+      <div class="ref-block-sub">Used when client provides an equipment budget directly</div>
+      <div class="ref-row"><span class="ref-label">Formula</span><span class="ref-value">Fee &divide; Equipment Budget = Fee %</span></div>
+      <div class="ref-row"><span class="ref-label">Example</span><span class="ref-value">$17,400 &divide; $270,000 = 6.4%</span></div>
+    </div>
+    <div class="ref-block">
+      <div class="ref-block-title">Method C &mdash; Laundry (15-Lb Rule)</div>
+      <div class="ref-block-sub">For hotel and institutional laundry projects</div>
+      <div class="ref-row"><span class="ref-label">Standard hotel</span><span class="ref-value">Keys &times; 15 lbs/day &divide; 7 hrs = lbs/hour capacity</span></div>
+      <div class="ref-row"><span class="ref-label">Luxury hotel</span><span class="ref-value">Keys &times; 20 lbs/day &divide; 7 hrs = lbs/hour capacity</span></div>
+      <div class="ref-row"><span class="ref-label">Correctional</span><span class="ref-value">Inmates &times; 3 lbs/day &divide; 7 hrs = lbs/hour capacity</span></div>
+      <div class="ref-row"><span class="ref-label">Example (200-key standard)</span><span class="ref-value">200 &times; 15 = 3,000 lbs &divide; 7 = 428 lbs/hr &rarr; 2 washers + 3 dryers (200-lb)</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- M.6 RATE SCHEDULE -->
+<div class="page" id="m6">
+  <div class="crumb">Section M <span class="dot">&middot;</span> Reference <span class="dot">&middot;</span> M.6</div>
+  <div class="subsec-tag">M.6 &middot; Fee Reference</div>
+  <h2 class="subsec-title">Rate Schedule 2026</h2>
+  <div class="subsec-lede">Hourly and day rates for all billable positions, travel billing rules, and payment terms. All additional services not covered in the base contract are billed at these rates.</div>
+  <div class="section-body">
+    <h3 class="heading-rule">Hourly &amp; Day Rates</h3>
+    <table>
+      <thead><tr><th>Position</th><th>Hourly Rate</th><th>Day Rate</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Project Principal</strong></td><td>$275/hr</td><td>$1,900/day</td></tr>
+        <tr><td><strong>Senior Project Manager</strong></td><td>$250/hr</td><td>$1,700/day</td></tr>
+        <tr><td><strong>Project Manager</strong></td><td>$225/hr</td><td>$1,600/day</td></tr>
+        <tr><td><strong>Quality Control Coordinator</strong></td><td>$200/hr</td><td>&mdash;</td></tr>
+        <tr><td><strong>Project Coordinator</strong></td><td>$150/hr</td><td>&mdash;</td></tr>
+        <tr><td><strong>Revit Operator / BIM Manager</strong></td><td>$160/hr</td><td>&mdash;</td></tr>
+        <tr><td><strong>Specifications Writer</strong></td><td>$120/hr</td><td>&mdash;</td></tr>
+        <tr><td><strong>Administrative Coordinator</strong></td><td>$100/hr</td><td>&mdash;</td></tr>
+        <tr class="tbl-total"><td><strong>Additional PM Meetings (all levels)</strong></td><td><strong>$225/hr</strong></td><td>&mdash;</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="heading-rule">Travel Billing (50-Mile Rule)</h3>
+    <div class="ref-block">
+      <div class="ref-block-title">Travel Beyond 50 Miles from [City, State] Office</div>
+      <div class="ref-block-sub">Always billed as separate line items; never bundled into base fee</div>
+      <div class="ref-row"><span class="ref-label">Site visit day rate</span><span class="ref-value">$1,600/day (PM rate)</span></div>
+      <div class="ref-row"><span class="ref-label">Mileage reimbursement</span><span class="ref-value">$0.665/mile (IRS standard rate 2026)</span></div>
+      <div class="ref-row"><span class="ref-label">Mileage formula</span><span class="ref-value">(Office &rarr; Site + Site &rarr; Office) &times; Number of Meetings = Total Miles &times; $0.665</span></div>
+      <div class="ref-row"><span class="ref-label">Additional meetings</span><span class="ref-value">$225/hr beyond contract count (all personnel levels)</span></div>
+    </div>
+
+    <h3 class="heading-rule">Payment Terms</h3>
+    <table>
+      <thead><tr><th>Term</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td>Payment due</td><td>Net 30 days from receipt of invoice</td></tr>
+        <tr><td>Invoice date</td><td>1st of each month or agreed-upon dates</td></tr>
+        <tr><td>Phase invoicing</td><td>Invoiced at start of each phase per the phase percentage breakdown</td></tr>
+        <tr><td>Additional services</td><td>Billed at hourly rates above; net 30</td></tr>
+        <tr><td>Suspension reactivation</td><td>Reactivation fee applies if project suspended 4+ consecutive months</td></tr>
+        <tr><td>Work initiation</td><td>No work begins before signature on Consultation Agreement or AIA agreement</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout rule">
+      <div class="label"><span class="icon">&#8887;</span> Rule of the House</div>
+      <div class="body">Travel costs are never bundled into the base fee. They are always stated as explicit separate line items in the proposal. A proposal that absorbs travel costs misrepresents <span class="your-company">Your Company</span>'s true cost of service and undermines the firm's ability to recover those costs on extended or multi-visit projects.</div>
+    </div>
+  </div>
+</div>
+
+<!-- M.7 SIZING FORMULAS -->
+<div class="page" id="m7">
+  <div class="crumb">Section M <span class="dot">&middot;</span> Reference <span class="dot">&middot;</span> M.7</div>
+  <div class="subsec-tag">M.7 &middot; Design Reference</div>
+  <h2 class="subsec-title">Kitchen &amp; Laundry Sizing Formulas</h2>
+  <div class="subsec-lede">Population-driven and area-driven formulas for calculating kitchen square footage and laundry capacity requirements across all major sectors. These formulas are the starting point; final sizing always requires field verification and Anja review.</div>
+  <div class="section-body">
+    <h3 class="heading-rule">Kitchen Sizing by Facility Type</h3>
+    <table>
+      <thead><tr><th>Facility Type</th><th>Unit</th><th>SF Formula</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Hospice</strong></td><td>Bed</td><td>25 SF/bed</td><td></td></tr>
+        <tr><td><strong>Senior Living</strong></td><td>Person</td><td>10 SF/person</td><td></td></tr>
+        <tr><td><strong>Rehabilitation / Mental Health</strong></td><td>Bed</td><td>20 SF/bed</td><td>No retail</td></tr>
+        <tr><td><strong>Hospital</strong></td><td>Bed</td><td>40 SF/bed</td><td>With retail component</td></tr>
+        <tr><td><strong>Correctional (first 500 inmates)</strong></td><td>Inmate</td><td>10 SF/inmate</td><td></td></tr>
+        <tr><td><strong>Correctional (501&ndash;1,000 inmates)</strong></td><td>Inmate</td><td>9 SF/inmate</td><td>Economies of scale</td></tr>
+        <tr><td><strong>Higher Education</strong></td><td>Student</td><td>8 SF &times; 40% participation &divide; 2.75 turns</td><td></td></tr>
+        <tr><td><strong>Corporate Cafeteria</strong></td><td>Employee</td><td>20 SF &times; 40% participation &divide; 2.5 turns</td><td></td></tr>
+        <tr><td><strong>Catering / Warming Kitchen</strong></td><td>Space</td><td>15&ndash;20 SF/person or 10&ndash;20% of total facility SF</td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="heading-rule">Laundry Sizing Reference</h3>
+    <div class="ref-block">
+      <div class="ref-block-title">Hotel Laundry Formula</div>
+      <div class="ref-block-sub">15-Pound Rule for standard hotel operations</div>
+      <div class="ref-row"><span class="ref-label">Standard hotel</span><span class="ref-value">15 lbs of laundry per key per day</span></div>
+      <div class="ref-row"><span class="ref-label">Luxury hotel (spa / multiple pools)</span><span class="ref-value">20 lbs per key per day</span></div>
+      <div class="ref-row"><span class="ref-label">Prison / correctional</span><span class="ref-value">3 lbs per inmate per day</span></div>
+      <div class="ref-row"><span class="ref-label">Working hours</span><span class="ref-value">&divide; 7 working hours = lbs/hour capacity required</span></div>
+    </div>
+
+    <div class="ref-block">
+      <div class="ref-block-title">Equipment Sizing Example &mdash; 192-Key Standard Hotel</div>
+      <div class="ref-block-sub">Worked calculation from the Your Company training record</div>
+      <div class="ref-row"><span class="ref-label">Daily volume</span><span class="ref-value">192 keys &times; 15 lbs = 2,880 lbs/day</span></div>
+      <div class="ref-row"><span class="ref-label">Hourly capacity</span><span class="ref-value">2,880 &divide; 7 hrs = 412 lbs/hour</span></div>
+      <div class="ref-row"><span class="ref-label">Washers required</span><span class="ref-value">200-lb washer, 45-min cycle = 267 lbs/hr capacity &rarr; 2 washers</span></div>
+      <div class="ref-row"><span class="ref-label">Dryers required</span><span class="ref-value">200-lb dryer, 60-min cycle = 200 lbs/hr capacity &rarr; 3 dryers</span></div>
+      <div class="ref-row"><span class="ref-label">Standard equipment list</span><span class="ref-value">2 washer-extractors + 3 dryer tumblers + floor trough, lint collector, ozone machine, linen carts, folding tables, hand sink, laundry sink, shelving</span></div>
+    </div>
+
+    <h3 class="heading-rule">SVG: Population-to-Kitchen SF Flow</h3>
+    <div class="diagram">
+      <svg viewBox="0 0 720 160" xmlns="http://www.w3.org/2000/svg" font-family="Montserrat,sans-serif">
+        <rect width="720" height="160" fill="#FAF7F1"/>
+        <!-- boxes -->
+        <rect x="10" y="40" width="130" height="60" fill="#0a1628" rx="2"/>
+        <text x="75" y="68" text-anchor="middle" font-size="10" fill="#C5A76F" font-weight="700">POPULATION</text>
+        <text x="75" y="84" text-anchor="middle" font-size="9" fill="#e8e0d0">Count (beds, keys, students)</text>
+        <!-- arrow -->
+        <line x1="140" y1="70" x2="170" y2="70" stroke="#B8893B" stroke-width="2"/>
+        <polygon points="170,65 182,70 170,75" fill="#B8893B"/>
+        <!-- box 2 -->
+        <rect x="182" y="40" width="140" height="60" fill="#B8893B" rx="2"/>
+        <text x="252" y="68" text-anchor="middle" font-size="10" fill="#0a1628" font-weight="700">&times; SF FACTOR</text>
+        <text x="252" y="84" text-anchor="middle" font-size="9" fill="#0a1628">Sector-specific SF/unit</text>
+        <!-- arrow -->
+        <line x1="322" y1="70" x2="352" y2="70" stroke="#B8893B" stroke-width="2"/>
+        <polygon points="352,65 364,70 352,75" fill="#B8893B"/>
+        <!-- box 3 -->
+        <rect x="364" y="40" width="140" height="60" fill="#266889" rx="2"/>
+        <text x="434" y="68" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">TOTAL SF</text>
+        <text x="434" y="84" text-anchor="middle" font-size="9" fill="#e8e0d0">Gross kitchen area</text>
+        <!-- arrow -->
+        <line x1="504" y1="70" x2="534" y2="70" stroke="#B8893B" stroke-width="2"/>
+        <polygon points="534,65 546,70 534,75" fill="#B8893B"/>
+        <!-- box 4 -->
+        <rect x="546" y="40" width="160" height="60" fill="#2F7D54" rx="2"/>
+        <text x="626" y="61" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">EQUIPMENT</text>
+        <text x="626" y="75" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">COST ESTIMATE</text>
+        <text x="626" y="89" text-anchor="middle" font-size="9" fill="#e8e0d0">SF &times; $/SF &rarr; Fee %</text>
+        <text x="360" y="150" text-anchor="middle" font-size="9" fill="#5D7079">Population &rarr; SF &rarr; Equipment Cost &rarr; Fee Proposal &middot; All sectors follow this chain</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- M.8 SECTOR REFERENCE -->
+<div class="page" id="m8">
+  <div class="crumb">Section M <span class="dot">&middot;</span> Reference <span class="dot">&middot;</span> M.8</div>
+  <div class="subsec-tag">M.8 &middot; Sector Reference</div>
+  <h2 class="subsec-title">Sector Quick Reference</h2>
+  <div class="subsec-lede">Nine sectors served by <span class="your-company">Your Company</span>, each with its primary client drivers, terminology rules, competitive positioning, and sector-specific design constraints. Use this as a fast brief before a client call or proposal kickoff.</div>
+  <div class="section-body">
+    <table>
+      <thead><tr><th>Sector</th><th>Primary Drivers</th><th>Key Terminology / Rules</th><th>Your Company Differentiator</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Education (K&ndash;12)</strong></td><td>Student health, behavior, learning outcomes, 30-min service windows, allergen protection, federal fruit/veg compliance</td><td>Federal nutrition standards; USDA guidelines; exhaust hood LF pricing; serving line LF pricing</td><td>SE regional depth; federal nutrition compliance expertise</td></tr>
+        <tr><td><strong>Higher Education</strong></td><td>Volume, speed, multiple concepts, student experience, sustainability</td><td>8 SF/student formula; 40% participation; 2.75 turns; all-you-care-to-eat operations</td><td>Multi-concept design; AI food waste monitoring integration</td></tr>
+        <tr><td><strong>Transportation (Airports)</strong></td><td>Passenger throughput, brand standards, concession revenue, 24/7 ops</td><td>Terminal F&amp;B; Sky Club design (Delta MCO/MIA/FLL portfolio); airside constraints</td><td>Major Transportation Hospitality Project portfolio; MCO/MIA/FLL experience; Emalee legacy</td></tr>
+        <tr><td><strong>Healthcare / Senior Living</strong></td><td>Resident/patient care, nutrition, safety, infection control, JCAHO compliance</td><td>25 SF/bed (hospice); 10 SF/person (senior living); 40 SF/bed (hospital with retail); infection control zoning</td><td>Louise Howard (130+ projects since 1996); Banner UMC marketplace concept</td></tr>
+        <tr><td><strong>Hospitality</strong></td><td>Guest satisfaction, F&amp;B revenue, zero-step bartending, ambiance, labor efficiency</td><td>F&amp;B independence; 15-lb laundry rule; $325/SF kitchen; pool bar/lobby bar/speakeasy pricing</td><td>Full F&amp;B + laundry scope; Star Metals District portfolio</td></tr>
+        <tr><td><strong>Government / Military</strong></td><td>Multi-station, 24/7 readiness, compliance rigor, security, no-maintenance engineering</td><td>SF 330 required; Marine Corps no-maintenance rule; industrial dehydrators (West Point 7,492 lbs turkey); IDIQ contracting</td><td>Military-grade logistics; West Point/Marine Corps portfolio; DFW experience</td></tr>
+        <tr><td><strong>Corrections</strong></td><td>Security, efficiency, durability, volume, inmate density</td><td>Use "residents" or "persons," NEVER "inmates" in client-facing text; 10 SF/inmate; 3 lbs laundry/inmate/day; Blair County precedent ($52K fee / 4,900 SF / 490 residents)</td><td>SE correctional portfolio; security-package equipment specification</td></tr>
+        <tr><td><strong>Corporate / Catering</strong></td><td>Efficiency, value, capital cost minimization, employee satisfaction</td><td>$200&ndash;$250/SF catering; 5%; 20 SF/employee formula</td><td>Multi-site corporate programs; grab-and-go market integration</td></tr>
+        <tr><td><strong>Large Venues (Stadiums)</strong></td><td>High-volume concessions, speed of service, revenue per transaction</td><td>$250&ndash;$300/SF concessions; concession stand layout; commissary kitchen coordination</td><td>Stadium + arena concession portfolio</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout files">
+      <div class="label"><span class="icon">&#9900;</span> From the Files</div>
+      <div class="body">Blair County Prison: 4,900 SF / 490 residents / $52,000 approved fee. This is the correctional sector benchmark case. The language in the proposal used "residents" throughout at Anja's direction. The CA percentage was increased beyond the standard 18% to account for heightened security coordination requirements during installation. Cite this case when explaining correctional sector pricing to any client or team member.</div>
+    </div>
+  </div>
+</div>
+
+<!-- M.9 PRE-FLIGHT CHECKLIST -->
+<div class="page" id="m9">
+  <div class="crumb">Section M <span class="dot">&middot;</span> Reference <span class="dot">&middot;</span> M.9</div>
+  <div class="subsec-tag">M.9 &middot; Operational Reference</div>
+  <h2 class="subsec-title">Pre-Flight Checklist</h2>
+  <div class="subsec-lede">Anja's mandatory quality check before any proposal leaves the office. Every box must be confirmed. A proposal sent without completing this checklist is a proposal sent at risk.</div>
+  <div class="section-body">
+    <h3 class="heading-rule">Content &amp; Scope</h3>
+    <ul class="checklist">
+      <li><strong>Sector-specific independence paragraph</strong> correct (F&amp;B, Foodservice, Correctional, Education, Healthcare, or Religious variant as appropriate)</li>
+      <li><strong>Square footage</strong> stated for every designed area; rounded to whole numbers; matches the FTE/bed/key count and equipment budget</li>
+      <li><strong>Two-paragraph intro only</strong> (context + scope); no marketing fluff; no framework labels (emotional, rational, critically) in client text</li>
+      <li><strong>Letter of Objective</strong> included for all RFP responses (not required for RFQ)</li>
+      <li><strong>Phase titles accurate</strong> (SD/DD/CD/BN/CA or variant format appropriate for this project type)</li>
+      <li><strong>Meeting counts confirmed</strong> and stated explicitly; additional meetings billed at $225/hr language included</li>
+      <li><strong>All spaces listed</strong> in the cover letter and in the Whereas clause of the Consultation Agreement</li>
+      <li><strong>MasterSpec and MEP loads</strong> reviewed for coordination accuracy</li>
+    </ul>
+
+    <h3 class="heading-rule">Format &amp; Compliance</h3>
+    <ul class="checklist">
+      <li><strong>Travel line items</strong> separated from base fee; $1,600/day + $0.665/mile beyond 50 miles from [City, State]</li>
+      <li><strong>Insurance limits</strong> stated ($2M/$5M Professional; $2M/$4M General Liability)</li>
+      <li><strong>"Your Company" lowercase, bold, #266889</strong> throughout; never capitalized as a brand name</li>
+      <li><strong>No em dashes</strong> anywhere in the document; use commas, semicolons, or full sentences instead</li>
+      <li><strong>US state abbreviations only</strong> (GA, NC, FL, AL); never full state names in formal text</li>
+      <li><strong>No juvenile phrasing</strong> ("we are pleased," "we hope," "we look forward," "thank you for the opportunity")</li>
+      <li><strong>Round numbers</strong> in narrative (438 SF, not 437.86 SF)</li>
+      <li><strong>Date and contact info</strong> current and correct; no stale dates from prior proposals</li>
+    </ul>
+
+    <h3 class="heading-rule">Risk Flags &amp; Final Steps</h3>
+    <ul class="checklist">
+      <li><strong>Flags raised</strong> for any scope risks, undersized areas, or code conditions identified during document review</li>
+      <li><strong>Variance letter attached</strong> if client requires coverage beyond current policy limits</li>
+      <li><strong>Litigation letter attached</strong> if required by the RFQ/RFP solicitation documents</li>
+      <li><strong>SF 330 selected</strong> using the bullseye method; five projects most relevant to this sector/architect/geography</li>
+      <li><strong>Filed in Pipedrive</strong> with two-paragraph narrative saved in the project record</li>
+      <li><strong>Filed Year-Month-XX</strong> naming convention in Box</li>
+      <li><strong>Recipient email verified</strong> against the original RFP or inquiry email before sending</li>
+    </ul>
+
+    <div class="callout expert">
+      <div class="label"><span class="icon">&#10100;</span> Expert Insight</div>
+      <div class="body">"The square footage in the proposal is your protection. If scope grows from 400 SF to 1,200 SF, the written proposal proves what was contracted and gives the firm the right to request additional service compensation."</div>
+      <div class="attrib">&middot; Marketing Director</div>
+    </div>
+  </div>
+</div>
+
+<!-- M.10 LEADERSHIP & OFFICES -->
+<div class="page" id="m10">
+  <div class="crumb">Section M <span class="dot">&middot;</span> Reference <span class="dot">&middot;</span> M.10</div>
+  <div class="subsec-tag">M.10 &middot; Personnel &amp; Offices Reference</div>
+  <h2 class="subsec-title">Leadership &amp; Office Locations</h2>
+  <div class="subsec-lede">The <span class="your-company">Your Company</span> leadership roster, credential reference, primary and satellite offices, and contact information. Use for SF 330 personnel sections, RFQ submissions, and client-facing qualification materials.</div>
+  <div class="section-body">
+    <h3 class="heading-rule">Leadership Roster</h3>
+    <table>
+      <thead><tr><th>Name</th><th>Title</th><th>Credentials</th><th>Area of Authority</th></tr></thead>
+      <tbody>
+        <tr><td><strong>James C. Your Company</strong></td><td>President</td><td>FCSI, CSI, FE&amp;S Consultant of the Year, Chair FCSI-Americas</td><td>Firm leadership, final proposal authority, public representation</td></tr>
+        <tr><td><strong>Cathey Your Company</strong></td><td>CEO</td><td>SDA, CSI</td><td>Operations, legal authority (signs variance letters), firm administration</td></tr>
+        <tr><td><strong>Brett Daniel</strong></td><td>VP, BIM/Revit Manager</td><td>FCSI</td><td>BIM coordination, clash detection, Revit production management</td></tr>
+        <tr><td><strong>Howard Stanford</strong></td><td>Operations Director</td><td>FCSI</td><td>Project operations, production oversight</td></tr>
+        <tr><td><strong>Marketing Director</strong></td><td>VP Business Development</td><td>FCSI, LEED GA, WELL AP</td><td>Sales strategy, proposal standards, all Anja-standard callout attributions</td></tr>
+        <tr><td><strong>Louise Howard</strong></td><td>Senior Living / Healthcare Specialist</td><td></td><td>Healthcare and senior living design; 130+ projects since 1996</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="heading-rule">Primary Offices</h3>
+    <table>
+      <thead><tr><th>Location</th><th>Status</th><th>Address / Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>[City, State]</strong></td><td>Headquarters</td><td>[Company Address] &middot; (770) 582-1144 &middot; (800) 849-0520 &middot; www.Your Companyusa.com</td></tr>
+        <tr><td><strong>Charlotte, NC</strong></td><td>Primary Hub</td><td></td></tr>
+        <tr><td><strong>Birmingham, AL</strong></td><td>Primary Hub</td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="heading-rule">Satellite Offices</h3>
+    <table>
+      <thead><tr><th colspan="3">Active Satellite Locations</th></tr></thead>
+      <tbody>
+        <tr><td>SunRiver, OR</td><td>Westfield, IN</td><td>Savannah, TN</td></tr>
+        <tr><td>Rock Hill, SC</td><td>York, SC</td><td>Climax, GA</td></tr>
+        <tr><td>Eufaula, AL</td><td>Elba, AL</td><td>Lutz, FL</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="heading-rule">Competitive Positioning Reference</h3>
+    <table>
+      <thead><tr><th>Competitor</th><th>Known For</th><th>Your Company Wins On</th></tr></thead>
+      <tbody>
+        <tr><td>Ricca Design Studios</td><td>14,000+ projects; LEED leadership</td><td>SE regional depth; federal readiness</td></tr>
+        <tr><td>Cini-Little International</td><td>Whole-building waste; urban infill</td><td>HMBE certification; SE/Latin America</td></tr>
+        <tr><td>Clevenger Associates</td><td>Carbon-neutral corporate; technical rigor</td><td>Military; stadium</td></tr>
+        <tr><td>Rippe Associates</td><td>16-year avg client tenure</td><td>International; military robotics</td></tr>
+        <tr><td>FCS</td><td>SWAM/WBE certifications</td><td>International; military</td></tr>
+        <tr><td>SSA Foodservice</td><td>NFL stadiums; Engineering Theater</td><td>Military; healthcare</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout rule">
+      <div class="label"><span class="icon">&#8887;</span> Rule of the House</div>
+      <div class="body">Only Marketing Director receives named attributions in callout boxes in training documents and proposals. All other leadership members speak in the body voice of the document without attribution. In SF 330 forms, all personnel receive their full name and credentials. In client proposals, the firm's credentials are cited collectively unless a specific team member's involvement is contractually relevant.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- QUIZ -->
+<div class="page" id="quiz">
+  <div class="crumb">Section M <span class="dot">&middot;</span> Assessment <span class="dot">&middot;</span> 15-Question Quiz</div>
+  <div class="subsec-tag">M &middot; Knowledge Assessment</div>
+  <h2 class="subsec-title">Reference Section Assessment</h2>
+  <div class="subsec-lede">Fifteen questions covering fee calculation, rate schedule, sizing formulas, sector rates, proposal rules, legal templates, and the Pre-Flight Checklist. The answers live in the reference pages of this section.</div>
+
+  <div class="quiz-q"><div class="qnum">1</div><div class="qtext">A 200-key hotel uses the 15-lb/day standard. What is the required laundry capacity in lbs/hour?</div><ul class="opts"><li class="opt"><span class="letter">A</span>200 lbs/hr</li><li class="opt"><span class="letter">B</span>300 lbs/hr</li><li class="opt"><span class="letter">C</span>428 lbs/hr</li><li class="opt"><span class="letter">D</span>500 lbs/hr</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">2</div><div class="qtext">What is the 2026 hourly rate for a Revit Operator / BIM Manager?</div><ul class="opts"><li class="opt"><span class="letter">A</span>$120/hr</li><li class="opt"><span class="letter">B</span>$150/hr</li><li class="opt"><span class="letter">C</span>$160/hr</li><li class="opt"><span class="letter">D</span>$200/hr</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">3</div><div class="qtext">Which phase of the five-phase structure carries 35% of the fee and the highest documentation risk?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Phase I &mdash; Programming (20%)</li><li class="opt"><span class="letter">B</span>Phase II &mdash; Design Development (25%)</li><li class="opt"><span class="letter">C</span>Phase III &mdash; Construction Documents (35%)</li><li class="opt"><span class="letter">D</span>Phase V &mdash; Construction Administration (18%)</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">4</div><div class="qtext">What is the estimated equipment cost per square foot for a K-12 school project?</div><ul class="opts"><li class="opt"><span class="letter">A</span>$200/SF</li><li class="opt"><span class="letter">B</span>$250/SF</li><li class="opt"><span class="letter">C</span>$300/SF</li><li class="opt"><span class="letter">D</span>$350/SF</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">5</div><div class="qtext">Who signs the Variance Letter when a client requests insurance coverage beyond Your Company's current policy?</div><ul class="opts"><li class="opt"><span class="letter">A</span>James C. Your Company, President</li><li class="opt"><span class="letter">B</span>Marketing Director</li><li class="opt"><span class="letter">C</span>Cathey Your Company, CEO</li><li class="opt"><span class="letter">D</span>Brett Daniel, VP BIM/Revit Manager</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">6</div><div class="qtext">Which of the following is the correct vendor-neutral language for a hospitality sector proposal?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Foodservice independence</li><li class="opt"><span class="letter">B</span>F&amp;B independence</li><li class="opt"><span class="letter">C</span>Operational independence</li><li class="opt"><span class="letter">D</span>Equipment neutrality</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">7</div><div class="qtext">A hospital with 300 beds uses the standard healthcare formula. What is the estimated kitchen square footage?</div><ul class="opts"><li class="opt"><span class="letter">A</span>3,000 SF</li><li class="opt"><span class="letter">B</span>6,000 SF</li><li class="opt"><span class="letter">C</span>9,000 SF</li><li class="opt"><span class="letter">D</span>12,000 SF</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">8</div><div class="qtext">What is the 2026 day rate for a site visit that requires travel beyond 50 miles from [City, State]?</div><ul class="opts"><li class="opt"><span class="letter">A</span>$1,275/day</li><li class="opt"><span class="letter">B</span>$1,500/day</li><li class="opt"><span class="letter">C</span>$1,600/day</li><li class="opt"><span class="letter">D</span>$225/hr only; no day rate applies</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">9</div><div class="qtext">The Pre-Flight Checklist is organized into three groups. Which group specifically addresses scope ambiguities that could escalate to disputes?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Content and Scope</li><li class="opt"><span class="letter">B</span>Format and Compliance</li><li class="opt"><span class="letter">C</span>Risk Flags and Final Steps</li><li class="opt"><span class="letter">D</span>Proposal Narrative Rules</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">10</div><div class="qtext">Fee Calculation Method B is most reliable for which project condition?</div><ul class="opts"><li class="opt"><span class="letter">A</span>New construction where population is precisely known</li><li class="opt"><span class="letter">B</span>Projects where the client provides a stated equipment budget</li><li class="opt"><span class="letter">C</span>Renovation projects where facility area is established in a programming document</li><li class="opt"><span class="letter">D</span>Military projects governed by UFC design standards</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">11</div><div class="qtext">What is Your Company's documented record on insurance claims across 57+ years of operation?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Three minor claims, all resolved without litigation</li><li class="opt"><span class="letter">B</span>Zero claims on any coverage</li><li class="opt"><span class="letter">C</span>One claim on Professional Liability, settled in 2004</li><li class="opt"><span class="letter">D</span>Claims history is confidential and not referenced in proposals</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">12</div><div class="qtext">Which sector uses the phrase "residents" rather than "inmates" in all client-facing proposal language?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Military Sector</li><li class="opt"><span class="letter">B</span>Healthcare Sector</li><li class="opt"><span class="letter">C</span>Correctional Sector</li><li class="opt"><span class="letter">D</span>Government Sector</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">13</div><div class="qtext">Which of the following is NOT a required element of the Format and Compliance group on the Pre-Flight Checklist?</div><ul class="opts"><li class="opt"><span class="letter">A</span>"Your Company" lowercase, bold, #266889 throughout</li><li class="opt"><span class="letter">B</span>Travel line items separated from base fee</li><li class="opt"><span class="letter">C</span>SWOT analysis completed for this pursuit</li><li class="opt"><span class="letter">D</span>No em dashes anywhere in the document</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">14</div><div class="qtext">What does the SF 330 Bullseye selection method prioritize when choosing the five past projects to submit?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Highest fee dollar value</li><li class="opt"><span class="letter">B</span>Most recently completed projects</li><li class="opt"><span class="letter">C</span>Same architect + same sector + same location as the solicitation</li><li class="opt"><span class="letter">D</span>Largest square footage per project</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">15</div><div class="qtext">At Your Company, which position holds the authority to sign letters that certify the firm has not been involved in any active or pending litigation?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Cathey Your Company, CEO</li><li class="opt"><span class="letter">B</span>Marketing Director</li><li class="opt"><span class="letter">C</span>James C. Your Company, President</li><li class="opt"><span class="letter">D</span>Brett Daniel, VP BIM/Revit Manager</li></ul></div>
+</div>
+
+<!-- LEGEND 1 -->
+<div class="legend-page page" id="legend-1">
+  <div class="legend-title">Answer Key &middot; Questions 1 through 8</div>
+  <div class="legend-q"><div class="head">Question 1</div><div class="answer">C &mdash; 428 lbs/hr</div><div class="explain">200 keys &times; 15 lbs = 3,000 lbs/day &divide; 7 working hours = 428.6 lbs/hr. The formula applies to standard hotel operations. Luxury hotels use 20 lbs/key. Ref: M.7 Sizing Formulas.</div></div>
+  <div class="legend-q"><div class="head">Question 2</div><div class="answer">C &mdash; $160/hr</div><div class="explain">The 2026 Revit Operator / BIM Manager rate is $160/hr. No day rate applies for this position. Ref: M.6 Rate Schedule 2026.</div></div>
+  <div class="legend-q"><div class="head">Question 3</div><div class="answer">C &mdash; Phase III &mdash; Construction Documents (35%)</div><div class="explain">CD carries the largest fee share and highest documentation risk. Errors discovered here drive contractor disputes and change orders. Ref: M.2 Five-Phase Structure Reference.</div></div>
+  <div class="legend-q"><div class="head">Question 4</div><div class="answer">C &mdash; $300/SF</div><div class="explain">K-12 school projects: $300/SF estimated equipment cost, 4-6% fee range. Verify current rate with Anja before applying to a government submission. Ref: M.5 Master Fee Chart.</div></div>
+  <div class="legend-q"><div class="head">Question 5</div><div class="answer">C &mdash; Cathey Your Company, CEO</div><div class="explain">The Variance Letter is signed by the CEO. The Litigation Letter is signed by the President. Knowing which officer signs which document is a precision requirement, not a detail. Ref: M.4 Standard Letter Templates.</div></div>
+  <div class="legend-q"><div class="head">Question 6</div><div class="answer">B &mdash; F&amp;B independence</div><div class="explain">Hospitality proposals use "F&amp;B independence." Education and healthcare use "Foodservice independence." The language must match the sector. Ref: M.3 Proposal Narrative Rules.</div></div>
+  <div class="legend-q"><div class="head">Question 7</div><div class="answer">D &mdash; 12,000 SF</div><div class="explain">Hospital formula with retail component: 40 SF/bed. 300 beds &times; 40 SF = 12,000 SF. Hospice uses 25 SF/bed; rehabilitation/mental health uses 20 SF/bed (no retail). Ref: M.7 Sizing Formulas.</div></div>
+  <div class="legend-q"><div class="head">Question 8</div><div class="answer">C &mdash; $1,600/day</div><div class="explain">The PM site visit day rate beyond 50 miles from [City, State] is $1,600/day. Mileage at $0.665/mile is additional. Both are separate line items; never bundled into the base fee. Ref: M.6 Rate Schedule 2026.</div></div>
+</div>
+
+<!-- LEGEND 2 -->
+<div class="legend-page page" id="legend-2">
+  <div class="legend-title">Answer Key &middot; Questions 9 through 15</div>
+  <div class="legend-q"><div class="head">Question 9</div><div class="answer">C &mdash; Risk Flags and Final Steps</div><div class="explain">Group 3 (Risk Flags) specifically addresses scope ambiguities, missing authorizations, and unaddressed client requirements that could generate disputes. Group 1 is content; Group 2 is formatting. Ref: M.9 Pre-Flight Checklist.</div></div>
+  <div class="legend-q"><div class="head">Question 10</div><div class="answer">C &mdash; Renovation projects where facility area is established</div><div class="explain">Method B is the square-foot-based approach: most reliable when area is known from a programming document or preliminary plan. Method A is population-driven (new construction). Method C is budget-backed. Ref: M.5 Master Fee Chart.</div></div>
+  <div class="legend-q"><div class="head">Question 11</div><div class="answer">B &mdash; Zero claims on any coverage</div><div class="explain">In 57+ years of operation across thousands of projects, Your Company has never had a claim on any insurance policy. This record is cited explicitly in the Variance Letter. It is one of the firm's most powerful credibility signals. Ref: M.4 Standard Letter Templates.</div></div>
+  <div class="legend-q"><div class="head">Question 12</div><div class="answer">C &mdash; Correctional Sector</div><div class="explain">Anja's instruction: always use "residents" or "persons" in correctional sector client-facing text, never "inmates." This applies to all proposals, emails, and presentations. Ref: M.8 Sector Quick Reference.</div></div>
+  <div class="legend-q"><div class="head">Question 13</div><div class="answer">C &mdash; SWOT analysis completed for this pursuit</div><div class="explain">The SWOT analysis is a pre-proposal pursuit qualification tool; it is not a Pre-Flight Checklist item. The checklist validates document quality before release, not pursuit strategy before proposal. Ref: M.9 Pre-Flight Checklist.</div></div>
+  <div class="legend-q"><div class="head">Question 14</div><div class="answer">C &mdash; Same architect + same sector + same location</div><div class="explain">The Bullseye targets relevance, not value or recency. The center bullseye is: same architect who issued the RFQ, same sector as the solicitation, same geographic area. Expand outward only when no bullseye match exists. Ref: M.1 Document Types Quick Guide.</div></div>
+  <div class="legend-q"><div class="head">Question 15</div><div class="answer">C &mdash; James C. Your Company, President</div><div class="explain">The Litigation Letter certifying no active or pending litigation is signed by the President, James C. Your Company. The Variance Letter (insurance exception) is signed by the CEO, Cathey Your Company. These are distinct documents with distinct signatories. Ref: M.4 Standard Letter Templates.</div></div>
+</div>
+
+<!-- FLASHCARD GRID -->
+<div class="page" id="flash-grid">
+  <div class="crumb">Section M <span class="dot">&middot;</span> Assessment <span class="dot">&middot;</span> Flashcard Reference Table</div>
+  <div class="subsec-tag">Study Tools</div>
+  <h2 class="subsec-title">Flashcard Reference Grid</h2>
+  <div class="subsec-lede">Twelve precision reference cards for the most frequently tested values and rules in the Reference Section.</div>
+  <div style="overflow-x:auto;">
+    <table class="flash-grid-table">
+      <thead><tr><th>#</th><th>Term / Rule</th><th>Reference</th><th>Key Value or Fact</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Phase III Fee %</strong></td><td>M.2</td><td>35% of total fee; Construction Documents; highest documentation risk of all five phases.</td></tr>
+        <tr><td>2</td><td><strong>Laundry Formula</strong></td><td>M.7</td><td>Keys &times; 15 lbs &divide; 7 hrs = lbs/hr. Luxury = 20 lbs. Correctional = 3 lbs/inmate.</td></tr>
+        <tr><td>3</td><td><strong>K-12 Rate</strong></td><td>M.5</td><td>$300/SF estimated equipment cost; 4-6% fee range.</td></tr>
+        <tr><td>4</td><td><strong>Hospitality Rate</strong></td><td>M.5</td><td>$325/SF kitchen; 3.5-5% fee range. F&amp;B independence language.</td></tr>
+        <tr><td>5</td><td><strong>Hospital SF Formula</strong></td><td>M.7</td><td>40 SF/bed (with retail). Hospice: 25 SF/bed. Rehab: 20 SF/bed (no retail).</td></tr>
+        <tr><td>6</td><td><strong>Variance Letter Signer</strong></td><td>M.4</td><td>Cathey Your Company, CEO. (Litigation Letter: James C. Your Company, President.)</td></tr>
+        <tr><td>7</td><td><strong>Travel Billing</strong></td><td>M.6</td><td>$1,600/day + $0.665/mile beyond 50 miles from [City, State]. Always a separate line item.</td></tr>
+        <tr><td>8</td><td><strong>Revit Rate</strong></td><td>M.6</td><td>$160/hr. Production drawings, BIM coordination, clash detection support.</td></tr>
+        <tr><td>9</td><td><strong>Principal Rate</strong></td><td>M.6</td><td>$275/hr and $1,500/day. Highest billable position in the rate schedule.</td></tr>
+        <tr><td>10</td><td><strong>Correctional Language</strong></td><td>M.8</td><td>Use "residents" or "persons" in all client-facing text. Never "inmates."</td></tr>
+        <tr><td>11</td><td><strong>Insurance Record</strong></td><td>M.4</td><td>Zero claims on any coverage in 57+ years of operation. Cited in the Variance Letter.</td></tr>
+        <tr><td>12</td><td><strong>Pre-Flight Group 3</strong></td><td>M.9</td><td>Risk Flags and Final Steps: scope ambiguities, missing authorizations, unaddressed client requirements.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- INTERACTIVE FLASHCARDS -->
+<div class="page" id="flash-interactive">
+  <div class="crumb">Section M <span class="dot">&middot;</span> Assessment <span class="dot">&middot;</span> Interactive Flashcards</div>
+  <div class="subsec-tag">Study Tools &middot; Screen Only</div>
+  <h2 class="subsec-title">Interactive Flip Cards</h2>
+  <div class="subsec-lede">Click or tap any card to reveal the answer. Use the navigation buttons to cycle through all 12 cards.</div>
+  <div class="flash-widget">
+    <div class="flash-card" id="flashcard" onclick="flashFlip()">
+      <div class="front-label">CLICK TO FLIP</div>
+      <div class="front-text" id="flash-front">Phase III Fee Percentage</div>
+      <div class="back-text" id="flash-back">35% of total fee. Construction Documents phase. Carries the highest documentation risk of all five phases. Errors here drive contractor disputes and costly change orders.</div>
+    </div>
+    <div class="flash-hint">Click the card to flip &middot; Use Prev / Next to navigate</div>
+    <div class="flash-nav">
+      <button class="flash-btn" onclick="flashPrev()">&#8592; Prev</button>
+      <div class="flash-dots" id="flash-dots"></div>
+      <button class="flash-btn" onclick="flashNext()">Next &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- CUT CARDS -->
+<div class="page" id="cut-cards">
+  <div class="crumb">Section M <span class="dot">&middot;</span> Assessment <span class="dot">&middot;</span> Printable Cut Cards</div>
+  <div class="subsec-tag">Study Tools &middot; Print-Ready</div>
+  <h2 class="subsec-title">Printable Cut Cards</h2>
+  <div class="subsec-lede">Print this page, cut along the dashed borders, and use as physical study cards.</div>
+  <div class="cut-cards">
+    <div class="cut-card"><div class="term">Phase III Fee %</div><div class="def">35% of total fee. Construction Documents. Highest documentation risk; errors drive contractor disputes and change orders.</div></div>
+    <div class="cut-card"><div class="term">Laundry Formula</div><div class="def">Keys &times; 15 lbs &divide; 7 hrs = lbs/hr. Luxury = 20 lbs/key. Correctional = 3 lbs/inmate. Size equipment to this capacity.</div></div>
+    <div class="cut-card"><div class="term">K-12 Rate</div><div class="def">$300/SF estimated equipment cost. Fee range: 4-6%. USDA National School Lunch Program compliance required.</div></div>
+    <div class="cut-card"><div class="term">Hospitality Rate</div><div class="def">$325/SF kitchen. Fee range: 3.5-5%. Vendor-neutral language: "F&amp;B independence."</div></div>
+    <div class="cut-card"><div class="term">Hospital SF Formula</div><div class="def">40 SF/bed (with retail). Hospice: 25 SF/bed. Rehab/Mental Health: 20 SF/bed (no retail component).</div></div>
+    <div class="cut-card"><div class="term">Variance Letter Signer</div><div class="def">Signed by: Cathey Your Company, CEO. The Litigation Letter is signed by: James C. Your Company, President. Different letters, different signatories.</div></div>
+    <div class="cut-card"><div class="term">Travel Billing Rule</div><div class="def">$1,600/day site visit + $0.665/mile beyond 50 miles from [City, State]. Always a separate line item; never bundled.</div></div>
+    <div class="cut-card"><div class="term">Revit / BIM Rate</div><div class="def">$160/hr. Production drawings, BIM coordination, clash detection. File format: .rvt for coordination; PDF and DWG for contractors.</div></div>
+    <div class="cut-card"><div class="term">Principal Rate</div><div class="def">$275/hr and $1,500/day. Highest billable position. Additional meetings (all levels) billed at $225/hr.</div></div>
+    <div class="cut-card"><div class="term">Correctional Language</div><div class="def">Use "residents" or "persons" in all client-facing text. Never "inmates." Applies to proposals, emails, and presentations without exception.</div></div>
+    <div class="cut-card"><div class="term">Insurance Record</div><div class="def">Zero claims on any coverage in 57+ years of operation. Cited explicitly in the Variance Letter. One of the firm's strongest credibility signals.</div></div>
+    <div class="cut-card"><div class="term">Pre-Flight Group 3</div><div class="def">Risk Flags and Final Steps: scope ambiguities, missing authorizations, unaddressed client requirements, Pipedrive filing, Box naming convention.</div></div>
+  </div>
+</div>
+
+
+<!-- M-SLIDES -->
+<div class="page" id="m-slides">
+  <div class="crumb">SECTION M <span class="dot">&middot;</span> PRESENTATION</div>
+  <div class="subsec-tag">Full Slide Deck</div>
+  <h2 class="subsec-title">The Blueprint of Consequence</h2>
+  <div class="subsec-lede">The complete presentation for this section. Each slide is embedded directly. Scroll through all 13 slides below.</div>
+  <style>.slide-img{width:100%;display:block;border-radius:2px;border:1px solid var(--rule);margin-bottom:8px;}</style>
+  <img class="slide-img" src="media/m/slides/slide01.png" alt="Slide 1 of 13" loading="lazy">
+  <img class="slide-img" src="media/m/slides/slide02.png" alt="Slide 2 of 13" loading="lazy">
+  <img class="slide-img" src="media/m/slides/slide03.png" alt="Slide 3 of 13" loading="lazy">
+  <img class="slide-img" src="media/m/slides/slide04.png" alt="Slide 4 of 13" loading="lazy">
+  <img class="slide-img" src="media/m/slides/slide05.png" alt="Slide 5 of 13" loading="lazy">
+  <img class="slide-img" src="media/m/slides/slide06.png" alt="Slide 6 of 13" loading="lazy">
+  <img class="slide-img" src="media/m/slides/slide07.png" alt="Slide 7 of 13" loading="lazy">
+  <img class="slide-img" src="media/m/slides/slide08.png" alt="Slide 8 of 13" loading="lazy">
+  <img class="slide-img" src="media/m/slides/slide09.png" alt="Slide 9 of 13" loading="lazy">
+  <img class="slide-img" src="media/m/slides/slide10.png" alt="Slide 10 of 13" loading="lazy">
+  <img class="slide-img" src="media/m/slides/slide11.png" alt="Slide 11 of 13" loading="lazy">
+  <img class="slide-img" src="media/m/slides/slide12.png" alt="Slide 12 of 13" loading="lazy">
+  <img class="slide-img" src="media/m/slides/slide13.png" alt="Slide 13 of 13" loading="lazy">
+</div>
+
+</main>
+
+<script>
+(function(){
+  'use strict';
+
+  /* FLASHCARD ENGINE */
+  var cards = [
+    {f:'Phase III Fee Percentage', b:'35% of total fee. Construction Documents phase. Carries the highest documentation risk. Errors here drive contractor disputes and costly change orders.'},
+    {f:'Laundry Formula (15-lb Rule)', b:'Keys \u00d7 15 lbs \u00f7 7 working hours = lbs/hr capacity. Luxury hotel: 20 lbs/key. Correctional: 3 lbs/inmate. Size equipment to this number.'},
+    {f:'K-12 Sector Rate', b:'$300/SF estimated equipment cost. Fee range: 4\u20136%. USDA National School Lunch Program compliance required.'},
+    {f:'Hospitality Sector Rate', b:'$325/SF kitchen. Fee range: 3.5\u20135%. Vendor-neutral language: \u201cF&B independence.\u201d'},
+    {f:'Hospital Kitchen SF Formula', b:'40 SF/bed (with retail component). Hospice: 25 SF/bed. Rehab/Mental Health: 20 SF/bed (no retail).'},
+    {f:'Variance Letter Signer', b:'Signed by Cathey Your Company, CEO. The Litigation Letter is signed by James C. Your Company, President. Different documents, different signatories.'},
+    {f:'Travel Billing (50-Mile Rule)', b:'$1,600/day site visit + $0.665/mile beyond 50 miles from [City, State]. Always a separate line item; never bundled into the base fee.'},
+    {f:'Revit / BIM Manager Rate', b:'$160/hr. Production drawings, BIM coordination, clash detection. Files: .rvt for coordination; PDF and DWG for contractors.'},
+    {f:'Principal Hourly and Day Rate', b:'$275/hr and $1,500/day. Highest billable position. Additional meetings at all levels: $225/hr.'},
+    {f:'Correctional Sector Language', b:'Use "residents" or "persons" in all client-facing text. Never "inmates." Applies to proposals, emails, and presentations without exception.'},
+    {f:'Insurance Claims Record', b:'Zero claims on any coverage in 57+ years of operation. Cited explicitly in the Variance Letter as a credibility signal.'},
+    {f:'Pre-Flight Checklist Group 3', b:'Risk Flags and Final Steps: scope ambiguities, missing authorizations, unaddressed client requirements, Pipedrive filing, Box naming convention.'}
+  ];
+  var idx = 0;
+  function render() {
+    var card = document.getElementById('flashcard');
+    var front = document.getElementById('flash-front');
+    var back = document.getElementById('flash-back');
+    if (!card) return;
+    card.classList.remove('flipped');
+    front.innerHTML = cards[idx].f;
+    back.innerHTML = cards[idx].b;
+    var dots = document.getElementById('flash-dots');
+    if (dots) {
+      dots.innerHTML = '';
+      for (var i = 0; i < cards.length; i++) {
+        var d = document.createElement('div');
+        d.className = 'flash-dot' + (i === idx ? ' active' : '');
+        dots.appendChild(d);
+      }
+    }
+  }
+  window.flashFlip = function() { var c = document.getElementById('flashcard'); if (c) c.classList.toggle('flipped'); };
+  window.flashNext = function() { idx = (idx + 1) % cards.length; render(); };
+  window.flashPrev = function() { idx = (idx - 1 + cards.length) % cards.length; render(); };
+  render();
+
+  /* SCROLL SPY */
+  var links = document.querySelectorAll('.sidebar-list a');
+  window.addEventListener('scroll', function() {
+    var pos = window.pageYOffset + 120;
+    var active = null;
+    links.forEach(function(a) {
+      var href = a.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+      var el = document.getElementById(href.slice(1));
+      if (el && el.getBoundingClientRect().top + window.pageYOffset - 80 <= pos) active = a;
+    });
+    links.forEach(function(a) { a.classList.remove('active'); });
+    if (active) active.classList.add('active');
+  }, {passive: true});
+
+  /* GLOBAL SEARCH */
+  var searchInput = document.getElementById('globalSearch');
+  var searchCount = document.getElementById('searchCount');
+  var allMarks = [];
+  var markIdx = -1;
+
+  function esc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+  function clearMarks() {
+    document.querySelectorAll('mark.search-highlight').forEach(function(m) {
+      var p = m.parentNode;
+      p.replaceChild(document.createTextNode(m.textContent), m);
+      p.normalize();
+    });
+    allMarks = []; markIdx = -1;
+  }
+
+  function doSearch(query) {
+    clearMarks();
+    if (!query || query.trim().length < 2) {
+      if (searchCount) { searchCount.textContent = ''; }
+      return;
+    }
+    var re = new RegExp('(' + esc(query.trim()) + ')', 'gi');
+    var walker = document.createTreeWalker(
+      document.querySelector('main'), NodeFilter.SHOW_TEXT,
+      { acceptNode: function(n) {
+          var p = n.parentElement;
+          if (!p) return NodeFilter.FILTER_REJECT;
+          var t = p.tagName.toUpperCase();
+          if (t === 'SCRIPT' || t === 'STYLE') return NodeFilter.FILTER_REJECT;
+          return n.nodeValue.trim().length > 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }}
+    );
+    var nodes = [];
+    var n;
+    while ((n = walker.nextNode())) nodes.push(n);
+    nodes.forEach(function(node) {
+      if (!re.test(node.nodeValue)) return;
+      re.lastIndex = 0;
+      var frag = document.createDocumentFragment();
+      var val = node.nodeValue, last = 0, m;
+      while ((m = re.exec(val)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(val.slice(last, m.index)));
+        var mark = document.createElement('mark');
+        mark.className = 'search-highlight';
+        mark.textContent = m[0];
+        frag.appendChild(mark);
+        last = re.lastIndex;
+      }
+      if (last < val.length) frag.appendChild(document.createTextNode(val.slice(last)));
+      node.parentNode.replaceChild(frag, node);
+    });
+    allMarks = Array.from(document.querySelectorAll('mark.search-highlight'));
+    if (!allMarks.length) {
+      if (searchCount) searchCount.textContent = 'No results';
+      return;
+    }
+    markIdx = 0;
+    goToMark(0);
+    if (searchCount) searchCount.textContent = '1 / ' + allMarks.length;
+  }
+
+  function goToMark(i) {
+    allMarks.forEach(function(m) { m.style.outline = 'none'; });
+    allMarks[i].style.outline = '2px solid #B8893B';
+    allMarks[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', function() { doSearch(searchInput.value); });
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && allMarks.length) {
+        markIdx = (markIdx + 1) % allMarks.length;
+        goToMark(markIdx);
+        if (searchCount) searchCount.textContent = (markIdx + 1) + ' / ' + allMarks.length;
+      }
+      if (e.key === 'Escape') {
+        searchInput.value = '';
+        clearMarks();
+        if (searchCount) searchCount.textContent = '';
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>

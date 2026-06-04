@@ -1,0 +1,19 @@
+# camacho Training Manual — Netlify config
+# Project: willowy-horse-ed9122
+# No password protection (removed). Static HTML deployment.
+
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Large HTML files (embedded video/audio) — increase cache lifetime
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

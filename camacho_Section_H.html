@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business OS &middot; Section H &middot; Fee Calculation &amp; Pricing &middot; 2026 Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--navy-mid:#0f2040;--gold:#C5A76F;--brass:#B8893B;--brass-soft:#D4AB5E;--cream:#F4EFE4;--cream-light:#FAF7F1;--paper:#FFFFFF;--ink:#162630;--ink-soft:#2C3B45;--ink-muted:#5D7079;--text-primary:#e8e0d0;--text-secondary:#b8aa90;--camacho-blue:#266889;--blue-tint:#EDF3F6;--green:#2F7D54;--green-tint:#E8F2EC;--red:#B23B2E;--red-tint:#F8E9E6;--rule:#D6CCB6;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Montserrat',sans-serif;background:var(--cream-light);color:var(--ink);font-size:15px;line-height:1.65;display:flex;}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:300;background:var(--navy);height:44px;display:flex;align-items:center;padding:0 20px;border-bottom:1px solid var(--brass);gap:16px;}
+.topbar-logo{font-family:'Playfair Display',serif;color:var(--gold);font-size:15px;font-weight:700;letter-spacing:.08em;}
+.topbar-section{color:var(--text-secondary);font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
+.topbar-links{margin-left:auto;display:flex;gap:20px;}
+.topbar-links a{color:var(--text-secondary);font-size:11px;text-decoration:none;letter-spacing:.08em;text-transform:uppercase;}
+.topbar-links a:hover{color:var(--gold);}
+.sidebar{position:fixed;top:44px;left:0;bottom:0;width:240px;background:var(--navy);overflow-y:auto;z-index:100;padding:28px 18px 40px 20px;box-sizing:border-box;border-right:1px solid rgba(197,167,111,.18);}
+.sidebar-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:0 8px 10px 8px;margin-bottom:16px;border-bottom:1px solid rgba(197,167,111,.22);}
+.sidebar-group-label{color:var(--gold);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:16px 8px 6px 8px;opacity:.9;}
+.sidebar-list{list-style:none;}
+.sidebar-list a{display:flex;align-items:baseline;gap:8px;color:#FFF;text-decoration:none;font-size:11px;padding:8px 8px 8px 6px;border-left:2px solid transparent;transition:all .15s;}
+.sidebar-list a .code{color:var(--gold);font-size:10px;min-width:26px;}
+.sidebar-list a:hover,.sidebar-list a.active{color:var(--gold);border-left-color:var(--gold);background:rgba(197,167,111,.06);}
+main{margin-left:240px;margin-top:44px;flex:1;max-width:960px;padding:0 0 80px;}
+.page{background:var(--paper);padding:56px 64px;margin-bottom:2px;}
+.page.cover{background:var(--navy);min-height:100vh;display:flex;flex-direction:column;padding:72px 72px 56px;}
+.legend-page{background:var(--navy);padding:56px 64px;margin-bottom:2px;}
+.cover-eyebrow{font-family:'Montserrat',sans-serif;color:var(--gold);font-size:10px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:28px;}
+.cover-letter{font-family:'Playfair Display',serif;color:var(--gold);font-size:120px;font-weight:700;line-height:1;margin-bottom:4px;}
+.cover-title{font-family:'Playfair Display',serif;color:#FFF;font-size:38px;font-weight:600;line-height:1.2;margin-bottom:12px;}
+.cover-sub{color:var(--text-secondary);font-size:14px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-bottom:48px;max-width:480px;}
+.cover-rule{height:1px;background:rgba(197,167,111,.3);margin-bottom:40px;}
+.nav-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:auto;}
+.nav-card{background:rgba(255,255,255,.05);border:1px solid rgba(197,167,111,.2);border-top:2px solid var(--gold);padding:16px 18px;text-decoration:none;}
+.nav-card-code{color:var(--gold);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;}
+.nav-card-title{color:#FFF;font-size:12px;font-weight:600;font-family:'Playfair Display',serif;}
+.cover-credit{margin-top:40px;color:var(--text-secondary);font-size:10px;letter-spacing:.08em;border-top:1px solid rgba(197,167,111,.15);padding-top:16px;}
+.crumb{font-size:10px;color:var(--ink-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;}
+.crumb .dot{margin:0 6px;color:var(--brass);}
+.subsec-tag{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--brass);letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.subsec-title{font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);font-weight:700;line-height:1.2;margin-bottom:16px;}
+.subsec-lede{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink-soft);line-height:1.55;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--rule);}
+.figure-title{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--brass);letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.section-body p{margin-bottom:16px;}
+.section-body ul{margin:0 0 16px 20px;}
+.section-body ol{margin:0 0 16px 20px;}
+.section-body li{margin-bottom:6px;}
+.callout{margin:24px 0;padding:20px 22px;border-radius:2px;break-inside:avoid;}
+.callout .label{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:7px;margin-bottom:10px;}
+.callout .icon{font-size:14px;}
+.callout .body{font-size:14px;line-height:1.6;}
+.callout .attrib{font-size:11px;margin-top:10px;font-style:italic;opacity:.8;}
+.callout.expert{background:var(--navy);color:var(--text-primary);border-left:4px solid var(--gold);}
+.callout.expert .label{color:var(--gold);}
+.callout.expert .body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;}
+.callout.rule{background:var(--cream);border-left:4px solid var(--navy);}
+.callout.rule .label{color:var(--navy);}
+.callout.files{background:var(--blue-tint);border-left:4px solid var(--camacho-blue);}
+.callout.files .label{color:var(--camacho-blue);}
+.callout.best{background:var(--green-tint);border-left:4px solid var(--green);}
+.callout.best .label{color:var(--green);}
+.callout.warn{background:var(--red-tint);border-left:4px solid var(--red);}
+.callout.warn .label{color:var(--red);}
+.your-company{font-weight:700;color:#266889;}
+.cards-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:24px 0;}
+.num-card{background:var(--cream);border-top:3px solid var(--brass);padding:20px 22px;break-inside:avoid;}
+.num-card .num{font-family:'Playfair Display',serif;font-size:36px;color:var(--brass);font-weight:700;line-height:1;margin-bottom:4px;}
+.num-card .kicker{font-size:9px;color:var(--ink-muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;}
+.num-card .title{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);font-weight:600;margin-bottom:8px;}
+.num-card .desc{font-size:13px;color:var(--ink-soft);}
+.steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:24px 0;}
+.step-item{background:var(--cream);padding:14px 16px;border-left:3px solid var(--brass);break-inside:avoid;}
+.step-num{font-family:'Playfair Display',serif;font-size:20px;color:var(--brass);font-weight:700;margin-bottom:4px;}
+.step-title{font-size:12px;color:var(--navy);font-weight:700;margin-bottom:4px;}
+.step-desc{font-size:12px;color:var(--ink-soft);line-height:1.4;}
+.checklist{list-style:none;margin:16px 0;}
+.checklist li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--rule);font-size:14px;color:var(--ink-soft);}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:'☐';color:var(--brass);font-size:16px;flex-shrink:0;margin-top:1px;}
+.checklist-head{font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);font-weight:600;margin:24px 0 10px;}
+.error-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+.error-item{background:var(--red-tint);border-left:3px solid var(--red);padding:14px 16px;break-inside:avoid;}
+.error-label{font-size:9px;color:var(--red);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:4px;}
+.error-text{font-size:13px;color:var(--ink-soft);}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+thead{background:var(--navy);}
+thead th{color:var(--gold);font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:12px 14px;text-align:left;font-weight:700;}
+tbody tr:nth-child(even){background:var(--cream-light);}
+tbody tr:nth-child(odd){background:var(--paper);}
+td{padding:11px 14px;color:var(--ink-soft);vertical-align:top;}
+td strong{color:var(--ink);font-weight:600;}
+.media-block{margin:24px 0;padding:20px;background:var(--cream);border-top:3px solid var(--brass);}
+.media-byline{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--brass);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:12px;}
+.media-iframe-wrap{position:relative;width:100%;padding-bottom:56.25%;margin-bottom:8px;}
+.media-iframe-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:2px;}
+.audio-wrap iframe{width:100%;height:80px;border:0;border-radius:2px;}
+.media-caption{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--ink-muted);margin-top:8px;}
+.media-img{width:100%;border-radius:2px;display:block;margin-top:16px;}
+.quiz-q{margin-bottom:28px;break-inside:avoid;border-left:3px solid var(--rule);padding-left:18px;}
+.qnum{font-family:'Playfair Display',serif;font-size:22px;color:var(--brass);font-weight:700;margin-bottom:6px;}
+.qtext{font-size:14px;color:var(--ink);margin-bottom:12px;font-weight:500;}
+.opts{list-style:none;}
+.opt{display:flex;align-items:baseline;gap:10px;padding:6px 0;font-size:13px;color:var(--ink-soft);border-bottom:1px solid var(--cream);}
+.opt:last-child{border-bottom:none;}
+.letter{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--cream);color:var(--brass);font-size:11px;font-weight:700;flex-shrink:0;}
+.legend-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:28px;font-weight:700;margin-bottom:8px;}
+.legend-sub{color:var(--text-secondary);font-size:14px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid rgba(197,167,111,.25);}
+.legend-q{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(197,167,111,.12);break-inside:avoid;}
+.legend-q .head{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:4px;}
+.legend-q .answer{font-size:14px;color:var(--text-primary);font-weight:600;margin-bottom:4px;}
+.legend-q .explain{font-size:13px;color:var(--text-secondary);font-style:italic;}
+.flash-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+.flash-grid-card{border:1px solid var(--rule);}
+.flash-grid-front{background:var(--navy);color:var(--gold);padding:14px 16px;font-family:'Playfair Display',serif;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;}
+.flash-grid-num{background:var(--brass);color:var(--navy);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;}
+.flash-grid-back{background:var(--paper);color:var(--ink-soft);padding:12px 16px;font-size:12px;line-height:1.5;}
+.flash-grid-ref{font-size:10px;color:var(--ink-muted);margin-top:6px;font-style:italic;}
+.flip-container{max-width:600px;margin:0 auto 24px;}
+.flip-card{background:var(--navy);border-top:3px solid var(--gold);padding:48px 40px;text-align:center;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;}
+.flip-front-label{font-size:9px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;font-weight:700;}
+.flip-front-text{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;}
+.flip-back-text{font-size:14px;color:var(--text-primary);line-height:1.6;display:none;}
+.flip-card.flipped{background:var(--navy-mid);}
+.flip-card.flipped .flip-front-text{display:none;}
+.flip-card.flipped .flip-back-text{display:block;}
+.flip-hint{text-align:center;font-size:11px;color:var(--ink-muted);margin-top:8px;font-style:italic;}
+.flip-nav{display:flex;justify-content:center;align-items:center;gap:20px;margin-top:16px;}
+.flip-btn{background:var(--navy);color:var(--gold);border:1px solid var(--brass);padding:8px 22px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;cursor:pointer;text-transform:uppercase;}
+.flip-btn:hover{background:var(--brass);color:var(--navy);}
+.flip-counter{font-size:12px;color:var(--ink-muted);font-weight:600;}
+.flip-dots{display:flex;gap:6px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
+.flip-dot{width:8px;height:8px;border-radius:50%;background:var(--rule);cursor:pointer;}
+.flip-dot.active{background:var(--gold);}
+.cut-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0;}
+.cut-card{border:1px dashed var(--rule);break-inside:avoid;}
+.cut-card .term{background:var(--navy);color:var(--gold);padding:14px 16px;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;}
+.cut-card .def{background:var(--paper);color:var(--ink-soft);padding:12px 16px;font-size:12px;line-height:1.5;}
+@media print{body{background:#fff;font-size:11pt;}.topbar,.sidebar{display:none!important;}main{margin:0;max-width:100%;}.page{padding:.6in .85in;margin:0;break-before:always;}.page:first-of-type{break-before:auto;}.cover{min-height:11in;break-after:always;}-webkit-print-color-adjust:exact;print-color-adjust:exact;.flip-container{display:none;}h1,h2,h3,.subsec-title,.subsec-tag,.crumb,.figure-title,.checklist-head{break-inside:avoid;break-after:avoid;}.callout,.num-card,.cards-row,.cut-card,.quiz-q,.legend-q{break-inside:avoid;}p,li{orphans:3;widows:3;}.legend-page{break-before:always;}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-logo"><span class="your-company">Your Company</span></div>
+  <div class="topbar-section">Section H &middot; Fee Calculation &amp; Pricing</div>
+  <div class="topbar-links">
+    <a href="#cover">Top</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#flash-grid">Study Cards</a>
+  </div>
+</header>
+
+<aside class="sidebar">
+  <div class="sidebar-title">Section H &middot; Fee Calculation</div>
+  <ul class="sidebar-list">
+    <li class="sidebar-group-label">Overview</li>
+    <li><a href="#cover"><span class="code">H</span>Cover</a></li>
+    <li><a href="#h-media"><span class="code">&#9654;</span>Briefings</a></li>
+    <li><a href="#h-slides"><span class="code">&#9674;</span>Slides (H)</a></li>
+    <li class="sidebar-group-label">Foundations</li>
+    <li><a href="#h0"><span class="code">H.0</span>Why Fee Calculation Decides</a></li>
+    <li><a href="#h1"><span class="code">H.1</span>Three Methods</a></li>
+    <li><a href="#h2"><span class="code">H.2</span>Method A: SF &times; Sector Rate</a></li>
+    <li><a href="#h3"><span class="code">H.3</span>Method B: Budget &times; %</a></li>
+    <li class="sidebar-group-label">The Sector Model</li>
+    <li><a href="#h4"><span class="code">H.4</span>Sector Rate Table</a></li>
+    <li><a href="#h5"><span class="code">H.5</span>Five-Phase Split</a></li>
+    <li><a href="#h6"><span class="code">H.6</span>2026 Labor Rate Card</a></li>
+    <li class="sidebar-group-label">Building the Number</li>
+    <li><a href="#h7"><span class="code">H.7</span>Fee Buildup Step by Step</a></li>
+    <li><a href="#h8"><span class="code">H.8</span>Meetings &amp; Reimbursables</a></li>
+    <li><a href="#h9"><span class="code">H.9</span>Retainers &amp; Payment Terms</a></li>
+    <li class="sidebar-group-label">Defending the Number</li>
+    <li><a href="#h10"><span class="code">H.10</span>When &amp; How to Adjust</a></li>
+    <li><a href="#h11"><span class="code">H.11</span>Ten Pricing Errors</a></li>
+    <li><a href="#h12"><span class="code">H.12</span>Fee Defense Checklist</a></li>
+    <li class="sidebar-group-label">Assessment</li>
+    <li><a href="#quiz"><span class="code">&#10003;</span>Quiz (15 Q)</a></li>
+    <li><a href="#legend1"><span class="code">&#9745;</span>Answer Legend</a></li>
+    <li><a href="#flash-grid"><span class="code">&#9635;</span>Flashcard Grid</a></li>
+    <li><a href="#flip-cards"><span class="code">&#9654;</span>Flip Cards</a></li>
+    <li><a href="#cut-cards"><span class="code">&#9986;</span>Cut Cards</a></li>
+  </ul>
+</aside>
+
+<main>
+
+<div class="page cover" id="cover">
+  <div class="cover-eyebrow"><span class="your-company">Your Company</span> Sales &amp; Proposal Development Training Guide &middot; 2026 Edition</div>
+  <div class="cover-letter">H</div>
+  <div class="cover-title">Fee Calculation &amp; Pricing</div>
+  <div class="cover-sub">A defended fee is a paid fee. This section is the math behind every number that leaves the firm, the logic that lets a client replicate it on the back of an envelope, and the discipline that makes the fee survive procurement review.</div>
+  <div class="cover-rule"></div>
+  <div class="nav-cards">
+    <a class="nav-card" href="#h0"><div class="nav-card-code">H.0</div><div class="nav-card-title">Why Fee Calc Decides</div></a>
+    <a class="nav-card" href="#h1"><div class="nav-card-code">H.1</div><div class="nav-card-title">Three Methods</div></a>
+    <a class="nav-card" href="#h2"><div class="nav-card-code">H.2</div><div class="nav-card-title">Method A: SF &times; Sector Rate</div></a>
+    <a class="nav-card" href="#h3"><div class="nav-card-code">H.3</div><div class="nav-card-title">Method B: Budget &times; %</div></a>
+    <a class="nav-card" href="#h4"><div class="nav-card-code">H.4</div><div class="nav-card-title">Sector Rate Table</div></a>
+    <a class="nav-card" href="#h5"><div class="nav-card-code">H.5</div><div class="nav-card-title">Five-Phase Split</div></a>
+    <a class="nav-card" href="#h6"><div class="nav-card-code">H.6</div><div class="nav-card-title">2026 Labor Rate Card</div></a>
+    <a class="nav-card" href="#h7"><div class="nav-card-code">H.7</div><div class="nav-card-title">Fee Buildup Step by Step</div></a>
+    <a class="nav-card" href="#h8"><div class="nav-card-code">H.8</div><div class="nav-card-title">Meetings &amp; Reimbursables</div></a>
+    <a class="nav-card" href="#h9"><div class="nav-card-code">H.9</div><div class="nav-card-title">Retainers &amp; Payment Terms</div></a>
+    <a class="nav-card" href="#h10"><div class="nav-card-code">H.10</div><div class="nav-card-title">When &amp; How to Adjust</div></a>
+    <a class="nav-card" href="#h12"><div class="nav-card-code">H.12</div><div class="nav-card-title">Fee Defense Checklist</div></a>
+  </div>
+  <div class="cover-credit"><span class="your-company">Your Company</span> Associates, Inc. &middot; [Company Address] &middot; Internal Use Only &middot; 2026</div>
+</div>
+
+<div class="page" id="h-media">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> BRIEFINGS</div>
+  <div class="subsec-tag">Watch and Listen</div>
+  <h2 class="subsec-title">Section Briefings</h2>
+  <div class="subsec-lede">Watch the walkthrough for the method, listen to the deep dive on defensible fees, then study the section for the detail. The same fee engineering in three formats.</div>
+  <div class="media-block">
+    <div class="media-byline">Video &middot; <span class="your-company">Your Company</span> Fee Calculation</div>
+    <div class="media-iframe-wrap"><video controls preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;border-radius:2px;"><source src="media/h/video.mp4" type="video/mp4"></video></div>
+    <div class="media-caption">The three fee calculation methods, the sector rate table, and the five-step buildup, demonstrated.</div>
+  </div>
+  <div class="media-block">
+    <div class="media-byline">Audio &middot; The Math of Defensible Project Fees</div>
+    <div class="audio-wrap"><audio controls preload="metadata" style="width:100%;display:block;"><source src="media/h/audio.m4a" type="audio/mp4"></audio></div>
+    <div class="media-caption">The full fee methodology, narrated. A defended fee is a paid fee.</div>
+  </div>
+  <div class="figure-title" style="margin-top:32px;">Section H &middot; Fee Calculation Methodology Infographic</div>
+  <img class="media-img" src="media/h/infographic.png" alt="Section H Fee Calculation Infographic" loading="lazy">
+  <div class="figure-title" style="margin-top:32px;">Section H &middot; Concept Mind Map</div>
+  <img class="media-img" src="media/h/mindmap.png" alt="Section H Mind Map" loading="lazy">
+</div>
+
+<div class="page" id="h0">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> FOUNDATIONS</div>
+  <div class="subsec-tag">H.0 &middot; Overview</div>
+  <h2 class="subsec-title">Why Fee Calculation Decides Whether the Firm Gets Paid</h2>
+  <div class="subsec-lede">A proposal wins the work. The fee calculation decides whether the work is worth winning. Every number in a <span class="your-company">Your Company</span> proposal is the output of a method a client can replicate, because a fee a client can replicate is a fee a client will pay.</div>
+  <div class="section-body">
+    <p>Section G taught you to write the proposal. Section H teaches you to price it. The two are inseparable: the most persuasive proposal in the stack still loses if the fee looks arbitrary, and the most defensible fee in the market still loses if the proposal cannot explain it. A defended fee is a paid fee. A guessed fee is the fee a client negotiates down or refuses outright.</p>
+    <p>The discipline of this section is simple to state and exacting to execute: every fee uses one of three calculation methods, the method is visible in the proposal, and the client can reproduce the math. That replicability is what makes a fee feel engineered rather than invented.</p>
+  </div>
+  <div class="callout expert">
+    <div class="label"><span class="icon">&#10078;</span> Expert Insight</div>
+    <div class="body">"The fee is not what we think the work is worth. It is what the math says the work costs, plus the margin that keeps the lights on. When a client can follow the math, they stop arguing about the number."</div>
+    <div class="attrib">&middot; Marketing Director</div>
+  </div>
+  <div class="figure-title">Figure H.0.1 &middot; The Four Tests a Fee Must Survive</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num">1</div><div class="kicker">Test</div><div class="title">The Client Review</div><div class="desc">The client or procurement officer checks whether the fee maps to the scope. A fee tied to square footage and a published sector rate passes. A round number does not.</div></div>
+    <div class="num-card"><div class="num">2</div><div class="kicker">Test</div><div class="title">The Internal Review</div><div class="desc">Anja and the project lead check whether the fee covers the labor at the rate card. A fee that books a 12-week phase at 4 weeks of hours loses money the day it is signed.</div></div>
+    <div class="num-card"><div class="num">3</div><div class="kicker">Test</div><div class="title">The Delivery Review</div><div class="desc">At close-out, the fee is measured against actual hours. A fee built from the methods in this section lands within tolerance. A guessed fee writes off the difference.</div></div>
+    <div class="num-card"><div class="num">4</div><div class="kicker">Test</div><div class="title">The Replication Test</div><div class="desc">Can the client redo the math on a napkin? If yes, the fee is defended. If the only answer is "trust us," the fee is exposed the moment a cheaper firm shows its work.</div></div>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">No fee leaves the firm that the writer cannot defend with the math behind it. If you cannot show the square footage, the sector rate, the equipment budget, or the hours and the rate card that produced the number, the number is not ready. Defend it first, send it second.</div>
+  </div>
+</div>
+
+<div class="page" id="h1">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> FOUNDATIONS</div>
+  <div class="subsec-tag">H.1 &middot; The Three Methods</div>
+  <h2 class="subsec-title">Three Methods to Calculate a Defended Fee</h2>
+  <div class="subsec-lede">Method A: square feet times sector rate. Method B: equipment budget times percentage. Method C: labor hours times the rate card. Use the method that fits the scope, and show the math in the proposal.</div>
+  <div class="section-body">
+    <p>Every defended fee at <span class="your-company">Your Company</span> uses one of three methods. The method is chosen by the shape of the project, not the comfort of the writer. The wrong method produces a number that is technically calculated but indefensible, because it rests on a baseline the project does not actually have.</p>
+  </div>
+  <div class="figure-title">Figure H.1.1 &middot; The Three Methods at a Glance</div>
+  <table>
+    <thead><tr><th>Method</th><th>Formula</th><th>Use When</th><th>Fails When</th></tr></thead>
+    <tbody>
+      <tr><td><strong>A &middot; Square Foot</strong></td><td>Kitchen SF &times; sector $/SF</td><td>New construction with a clean square-foot program</td><td>Renovation with no clean SF baseline</td></tr>
+      <tr><td><strong>B &middot; Equipment Budget</strong></td><td>Equipment budget &times; fee %</td><td>Equipment-driven projects where the budget is known</td><td>Design-heavy work with low equipment cost</td></tr>
+      <tr><td><strong>C &middot; Labor Hours</strong></td><td>Hours per phase &times; rate card</td><td>Atypical scope, audits, or single-phase engagements</td><td>You have not built a real hours estimate</td></tr>
+    </tbody>
+  </table>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice: Run Both A and B</div>
+    <div class="body">On most multi-million dollar new builds, Method A and Method B should land within ten percent of each other. Run both. If they diverge by more than ten percent, the square-foot baseline or the equipment budget is wrong, and you have found the error before the client does.</div>
+  </div>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Common Failure</div>
+    <div class="body">Using Method A on a renovation with no good square-foot baseline. The existing kitchen may be 1,800 SF but only 1,100 SF is being renovated. Multiplying the wrong SF by the sector rate inflates the fee, the client rejects it, and a competitor who used Method B against the equipment budget wins the work. Match the method to the scope.</div>
+  </div>
+</div>
+
+<div class="page" id="h2">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> FOUNDATIONS</div>
+  <div class="subsec-tag">H.2 &middot; Method A</div>
+  <h2 class="subsec-title">Method A: Square Foot Times Sector Rate</h2>
+  <div class="subsec-lede">The cleanest method when the project has a defined kitchen square footage. Kitchen SF times the published sector dollar-per-square-foot rate produces the equipment budget, and the fee percentage follows from there.</div>
+  <div class="section-body">
+    <p>Method A is the default for new construction because new construction has a clean square-foot program before a single piece of equipment is selected. The kitchen square footage comes from the architectural program; the dollar-per-square-foot figure comes from the published sector rate table in H.4. Multiply the two and you have a defensible equipment budget, which drives the fee.</p>
+  </div>
+  <div class="figure-title">Figure H.2.1 &middot; Method A Worked Example</div>
+  <table>
+    <thead><tr><th>Step</th><th>Input</th><th>Calculation</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1</strong></td><td>Kitchen size from program</td><td>1,167 SF &times; $300/SF (school rate)</td><td>$350,100</td></tr>
+      <tr><td><strong>2</strong></td><td>Add walk-in cooler / freezer</td><td>$350,100 + $49,200</td><td>$399,300 estimated equipment</td></tr>
+      <tr><td><strong>3</strong></td><td>Apply sector fee percentage</td><td>$399,300 &times; 4%</td><td>$15,972 base fee</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">The square footage in the calculation must be the square footage being designed, not the gross building area. A 6,000 SF restaurant with a 1,200 SF kitchen is a 1,200 SF calculation. Using the gross area inflates the fee and signals to a procurement reviewer that the firm does not understand its own method.</div>
+  </div>
+  <div class="callout files">
+    <div class="label"><span class="icon">&#9776;</span> From the Files</div>
+    <div class="body">The school sector rate runs $300 to $325 per square foot in the 2026 table. Use the low end for straightforward serveries and the high end where the program adds heavy production, scratch cooking, or high-volume service. The rate is a band, and choosing within the band is a judgment you must be able to explain.</div>
+  </div>
+</div>
+
+<div class="page" id="h3">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> FOUNDATIONS</div>
+  <div class="subsec-tag">H.3 &middot; Method B</div>
+  <h2 class="subsec-title">Method B: Equipment Budget Times Percentage</h2>
+  <div class="subsec-lede">When the equipment budget is known or can be estimated directly, the fee is a percentage of that budget. This is the method for equipment-driven projects and the cross-check for Method A.</div>
+  <div class="section-body">
+    <p>Method B prices the fee as a percentage of the equipment budget. It is the right method when the equipment budget is established directly, by a client capital number, a previous estimate, or a detailed equipment list, rather than derived from square footage. It is also the standard cross-check against Method A on new construction.</p>
+  </div>
+  <div class="figure-title">Figure H.3.1 &middot; Method B Worked Example</div>
+  <table>
+    <thead><tr><th>Step</th><th>Input</th><th>Calculation</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1</strong></td><td>Established equipment budget</td><td>Client capital line for FF&amp;E</td><td>$2,475,650</td></tr>
+      <tr><td><strong>2</strong></td><td>Apply sector fee percentage</td><td>$2,475,650 &times; 5%</td><td>$123,782 base fee</td></tr>
+    </tbody>
+  </table>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">The fee percentage moves inversely to the equipment budget. A $250,000 budget may carry 6 to 7 percent because the design effort does not shrink proportionally with the equipment cost. A $2,500,000 budget carries 4 to 5 percent. Pricing a large budget at the small-budget percentage leaves money on the table; pricing a small budget at the large-budget percentage loses the work.</div>
+  </div>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Common Failure</div>
+    <div class="body">Applying a flat percentage across every project size. A firm that prices every job at 5 percent overcharges its small clients and underprices its large ones. The percentage is a band tied to budget size, and the band is published in H.4. Pick within it deliberately and be ready to explain the choice.</div>
+  </div>
+</div>
+
+<div class="page" id="h4">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> THE SECTOR MODEL</div>
+  <div class="subsec-tag">H.4 &middot; The Sector Rate Table</div>
+  <h2 class="subsec-title">The Sector Rate Table</h2>
+  <div class="subsec-lede">Every sector carries its own dollar-per-square-foot band and its own fee-percentage band. The bands exist because a hospital kitchen and a school servery do not cost the same to design, even at the same square footage.</div>
+  <div class="section-body">
+    <p>The sector rate table is the published reference behind Method A and Method B. Both are bands, not points, because two projects in the same sector can differ in complexity. Choosing within the band is a judgment you must be able to defend in one sentence.</p>
+  </div>
+  <div class="figure-title">Figure H.4.1 &middot; 2026 Sector Rate Bands</div>
+  <table>
+    <thead><tr><th>Sector</th><th>Equipment $/SF</th><th>Fee % Band</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><strong>K-12 / Public School</strong></td><td>$300 to $325</td><td>4 to 5%</td><td>High end for scratch-cook and high-volume programs</td></tr>
+      <tr><td><strong>Healthcare / Senior Living</strong></td><td>$425 to $475</td><td>5 to 6%</td><td>Regulatory load and patient feeding raise both bands</td></tr>
+      <tr><td><strong>Hospitality / Hotel</strong></td><td>$375 to $450</td><td>4 to 5.5%</td><td>Bar and banquet scope widens the range</td></tr>
+      <tr><td><strong>Country Club</strong></td><td>$400 to $475</td><td>5 to 6%</td><td>Multiple outlets, member expectations</td></tr>
+      <tr><td><strong>Correctional</strong></td><td>$275 to $325</td><td>4 to 5%</td><td>Security detailing offsets simpler menus</td></tr>
+      <tr><td><strong>Corporate / Catering</strong></td><td>$350 to $425</td><td>4 to 5.5%</td><td>Servery-driven, volume dependent</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">The fee percentage moves inversely to the equipment budget within every sector band. Small budgets sit at the high end of the percentage band because the design effort does not shrink with the equipment cost; large budgets sit at the low end. State the budget size and the band position in the same breath and the fee defends itself.</div>
+  </div>
+  <div class="callout files">
+    <div class="label"><span class="icon">&#9776;</span> From the Files</div>
+    <div class="body">Healthcare and senior living carry the highest bands in the table because patient and resident feeding adds regulatory review, dietary segregation, and inspection load that a school servery never sees. The same 1,200 SF kitchen is a different engineering problem in a hospital than in a high school, and the rate band reflects it.</div>
+  </div>
+</div>
+
+<div class="page" id="h5">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> THE SECTOR MODEL</div>
+  <div class="subsec-tag">H.5 &middot; The Five-Phase Split</div>
+  <h2 class="subsec-title">The Five-Phase Split</h2>
+  <div class="subsec-lede">The total fee is earned across five phases. The percentages are fixed by default and shift only for defined project types. The split is how the fee maps to work intensity, and how progress billing is justified.</div>
+  <div class="section-body">
+    <p>Once the total fee is set, it is divided across the five phases of the engagement. Each percentage reflects the share of total effort that phase consumes. The default split applies to most projects; two named variants redistribute the same 100 percent for projects with a bar program or heavy renovation.</p>
+  </div>
+  <div class="figure-title">Figure H.5.1 &middot; Phase Splits Across Three Fee Variants</div>
+  <table>
+    <thead><tr><th>Phase</th><th>Default</th><th>F&amp;B with Bar</th><th>Renovation-Heavy</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Schematic Design (SD)</strong></td><td>20%</td><td>20%</td><td>15%</td></tr>
+      <tr><td><strong>Design Development (DD)</strong></td><td>25%</td><td>25%</td><td>20%</td></tr>
+      <tr><td><strong>Construction Documents (CD)</strong></td><td>30%</td><td>30%</td><td>30%</td></tr>
+      <tr><td><strong>Bidding / Negotiation (BN)</strong></td><td>10%</td><td>5%</td><td>15%</td></tr>
+      <tr><td><strong>Construction Administration (CA)</strong></td><td>15%</td><td>20%</td><td>20%</td></tr>
+      <tr><td><strong>Total</strong></td><td style="color:var(--green);font-weight:700;">100%</td><td style="color:var(--green);font-weight:700;">100%</td><td style="color:var(--green);font-weight:700;">100%</td></tr>
+    </tbody>
+  </table>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice: Always Verify the Total</div>
+    <div class="body">Every variant must total exactly 100 percent. Before any proposal leaves the firm, add the five phase percentages out loud. A split that totals 95 or 105 percent is the single most common arithmetic error in fee tables, and it is the first thing a sharp procurement officer checks.</div>
+  </div>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Common Failure</div>
+    <div class="body">Using the default split on a renovation-heavy project. Renovation front-loads less design and back-loads more construction administration, because field conditions drive change during construction. The renovation-heavy variant moves weight from SD and DD into BN and CA. Use the default on a renovation and the firm under-bills the phases where the work actually lands.</div>
+  </div>
+</div>
+
+<div class="page" id="h6">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> THE SECTOR MODEL</div>
+  <div class="subsec-tag">H.6 &middot; The 2026 Labor Rate Card</div>
+  <h2 class="subsec-title">The 2026 Labor Rate Card</h2>
+  <div class="subsec-lede">The rate card is the hourly cost of every role on the team. It is the basis of Method C, the internal check on Methods A and B, and the price of every additional meeting and out-of-scope hour.</div>
+  <div class="section-body">
+    <p>The labor rate card does three jobs: it is the direct basis for Method C, it is the internal check that confirms a Method A or B fee actually covers the labor, and it is the price applied to additional meetings, site visits, and out-of-scope hours under H.8 and H.10.</p>
+  </div>
+  <div class="figure-title">Figure H.6.1 &middot; 2026 Hourly Rate Card</div>
+  <table>
+    <thead><tr><th>Role</th><th>Rate / Hour</th><th>Role</th><th>Rate / Hour</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Principal</strong></td><td>$275</td><td><strong>Quality Control</strong></td><td>$200</td></tr>
+      <tr><td><strong>Senior Project Manager</strong></td><td>$250</td><td><strong>REVIT / CAD</strong></td><td>$160</td></tr>
+      <tr><td><strong>Senior Production</strong></td><td>$250</td><td><strong>Coordinator</strong></td><td>$150</td></tr>
+      <tr><td><strong>Project Manager</strong></td><td>$225</td><td><strong>Specifications</strong></td><td>$120</td></tr>
+      <tr><td></td><td></td><td><strong>Administrative</strong></td><td>$100</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">Additional meetings beyond the contracted count bill at $225 per hour at the project-manager level, $250 at senior level, and $275 at principal level. The rate that applies is the rate of the person who actually attends. Booking a principal to a meeting and billing it at the coordinator rate gives away margin the firm cannot recover.</div>
+  </div>
+  <div class="callout files">
+    <div class="label"><span class="icon">&#9776;</span> From the Files</div>
+    <div class="body">The rate card descends from Principal at $275 to Administrative at $100. When you build a Method C estimate, assign each task to the role that actually performs it. Drafting is a REVIT task at $160, not a principal task at $275. Mis-assigning roles is how a Method C number drifts away from reality in both directions.</div>
+  </div>
+</div>
+
+<div class="page" id="h7">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> BUILDING THE NUMBER</div>
+  <div class="subsec-tag">H.7 &middot; The Fee Buildup</div>
+  <h2 class="subsec-title">The Fee Buildup, Step by Step</h2>
+  <div class="subsec-lede">From square footage to a collectible fee in five steps. This is the sequence that turns a program into a number a client can replicate and the firm can deliver against.</div>
+  <div class="figure-title">Figure H.7.1 &middot; The Five-Step Fee Buildup</div>
+  <div class="steps-grid">
+    <div class="step-item"><div class="step-num">1</div><div class="step-title">Establish the Baseline</div><div class="step-desc">Pull the kitchen square footage from the program (Method A) or the equipment budget from the client capital line (Method B). This single number drives everything downstream.</div></div>
+    <div class="step-item"><div class="step-num">2</div><div class="step-title">Apply the Sector Rate</div><div class="step-desc">Multiply by the published sector $/SF to get the equipment budget, then select the fee percentage from the band based on budget size. Note the band position you chose.</div></div>
+    <div class="step-item"><div class="step-num">3</div><div class="step-title">Compute the Base Fee</div><div class="step-desc">Equipment budget times fee percentage equals the base fee. Cross-check Method A against Method B; if they diverge more than ten percent, find the error now.</div></div>
+    <div class="step-item"><div class="step-num">4</div><div class="step-title">Split Across Phases</div><div class="step-desc">Apply the five-phase split from H.5. Confirm the percentages total exactly 100. This is the progress-billing schedule the client will pay against.</div></div>
+    <div class="step-item"><div class="step-num">5</div><div class="step-title">Run the Labor Check</div><div class="step-desc">Build a rough Method C estimate from the rate card and confirm the base fee covers the hours at the right roles. A fee priced below its own labor cost is a loss signed into existence.</div></div>
+  </div>
+  <div class="figure-title" style="margin-top:24px;">Figure H.7.2 &middot; Worked Buildup: School Project</div>
+  <table>
+    <thead><tr><th>Element</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Kitchen square footage (from program)</strong></td><td>1,167 SF</td></tr>
+      <tr><td><strong>School sector rate</strong></td><td>$300 / SF</td></tr>
+      <tr><td><strong>Equipment subtotal</strong></td><td>$350,100</td></tr>
+      <tr><td><strong>Walk-in cooler / freezer add</strong></td><td>$49,200</td></tr>
+      <tr><td><strong>Total estimated equipment budget</strong></td><td>$399,300</td></tr>
+      <tr><td><strong>Fee percentage (mid-band, mid budget)</strong></td><td>4%</td></tr>
+      <tr><td><strong>Base fee</strong></td><td style="color:var(--navy);font-weight:700;font-size:15px;">$15,972</td></tr>
+    </tbody>
+  </table>
+  <div class="callout files">
+    <div class="label"><span class="icon">&#9776;</span> From the Files</div>
+    <div class="body">Step 5 is the labor check. Before the fee is final, build a rough Method C estimate from the rate card and confirm the base fee covers the hours at the right roles. A fee that prices out below its own labor cost is a loss the firm signs into existence. The labor check is the last gate before the number is real.</div>
+  </div>
+</div>
+
+<div class="page" id="h8">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> BUILDING THE NUMBER</div>
+  <div class="subsec-tag">H.8 &middot; Meetings, Travel, Reimbursables</div>
+  <h2 class="subsec-title">Meetings, Travel, and Reimbursables</h2>
+  <div class="subsec-lede">The base fee covers the contracted scope. Everything outside it is a line item, never a bundle. Itemized extras survive review; a single lump labeled "expenses" invites the client to cut it.</div>
+  <div class="section-body">
+    <p>The base fee covers a defined number of meetings and the design work itself. Travel, additional meetings, and reimbursable expenses sit outside the base fee and must appear as explicit line items. The discipline here is the same one from Section G: itemize everything, bundle nothing. A defended extra is an itemized extra.</p>
+  </div>
+  <div class="figure-title">Figure H.8.1 &middot; Standard Travel and Reimbursable Rates</div>
+  <table>
+    <thead><tr><th>Item</th><th>Rate</th><th>Basis</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Per-diem site visit</strong></td><td>$1,600 / day</td><td>Covers travel time, on-site time, and report-back time</td></tr>
+      <tr><td><strong>Mileage beyond 50 miles</strong></td><td>Prevailing IRS rate</td><td>Round trip from the staffing office, calculated</td></tr>
+      <tr><td><strong>Additional meetings</strong></td><td>$225 / hour</td><td>Beyond the contracted count, billed at attendee rate</td></tr>
+      <tr><td><strong>Lodging and airfare</strong></td><td>At actual cost</td><td>No markup, receipts attached</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">Never write the line "all travel included." It absorbs unlimited cost into a fixed number. The instant a project requires a fourth or fifth site visit, the firm eats the difference. The base fee names a meeting count and a site-visit count; everything beyond it is billed. Write what is included and the boundary defends itself.</div>
+  </div>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Common Failure</div>
+    <div class="body">Bundling expenses into a single line labeled "Expenses: $2,118 lump." A bundled number invites the client to negotiate it down because they cannot see what it buys. The same costs itemized: airfare $420, lodging $360, per diem $150, mileage $88, site-visit time $1,100, survive review because each line is obviously real. Itemized survives; bundled gets cut.</div>
+  </div>
+</div>
+
+<div class="page" id="h9">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> BUILDING THE NUMBER</div>
+  <div class="subsec-tag">H.9 &middot; Retainers and Payment Terms</div>
+  <h2 class="subsec-title">Retainers, Deposits, and Payment Terms</h2>
+  <div class="subsec-lede">The fee is only real when it is collectible. Payment terms convert a signed number into cash, and a retainer is the difference between a client who is committed and a client who is shopping.</div>
+  <div class="figure-title">Figure H.9.1 &middot; Standard Payment Structure</div>
+  <table>
+    <thead><tr><th>Element</th><th>Standard</th><th>Why It Exists</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Retainer at signing</strong></td><td>10 to 15% of total fee</td><td>Secures commitment; applied against the first phase invoice</td></tr>
+      <tr><td><strong>Progress billing</strong></td><td>By phase completion</td><td>Each phase invoices at its split percentage as it completes</td></tr>
+      <tr><td><strong>Net terms</strong></td><td>Net 30</td><td>Standard commercial terms; defines when late begins</td></tr>
+      <tr><td><strong>Reimbursables</strong></td><td>Billed as incurred</td><td>Travel and expenses invoiced in the month they occur</td></tr>
+    </tbody>
+  </table>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">Tie each progress invoice to phase completion, not the calendar. Billing "25 percent at thirty days" invites a dispute when the phase is only half done at day thirty. Billing "Design Development invoices on DD completion" ties cash to delivered work, which is the position the firm can always defend.</div>
+  </div>
+  <div class="callout files">
+    <div class="label"><span class="icon">&#9776;</span> From the Files</div>
+    <div class="body">The retainer applies against the first phase rather than sitting as a separate deposit. A 12 percent retainer on a $123,782 fee is $14,854 at signing, credited against the Schematic Design invoice. The client sees it work, not disappear, which removes the most common objection to paying it.</div>
+  </div>
+</div>
+
+<div class="page" id="h10">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> DEFENDING THE NUMBER</div>
+  <div class="subsec-tag">H.10 &middot; Adjusting a Fee</div>
+  <h2 class="subsec-title">When and How to Adjust a Fee</h2>
+  <div class="subsec-lede">Scope changes. The fee changes with it, through a documented mechanism, never a quiet absorption. A change order is how the firm protects margin without surprising the client.</div>
+  <div class="section-body">
+    <p>A fee is set against a defined scope. When the scope moves, the fee moves through a change order, a documented adjustment the client approves before the work proceeds. The wrong response is silent absorption: doing the extra work and hoping to recover it later. That is how a profitable project becomes a loss without anyone deciding it should.</p>
+  </div>
+  <div class="figure-title">Figure H.10.1 &middot; Triggers That Require a Fee Adjustment</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num">1</div><div class="kicker">Trigger</div><div class="title">Square Footage Grows</div><div class="desc">The program expands after the fee was set. Re-run Method A against the new SF; the delta is the change order amount, calculated the same way as the base.</div></div>
+    <div class="num-card"><div class="num">2</div><div class="kicker">Trigger</div><div class="title">Scope Adds a Phase</div><div class="desc">A bar, a satellite kitchen, or a second outlet is added. Price the addition with the same method and sector rate, then fold it in as a documented amendment.</div></div>
+    <div class="num-card"><div class="num">3</div><div class="kicker">Trigger</div><div class="title">Meetings Exceed Count</div><div class="desc">The contracted meeting count is used up and more are required. Bill at the rate-card meeting rate. This is named in the base proposal so it is never a surprise.</div></div>
+    <div class="num-card"><div class="num">4</div><div class="kicker">Trigger</div><div class="title">Schedule Extends</div><div class="desc">A project that stalls and restarts consumes re-familiarization hours. Document the cause and bill the hours at the rate card rather than absorbing the restart cost.</div></div>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">Adjust the fee in writing before the additional work begins, never after. A change order approved in advance is a fee. The same work done first and invoiced later is a dispute. The discipline is sequence: document, approve, then proceed.</div>
+  </div>
+</div>
+
+<div class="page" id="h11">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> DEFENDING THE NUMBER</div>
+  <div class="subsec-tag">H.11 &middot; Ten Pricing Errors</div>
+  <h2 class="subsec-title">Ten Pricing Errors That Cost the Firm</h2>
+  <div class="subsec-lede">Every one of these has cost the firm a project or a margin. They are listed so you can catch them in your own work before a reviewer, or a competitor, catches them for you.</div>
+  <div class="figure-title">Figure H.11.1 &middot; Errors That Lose Work</div>
+  <div class="error-grid">
+    <div class="error-item"><div class="error-label">Error 1</div><div class="error-text">Using gross building area instead of kitchen square footage</div></div>
+    <div class="error-item"><div class="error-label">Error 2</div><div class="error-text">Applying a flat fee percentage regardless of budget size</div></div>
+    <div class="error-item"><div class="error-label">Error 3</div><div class="error-text">Choosing the wrong calculation method for the scope</div></div>
+    <div class="error-item"><div class="error-label">Error 4</div><div class="error-text">A phase split that does not total exactly 100 percent</div></div>
+    <div class="error-item"><div class="error-label">Error 5</div><div class="error-text">Writing "all travel included" instead of a named count</div></div>
+  </div>
+  <div class="figure-title" style="margin-top:16px;">Figure H.11.2 &middot; Errors That Cost Margin</div>
+  <div class="error-grid">
+    <div class="error-item"><div class="error-label">Error 6</div><div class="error-text">Bundling expenses into one lump the client can cut</div></div>
+    <div class="error-item"><div class="error-label">Error 7</div><div class="error-text">Skipping the Method C labor check before finalizing</div></div>
+    <div class="error-item"><div class="error-label">Error 8</div><div class="error-text">Billing meetings below the attending person's rate</div></div>
+    <div class="error-item"><div class="error-label">Error 9</div><div class="error-text">Absorbing scope changes instead of writing change orders</div></div>
+    <div class="error-item"><div class="error-label">Error 10</div><div class="error-text">Tying invoices to the calendar instead of phase completion</div></div>
+  </div>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> The Most Expensive Error</div>
+    <div class="body">The missing labor check. A fee can be calculated correctly by Method A, pass the client review, and still lose money because the base fee never covered the hours at the rate card. The math was right and the project still lost. Run Method C as the final gate every time.</div>
+  </div>
+</div>
+
+<div class="page" id="h12">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> DEFENDING THE NUMBER</div>
+  <div class="subsec-tag">H.12 &middot; The Fee Defense Checklist</div>
+  <h2 class="subsec-title">The Fee Defense Checklist</h2>
+  <div class="subsec-lede">Before any fee leaves the firm, it passes this checklist. Every item maps to a failure that has cost the firm before. Run all twelve, every time.</div>
+  <div class="section-body">
+    <p>This is the final gate. The checklist is procedural: run every item in order, every proposal, before the fee is sent. It is the same discipline as the pre-flight checklist in Section G, applied to the number instead of the prose.</p>
+  </div>
+  <div class="checklist-head">Confirm Before Sending: The Math</div>
+  <ul class="checklist">
+    <li>Square footage is the area being designed, not gross</li>
+    <li>Sector rate matches the project sector and band position</li>
+    <li>Method A and Method B agree within ten percent</li>
+    <li>Fee percentage fits the budget size within the band</li>
+    <li>Phase split totals exactly 100 percent</li>
+    <li>Method C labor check confirms the fee covers the hours</li>
+  </ul>
+  <div class="checklist-head">Confirm Before Sending: The Structure</div>
+  <ul class="checklist">
+    <li>Meeting and site-visit counts are named, not open-ended</li>
+    <li>Travel and reimbursables are itemized, not bundled</li>
+    <li>Retainer and payment terms are stated</li>
+    <li>Progress billing is tied to phase completion</li>
+    <li>Every number traces to a visible input</li>
+    <li><span class="your-company">Your Company</span> appears lowercase; no name placeholders remain</li>
+  </ul>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">If any item on this checklist fails, the fee is not ready, regardless of deadline. A fee sent with a 95 percent phase split or a bundled expense line will come back, and the rework costs more than the check would have. Run all twelve, fix what fails, then send.</div>
+  </div>
+  <div class="callout expert">
+    <div class="label"><span class="icon">&#10078;</span> Expert Insight</div>
+    <div class="body">"The number that survives is the number you can rebuild in front of the client. If you can show them the square footage, the rate, and the percentage, the conversation is over. If you cannot, the conversation has not started."</div>
+    <div class="attrib">&middot; Marketing Director</div>
+  </div>
+</div>
+
+<div class="page" id="quiz">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag">&#10003; Comprehensive Test</div>
+  <h2 class="subsec-title">Fee Calculation &amp; Pricing: Assessment</h2>
+  <div class="subsec-lede">15 questions across all twelve subsections. A passing score is 12 correct. Below 10, re-read the subsections referenced in the legend.</div>
+
+  <div class="quiz-q"><div class="qnum">1</div><div class="qtext">Which three methods does <span class="your-company">Your Company</span> use to calculate a defended fee?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Square foot rate, competitor match, and gut estimate</li><li class="opt"><span class="letter">B</span>Square foot times sector rate, equipment budget times percentage, and labor hours times rate card</li><li class="opt"><span class="letter">C</span>Cost plus margin, fixed bid, and time and materials</li><li class="opt"><span class="letter">D</span>Equipment list, vendor quote, and markup</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">2</div><div class="qtext">In Method A, the square footage used in the calculation should be:</div><ul class="opts"><li class="opt"><span class="letter">A</span>The gross building area</li><li class="opt"><span class="letter">B</span>The kitchen square footage being designed</li><li class="opt"><span class="letter">C</span>The total lot size</li><li class="opt"><span class="letter">D</span>The dining room plus the kitchen</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">3</div><div class="qtext">A school project has a 1,167 SF kitchen at the $300/SF school rate, plus a $49,200 walk-in cooler/freezer. At a 4% fee, what is the base fee?</div><ul class="opts"><li class="opt"><span class="letter">A</span>$14,004</li><li class="opt"><span class="letter">B</span>$15,972</li><li class="opt"><span class="letter">C</span>$19,972</li><li class="opt"><span class="letter">D</span>$13,500</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">4</div><div class="qtext">On a new-construction project, Method A and Method B should land within what tolerance of each other?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Within 1%</li><li class="opt"><span class="letter">B</span>Within 10%</li><li class="opt"><span class="letter">C</span>Within 25%</li><li class="opt"><span class="letter">D</span>They never need to agree</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">5</div><div class="qtext">As the equipment budget grows, the fee percentage should:</div><ul class="opts"><li class="opt"><span class="letter">A</span>Rise proportionally</li><li class="opt"><span class="letter">B</span>Stay flat across all project sizes</li><li class="opt"><span class="letter">C</span>Move inversely, sitting at the low end of the band for large budgets</li><li class="opt"><span class="letter">D</span>Double for every million dollars</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">6</div><div class="qtext">Which sector carries the highest dollar-per-square-foot band in the rate table?</div><ul class="opts"><li class="opt"><span class="letter">A</span>K-12 / Public School</li><li class="opt"><span class="letter">B</span>Correctional</li><li class="opt"><span class="letter">C</span>Healthcare / Senior Living</li><li class="opt"><span class="letter">D</span>Catering / Warming</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">7</div><div class="qtext">The default five-phase split is:</div><ul class="opts"><li class="opt"><span class="letter">A</span>SD 20% &middot; DD 25% &middot; CD 30% &middot; BN 10% &middot; CA 15%</li><li class="opt"><span class="letter">B</span>SD 30% &middot; DD 30% &middot; CD 20% &middot; BN 10% &middot; CA 10%</li><li class="opt"><span class="letter">C</span>SD 15% &middot; DD 20% &middot; CD 30% &middot; BN 15% &middot; CA 20%</li><li class="opt"><span class="letter">D</span>Equal 20% across all five phases</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">8</div><div class="qtext">Before any fee table leaves the firm, the five phase percentages must:</div><ul class="opts"><li class="opt"><span class="letter">A</span>Total exactly 100%</li><li class="opt"><span class="letter">B</span>Add up to roughly 95 to 105%</li><li class="opt"><span class="letter">C</span>Favor the CA phase</li><li class="opt"><span class="letter">D</span>Match the previous proposal</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">9</div><div class="qtext">On the 2026 rate card, what is the Principal hourly rate?</div><ul class="opts"><li class="opt"><span class="letter">A</span>$225</li><li class="opt"><span class="letter">B</span>$250</li><li class="opt"><span class="letter">C</span>$275</li><li class="opt"><span class="letter">D</span>$300</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">10</div><div class="qtext">The final gate before a fee is considered real (the labor check) uses which method?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Method A, square foot</li><li class="opt"><span class="letter">B</span>Method B, equipment budget</li><li class="opt"><span class="letter">C</span>Method C, labor hours times rate card</li><li class="opt"><span class="letter">D</span>No check is needed once Method A is done</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">11</div><div class="qtext">How should travel and reimbursable expenses appear in the proposal?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Bundled into a single "expenses" line</li><li class="opt"><span class="letter">B</span>As explicit, itemized line items</li><li class="opt"><span class="letter">C</span>Hidden inside the base fee</li><li class="opt"><span class="letter">D</span>Stated as "all travel included"</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">12</div><div class="qtext">A standard retainer at signing is what share of the total fee?</div><ul class="opts"><li class="opt"><span class="letter">A</span>1 to 2%</li><li class="opt"><span class="letter">B</span>10 to 15%</li><li class="opt"><span class="letter">C</span>40 to 50%</li><li class="opt"><span class="letter">D</span>The full fee up front</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">13</div><div class="qtext">When the scope grows after the fee is set, the correct response is to:</div><ul class="opts"><li class="opt"><span class="letter">A</span>Absorb the extra work and recover it later</li><li class="opt"><span class="letter">B</span>Write a documented change order and get approval before the work proceeds</li><li class="opt"><span class="letter">C</span>Ignore it until close-out</li><li class="opt"><span class="letter">D</span>Raise the next client's fee to cover it</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">14</div><div class="qtext">The most expensive of the ten pricing errors is:</div><ul class="opts"><li class="opt"><span class="letter">A</span>A phase split that totals 99%</li><li class="opt"><span class="letter">B</span>Skipping the Method C labor check before finalizing</li><li class="opt"><span class="letter">C</span>Using a slightly old rate card</li><li class="opt"><span class="letter">D</span>Rounding the fee to the nearest hundred</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">15</div><div class="qtext">The core test of a defended fee is whether:</div><ul class="opts"><li class="opt"><span class="letter">A</span>It is lower than every competitor</li><li class="opt"><span class="letter">B</span>The client can reproduce the math from the visible inputs</li><li class="opt"><span class="letter">C</span>It ends in a round number</li><li class="opt"><span class="letter">D</span>It was approved quickly</li></ul></div>
+</div>
+
+<div class="legend-page" id="legend1">
+  <div class="crumb" style="color:var(--text-secondary);">SECTION H <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag" style="color:var(--brass-soft);">&#9745; Answer Legend &middot; Part 1 of 2</div>
+  <div class="legend-title">Answers &middot; Questions 1 through 8</div>
+  <div class="legend-sub">Do not review until the test is complete.</div>
+  <div class="legend-q"><div class="head">Question 1</div><div class="answer">Correct: B &middot; Square foot times sector rate, equipment budget times percentage, and labor hours times rate card</div><div class="explain">The three defended methods are Method A, B, and C. Gut estimates and competitor matching are exactly what a defended fee replaces. See H.1.</div></div>
+  <div class="legend-q"><div class="head">Question 2</div><div class="answer">Correct: B &middot; The kitchen square footage being designed</div><div class="explain">Method A uses the area being designed, not the gross building area. Using gross area inflates the fee and signals the firm does not understand its own method. See H.2.</div></div>
+  <div class="legend-q"><div class="head">Question 3</div><div class="answer">Correct: B &middot; $15,972</div><div class="explain">1,167 SF x $300 = $350,100. Add $49,200 for $399,300 equipment budget. $399,300 x 4% = $15,972. See H.2 and H.7.</div></div>
+  <div class="legend-q"><div class="head">Question 4</div><div class="answer">Correct: B &middot; Within 10%</div><div class="explain">Running both methods is the standard cross-check. If they diverge by more than 10%, the square-foot baseline or the equipment budget is wrong, and you have found the error before the client does. See H.1.</div></div>
+  <div class="legend-q"><div class="head">Question 5</div><div class="answer">Correct: C &middot; Move inversely, sitting at the low end of the band for large budgets</div><div class="explain">The design effort does not shrink proportionally with equipment cost, so small budgets sit at the high end of the percentage band and large budgets at the low end. See H.3 and H.4.</div></div>
+  <div class="legend-q"><div class="head">Question 6</div><div class="answer">Correct: C &middot; Healthcare / Senior Living</div><div class="explain">Healthcare and senior living carry the highest band ($425 to $475/SF) because patient and resident feeding adds regulatory review, dietary segregation, and inspection load a school servery never sees. See H.4.</div></div>
+  <div class="legend-q"><div class="head">Question 7</div><div class="answer">Correct: A &middot; SD 20% &middot; DD 25% &middot; CD 30% &middot; BN 10% &middot; CA 15%</div><div class="explain">This is the default split, totaling 100%. The F&amp;B-with-bar and renovation-heavy variants redistribute the same 100% to match work intensity. See H.5.</div></div>
+  <div class="legend-q"><div class="head">Question 8</div><div class="answer">Correct: A &middot; Total exactly 100%</div><div class="explain">Every variant must total exactly 100%. A split that totals 95 or 105% is the single most common arithmetic error in fee tables, and the first thing a sharp procurement officer checks. See H.5.</div></div>
+</div>
+
+<div class="legend-page" id="legend2">
+  <div class="crumb" style="color:var(--text-secondary);">SECTION H <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag" style="color:var(--brass-soft);">&#9745; Answer Legend &middot; Part 2 of 2</div>
+  <div class="legend-title">Answers &middot; Questions 9 through 15</div>
+  <div class="legend-sub">The remaining answers with reasoning and subsection cross-references.</div>
+  <div class="legend-q"><div class="head">Question 9</div><div class="answer">Correct: C &middot; $275</div><div class="explain">The 2026 rate card runs from Principal at $275 down to Administrative at $100. Assign each task to the role that performs it; drafting is a REVIT task at $160, not a principal task. See H.6.</div></div>
+  <div class="legend-q"><div class="head">Question 10</div><div class="answer">Correct: C &middot; Method C, labor hours times rate card</div><div class="explain">The labor check is the final gate. Before a fee is real, build a rough Method C estimate and confirm the base fee covers the hours at the right roles. A fee priced below its own labor cost is a loss signed into existence. See H.7.</div></div>
+  <div class="legend-q"><div class="head">Question 11</div><div class="answer">Correct: B &middot; As explicit, itemized line items</div><div class="explain">Itemize everything, bundle nothing. A bundled "expenses" line invites the client to cut it because they cannot see what it buys. The same costs itemized survive review because each line is obviously real. See H.8.</div></div>
+  <div class="legend-q"><div class="head">Question 12</div><div class="answer">Correct: B &middot; 10 to 15%</div><div class="explain">The retainer at signing runs 10 to 15% of the total fee and applies against the first phase invoice, so the client sees it work rather than disappear. See H.9.</div></div>
+  <div class="legend-q"><div class="head">Question 13</div><div class="answer">Correct: B &middot; Write a documented change order and get approval before the work proceeds</div><div class="explain">Adjust the fee in writing before the additional work begins. A change order approved in advance is a fee; the same work done first and invoiced later is a dispute. See H.10.</div></div>
+  <div class="legend-q"><div class="head">Question 14</div><div class="answer">Correct: B &middot; Skipping the Method C labor check before finalizing</div><div class="explain">A fee can be calculated correctly by Method A, pass the client review, and still lose money because it never covered the hours at the rate card. The math was right and the project still lost. See H.11.</div></div>
+  <div class="legend-q"><div class="head">Question 15</div><div class="answer">Correct: B &middot; The client can reproduce the math from the visible inputs</div><div class="explain">A defended fee is one the client can rebuild from the square footage, the sector rate, and the percentage. If the only answer is "trust us," the fee is exposed the moment a cheaper firm shows its work. See H.0 and H.12.</div></div>
+</div>
+
+<div class="page" id="flash-grid">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9670; Flashcards &middot; Reference Grid</div>
+  <h2 class="subsec-title">Twelve Cards &middot; Front and Back</h2>
+  <div class="subsec-lede">Twelve flashcards covering the working vocabulary of Section H. Read the front, recall the back, then check.</div>
+  <div class="flash-grid">
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">1</span>The Three Methods</div><div class="flash-grid-back">A: square foot times sector rate. B: equipment budget times fee percentage. C: labor hours times rate card. Choose by the shape of the project.<div class="flash-grid-ref">(H.1)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">2</span>Method A</div><div class="flash-grid-back">Kitchen SF times sector $/SF equals equipment budget; equipment budget times fee percentage equals base fee. Use the area being designed, not gross.<div class="flash-grid-ref">(H.2)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">3</span>Method B</div><div class="flash-grid-back">Known equipment budget times fee percentage equals base fee. Use when the budget is established directly. Also the cross-check on Method A.<div class="flash-grid-ref">(H.3)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">4</span>Method C</div><div class="flash-grid-back">Hours per phase times the rate card. The basis for atypical scope and the final labor check that confirms a fee covers its own cost.<div class="flash-grid-ref">(H.6, H.7)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">5</span>The 10% Cross-Check</div><div class="flash-grid-back">Method A and Method B should agree within 10% on new construction. A wider gap means a wrong SF baseline or equipment budget. Find it first.<div class="flash-grid-ref">(H.1)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">6</span>Sector Rate Bands</div><div class="flash-grid-back">School $300-325/SF at 4-5%. Healthcare/Senior Living $425-475 at 5-6%. Correctional $275-325 at 4-5%. Bands, not points.<div class="flash-grid-ref">(H.4)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">7</span>Inverse Percentage Logic</div><div class="flash-grid-back">Fee percentage moves inversely to budget size. Small budgets sit at the high end of the band; large budgets at the low end. Design effort does not shrink with cost.<div class="flash-grid-ref">(H.4)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">8</span>The Five-Phase Split</div><div class="flash-grid-back">Default: SD 20% / DD 25% / CD 30% / BN 10% / CA 15%, totaling 100%. F&amp;B-with-bar and renovation-heavy variants redistribute the same 100%.<div class="flash-grid-ref">(H.5)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">9</span>The 2026 Rate Card</div><div class="flash-grid-back">Principal $275, Senior PM/Production $250, PM $225, QC $200, REVIT $160, Coordinator $150, Specs $120, Admin $100. Bill the attendee's rate.<div class="flash-grid-ref">(H.6)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">10</span>Reimbursables</div><div class="flash-grid-back">Per-diem site visit $1,600/day. Additional meetings $225/hour at attendee rate. Lodging and airfare at actual cost. Itemize everything, bundle nothing.<div class="flash-grid-ref">(H.8)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">11</span>Retainer and Terms</div><div class="flash-grid-back">Retainer 10 to 15% at signing, applied against the first phase. Progress billing tied to phase completion, not the calendar. Net 30.<div class="flash-grid-ref">(H.9)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">12</span>The Defense Test</div><div class="flash-grid-back">A defended fee is one the client can rebuild from the SF, the sector rate, and the percentage. If the only answer is "trust us," the fee is exposed.<div class="flash-grid-ref">(H.0, H.12)</div></div></div>
+  </div>
+</div>
+
+<div class="page" id="flip-cards">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9633; Flashcards &middot; Interactive</div>
+  <h2 class="subsec-title">Tap the Card to See the Answer</h2>
+  <div class="subsec-lede">Twelve cards, one at a time. Read the front, attempt the back from memory, then tap to check.</div>
+  <div class="flip-container">
+    <div class="flip-card" id="flip-card" onclick="flipCard()">
+      <div class="flip-front-label" id="flip-label">Term &middot; Tap to Reveal</div>
+      <div class="flip-front-text" id="flip-front">The Three Methods</div>
+      <div class="flip-back-text" id="flip-back">A: square foot times sector rate. B: equipment budget times fee percentage. C: labor hours times rate card. Choose by the shape of the project. (H.1)</div>
+    </div>
+    <div class="flip-hint">Tap card to flip &middot; Use arrows to navigate</div>
+    <div class="flip-nav">
+      <button class="flip-btn" onclick="prevCard()">&#8592; Previous</button>
+      <span class="flip-counter" id="flip-counter">1 of 12</span>
+      <button class="flip-btn" onclick="nextCard()">Next &#8594;</button>
+    </div>
+    <div class="flip-dots" id="flip-dots"></div>
+  </div>
+</div>
+
+<div class="page" id="cut-cards">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9986; Printable Cut-Out Study Cards</div>
+  <h2 class="subsec-title">Print, Cut, Carry</h2>
+  <div class="subsec-lede">Twelve cards arranged for printing. Cut along the borders. Keep them on your desk.</div>
+  <div class="cut-grid">
+    <div class="cut-card"><div class="term">The Three Methods</div><div class="def">A: SF x sector rate. B: equipment budget x fee %. C: hours x rate card. Choose by the shape of the project, not the comfort of the writer.</div></div>
+    <div class="cut-card"><div class="term">Method A</div><div class="def">Kitchen SF x sector $/SF = equipment budget; budget x fee % = base fee. Use area being designed, not gross building area.</div></div>
+    <div class="cut-card"><div class="term">Method B</div><div class="def">Known equipment budget x fee % = base fee. Use when budget is established directly. Also the cross-check on Method A.</div></div>
+    <div class="cut-card"><div class="term">Method C</div><div class="def">Hours per phase x rate card. Basis for atypical scope and the final labor check that confirms a fee covers its own cost.</div></div>
+    <div class="cut-card"><div class="term">The 10% Cross-Check</div><div class="def">Method A and B should agree within 10% on new construction. Wider gap = wrong SF baseline or equipment budget.</div></div>
+    <div class="cut-card"><div class="term">Sector Rate Bands</div><div class="def">School $300-325 at 4-5%. Healthcare $425-475 at 5-6%. Correctional $275-325 at 4-5%. Bands, not points. Choose within them deliberately.</div></div>
+    <div class="cut-card"><div class="term">Inverse Percentage Logic</div><div class="def">Fee % moves inversely to budget size. Small budgets: high end of band. Large budgets: low end. Design effort does not shrink with cost.</div></div>
+    <div class="cut-card"><div class="term">The Five-Phase Split (Default)</div><div class="def">SD 20% / DD 25% / CD 30% / BN 10% / CA 15% = 100%. Verify the total every time. A split that does not total 100% is not ready.</div></div>
+    <div class="cut-card"><div class="term">The 2026 Rate Card</div><div class="def">Principal $275 | Sr PM/Production $250 | PM $225 | QC $200 | REVIT $160 | Coordinator $150 | Specs $120 | Admin $100</div></div>
+    <div class="cut-card"><div class="term">Reimbursables</div><div class="def">Site visit $1,600/day. Meetings $225/hr at attendee rate. Lodging and airfare at cost. Itemize everything, bundle nothing.</div></div>
+    <div class="cut-card"><div class="term">Retainer and Terms</div><div class="def">Retainer 10-15% at signing against phase one. Progress billing by phase completion, not calendar. Net 30.</div></div>
+    <div class="cut-card"><div class="term">The Defense Test</div><div class="def">A defended fee is one the client can rebuild from SF, sector rate, and percentage. If the only answer is "trust us," the fee is exposed.</div></div>
+  </div>
+</div>
+
+
+<!-- H-SLIDES -->
+<div class="page" id="h-slides">
+  <div class="crumb">SECTION H <span class="dot">&middot;</span> PRESENTATION</div>
+  <div class="subsec-tag">Full Slide Deck</div>
+  <h2 class="subsec-title">Precision Fee Engineering</h2>
+  <div class="subsec-lede">The complete presentation for this section. Each slide is embedded directly. Scroll through all 15 slides below.</div>
+  <style>.slide-img{width:100%;display:block;border-radius:2px;border:1px solid var(--rule);margin-bottom:8px;}</style>
+  <img class="slide-img" src="media/h/slides/slide01.png" alt="Slide 1 of 15" loading="lazy">
+  <img class="slide-img" src="media/h/slides/slide02.png" alt="Slide 2 of 15" loading="lazy">
+  <img class="slide-img" src="media/h/slides/slide03.png" alt="Slide 3 of 15" loading="lazy">
+  <img class="slide-img" src="media/h/slides/slide04.png" alt="Slide 4 of 15" loading="lazy">
+  <img class="slide-img" src="media/h/slides/slide05.png" alt="Slide 5 of 15" loading="lazy">
+  <img class="slide-img" src="media/h/slides/slide06.png" alt="Slide 6 of 15" loading="lazy">
+  <img class="slide-img" src="media/h/slides/slide07.png" alt="Slide 7 of 15" loading="lazy">
+  <img class="slide-img" src="media/h/slides/slide08.png" alt="Slide 8 of 15" loading="lazy">
+  <img class="slide-img" src="media/h/slides/slide09.png" alt="Slide 9 of 15" loading="lazy">
+  <img class="slide-img" src="media/h/slides/slide10.png" alt="Slide 10 of 15" loading="lazy">
+  <img class="slide-img" src="media/h/slides/slide11.png" alt="Slide 11 of 15" loading="lazy">
+  <img class="slide-img" src="media/h/slides/slide12.png" alt="Slide 12 of 15" loading="lazy">
+  <img class="slide-img" src="media/h/slides/slide13.png" alt="Slide 13 of 15" loading="lazy">
+  <img class="slide-img" src="media/h/slides/slide14.png" alt="Slide 14 of 15" loading="lazy">
+  <img class="slide-img" src="media/h/slides/slide15.png" alt="Slide 15 of 15" loading="lazy">
+</div>
+
+</main>
+
+<script>
+const cards=[
+  {front:'The Three Methods',back:'A: square foot times sector rate. B: equipment budget times fee percentage. C: labor hours times rate card. Choose by the shape of the project. (H.1)'},
+  {front:'Method A',back:'Kitchen SF times sector $/SF equals equipment budget; equipment budget times fee percentage equals base fee. Use the area being designed, not gross. (H.2)'},
+  {front:'Method B',back:'Known equipment budget times fee percentage equals base fee. Use when the budget is established directly. Also the cross-check on Method A. (H.3)'},
+  {front:'Method C',back:'Hours per phase times the rate card. The basis for atypical scope and the final labor check that confirms a fee covers its own cost. (H.6, H.7)'},
+  {front:'The 10% Cross-Check',back:'Method A and Method B should agree within 10% on new construction. A wider gap means a wrong SF baseline or equipment budget. Find it first. (H.1)'},
+  {front:'Sector Rate Bands',back:'School $300-325/SF at 4-5%. Healthcare/Senior Living $425-475 at 5-6%. Correctional $275-325 at 4-5%. Bands, not points. (H.4)'},
+  {front:'Inverse Percentage Logic',back:'Fee percentage moves inversely to budget size. Small budgets at the high end of the band; large budgets at the low end. Design effort does not shrink with cost. (H.4)'},
+  {front:'The Five-Phase Split',back:'Default: SD 20% / DD 25% / CD 30% / BN 10% / CA 15%, totaling 100%. Every variant must total exactly 100%. (H.5)'},
+  {front:'The 2026 Rate Card',back:'Principal $275, Senior PM/Production $250, PM $225, QC $200, REVIT $160, Coordinator $150, Specs $120, Admin $100. Bill the attendee\'s rate. (H.6)'},
+  {front:'Reimbursables',back:'Per-diem site visit $1,600/day. Additional meetings $225/hour at attendee rate. Lodging and airfare at actual cost. Itemize, never bundle. (H.8)'},
+  {front:'Retainer and Terms',back:'Retainer 10 to 15% at signing, applied against the first phase. Progress billing tied to phase completion, not the calendar. Net 30. (H.9)'},
+  {front:'The Defense Test',back:'A defended fee is one the client can rebuild from the SF, the sector rate, and the percentage. If the only answer is "trust us," the fee is exposed. (H.0, H.12)'}
+];
+let current=0,flipped=false;
+function buildDots(){const d=document.getElementById('flip-dots');d.innerHTML='';cards.forEach((_,i)=>{const dot=document.createElement('span');dot.className='flip-dot'+(i===0?' active':'');dot.onclick=()=>goToCard(i);d.appendChild(dot);});}
+function updateCard(){document.getElementById('flip-front').textContent=cards[current].front;document.getElementById('flip-back').textContent=cards[current].back;document.getElementById('flip-counter').textContent=(current+1)+' of '+cards.length;document.getElementById('flip-card').classList.remove('flipped');document.getElementById('flip-label').textContent='Term · Tap to Reveal';flipped=false;document.querySelectorAll('.flip-dot').forEach((d,i)=>d.classList.toggle('active',i===current));}
+function flipCard(){flipped=!flipped;document.getElementById('flip-card').classList.toggle('flipped',flipped);document.getElementById('flip-label').textContent=flipped?'Answer · Tap to Reset':'Term · Tap to Reveal';}
+function nextCard(){current=(current+1)%cards.length;updateCard();}
+function prevCard(){current=(current-1+cards.length)%cards.length;updateCard();}
+function goToCard(i){current=i;updateCard();}
+buildDots();
+const pages=document.querySelectorAll('main [id]');
+const links=document.querySelectorAll('.sidebar-list a');
+window.addEventListener('scroll',()=>{let active='';pages.forEach(p=>{if(window.scrollY>=p.offsetTop-80)active=p.id;});links.forEach(a=>{const href=a.getAttribute('href').replace('#','');a.classList.toggle('active',href===active);});});
+</script>
+</body>
+</html>

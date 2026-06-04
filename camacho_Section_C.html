@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business OS &middot; Section C &middot; Sales &amp; Marketing Concepts &middot; 2026 Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--navy-mid:#0f2040;--gold:#C5A76F;--brass:#B8893B;--brass-soft:#D4AB5E;--cream:#F4EFE4;--cream-light:#FAF7F1;--paper:#FFFFFF;--ink:#162630;--ink-soft:#2C3B45;--ink-muted:#5D7079;--text-primary:#e8e0d0;--text-secondary:#b8aa90;--camacho-blue:#266889;--blue-tint:#EDF3F6;--green:#2F7D54;--green-tint:#E8F2EC;--red:#B23B2E;--red-tint:#F8E9E6;--rule:#D6CCB6;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Montserrat',sans-serif;background:var(--cream-light);color:var(--ink);font-size:15px;line-height:1.65;display:flex;}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:300;background:var(--navy);height:44px;display:flex;align-items:center;padding:0 20px;border-bottom:1px solid var(--brass);gap:16px;}
+.topbar-logo{font-family:'Playfair Display',serif;color:var(--gold);font-size:15px;font-weight:700;letter-spacing:.08em;}
+.topbar-section{color:var(--text-secondary);font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
+.topbar-links{margin-left:auto;display:flex;gap:20px;}
+.topbar-links a{color:var(--text-secondary);font-size:11px;text-decoration:none;letter-spacing:.08em;text-transform:uppercase;}
+.topbar-links a:hover{color:var(--gold);}
+.sidebar{position:fixed;top:44px;left:0;bottom:0;width:240px;background:var(--navy);overflow-y:auto;z-index:100;padding:28px 18px 40px 20px;box-sizing:border-box;border-right:1px solid rgba(197,167,111,.18);}
+.sidebar-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:0 8px 10px 8px;margin-bottom:16px;border-bottom:1px solid rgba(197,167,111,.22);}
+.sidebar-group-label{color:var(--gold);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:16px 8px 6px 8px;opacity:.9;}
+.sidebar-list{list-style:none;}
+.sidebar-list a{display:flex;align-items:baseline;gap:8px;color:#FFF;text-decoration:none;font-size:11px;padding:8px 8px 8px 6px;border-left:2px solid transparent;transition:all .15s;}
+.sidebar-list a .code{color:var(--gold);font-size:10px;min-width:26px;}
+.sidebar-list a:hover,.sidebar-list a.active{color:var(--gold);border-left-color:var(--gold);background:rgba(197,167,111,.06);}
+main{margin-left:240px;margin-top:44px;flex:1;max-width:960px;padding:0 0 80px;}
+.page{background:var(--paper);padding:56px 64px;margin-bottom:2px;}
+.page.cover{background:var(--navy);min-height:100vh;display:flex;flex-direction:column;padding:72px 72px 56px;}
+.legend-page{background:var(--navy);padding:56px 64px;margin-bottom:2px;}
+.cover-eyebrow{font-family:'Montserrat',sans-serif;color:var(--gold);font-size:10px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:28px;}
+.cover-letter{font-family:'Playfair Display',serif;color:var(--gold);font-size:120px;font-weight:700;line-height:1;margin-bottom:4px;}
+.cover-title{font-family:'Playfair Display',serif;color:#FFF;font-size:38px;font-weight:600;line-height:1.2;margin-bottom:12px;}
+.cover-sub{color:var(--text-secondary);font-size:14px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-bottom:48px;max-width:480px;}
+.cover-rule{height:1px;background:rgba(197,167,111,.3);margin-bottom:40px;}
+.nav-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:auto;}
+.nav-card{background:rgba(255,255,255,.05);border:1px solid rgba(197,167,111,.2);border-top:2px solid var(--gold);padding:16px 18px;text-decoration:none;}
+.nav-card-code{color:var(--gold);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;}
+.nav-card-title{color:#FFF;font-size:12px;font-weight:600;font-family:'Playfair Display',serif;}
+.cover-credit{margin-top:40px;color:var(--text-secondary);font-size:10px;letter-spacing:.08em;border-top:1px solid rgba(197,167,111,.15);padding-top:16px;}
+.crumb{font-size:10px;color:var(--ink-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;}
+.crumb .dot{margin:0 6px;color:var(--brass);}
+.subsec-tag{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--brass);letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.subsec-title{font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);font-weight:700;line-height:1.2;margin-bottom:16px;}
+.subsec-lede{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink-soft);line-height:1.55;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--rule);}
+.figure-title{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--brass);letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.section-body p{margin-bottom:16px;}
+.section-body ul{margin:0 0 16px 20px;}
+.section-body ol{margin:0 0 16px 20px;}
+.section-body li{margin-bottom:6px;}
+.callout{margin:24px 0;padding:20px 22px;border-radius:2px;break-inside:avoid;}
+.callout .label{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:7px;margin-bottom:10px;}
+.callout .icon{font-size:14px;}
+.callout .body{font-size:14px;line-height:1.6;}
+.callout .attrib{font-size:11px;margin-top:10px;font-style:italic;opacity:.8;}
+.callout.expert{background:var(--navy);color:var(--text-primary);border-left:4px solid var(--gold);}
+.callout.expert .label{color:var(--gold);}
+.callout.expert .body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;}
+.callout.rule{background:var(--cream);border-left:4px solid var(--navy);}
+.callout.rule .label{color:var(--navy);}
+.callout.files{background:var(--blue-tint);border-left:4px solid var(--camacho-blue);}
+.callout.files .label{color:var(--camacho-blue);}
+.callout.best{background:var(--green-tint);border-left:4px solid var(--green);}
+.callout.best .label{color:var(--green);}
+.callout.warn{background:var(--red-tint);border-left:4px solid var(--red);}
+.callout.warn .label{color:var(--red);}
+.your-company{font-weight:700;color:#266889;}
+.cards-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:24px 0;}
+.num-card{background:var(--cream);border-top:3px solid var(--brass);padding:20px 22px;break-inside:avoid;}
+.num-card .num{font-family:'Playfair Display',serif;font-size:36px;color:var(--brass);font-weight:700;line-height:1;margin-bottom:4px;}
+.num-card .kicker{font-size:9px;color:var(--ink-muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;}
+.num-card .title{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);font-weight:600;margin-bottom:8px;}
+.num-card .desc{font-size:13px;color:var(--ink-soft);}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin:24px 0;}
+.stat-cell{background:var(--navy);padding:20px 16px;text-align:center;}
+.stat-num{font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);font-weight:700;margin-bottom:4px;}
+.stat-label{font-size:10px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.1em;}
+.steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:24px 0;}
+.step-item{background:var(--cream);padding:14px 16px;border-left:3px solid var(--brass);break-inside:avoid;}
+.step-num{font-family:'Playfair Display',serif;font-size:20px;color:var(--brass);font-weight:700;margin-bottom:4px;}
+.step-title{font-size:12px;color:var(--navy);font-weight:700;margin-bottom:4px;}
+.step-desc{font-size:12px;color:var(--ink-soft);line-height:1.4;}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+thead{background:var(--navy);}
+thead th{color:var(--gold);font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:12px 14px;text-align:left;font-weight:700;}
+tbody tr:nth-child(even){background:var(--cream-light);}
+tbody tr:nth-child(odd){background:var(--paper);}
+td{padding:11px 14px;color:var(--ink-soft);vertical-align:top;}
+td strong{color:var(--ink);font-weight:600;}
+.spiced-grid{display:grid;grid-template-columns:60px 1fr;gap:0;margin:24px 0;border:1px solid var(--rule);}
+.spiced-letter{background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);font-weight:700;padding:16px;border-bottom:1px solid rgba(197,167,111,.2);}
+.spiced-content{padding:16px 20px;border-bottom:1px solid var(--rule);}
+.spiced-cat{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--brass);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;}
+.spiced-def{font-size:13px;color:var(--ink-soft);margin-bottom:6px;}
+.spiced-q{font-size:12px;color:var(--ink-muted);font-style:italic;}
+.media-block{margin:24px 0;padding:20px;background:var(--cream);border-top:3px solid var(--brass);}
+.media-byline{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--brass);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:12px;}
+.media-iframe-wrap{position:relative;width:100%;padding-bottom:56.25%;margin-bottom:8px;}
+.media-iframe-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:2px;}
+.audio-wrap iframe{width:100%;height:80px;border:0;border-radius:2px;}
+.media-caption{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--ink-muted);margin-top:8px;}
+.media-img{width:100%;border-radius:2px;display:block;margin-top:16px;}
+.quiz-q{margin-bottom:28px;break-inside:avoid;border-left:3px solid var(--rule);padding-left:18px;}
+.qnum{font-family:'Playfair Display',serif;font-size:22px;color:var(--brass);font-weight:700;margin-bottom:6px;}
+.qtext{font-size:14px;color:var(--ink);margin-bottom:12px;font-weight:500;}
+.opts{list-style:none;}
+.opt{display:flex;align-items:baseline;gap:10px;padding:6px 0;font-size:13px;color:var(--ink-soft);border-bottom:1px solid var(--cream);}
+.opt:last-child{border-bottom:none;}
+.letter{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--cream);color:var(--brass);font-size:11px;font-weight:700;flex-shrink:0;}
+.legend-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:28px;font-weight:700;margin-bottom:8px;}
+.legend-sub{color:var(--text-secondary);font-size:14px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid rgba(197,167,111,.25);}
+.legend-q{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(197,167,111,.12);break-inside:avoid;}
+.legend-q .head{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:4px;}
+.legend-q .answer{font-size:14px;color:var(--text-primary);font-weight:600;margin-bottom:4px;}
+.legend-q .explain{font-size:13px;color:var(--text-secondary);font-style:italic;}
+.flash-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+.flash-grid-card{border:1px solid var(--rule);}
+.flash-grid-front{background:var(--navy);color:var(--gold);padding:14px 16px;font-family:'Playfair Display',serif;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;}
+.flash-grid-num{background:var(--brass);color:var(--navy);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;}
+.flash-grid-back{background:var(--paper);color:var(--ink-soft);padding:12px 16px;font-size:12px;line-height:1.5;}
+.flash-grid-ref{font-size:10px;color:var(--ink-muted);margin-top:6px;font-style:italic;}
+.flip-container{max-width:600px;margin:0 auto 24px;}
+.flip-card{background:var(--navy);border-top:3px solid var(--gold);padding:48px 40px;text-align:center;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;}
+.flip-front-label{font-size:9px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;font-weight:700;}
+.flip-front-text{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;}
+.flip-back-text{font-size:14px;color:var(--text-primary);line-height:1.6;display:none;}
+.flip-card.flipped{background:var(--navy-mid);}
+.flip-card.flipped .flip-front-text{display:none;}
+.flip-card.flipped .flip-back-text{display:block;}
+.flip-hint{text-align:center;font-size:11px;color:var(--ink-muted);margin-top:8px;font-style:italic;}
+.flip-nav{display:flex;justify-content:center;align-items:center;gap:20px;margin-top:16px;}
+.flip-btn{background:var(--navy);color:var(--gold);border:1px solid var(--brass);padding:8px 22px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;cursor:pointer;text-transform:uppercase;}
+.flip-btn:hover{background:var(--brass);color:var(--navy);}
+.flip-counter{font-size:12px;color:var(--ink-muted);font-weight:600;}
+.flip-dots{display:flex;gap:6px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
+.flip-dot{width:8px;height:8px;border-radius:50%;background:var(--rule);cursor:pointer;}
+.flip-dot.active{background:var(--gold);}
+.cut-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0;}
+.cut-card{border:1px dashed var(--rule);break-inside:avoid;}
+.cut-card .term{background:var(--navy);color:var(--gold);padding:14px 16px;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;}
+.cut-card .def{background:var(--paper);color:var(--ink-soft);padding:12px 16px;font-size:12px;line-height:1.5;}
+@media print{body{background:#fff;font-size:11pt;}.topbar,.sidebar{display:none!important;}main{margin:0;max-width:100%;}.page{padding:.6in .85in;margin:0;break-before:always;}.page:first-of-type{break-before:auto;}.cover{min-height:11in;break-after:always;}-webkit-print-color-adjust:exact;print-color-adjust:exact;.flip-container{display:none;}h1,h2,h3,.subsec-title,.subsec-tag,.crumb,.figure-title{break-inside:avoid;break-after:avoid;}.callout,.num-card,.cards-row,.cut-card,.quiz-q,.legend-q{break-inside:avoid;}p,li{orphans:3;widows:3;}.legend-page{break-before:always;}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-logo"><span class="your-company">Your Company</span></div>
+  <div class="topbar-section">Section C &middot; Sales &amp; Marketing Concepts</div>
+  <div class="topbar-links">
+    <a href="#cover">Top</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#flash-grid">Study Cards</a>
+  </div>
+</header>
+
+<aside class="sidebar">
+  <div class="sidebar-title">Section C &middot; Sales</div>
+  <ul class="sidebar-list">
+    <li class="sidebar-group-label">Overview</li>
+    <li><a href="#cover"><span class="code">C</span>Cover</a></li>
+    <li><a href="#c-media"><span class="code">&#9654;</span>Briefings</a></li>
+    <li><a href="#c-slides"><span class="code">&#9674;</span>Slides (C)</a></li>
+    <li class="sidebar-group-label">Philosophy &amp; Funnel</li>
+    <li><a href="#c1"><span class="code">C.1</span>Sales Philosophy</a></li>
+    <li><a href="#c2"><span class="code">C.2</span>The Sales Funnel</a></li>
+    <li><a href="#c3"><span class="code">C.3</span>Lead Sources</a></li>
+    <li><a href="#c4"><span class="code">C.4</span>Marketing's Role</a></li>
+    <li class="sidebar-group-label">Systems &amp; Frameworks</li>
+    <li><a href="#c5"><span class="code">C.5</span>Pipedrive CRM</a></li>
+    <li><a href="#c6"><span class="code">C.6</span>10-Step Outreach</a></li>
+    <li><a href="#c7"><span class="code">C.7</span>Rule of Five</a></li>
+    <li><a href="#c8"><span class="code">C.8</span>Precision Selling</a></li>
+    <li><a href="#c9"><span class="code">C.9</span>SPICED Framework</a></li>
+    <li class="sidebar-group-label">Application</li>
+    <li><a href="#c10"><span class="code">C.10</span>Proposals as Tools</a></li>
+    <li><a href="#c11"><span class="code">C.11</span>Minority Business</a></li>
+    <li><a href="#c12"><span class="code">C.12</span>Trade Shows &amp; Events</a></li>
+    <li class="sidebar-group-label">Assessment</li>
+    <li><a href="#quiz"><span class="code">&#10003;</span>Quiz (15 Q)</a></li>
+    <li><a href="#legend1"><span class="code">&#9745;</span>Answer Legend</a></li>
+    <li><a href="#flash-grid"><span class="code">&#9635;</span>Flashcard Grid</a></li>
+    <li><a href="#flip-cards"><span class="code">&#9654;</span>Flip Cards</a></li>
+    <li><a href="#cut-cards"><span class="code">&#9986;</span>Cut Cards</a></li>
+  </ul>
+</aside>
+
+<main>
+
+<div class="page cover" id="cover">
+  <div class="cover-eyebrow"><span class="your-company">Your Company</span> Sales &amp; Proposal Development Training Guide &middot; 2026 Edition</div>
+  <div class="cover-letter">C</div>
+  <div class="cover-title">Sales &amp; Marketing Concepts</div>
+  <div class="cover-sub">The philosophy, frameworks, tools, and disciplines that drive revenue at <span class="your-company">Your Company</span>.</div>
+  <div class="cover-rule"></div>
+  <div class="nav-cards">
+    <a class="nav-card" href="#c1"><div class="nav-card-code">C.1</div><div class="nav-card-title">Sales Philosophy</div></a>
+    <a class="nav-card" href="#c2"><div class="nav-card-code">C.2</div><div class="nav-card-title">The Sales Funnel</div></a>
+    <a class="nav-card" href="#c3"><div class="nav-card-code">C.3</div><div class="nav-card-title">Lead Sources &amp; Qualification</div></a>
+    <a class="nav-card" href="#c4"><div class="nav-card-code">C.4</div><div class="nav-card-title">Marketing's Role</div></a>
+    <a class="nav-card" href="#c5"><div class="nav-card-code">C.5</div><div class="nav-card-title">Pipedrive CRM</div></a>
+    <a class="nav-card" href="#c6"><div class="nav-card-code">C.6</div><div class="nav-card-title">10-Step Outreach</div></a>
+    <a class="nav-card" href="#c7"><div class="nav-card-code">C.7</div><div class="nav-card-title">Rule of Five</div></a>
+    <a class="nav-card" href="#c8"><div class="nav-card-code">C.8</div><div class="nav-card-title">Precision Selling</div></a>
+    <a class="nav-card" href="#c9"><div class="nav-card-code">C.9</div><div class="nav-card-title">SPICED Framework</div></a>
+    <a class="nav-card" href="#c10"><div class="nav-card-code">C.10</div><div class="nav-card-title">Proposals as Sales Tools</div></a>
+    <a class="nav-card" href="#c11"><div class="nav-card-code">C.11</div><div class="nav-card-title">Minority Business Status</div></a>
+    <a class="nav-card" href="#c12"><div class="nav-card-code">C.12</div><div class="nav-card-title">Trade Shows &amp; Events</div></a>
+  </div>
+  <div class="cover-credit"><span class="your-company">Your Company</span> Associates, Inc. &middot; [Company Address] &middot; Internal Use Only &middot; 2026</div>
+</div>
+
+<div class="page" id="c-media">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> BRIEFINGS</div>
+  <div class="subsec-tag">Watch and Listen</div>
+  <h2 class="subsec-title">Section Briefings</h2>
+  <div class="subsec-lede">Watch the video, listen to the podcast, then read the section. The same sales philosophy in three formats.</div>
+  <div class="media-block">
+    <div class="media-byline">Video &middot; <span class="your-company">Your Company</span> Sales Training</div>
+    <div class="media-iframe-wrap"><video controls preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;border-radius:2px;"><source src="media/c/video.mp4" type="video/mp4"></video></div>
+    <div class="media-caption">The philosophy, frameworks, and tools behind revenue at <span class="your-company">Your Company</span>.</div>
+  </div>
+  <div class="media-block">
+    <div class="media-byline">Audio &middot; How <span class="your-company">Your Company</span> Doubled Revenue Through Diagnostic Selling</div>
+    <div class="audio-wrap"><audio controls preload="metadata" style="width:100%;display:block;"><source src="media/c/audio.m4a" type="audio/mp4"></audio></div>
+    <div class="media-caption">The full sales methodology, narrated.</div>
+  </div>
+  <div class="figure-title" style="margin-top:32px;">Section C &middot; Strategy Infographic</div>
+  <img class="media-img" src="media/c/infographic.png" alt="Section C Strategic Sales Infographic" loading="lazy">
+  <div class="figure-title" style="margin-top:32px;">Section C &middot; Concept Mind Map</div>
+  <img class="media-img" src="media/c/mindmap.png" alt="Section C Mind Map" loading="lazy">
+</div>
+
+<div class="page" id="c1">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> PHILOSOPHY</div>
+  <div class="subsec-tag">C.1 &middot; The Sales Philosophy</div>
+  <h2 class="subsec-title">The <span class="your-company">Your Company</span> Sales Philosophy</h2>
+  <div class="subsec-lede">Sales at <span class="your-company">Your Company</span> is not about persuasion, promotion, or pitching features. It is about diagnosing problems and delivering solutions. Before a word of any proposal is written, the work of sales is already underway: listening, learning, and earning the right to be trusted.</div>
+  <div class="section-body">
+    <p>The foundational belief that shapes everything at <span class="your-company">Your Company</span> is this: <strong>the client does not buy <span class="your-company">Your Company</span>, and they do not buy foodservice equipment. They buy results to their problem.</strong> This distinction determines how every conversation is conducted, how every proposal is written, and how every relationship is maintained.</p>
+    <p>When proposals were modified to reflect what the customer wants rather than what <span class="your-company">Your Company</span> is, clients responded by saying: "You get us." That shift directly drove the improvement in conversion rate from 5:1 to 1.2:1, and ultimately a doubling of revenue.</p>
+  </div>
+  <div class="figure-title">Figure C.1.1 &middot; Five Core Beliefs That Drive <span class="your-company">Your Company</span> Sales</div>
+  <div class="section-body">
+    <ol>
+      <li><strong>The sale is made when the customer is thinking, not when you are talking.</strong> Listening is not passive. Every question you ask is more powerful than any statement you make.</li>
+      <li><strong>Remove "<span class="your-company">Your Company</span>" from the center of every conversation.</strong> Start with the client's situation. Let your expertise surface through your questions and understanding.</li>
+      <li><strong>Numbers are either black or red.</strong> Sales performance is fully visible. The goal is either met or it is not. This creates clarity, not pressure.</li>
+      <li><strong>Independence is a rational driver for trust.</strong> <span class="your-company">Your Company</span> maintains no manufacturer affiliations and sells no equipment. This is a sales asset, not just a business model choice.</li>
+      <li><strong>Authority is demonstrated through accuracy, not assertion.</strong> The consultant who speaks with precision earns trust faster than the one who speaks with volume.</li>
+    </ol>
+  </div>
+  <div class="figure-title" style="margin-top:24px;">Figure C.1.2 &middot; Inbound vs. Outbound: Two Different Sales Postures</div>
+  <table>
+    <thead><tr><th>Type</th><th>What It Means</th><th>Primary Sales Priority</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Inbound</strong></td><td>The relationship is already established. The client calls because they know the firm's reputation.</td><td>Confirm scope, confirm timeline, move to proposal efficiently.</td></tr>
+      <tr><td><strong>Outbound</strong></td><td>The relationship does not yet exist. Requires active listening, empathy, and demonstration of authority through discovery.</td><td>Earn trust before proposing. Listen first. Diagnose before prescribing.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">The client is not the expert. That is why they are coming to you. Never mistake a client's confidence in their own industry for expertise in foodservice or laundry design. They need your knowledge. Deliver it with authority, not with apology.</div>
+  </div>
+</div>
+
+<div class="page" id="c2">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> PHILOSOPHY</div>
+  <div class="subsec-tag">C.2 &middot; The Sales Funnel</div>
+  <h2 class="subsec-title">The Sales Funnel at <span class="your-company">Your Company</span></h2>
+  <div class="subsec-lede">The sales funnel is the mathematical engine that drives revenue. Every activity in the sales process connects to a number, and every number connects to the firm's annual goal.</div>
+  <div class="figure-title">Figure C.2.1 &middot; The Goal Math</div>
+  <div class="stat-row">
+    <div class="stat-cell"><div class="stat-num">$5M</div><div class="stat-label">Annual Revenue Goal</div></div>
+    <div class="stat-cell"><div class="stat-num">$417K</div><div class="stat-label">Monthly Revenue Goal</div></div>
+    <div class="stat-cell"><div class="stat-num">5:1</div><div class="stat-label">Standard Conversion Rate</div></div>
+    <div class="stat-cell"><div class="stat-num">$95K</div><div class="stat-label">Daily Proposal Goal (approx.)</div></div>
+  </div>
+  <div class="section-body">
+    <p>At a 5:1 conversion rate, the monthly proposal dollar goal becomes $417,000 x 5 = $2,085,000. Divided by 22 working days, the daily proposal goal is approximately $94,773. This number guides the pace of work, not the panic of it.</p>
+  </div>
+  <div class="figure-title">Figure C.2.2 &middot; The Six Stages of the <span class="your-company">Your Company</span> Sales Funnel</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num">1</div><div class="kicker">Stage One</div><div class="title">Lead Identification</div><div class="desc">The opportunity is identified: inbound contact, RFP board, architect referral, or trade show connection.</div></div>
+    <div class="num-card"><div class="num">2</div><div class="kicker">Stage Two</div><div class="title">Lead Qualification</div><div class="desc">Apply the bullseye: sector fit, scopeable, real timeline. Qualify in or out before committing resources.</div></div>
+    <div class="num-card"><div class="num">3</div><div class="kicker">Stage Three</div><div class="title">Discovery &amp; Scoping</div><div class="desc">Conduct the discovery call using SPICED. Confirm all six dimensions before writing a word of the proposal.</div></div>
+    <div class="num-card"><div class="num">4</div><div class="kicker">Stage Four</div><div class="title">Proposal Development</div><div class="desc">Write a client-centered proposal that proves understanding, establishes independence, and justifies the fee transparently.</div></div>
+    <div class="num-card"><div class="num">5</div><div class="kicker">Stage Five</div><div class="title">Follow-Up &amp; Advocacy</div><div class="desc">24-48 hour follow-up call. Handle objections with authority. Log all contact and revisions in Pipedrive.</div></div>
+    <div class="num-card"><div class="num">6</div><div class="kicker">Stage Six</div><div class="title">Award &amp; Contracting</div><div class="desc">Align signed scope to AIA contract or RFP terms. Debrief win or loss. Update Pipedrive with outcome and reason.</div></div>
+  </div>
+  <div class="callout files">
+    <div class="label"><span class="icon">&#9776;</span> From the Files: How Conversion Rate Changed Everything</div>
+    <div class="body"><span class="your-company">Your Company</span>'s conversion rate improved from 5:1 to 3:1, then to 1.2:1 over two years. That improvement was directly tied to writing proposals that reflected what the customer wanted rather than leading with the firm's credentials. The result was a doubling of revenue.</div>
+  </div>
+</div>
+
+<div class="page" id="c3">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> PIPELINE</div>
+  <div class="subsec-tag">C.3 &middot; Lead Sources and Qualification</div>
+  <h2 class="subsec-title">Lead Sources and Qualification</h2>
+  <div class="subsec-lede">Not every opportunity is worth pursuing. A lead that cannot be won, cannot be scoped correctly, or falls outside <span class="your-company">Your Company</span>'s expertise does more damage than no lead at all, because it consumes proposal time that could serve a better opportunity.</div>
+  <div class="figure-title">Figure C.3.1 &middot; Where Leads Come From</div>
+  <table>
+    <thead><tr><th>Lead Source</th><th>Description</th><th>Qualification Priority</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Direct Phone / Email</strong></td><td>Client calls directly, often referred by an architect or past client. High intent, high quality.</td><td>Immediate response, Pipedrive entry, begin discovery.</td></tr>
+      <tr><td><strong>RFP / RFQ Boards</strong></td><td>Published solicitations from institutions, municipalities, or government agencies. Competitive but high value.</td><td>Apply go/no-go framework before committing resources.</td></tr>
+      <tr><td><strong>Architect Referrals</strong></td><td>Architects on active projects who recommend <span class="your-company">Your Company</span> to their clients. Strong qualification signal.</td><td>Fast response; the architect is often the relationship owner.</td></tr>
+      <tr><td><strong>Trade Show Contacts</strong></td><td>Connections made at GSNA, AIA, ASHRAE, FCSI, or ACFSA events. Warm leads with context.</td><td>Follow up within 48 hours with a value offer, not a pitch.</td></tr>
+      <tr><td><strong>LinkedIn / Digital</strong></td><td>Inbound inquiries from <span class="your-company">Your Company</span>'s LinkedIn presence or CEU course promotion.</td><td>Respond professionally; move to phone conversation quickly.</td></tr>
+      <tr><td><strong>Repeat Clients</strong></td><td>Prior clients returning for new phases or new facilities. Highest conversion rate.</td><td>Prioritize. Existing trust eliminates most discovery burden.</td></tr>
+    </tbody>
+  </table>
+  <div class="figure-title" style="margin-top:24px;">Figure C.3.2 &middot; The Qualification Bullseye</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num" style="font-size:24px;">1</div><div class="kicker">Criterion One</div><div class="title">Sector Fit</div><div class="desc">Within <span class="your-company">Your Company</span>'s nine-sector expertise. If the work type is unfamiliar, qualify carefully before committing proposal resources.</div></div>
+    <div class="num-card"><div class="num" style="font-size:24px;">2</div><div class="kicker">Criterion Two</div><div class="title">Scopeable</div><div class="desc">Discovery can define the work clearly enough to price it. Vague or undefined scope produces fee risk and client disputes.</div></div>
+    <div class="num-card"><div class="num" style="font-size:24px;">3</div><div class="kicker">Criterion Three</div><div class="title">Real Timeline</div><div class="desc">A critical event exists that drives actual urgency. A lead with no timeline is a conversation, not a proposal.</div></div>
+    <div class="num-card" style="background:var(--navy);border-top-color:var(--gold);"><div class="num" style="color:var(--gold);font-size:16px;">Qualified</div><div class="kicker" style="color:var(--text-secondary);">All Three Together</div><div class="title" style="color:#FFF;">The Intersection</div><div class="desc" style="color:var(--text-secondary);">A lead must meet all three criteria simultaneously. Two of three is still not fully qualified for full proposal investment.</div></div>
+  </div>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Watch Out: The Phantom Opportunity</div>
+    <div class="body">A lead with no timeline is not a lead; it is a conversation. If a prospective client cannot tell you what happens if the project is not complete on time, there may be no real critical event. Do not write a full proposal for a phantom opportunity while a real one waits.</div>
+  </div>
+</div>
+
+<div class="page" id="c4">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> PIPELINE</div>
+  <div class="subsec-tag">C.4 &middot; Marketing's Role</div>
+  <h2 class="subsec-title">Marketing's Role in Supporting Sales</h2>
+  <div class="subsec-lede">Marketing at <span class="your-company">Your Company</span> is not separate from sales; it is the infrastructure that makes sales possible. Marketing builds the platform of authority from which the sales team operates.</div>
+  <div class="section-body">
+    <p><span class="your-company">Your Company</span> does not market primarily through advertising. The firm builds authority through industry leadership, demonstrated expertise, and professional visibility. James C. Your Company's roles as Past Chair of FCSI Americas Board of Trustees and Past FCSI Worldwide Board Treasurer, his published work, speaking engagements, and industry awards create a reputational engine that generates leads the firm would never reach through paid advertising alone.</p>
+  </div>
+  <div class="figure-title">Figure C.4.1 &middot; Marketing Activities That Drive Sales</div>
+  <table>
+    <thead><tr><th>Marketing Activity</th><th>How It Supports Sales</th></tr></thead>
+    <tbody>
+      <tr><td><strong>CEU Course Delivery</strong></td><td>Three AIA-approved continuing education courses bring architects into direct contact with <span class="your-company">Your Company</span> expertise. LinkedIn ads at ~$10/day drive course registrations.</td></tr>
+      <tr><td><strong>LinkedIn Presence</strong></td><td>All team members connect to the <span class="your-company">Your Company</span> LinkedIn page and repost firm content to amplify reach at no cost.</td></tr>
+      <tr><td><strong>Trade Show Sponsorship</strong></td><td>Sponsored classroom at GSNA Equipment Academy and active presence at AIA, ASHRAE, FCSI, and ACFSA events generate qualified leads and reinforce sector authority.</td></tr>
+      <tr><td><strong>Award Submissions</strong></td><td>Industry award recognition provides third-party validation that strengthens RFP responses.</td></tr>
+      <tr><td><strong>Pre-Visit Mailers</strong></td><td>Two weeks before any trade show or regional event, the team sends targeted mailers to the geographic area to prime the audience before in-person contact.</td></tr>
+      <tr><td><strong>FCSI Membership and Leadership</strong></td><td>Membership in FCSI signals professional seriousness to institutional clients who specify FCSI experience in RFPs.</td></tr>
+      <tr><td><strong>Minority Business Status</strong></td><td>Certified minority enterprise status opens institutional and government contracting channels unavailable to non-certified firms.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House: Give Before You Ask</div>
+    <div class="body"><span class="your-company">Your Company</span>'s outreach philosophy is built on giving value before requesting anything. A CEU course, an article, an insight, a recommendation. The relationship that begins with a gift of expertise is dramatically more durable than one that begins with a sales pitch. Marketing creates the conditions for that gift. Sales delivers it.</div>
+  </div>
+</div>
+
+<div class="page" id="c5">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> SYSTEMS</div>
+  <div class="subsec-tag">C.5 &middot; Pipedrive CRM</div>
+  <h2 class="subsec-title">Pipedrive CRM</h2>
+  <div class="subsec-lede">Pipedrive is the operational hub of <span class="your-company">Your Company</span>'s sales function. It is where every deal lives, every proposal is tracked, every contact is logged, and every team member stays aligned. A sales team without a properly maintained CRM is operating on memory and assumption.</div>
+  <div class="figure-title">Figure C.5.1 &middot; Pipedrive Non-Negotiable Disciplines</div>
+  <div class="section-body">
+    <ol>
+      <li><strong>Enter every proposal in Pipedrive the day you submit it,</strong> with the accurate dollar amount. If scope changes, update the amount immediately.</li>
+      <li><strong>Assign every deal to a single owner.</strong> If you take a deal, change ownership to yourself and note that you are working it.</li>
+      <li><strong>Add meaningful notes, not email copies.</strong> Notes in Pipedrive are for "what do I need to remember or act on." Emails are logged separately via your connected inbox.</li>
+      <li><strong>Connect your work email to your Pipedrive account.</strong> When connected, all communication with a contact is automatically logged against that deal.</li>
+      <li><strong>Log event and trade show contacts immediately after the event.</strong> New contacts from GSNA, AIA, or any event go into Pipedrive the same day.</li>
+      <li><strong>Move deals to Lost with a reason noted.</strong> When a proposal is not awarded, record why. This data improves future proposal strategy.</li>
+    </ol>
+  </div>
+  <div class="callout files">
+    <div class="label"><span class="icon">&#9776;</span> From the Files: The Hidden Deal</div>
+    <div class="body">In one team meeting, it was discovered that a team member had taken over a deal but had not updated the owner in Pipedrive. The previous owner, seeing their name still on the deal, nearly began working the same proposal independently. Two people pursuing the same client creates confusion, damages credibility, and wastes firm resources. Pipedrive only works when everyone treats it as the single source of truth.</div>
+  </div>
+</div>
+
+<div class="page" id="c6">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> SYSTEMS</div>
+  <div class="subsec-tag">C.6 &middot; The 10-Step Outreach Framework</div>
+  <h2 class="subsec-title">The 10-Step Outreach Framework</h2>
+  <div class="subsec-lede">Effective outreach is not random contact. It is a sequence: a deliberate progression from first value offer through discovery, proposal, follow-up, and ongoing relationship management.</div>
+  <div class="figure-title">Figure C.6.1 &middot; Phase 1: Build Credibility</div>
+  <div class="steps-grid">
+    <div class="step-item"><div class="step-num">1</div><div class="step-title">Give First, Ask Never</div><div class="step-desc">Share insight, article, or CEU with no strings attached.</div></div>
+    <div class="step-item"><div class="step-num">2</div><div class="step-title">Identify the Critical Event</div><div class="step-desc">What is the deadline, and what happens if it is missed?</div></div>
+    <div class="step-item"><div class="step-num">3</div><div class="step-title">Conduct the Discovery Call</div><div class="step-desc">One prepared call, five confirmed answers (see Section E).</div></div>
+    <div class="step-item"><div class="step-num">4</div><div class="step-title">Identify the Impact</div><div class="step-desc">What measurable result does the client ultimately need?</div></div>
+    <div class="step-item"><div class="step-num">5</div><div class="step-title">Write the Proposal</div><div class="step-desc">Client-centered, emotionally framed, rationally grounded.</div></div>
+  </div>
+  <div class="figure-title">Figure C.6.2 &middot; Phase 2: Convert &amp; Close</div>
+  <div class="steps-grid">
+    <div class="step-item"><div class="step-num">6</div><div class="step-title">Submit and Log in Pipedrive</div><div class="step-desc">Record dollar amount same day. Owner confirmed.</div></div>
+    <div class="step-item"><div class="step-num">7</div><div class="step-title">The 24-48 Hour Follow-Up Call</div><div class="step-desc">"Did we address your needs? What can we do for you?"</div></div>
+    <div class="step-item"><div class="step-num">8</div><div class="step-title">Handle Questions and Objections</div><div class="step-desc">Fee questions, scope questions, alternatives. Stay authoritative.</div></div>
+    <div class="step-item"><div class="step-num">9</div><div class="step-title">Award / Contract Alignment</div><div class="step-desc">Align scope to AIA contract or RFP/RFQ terms.</div></div>
+    <div class="step-item"><div class="step-num">10</div><div class="step-title">Post-Project Debrief</div><div class="step-desc">Win or lose, analyze why. Update Pipedrive with outcome.</div></div>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House: Never Ask Before You Give</div>
+    <div class="body">Step 1 is not a sales pitch. It is a gift: a CEU course, an industry article, a case study. Give something of genuine value with no expectation of return. The relationship that begins this way is fundamentally different from one that begins with "Can I have 15 minutes of your time?"</div>
+  </div>
+</div>
+
+<div class="page" id="c7">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> SYSTEMS</div>
+  <div class="subsec-tag">C.7 &middot; The Rule of Five</div>
+  <h2 class="subsec-title">The Rule of Five</h2>
+  <div class="subsec-lede">Before launching any outreach sequence, a sales professional at <span class="your-company">Your Company</span> prepares five of each of the following: five critical events, five rational impacts, and five emotional impacts.</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num">5</div><div class="kicker">Critical Events</div><div class="title">Dates With Consequences</div><div class="desc">For K-12: school year start date, state health inspection cycle, budget approval deadline, capital bond construction timeline, USDA compliance review.</div></div>
+    <div class="num-card"><div class="num">5</div><div class="kicker">Rational Impacts</div><div class="title">Measurable Business Outcomes</div><div class="desc">Reduced labor costs through ergonomic layout, reduced equipment replacement cycles, reduced health violations, increased meal throughput, reduced construction RFIs.</div></div>
+    <div class="num-card"><div class="num">5</div><div class="kicker">Emotional Impacts</div><div class="title">Personal Motivations</div><div class="desc">Staff morale improvement, recognition for the facilities director, peace of mind for the nutrition director, "Premier Destination" status, confidence with the school board.</div></div>
+    <div class="num-card" style="background:var(--navy);border-top-color:var(--gold);"><div class="num" style="color:var(--gold);font-size:16px;">Why</div><div class="kicker" style="color:var(--text-secondary);">The Purpose</div><div class="title" style="color:#FFF;">Relevance, Not Volume</div><div class="desc" style="color:var(--text-secondary);">Prepared lists make every call and every email feel like it was written by someone who genuinely understands the challenge.</div></div>
+  </div>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice: Consistency Beats Intensity</div>
+    <div class="body">The Rule of Five is most effective when maintained consistently, not deployed in bursts before major campaigns. Keep your five lists current for each sector you are actively pursuing. Update them when you learn new things about your client environment. A stale list of impacts is a missed opportunity.</div>
+  </div>
+</div>
+
+<div class="page" id="c8">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> FRAMEWORKS</div>
+  <div class="subsec-tag">C.8 &middot; Precision Selling</div>
+  <h2 class="subsec-title">Precision Selling: Impact, Critical Events, Outreach</h2>
+  <div class="subsec-lede">Precision Selling replaces the instinct-driven approach of "I'll figure out what they need when I talk to them" with a prepared, research-backed, client-centered sequence integrating Impact, Critical Event discovery, and structured Outreach.</div>
+  <div class="figure-title">Figure C.8.1 &middot; Impact by Sector</div>
+  <table>
+    <thead><tr><th>Sector</th><th>What <span class="your-company">Your Company</span> Does</th><th>The Impact That Matters</th></tr></thead>
+    <tbody>
+      <tr><td><strong>K-12 Education</strong></td><td>Design cafeteria and kitchen</td><td>Better nutrition, higher focus, improved test performance</td></tr>
+      <tr><td><strong>Healthcare</strong></td><td>Design patient services kitchen and laundry</td><td>Infection control, patient safety, operational efficiency</td></tr>
+      <tr><td><strong>Senior Living</strong></td><td>Design dining and catering facilities</td><td>Resident satisfaction, staff retention, survey compliance</td></tr>
+      <tr><td><strong>Hospitality</strong></td><td>Design high-volume F&amp;B kitchen</td><td>Revenue per cover, reduced labor cost, guest experience</td></tr>
+      <tr><td><strong>Government / Correctional</strong></td><td>Design institutional feeding facility</td><td>Per-meal cost reduction, safety compliance, operational control</td></tr>
+    </tbody>
+  </table>
+  <div class="callout expert">
+    <div class="label"><span class="icon">&#10078;</span> The Critical Event Question</div>
+    <div class="body">"What happens if this project is not complete by [the date you mentioned]?" This question exposes whether the timeline is real. A client who says "it would be a problem" has a critical event. A client who says "well, it would just push to next year" may not have one yet. Qualify accordingly.</div>
+    <div class="attrib">&middot; Marketing Director</div>
+  </div>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice: Precision Over Volume</div>
+    <div class="body">The goal is not to send 100 emails. The goal is to send 10 emails that are so relevant, so timely, and so clearly connected to the recipient's known situation that they feel like they were written by someone who genuinely understands the challenge.</div>
+  </div>
+</div>
+
+<div class="page" id="c9">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> FRAMEWORKS</div>
+  <div class="subsec-tag">C.9 &middot; The SPICED Framework</div>
+  <h2 class="subsec-title">The SPICED Discovery Framework</h2>
+  <div class="subsec-lede">SPICED structures every meaningful client conversation at <span class="your-company">Your Company</span>: Situation, Pain, Impact, Critical Event, Economic, Decision. It ensures that by the end of discovery, the six dimensions needed to write a winning proposal have been collected.</div>
+  <div class="figure-title">Figure C.9.1 &middot; SPICED in Full</div>
+  <div class="spiced-grid">
+    <div class="spiced-letter" style="border-bottom:1px solid rgba(197,167,111,.2);">S</div><div class="spiced-content"><div class="spiced-cat">Situation</div><div class="spiced-def">The factual context: what facility, what sector, what square footage, what is the current state, what is planned. The rational baseline.</div><div class="spiced-q">"Tell me about the current facility." / "What prompted this project now?"</div></div>
+    <div class="spiced-letter" style="border-bottom:1px solid rgba(197,167,111,.2);">P</div><div class="spiced-content"><div class="spiced-cat">Pain</div><div class="spiced-def">The problem the client is experiencing. Equipment failing, kitchen undersized, labor costs unsustainable. Pain is the root of buying motivation.</div><div class="spiced-q">"What is not working with the current setup?" / "What complaints do you hear most?"</div></div>
+    <div class="spiced-letter" style="border-bottom:1px solid rgba(197,167,111,.2);">I</div><div class="spiced-content"><div class="spiced-cat">Impact</div><div class="spiced-def">The downstream consequence of the pain. Connects the technical problem to strategic organizational outcomes.</div><div class="spiced-q">"What happens to the program if you don't solve this?" / "What would success look like?"</div></div>
+    <div class="spiced-letter" style="border-bottom:1px solid rgba(197,167,111,.2);">C</div><div class="spiced-content"><div class="spiced-cat">Critical Event</div><div class="spiced-def">The date and consequence. Every real project has a critical event that tells you whether this is a real opportunity or a theoretical one.</div><div class="spiced-q">"Is there a specific date this needs to be done by?" / "What happens if we miss that timeline?"</div></div>
+    <div class="spiced-letter" style="border-bottom:1px solid rgba(197,167,111,.2);">E</div><div class="spiced-content"><div class="spiced-cat">Economic</div><div class="spiced-def">The budget reality and the economic decision-maker. Who controls the budget? What is the approved project budget? Prevents fee shock at proposal delivery.</div><div class="spiced-q">"Do you have an approved budget for the design work?" / "Who makes the final decision on fees?"</div></div>
+    <div class="spiced-letter">D</div><div class="spiced-content"><div class="spiced-cat">Decision</div><div class="spiced-def">The decision process, timeline, and stakeholders. Who reviews the proposal? How many firms are being considered? Allows a proposal strategy that speaks to all evaluators.</div><div class="spiced-q">"How will this decision be made?" / "What does a 'yes' look like for your organization?"</div></div>
+  </div>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice: The Listening Standard</div>
+    <div class="body">If you spoke more than 40% of the time on a discovery call, you talked too much. The diagnostic questions should generate client responses that are two to three times longer than the questions themselves. You are the consultant, not the presenter.</div>
+  </div>
+</div>
+
+<div class="page" id="c10">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> APPLICATION</div>
+  <div class="subsec-tag">C.10 &middot; Proposals as Sales Tools</div>
+  <h2 class="subsec-title">Proposals as Sales Tools</h2>
+  <div class="subsec-lede">A <span class="your-company">Your Company</span> proposal is not an administrative document. It is the single most important sales tool the firm produces. Written correctly, it closes deals without a follow-up pitch.</div>
+  <div class="figure-title">Figure C.10.1 &middot; Five Functions of a <span class="your-company">Your Company</span> Proposal</div>
+  <div class="section-body">
+    <ol>
+      <li><strong>Demonstrates understanding of the client's situation.</strong> The first paragraph must prove the firm listened. It names the project's context, the community it serves, and the result the client is trying to achieve.</li>
+      <li><strong>Establishes <span class="your-company">Your Company</span>'s independence and authority.</strong> Every proposal includes a sector-specific independence paragraph confirming fee-only, vendor-neutral status.</li>
+      <li><strong>Frames the scope in measurable terms.</strong> Square footage, full-time enrollment, phase deliverables, and specific zones are named precisely. Vague scope creates fee risk and scope disputes.</li>
+      <li><strong>Justifies the fee with transparency.</strong> The compensation table shows how the fee was calculated, not just what it is. Transparent fee logic reduces resistance and builds confidence.</li>
+      <li><strong>Serves as a reference document post-award.</strong> A well-written proposal becomes the agreement that guides the entire project. Precision at the proposal stage prevents disputes at the project stage.</li>
+    </ol>
+  </div>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Watch Out: Proposals That Lead With "We"</div>
+    <div class="body">A proposal that opens with "We are pleased to offer our services" or "We have been in business since 1968" is a proposal about <span class="your-company">Your Company</span>, not about the client. Remove "we" from the opening of every proposal and replace it with the client's context. The conversion rate data proves this works.</div>
+  </div>
+</div>
+
+<div class="page" id="c11">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> APPLICATION</div>
+  <div class="subsec-tag">C.11 &middot; Minority Business Status</div>
+  <h2 class="subsec-title">Certified Minority Business Status as Competitive Advantage</h2>
+  <div class="subsec-lede"><span class="your-company">Your Company</span>'s certified minority and women's business enterprise status opens procurement channels that are unavailable to non-certified firms.</div>
+  <div class="section-body">
+    <p><span class="your-company">Your Company</span> was founded as a Puerto Rican-owned business by Company Owner's father. The firm has held minority business enterprise status. Currently, the firm is pursuing Women's Business Enterprise (WBE) certification. Under the rules of most certification bodies, a firm cannot hold both MBE and WBE certifications simultaneously during the transition period.</p>
+  </div>
+  <div class="figure-title">Figure C.11.1 &middot; Why Certification Matters in the Sales Process</div>
+  <table>
+    <thead><tr><th>Context</th><th>How Certification Matters</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Government Contracts</strong></td><td>Many federal and state agencies have mandated minority business participation targets. Certified firms can be sole-sourced or given evaluation preference.</td></tr>
+      <tr><td><strong>Institutional RFPs</strong></td><td>Universities, hospital systems, and large K-12 districts frequently require or reward minority vendor participation in procurement scoring.</td></tr>
+      <tr><td><strong>Prime/Sub Relationships</strong></td><td>Architecture and construction firms seeking to fulfill their own MBE/WBE requirements may actively recruit <span class="your-company">Your Company</span> as a certified subconsultant.</td></tr>
+      <tr><td><strong>Community Narrative</strong></td><td>For clients with equity and inclusion priorities, working with a certified minority enterprise reinforces their own organizational commitments.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House: Current Certification Status</div>
+    <div class="body">Do not represent <span class="your-company">Your Company</span> as holding an active certification that is currently in the application or transition process. When discussing minority business status with clients or in proposals, use accurate, current language. If you are unsure of the current status, ask before including it in any proposal.</div>
+  </div>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice: Lead With Value, Follow With Certification</div>
+    <div class="body">Minority business certification is a competitive advantage, not the primary selling point. Lead every conversation and every proposal with <span class="your-company">Your Company</span>'s expertise: 60+ years of experience, nine sectors served, FCSI-certified leadership, and a proven track record. Certification amplifies what is already a compelling case.</div>
+  </div>
+</div>
+
+<div class="page" id="c12">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> APPLICATION</div>
+  <div class="subsec-tag">C.12 &middot; Trade Shows &amp; Events</div>
+  <h2 class="subsec-title">Trade Shows, Events, and Industry Presence</h2>
+  <div class="subsec-lede">Events are not networking opportunities. They are sales opportunities with a time horizon. Every event <span class="your-company">Your Company</span> attends represents a chance to build relationships with decision-makers who are already self-selected as relevant prospects.</div>
+  <div class="figure-title">Figure C.12.1 &middot; Key Industry Events and Organizations</div>
+  <table>
+    <thead><tr><th>Organization / Event</th><th>Audience</th><th><span class="your-company">Your Company</span> Role</th></tr></thead>
+    <tbody>
+      <tr><td><strong>GSNA</strong></td><td>School nutrition directors and facilities managers for K-12 districts across GA</td><td>Sponsored classroom at Equipment Academy; 15-minute sessions to rotating groups of 27-30 attendees</td></tr>
+      <tr><td><strong>AIA</strong></td><td>Architects and design professionals who specify consultants on institutional projects</td><td>CEU course delivery; chapter event participation; relationship building with project architects</td></tr>
+      <tr><td><strong>ASHRAE</strong></td><td>MEP engineers and building systems professionals</td><td>Guest speaking, CEU delivery, technical collaboration positioning</td></tr>
+      <tr><td><strong>FCSI</strong></td><td>Foodservice design consultants and institutional clients who specify FCSI membership</td><td>Active membership; James C. Your Company holds past governance roles at global level</td></tr>
+      <tr><td><strong>ACFSA</strong></td><td>Correctional facility food service administrators and procurement professionals</td><td>Sector-specific engagement; niche positioning in high-compliance institutional segment</td></tr>
+    </tbody>
+  </table>
+  <div class="figure-title" style="margin-top:24px;">Figure C.12.2 &middot; The Event Engagement Process</div>
+  <div class="section-body">
+    <ol>
+      <li><strong>Two weeks before the event:</strong> Send targeted mailers to the geographic area where the event is held. Prime the audience before in-person contact.</li>
+      <li><strong>Before arriving:</strong> Know who you want to meet. Identify two or three target contacts for meaningful conversation.</li>
+      <li><strong>At the event:</strong> Lead with listening and questions. Do not pitch services on first contact. Give a genuine insight before asking for anything.</li>
+      <li><strong>Same day:</strong> Enter every new contact in Pipedrive with notes: their facility, their challenge, their timeline if mentioned.</li>
+      <li><strong>Within 48 hours:</strong> Send a follow-up that references the specific conversation. Share a resource or relevant insight. Do not send a generic "great to meet you" email.</li>
+    </ol>
+  </div>
+  <div class="callout files">
+    <div class="label"><span class="icon">&#9776;</span> From the Files: GSNA Equipment Academy</div>
+    <div class="body"><span class="your-company">Your Company</span> sponsors a classroom at the Georgia School Nutrition Association Equipment Academy. School nutrition directors rotate through in groups of 27-30 for 15-minute sessions. This format concentrates qualified decision-makers in a structured educational setting and positions <span class="your-company">Your Company</span> as an expert investing in the profession rather than a vendor seeking business.</div>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House: LinkedIn Amplification</div>
+    <div class="body">All <span class="your-company">Your Company</span> team members connect to the firm's LinkedIn page and actively repost content from firm events, CEU courses, and industry engagements. Every repost extends the firm's reach into each team member's personal network at zero cost. This is not optional social activity; it is part of the marketing function that supports the sales team's ability to open doors.</div>
+  </div>
+</div>
+
+<div class="page" id="quiz">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag">&#10003; Knowledge Test</div>
+  <h2 class="subsec-title">Sales &amp; Marketing Concepts: Assessment</h2>
+  <div class="subsec-lede">15 questions progressing from knowledge-level recall through application and judgment. One correct answer each. Do not review the answer legend until you have completed the entire test.</div>
+
+  <div class="quiz-q"><div class="qnum">C.1</div><div class="qtext">Which statement best captures the core <span class="your-company">Your Company</span> sales philosophy?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Clients buy <span class="your-company">Your Company</span> because of its 60+ years of experience and FCSI-certified leadership.</li><li class="opt"><span class="letter">B</span>Clients buy results to their problem, not the firm's credentials or the equipment it specifies.</li><li class="opt"><span class="letter">C</span>Clients are persuaded by strong presentations and detailed service catalogs.</li><li class="opt"><span class="letter">D</span>Clients respond best to volume outreach and frequent follow-up contact.</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">C.2</div><div class="qtext"><span class="your-company">Your Company</span>'s annual sales goal is $5 million. At a standard 5:1 conversion rate, approximately how many proposal dollars should be written each month?</div><ul class="opts"><li class="opt"><span class="letter">A</span>$417,000</li><li class="opt"><span class="letter">B</span>$1,000,000</li><li class="opt"><span class="letter">C</span>$2,085,000</li><li class="opt"><span class="letter">D</span>$5,000,000</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">C.3</div><div class="qtext"><span class="your-company">Your Company</span>'s conversion rate improved from 5:1 to approximately 1.2:1 over a period of years. What was the primary driver of this improvement?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Increasing proposal volume significantly while maintaining the same proposal format.</li><li class="opt"><span class="letter">B</span>Lowering fees to be more competitive in the market.</li><li class="opt"><span class="letter">C</span>Modifying proposals to reflect what the customer wants rather than leading with <span class="your-company">Your Company</span>'s credentials.</li><li class="opt"><span class="letter">D</span>Adding more technical detail and specification language to proposals.</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">C.4</div><div class="qtext">A qualified lead must meet three criteria simultaneously. Which set correctly identifies all three?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Large budget, high fee potential, government contract.</li><li class="opt"><span class="letter">B</span>Sector fit, scopeable, real timeline with a critical event.</li><li class="opt"><span class="letter">C</span>Referred by architect, inbound contact, prior client relationship.</li><li class="opt"><span class="letter">D</span>Written RFP, confirmed budget, decision committee identified.</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">C.5</div><div class="qtext">Which Pipedrive discipline is specifically called out as being most commonly forgotten by the <span class="your-company">Your Company</span> team?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Adding contact information when entering a new deal.</li><li class="opt"><span class="letter">B</span>Recording the proposal dollar amount in Pipedrive on the day of submission.</li><li class="opt"><span class="letter">C</span>Moving closed deals to the Won stage.</li><li class="opt"><span class="letter">D</span>Sending meeting invitations through Pipedrive calendar.</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">C.6</div><div class="qtext">According to the <span class="your-company">Your Company</span> outreach philosophy, what should always precede any request or pitch in a new relationship?</div><ul class="opts"><li class="opt"><span class="letter">A</span>A detailed introduction to <span class="your-company">Your Company</span>'s history and credentials.</li><li class="opt"><span class="letter">B</span>A request for 15 minutes to explain how the firm can help.</li><li class="opt"><span class="letter">C</span>A gift of value: insight, article, CEU course, or relevant resource.</li><li class="opt"><span class="letter">D</span>A proposal summary to demonstrate the firm's capabilities.</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">C.7</div><div class="qtext">The Rule of Five requires a sales professional to prepare five of each category before launching outreach. Which three categories are correct?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Sector case studies, fee ranges, and competitor analyses.</li><li class="opt"><span class="letter">B</span>Critical events, rational impacts, and emotional impacts.</li><li class="opt"><span class="letter">C</span>Discovery questions, proposal templates, and follow-up scripts.</li><li class="opt"><span class="letter">D</span>Target contacts, email templates, and LinkedIn connections.</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">C.8</div><div class="qtext">In the Impact-Critical Event-Outreach model, what is the correct definition of a "Critical Event"?</div><ul class="opts"><li class="opt"><span class="letter">A</span>A major client complaint that requires immediate response.</li><li class="opt"><span class="letter">B</span>A trade show or industry event that generates leads.</li><li class="opt"><span class="letter">C</span>A date or milestone with real consequences if the project is not complete by that time.</li><li class="opt"><span class="letter">D</span>A competitive situation where another firm has submitted a lower fee.</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">C.9</div><div class="qtext">In the SPICED framework, what does the letter "E" stand for, and what is its primary purpose in discovery?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Experience: Understanding the client's prior vendor relationships.</li><li class="opt"><span class="letter">B</span>Emotional: Identifying the personal motivations behind the business decision.</li><li class="opt"><span class="letter">C</span>Economic: Understanding the budget reality and who controls financial decisions.</li><li class="opt"><span class="letter">D</span>Evaluation: Mapping the client's internal review process for proposals.</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">C.10</div><div class="qtext">A new associate opens a proposal cover letter with "We are pleased to offer our services for your cafeteria project." Why is this opening problematic according to <span class="your-company">Your Company</span> standards?</div><ul class="opts"><li class="opt"><span class="letter">A</span>It is too short and does not provide enough information about the project.</li><li class="opt"><span class="letter">B</span>It centers the firm rather than the client's situation and buys nothing in the client's mind.</li><li class="opt"><span class="letter">C</span>It uses informal language that is inappropriate for institutional clients.</li><li class="opt"><span class="letter">D</span>It fails to mention <span class="your-company">Your Company</span>'s certifications and sector experience.</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">C.11</div><div class="qtext"><span class="your-company">Your Company</span> is currently pursuing WBE certification. Which statement accurately reflects the firm's current certification situation?</div><ul class="opts"><li class="opt"><span class="letter">A</span><span class="your-company">Your Company</span> holds both active MBE and WBE certifications simultaneously.</li><li class="opt"><span class="letter">B</span>The firm is in a transition period and may not hold both certifications at the same time; the WBE application is in process.</li><li class="opt"><span class="letter">C</span><span class="your-company">Your Company</span> has voluntarily surrendered all certifications and will not pursue WBE status.</li><li class="opt"><span class="letter">D</span>WBE certification has been fully approved and is now active.</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">C.12</div><div class="qtext">At the GSNA Equipment Academy, <span class="your-company">Your Company</span> presents to school nutrition directors in what format?</div><ul class="opts"><li class="opt"><span class="letter">A</span>One-on-one meetings scheduled in advance with selected directors.</li><li class="opt"><span class="letter">B</span>A large keynote session to all attendees simultaneously.</li><li class="opt"><span class="letter">C</span>Sponsored classroom sessions of 15 minutes to rotating groups of 27-30 attendees.</li><li class="opt"><span class="letter">D</span>A vendor booth with self-serve marketing materials.</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">C.13</div><div class="qtext">The correct Listen-Diagnose-Prescribe sequence requires that a sales professional prescribe a solution only after doing what first?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Presenting the firm's portfolio of similar projects.</li><li class="opt"><span class="letter">B</span>Fully listening to and diagnosing the client's situation, pain, impact, and critical event.</li><li class="opt"><span class="letter">C</span>Confirming the budget is sufficient to cover <span class="your-company">Your Company</span>'s standard fee range.</li><li class="opt"><span class="letter">D</span>Submitting a letter of interest to confirm the client's attention.</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">C.14</div><div class="qtext">A contact at a trade show tells you their school district is "thinking about a cafeteria renovation sometime in the next few years." How should this lead be handled?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Write a preliminary proposal immediately to show initiative.</li><li class="opt"><span class="letter">B</span>Enter the contact in Pipedrive, note the conversation, and send a value offer follow-up within 48 hours without committing full proposal resources yet.</li><li class="opt"><span class="letter">C</span>Disqualify the lead entirely since there is no confirmed timeline.</li><li class="opt"><span class="letter">D</span>Forward the contact information to the Marketing Director and take no further action.</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">C.15</div><div class="qtext">Which statement most accurately describes <span class="your-company">Your Company</span>'s marketing model?</div><ul class="opts"><li class="opt"><span class="letter">A</span>The firm relies primarily on paid digital advertising and email campaigns to generate leads.</li><li class="opt"><span class="letter">B</span>Marketing is separate from sales and handles only brand identity and events.</li><li class="opt"><span class="letter">C</span>The firm builds authority through industry leadership, CEU delivery, published work, awards, and professional visibility, which generates leads the firm could not reach through advertising alone.</li><li class="opt"><span class="letter">D</span>Marketing is primarily the responsibility of individual sales team members, not a dedicated function.</li></ul></div>
+</div>
+
+<div class="legend-page" id="legend1">
+  <div class="crumb" style="color:var(--text-secondary);">SECTION C <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag" style="color:var(--brass-soft);">&#9745; Answer Legend &middot; Part 1 of 2</div>
+  <div class="legend-title">Answers &middot; C.1 through C.8</div>
+  <div class="legend-sub">Do not review until the test is complete. The correct answer is followed by the reasoning and the subsection where the concept was taught.</div>
+  <div class="legend-q"><div class="head">C.1</div><div class="answer">Correct: B &middot; Clients buy results to their problem</div><div class="explain">The foundational principle: clients buy results to their problem, not the firm's credentials. Leading with credentials centers the firm, not the client. See C.1.</div></div>
+  <div class="legend-q"><div class="head">C.2</div><div class="answer">Correct: C &middot; $2,085,000</div><div class="explain">$417,000 (monthly revenue goal) x 5 (conversion rate) = $2,085,000 in proposal dollars per month. A is the monthly revenue goal, not the proposal dollar goal. See C.2.</div></div>
+  <div class="legend-q"><div class="head">C.3</div><div class="answer">Correct: C &middot; Modifying proposals to reflect what the customer wants</div><div class="explain">The conversion rate narrowed when proposals were modified to reflect what the customer wants rather than leading with credentials. Volume alone does not improve conversion rate. See C.2.</div></div>
+  <div class="legend-q"><div class="head">C.4</div><div class="answer">Correct: B &middot; Sector fit, scopeable, real timeline with a critical event</div><div class="explain">A qualified lead requires all three simultaneously. A lead that meets two of three criteria is still not fully qualified for full proposal investment. See C.3.</div></div>
+  <div class="legend-q"><div class="head">C.5</div><div class="answer">Correct: B &middot; Recording the proposal dollar amount in Pipedrive on the day of submission</div><div class="explain">Specifically identified as the discipline most commonly forgotten. Without this data, conversion rate analytics and pipeline health assessments are impossible. See C.5.</div></div>
+  <div class="legend-q"><div class="head">C.6</div><div class="answer">Correct: C &middot; A gift of value: insight, article, CEU course, or relevant resource</div><div class="explain">Step 1 of the 10-Step Framework is to give first and ask never. The relationship that begins this way is fundamentally different from one that begins with a request. See C.6.</div></div>
+  <div class="legend-q"><div class="head">C.7</div><div class="answer">Correct: B &middot; Critical events, rational impacts, and emotional impacts</div><div class="explain">The Rule of Five requires five critical events, five rational impacts, and five emotional impacts for each target sector before outreach begins. See C.7.</div></div>
+  <div class="legend-q"><div class="head">C.8</div><div class="answer">Correct: C &middot; A date or milestone with real consequences if the project is not complete by that time</div><div class="explain">A Critical Event is distinguished by the existence of real consequences. A client who says "it would push to next year" does not have a critical event yet. See C.8.</div></div>
+</div>
+
+<div class="legend-page" id="legend2">
+  <div class="crumb" style="color:var(--text-secondary);">SECTION C <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag" style="color:var(--brass-soft);">&#9745; Answer Legend &middot; Part 2 of 2</div>
+  <div class="legend-title">Answers &middot; C.9 through C.15</div>
+  <div class="legend-sub">The remaining answers with reasoning and subsection cross-references. Review every question you missed before moving on to the flashcards.</div>
+  <div class="legend-q"><div class="head">C.9</div><div class="answer">Correct: C &middot; Economic: Understanding the budget reality and who controls financial decisions</div><div class="explain">E stands for Economic. Must uncover who controls the budget, what the approved budget is, and who the financial decision-maker is. This prevents fee shock at proposal delivery. See C.9.</div></div>
+  <div class="legend-q"><div class="head">C.10</div><div class="answer">Correct: B &middot; It centers the firm rather than the client's situation</div><div class="explain">This opening conveys nothing the client cares about. The opening paragraph must prove understanding of the client's context and the result they need. See C.10.</div></div>
+  <div class="legend-q"><div class="head">C.11</div><div class="answer">Correct: B &middot; The firm is in a transition period between MBE and WBE certifications</div><div class="explain">Under most certification body rules, a firm cannot hold both simultaneously during the application process. Do not represent the firm as holding an active certification that has not yet been granted. See C.11.</div></div>
+  <div class="legend-q"><div class="head">C.12</div><div class="answer">Correct: C &middot; Sponsored classroom sessions of 15 minutes to rotating groups of 27-30 attendees</div><div class="explain"><span class="your-company">Your Company</span> sponsors a classroom at GSNA where school nutrition directors rotate through in groups of 27-30 for 15-minute sessions. This positions the firm as an expert investing in the profession. See C.12.</div></div>
+  <div class="legend-q"><div class="head">C.13</div><div class="answer">Correct: B &middot; Fully listening to and diagnosing the client's situation, pain, impact, and critical event</div><div class="explain">Prescribing (writing the proposal) comes only after fully listening and diagnosing. Prescribing before diagnosing is the most common professional services sales error. See C.9.</div></div>
+  <div class="legend-q"><div class="head">C.14</div><div class="answer">Correct: B &middot; Enter the contact in Pipedrive and send a value offer follow-up within 48 hours</div><div class="explain">This lead has potential but no confirmed critical event yet. Enter in Pipedrive, follow up with a value offer, and maintain the relationship without committing full proposal resources. See C.3.</div></div>
+  <div class="legend-q"><div class="head">C.15</div><div class="answer">Correct: C &middot; Authority through industry leadership, CEU delivery, published work, and professional visibility</div><div class="explain"><span class="your-company">Your Company</span> builds market authority through demonstrated expertise. This authority-based model generates leads and trust that advertising alone cannot replicate. See C.4.</div></div>
+</div>
+
+<div class="page" id="flash-grid">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9670; Flashcards &middot; Reference Grid</div>
+  <h2 class="subsec-title">Sixteen Cards &middot; Front and Back</h2>
+  <div class="subsec-lede">Sixteen flashcards covering the key terms, concepts, formulas, and frameworks from Section C. Review at Day 1, 3, 7, and 21.</div>
+  <div class="flash-grid">
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">1</span>"Numbers are black or red"</div><div class="flash-grid-back">Sales performance is fully visible and fully accountable. The goal is either met or it is not. Clarity of purpose, not pressure.<div class="flash-grid-ref">(C.1)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">2</span>Monthly Proposal Goal (5:1)</div><div class="flash-grid-back">$417K monthly revenue x 5 = $2,085,000 in proposal dollars per month. ~$95K per working day.<div class="flash-grid-ref">(C.2)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">3</span>Inbound vs. Outbound</div><div class="flash-grid-back">Inbound: relationship exists; confirm scope and timeline. Outbound: relationship does not exist; earn trust, listen first, diagnose before prescribing.<div class="flash-grid-ref">(C.1)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">4</span>Three Qualification Criteria</div><div class="flash-grid-back">1. Sector fit. 2. Scopeable. 3. Real timeline with a critical event. Must meet all three simultaneously.<div class="flash-grid-ref">(C.3)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">5</span>Most Important Pipedrive Discipline</div><div class="flash-grid-back">Record the proposal dollar amount in Pipedrive on the day of submission. Update if scope changes. Without this, analytics are impossible.<div class="flash-grid-ref">(C.5)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">6</span>Step 1 of 10-Step Outreach</div><div class="flash-grid-back">Give first, ask never. Share insight, article, or CEU with no expectation of return. Never open with a pitch or a request.<div class="flash-grid-ref">(C.6)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">7</span>Rule of Five Categories</div><div class="flash-grid-back">1. Critical Events: dates with consequences. 2. Rational Impacts: measurable business outcomes. 3. Emotional Impacts: personal motivations.<div class="flash-grid-ref">(C.7)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">8</span>Critical Event Reveal Question</div><div class="flash-grid-back">"What happens if this project is not complete by [the date you mentioned]?" Real urgency has real consequences.<div class="flash-grid-ref">(C.8)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">9</span>SPICED Acronym</div><div class="flash-grid-back">Situation, Pain, Impact, Critical Event, Economic, Decision. Six dimensions needed to write a winning proposal.<div class="flash-grid-ref">(C.9)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">10</span>Five Functions of a Proposal</div><div class="flash-grid-back">1. Client understanding. 2. Independence. 3. Measurable scope. 4. Transparent fee. 5. Post-award reference document.<div class="flash-grid-ref">(C.10)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">11</span>MBE/WBE Certification</div><div class="flash-grid-back">Transition period: cannot hold both simultaneously. WBE application in process. Use accurate, current language in proposals.<div class="flash-grid-ref">(C.11)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">12</span>Pre-Event Marketing</div><div class="flash-grid-back">Two weeks before any trade show, send targeted mailers to the geographic area. Prime the audience before in-person contact.<div class="flash-grid-ref">(C.12)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">13</span>Listen-Diagnose-Prescribe</div><div class="flash-grid-back">1. Listen through SPICED. 2. Diagnose pain, impact, critical event. 3. Prescribe via proposal. Never prescribe before diagnosing.<div class="flash-grid-ref">(C.9)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">14</span>Authority-Based Marketing</div><div class="flash-grid-back">Authority built through FCSI leadership, CEU delivery, published work, awards. Generates leads advertising cannot replicate.<div class="flash-grid-ref">(C.4)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">15</span>"E" in SPICED = Economic</div><div class="flash-grid-back">Who controls budget? Approved budget amount? Funding constraints? Financial decision-maker? Prevents fee shock at proposal delivery.<div class="flash-grid-ref">(C.9)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">16</span>Why "We Are Pleased" Fails</div><div class="flash-grid-back">Centers the firm, not the client. The opening paragraph must prove understanding of the client's context, community, and the result they need.<div class="flash-grid-ref">(C.10)</div></div></div>
+  </div>
+</div>
+
+<div class="page" id="flip-cards">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9633; Flashcards &middot; Interactive</div>
+  <h2 class="subsec-title">Tap the Card to See the Answer</h2>
+  <div class="subsec-lede">Sixteen cards, one at a time. Read the front, attempt the back from memory, then tap to check.</div>
+  <div class="flip-container">
+    <div class="flip-card" id="flip-card" onclick="flipCard()">
+      <div class="flip-front-label" id="flip-label">Term &middot; Tap to Reveal</div>
+      <div class="flip-front-text" id="flip-front">"Numbers are either black or red"</div>
+      <div class="flip-back-text" id="flip-back">Sales performance is fully visible and fully accountable. The goal is either met or it is not. This creates clarity of purpose, not merely pressure. (C.1)</div>
+    </div>
+    <div class="flip-hint">Tap card to flip &middot; Use arrows to navigate</div>
+    <div class="flip-nav">
+      <button class="flip-btn" onclick="prevCard()">&#8592; Previous</button>
+      <span class="flip-counter" id="flip-counter">1 of 16</span>
+      <button class="flip-btn" onclick="nextCard()">Next &#8594;</button>
+    </div>
+    <div class="flip-dots" id="flip-dots"></div>
+  </div>
+</div>
+
+<div class="page" id="cut-cards">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9986; Printable Cut-Out Study Cards</div>
+  <h2 class="subsec-title">Print, Cut, Carry</h2>
+  <div class="subsec-lede">Sixteen cards arranged for printing. Cut along the borders. Keep them on your desk.</div>
+  <div class="cut-grid">
+    <div class="cut-card"><div class="term">"Numbers are black or red"</div><div class="def">Sales performance is fully visible. The goal is either met or it is not. Clarity of purpose, not pressure.</div></div>
+    <div class="cut-card"><div class="term">Monthly Proposal Goal (5:1)</div><div class="def">$417K monthly revenue x 5 = $2,085,000 in proposal dollars per month. ~$95K per working day.</div></div>
+    <div class="cut-card"><div class="term">Inbound vs. Outbound</div><div class="def">Inbound: confirm scope and timeline. Outbound: earn trust, listen first, diagnose before prescribing.</div></div>
+    <div class="cut-card"><div class="term">Three Qualification Criteria</div><div class="def">Sector fit + Scopeable + Real timeline with critical event. Must meet all three. Two of three is not qualified.</div></div>
+    <div class="cut-card"><div class="term">Most Important Pipedrive Discipline</div><div class="def">Record the proposal dollar amount in Pipedrive on the day of submission. Non-negotiable.</div></div>
+    <div class="cut-card"><div class="term">Step 1: Give First, Ask Never</div><div class="def">Share a CEU, article, or insight with no strings attached. Never open with a pitch or request for time.</div></div>
+    <div class="cut-card"><div class="term">Rule of Five</div><div class="def">5 Critical Events + 5 Rational Impacts + 5 Emotional Impacts before any outreach in a target sector.</div></div>
+    <div class="cut-card"><div class="term">Critical Event Question</div><div class="def">"What happens if this project is not complete by [the date you mentioned]?" Reveals whether urgency is real.</div></div>
+    <div class="cut-card"><div class="term">SPICED</div><div class="def">Situation, Pain, Impact, Critical Event, Economic, Decision. Six dimensions needed to write a winning proposal.</div></div>
+    <div class="cut-card"><div class="term">Five Proposal Functions</div><div class="def">1. Client understanding. 2. Independence. 3. Measurable scope. 4. Transparent fee. 5. Post-award reference.</div></div>
+    <div class="cut-card"><div class="term">MBE/WBE Transition</div><div class="def">Cannot hold both simultaneously during application period. Use accurate, current language in proposals.</div></div>
+    <div class="cut-card"><div class="term">Pre-Event Marketing</div><div class="def">Two weeks before any trade show, send targeted mailers to the geographic area to prime the audience.</div></div>
+    <div class="cut-card"><div class="term">Listen-Diagnose-Prescribe</div><div class="def">1. Listen through SPICED. 2. Diagnose pain and impact. 3. Prescribe via proposal. Never prescribe first.</div></div>
+    <div class="cut-card"><div class="term">Authority-Based Marketing</div><div class="def">FCSI leadership, CEU delivery, awards, published work. Generates leads advertising cannot replicate.</div></div>
+    <div class="cut-card"><div class="term">"E" in SPICED = Economic</div><div class="def">Who controls budget? Approved budget amount? Funding constraints? Decision-maker? Prevents fee shock.</div></div>
+    <div class="cut-card"><div class="term">Why "We Are Pleased" Fails</div><div class="def">Centers the firm, not the client. The opening must prove understanding of the client's context and desired result.</div></div>
+  </div>
+</div>
+
+
+<!-- C-SLIDES -->
+<div class="page" id="c-slides">
+  <div class="crumb">SECTION C <span class="dot">&middot;</span> PRESENTATION</div>
+  <div class="subsec-tag">Full Slide Deck</div>
+  <h2 class="subsec-title">The Authority Blueprint</h2>
+  <div class="subsec-lede">The complete presentation for this section. Each slide is embedded directly. Scroll through all 15 slides below.</div>
+  <style>.slide-img{width:100%;display:block;border-radius:2px;border:1px solid var(--rule);margin-bottom:8px;}</style>
+  <img class="slide-img" src="media/c/slides/slide01.png" alt="Slide 1 of 15" loading="lazy">
+  <img class="slide-img" src="media/c/slides/slide02.png" alt="Slide 2 of 15" loading="lazy">
+  <img class="slide-img" src="media/c/slides/slide03.png" alt="Slide 3 of 15" loading="lazy">
+  <img class="slide-img" src="media/c/slides/slide04.png" alt="Slide 4 of 15" loading="lazy">
+  <img class="slide-img" src="media/c/slides/slide05.png" alt="Slide 5 of 15" loading="lazy">
+  <img class="slide-img" src="media/c/slides/slide06.png" alt="Slide 6 of 15" loading="lazy">
+  <img class="slide-img" src="media/c/slides/slide07.png" alt="Slide 7 of 15" loading="lazy">
+  <img class="slide-img" src="media/c/slides/slide08.png" alt="Slide 8 of 15" loading="lazy">
+  <img class="slide-img" src="media/c/slides/slide09.png" alt="Slide 9 of 15" loading="lazy">
+  <img class="slide-img" src="media/c/slides/slide10.png" alt="Slide 10 of 15" loading="lazy">
+  <img class="slide-img" src="media/c/slides/slide11.png" alt="Slide 11 of 15" loading="lazy">
+  <img class="slide-img" src="media/c/slides/slide12.png" alt="Slide 12 of 15" loading="lazy">
+  <img class="slide-img" src="media/c/slides/slide13.png" alt="Slide 13 of 15" loading="lazy">
+  <img class="slide-img" src="media/c/slides/slide14.png" alt="Slide 14 of 15" loading="lazy">
+  <img class="slide-img" src="media/c/slides/slide15.png" alt="Slide 15 of 15" loading="lazy">
+</div>
+
+</main>
+
+<script>
+const cards=[
+  {front:'"Numbers are either black or red"',back:'Sales performance is fully visible and fully accountable. The goal is either met or it is not. This creates clarity of purpose, not merely pressure. (C.1)'},
+  {front:'Monthly Proposal Dollar Goal (5:1)',back:'$417,000 monthly revenue x 5 = $2,085,000 in proposal dollars per month. Divided by 22 working days = ~$95K per day. (C.2)'},
+  {front:'Inbound vs. Outbound',back:'Inbound: relationship exists; confirm scope and timeline. Outbound: relationship does not exist; earn trust, listen first, diagnose before prescribing. (C.1)'},
+  {front:'Three Qualification Criteria',back:'1. Sector fit. 2. Scopeable. 3. Real timeline with a critical event. Must meet all three simultaneously. (C.3)'},
+  {front:'Most Important Pipedrive Discipline',back:'Recording the proposal dollar amount in Pipedrive on the day of submission. Without this, analytics are impossible. (C.5)'},
+  {front:'Step 1 of 10-Step Outreach',back:'Give first, ask never. Share insight, article, or CEU with no expectation of return. Never open with a pitch or request. (C.6)'},
+  {front:'Rule of Five Categories',back:'1. Critical Events: dates with consequences. 2. Rational Impacts: measurable outcomes. 3. Emotional Impacts: personal motivations. (C.7)'},
+  {front:'Critical Event Reveal Question',back:'"What happens if this project is not complete by [the date you mentioned]?" Real urgency has real consequences. (C.8)'},
+  {front:'SPICED Acronym',back:'Situation, Pain, Impact, Critical Event, Economic, Decision. Six dimensions needed for a winning proposal. (C.9)'},
+  {front:'Five Functions of a Proposal',back:'1. Client understanding. 2. Independence. 3. Measurable scope. 4. Transparent fee. 5. Post-award reference document. (C.10)'},
+  {front:'MBE/WBE Certification Situation',back:'Transition period: cannot hold both simultaneously. WBE application in process. Use accurate, current language in proposals. (C.11)'},
+  {front:'Pre-Event Marketing Requirement',back:'Two weeks before any trade show, send targeted mailers to the geographic area. Prime the audience before in-person contact. (C.12)'},
+  {front:'Listen-Diagnose-Prescribe',back:'1. Listen through SPICED. 2. Diagnose pain, impact, critical event. 3. Prescribe via proposal. Never prescribe before diagnosing. (C.9)'},
+  {front:'Authority-Based Marketing Model',back:'Authority built through FCSI leadership, CEU delivery, published work, speaking engagements, and awards. Generates leads advertising cannot replicate. (C.4)'},
+  {front:'"E" in SPICED',back:'E = Economic: who controls budget, approved budget amount, funding constraints, financial decision-maker. Prevents fee shock. (C.9)'},
+  {front:'Why "We Are Pleased" Fails',back:'Centers the firm, not the client. The opening paragraph must prove understanding of context, community, and the result the client needs. (C.10)'}
+];
+let current=0,flipped=false;
+function buildDots(){const d=document.getElementById('flip-dots');d.innerHTML='';cards.forEach((_,i)=>{const dot=document.createElement('span');dot.className='flip-dot'+(i===0?' active':'');dot.onclick=()=>goToCard(i);d.appendChild(dot);});}
+function updateCard(){document.getElementById('flip-front').textContent=cards[current].front;document.getElementById('flip-back').textContent=cards[current].back;document.getElementById('flip-counter').textContent=(current+1)+' of '+cards.length;document.getElementById('flip-card').classList.remove('flipped');document.getElementById('flip-label').textContent='Term · Tap to Reveal';flipped=false;document.querySelectorAll('.flip-dot').forEach((d,i)=>d.classList.toggle('active',i===current));}
+function flipCard(){flipped=!flipped;document.getElementById('flip-card').classList.toggle('flipped',flipped);document.getElementById('flip-label').textContent=flipped?'Answer · Tap to Reset':'Term · Tap to Reveal';}
+function nextCard(){current=(current+1)%cards.length;updateCard();}
+function prevCard(){current=(current-1+cards.length)%cards.length;updateCard();}
+function goToCard(i){current=i;updateCard();}
+buildDots();
+const pages=document.querySelectorAll('main [id]');
+const links=document.querySelectorAll('.sidebar-list a');
+window.addEventListener('scroll',()=>{let active='';pages.forEach(p=>{if(window.scrollY>=p.offsetTop-80)active=p.id;});links.forEach(a=>{const href=a.getAttribute('href').replace('#','');a.classList.toggle('active',href===active);});});
+</script>
+</body>
+</html>

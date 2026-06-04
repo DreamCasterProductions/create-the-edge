@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business OS &middot; Section D &middot; Psychology of the Client Conversation &middot; 2026 Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--navy-mid:#0f2040;--gold:#C5A76F;--brass:#B8893B;--brass-soft:#D4AB5E;--cream:#F4EFE4;--cream-light:#FAF7F1;--paper:#FFFFFF;--ink:#162630;--ink-soft:#2C3B45;--ink-muted:#5D7079;--text-primary:#e8e0d0;--text-secondary:#b8aa90;--camacho-blue:#266889;--blue-tint:#EDF3F6;--green:#2F7D54;--green-tint:#E8F2EC;--red:#B23B2E;--red-tint:#F8E9E6;--rule:#D6CCB6;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Montserrat',sans-serif;background:var(--cream-light);color:var(--ink);font-size:15px;line-height:1.65;display:flex;}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:300;background:var(--navy);height:44px;display:flex;align-items:center;padding:0 20px;border-bottom:1px solid var(--brass);gap:16px;}
+.topbar-logo{font-family:'Playfair Display',serif;color:var(--gold);font-size:15px;font-weight:700;letter-spacing:.08em;}
+.topbar-section{color:var(--text-secondary);font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
+.topbar-links{margin-left:auto;display:flex;gap:20px;}
+.topbar-links a{color:var(--text-secondary);font-size:11px;text-decoration:none;letter-spacing:.08em;text-transform:uppercase;}
+.topbar-links a:hover{color:var(--gold);}
+.sidebar{position:fixed;top:44px;left:0;bottom:0;width:240px;background:var(--navy);overflow-y:auto;z-index:100;padding:28px 18px 40px 20px;box-sizing:border-box;border-right:1px solid rgba(197,167,111,.18);}
+.sidebar-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:0 8px 10px 8px;margin-bottom:16px;border-bottom:1px solid rgba(197,167,111,.22);}
+.sidebar-group-label{color:var(--gold);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:16px 8px 6px 8px;opacity:.9;}
+.sidebar-list{list-style:none;}
+.sidebar-list a{display:flex;align-items:baseline;gap:8px;color:#FFF;text-decoration:none;font-size:11px;padding:8px 8px 8px 6px;border-left:2px solid transparent;transition:all .15s;}
+.sidebar-list a .code{color:var(--gold);font-size:10px;min-width:26px;}
+.sidebar-list a:hover,.sidebar-list a.active{color:var(--gold);border-left-color:var(--gold);background:rgba(197,167,111,.06);}
+main{margin-left:240px;margin-top:44px;flex:1;max-width:960px;padding:0 0 80px;}
+.page{background:var(--paper);padding:56px 64px;margin-bottom:2px;}
+.page.cover{background:var(--navy);min-height:100vh;display:flex;flex-direction:column;padding:72px 72px 56px;}
+.legend-page{background:var(--navy);padding:56px 64px;margin-bottom:2px;}
+.cover-eyebrow{font-family:'Montserrat',sans-serif;color:var(--gold);font-size:10px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:28px;}
+.cover-letter{font-family:'Playfair Display',serif;color:var(--gold);font-size:120px;font-weight:700;line-height:1;margin-bottom:4px;}
+.cover-title{font-family:'Playfair Display',serif;color:#FFF;font-size:38px;font-weight:600;line-height:1.2;margin-bottom:12px;}
+.cover-sub{color:var(--text-secondary);font-size:14px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-bottom:48px;max-width:480px;}
+.cover-rule{height:1px;background:rgba(197,167,111,.3);margin-bottom:40px;}
+.nav-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:auto;}
+.nav-card{background:rgba(255,255,255,.05);border:1px solid rgba(197,167,111,.2);border-top:2px solid var(--gold);padding:16px 18px;text-decoration:none;}
+.nav-card-code{color:var(--gold);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;}
+.nav-card-title{color:#FFF;font-size:12px;font-weight:600;font-family:'Playfair Display',serif;}
+.cover-credit{margin-top:40px;color:var(--text-secondary);font-size:10px;letter-spacing:.08em;border-top:1px solid rgba(197,167,111,.15);padding-top:16px;}
+.crumb{font-size:10px;color:var(--ink-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;}
+.crumb .dot{margin:0 6px;color:var(--brass);}
+.subsec-tag{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--brass);letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.subsec-title{font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);font-weight:700;line-height:1.2;margin-bottom:16px;}
+.subsec-lede{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink-soft);line-height:1.55;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--rule);}
+.figure-title{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--brass);letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.section-body p{margin-bottom:16px;}
+.section-body ul{margin:0 0 16px 20px;}
+.section-body ol{margin:0 0 16px 20px;}
+.section-body li{margin-bottom:6px;}
+.subhead{font-family:'Playfair Display',serif;font-size:17px;color:var(--navy);font-weight:600;margin:28px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--rule);}
+.callout{margin:24px 0;padding:20px 22px;border-radius:2px;break-inside:avoid;}
+.callout .label{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:7px;margin-bottom:10px;}
+.callout .icon{font-size:14px;}
+.callout .body{font-size:14px;line-height:1.6;}
+.callout .attrib{font-size:11px;margin-top:10px;font-style:italic;opacity:.8;}
+.callout.expert{background:var(--navy);color:var(--text-primary);border-left:4px solid var(--gold);}
+.callout.expert .label{color:var(--gold);}
+.callout.expert .body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;}
+.callout.rule{background:var(--cream);border-left:4px solid var(--navy);}
+.callout.rule .label{color:var(--navy);}
+.callout.files{background:var(--blue-tint);border-left:4px solid var(--camacho-blue);}
+.callout.files .label{color:var(--camacho-blue);}
+.callout.best{background:var(--green-tint);border-left:4px solid var(--green);}
+.callout.best .label{color:var(--green);}
+.callout.warn{background:var(--red-tint);border-left:4px solid var(--red);}
+.callout.warn .label{color:var(--red);}
+.your-company{font-weight:700;color:#266889;}
+.cards-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:24px 0;}
+.num-card{background:var(--cream);border-top:3px solid var(--brass);padding:20px 22px;break-inside:avoid;}
+.num-card .num{font-family:'Playfair Display',serif;font-size:36px;color:var(--brass);font-weight:700;line-height:1;margin-bottom:4px;}
+.num-card .kicker{font-size:9px;color:var(--ink-muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;}
+.num-card .title{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);font-weight:600;margin-bottom:8px;}
+.num-card .desc{font-size:13px;color:var(--ink-soft);}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin:24px 0;}
+.stat-cell{background:var(--navy);padding:20px 16px;text-align:center;}
+.stat-num{font-family:'Playfair Display',serif;font-size:32px;color:var(--gold);font-weight:700;margin-bottom:4px;}
+.stat-label{font-size:10px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.1em;}
+.steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:24px 0;}
+.step-item{background:var(--cream);padding:14px 16px;border-left:3px solid var(--brass);break-inside:avoid;}
+.step-num{font-family:'Playfair Display',serif;font-size:20px;color:var(--brass);font-weight:700;margin-bottom:4px;}
+.step-title{font-size:12px;color:var(--navy);font-weight:700;margin-bottom:4px;}
+.step-desc{font-size:12px;color:var(--ink-soft);line-height:1.4;}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+thead{background:var(--navy);}
+thead th{color:var(--gold);font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:12px 14px;text-align:left;font-weight:700;}
+tbody tr:nth-child(even){background:var(--cream-light);}
+tbody tr:nth-child(odd){background:var(--paper);}
+td{padding:11px 14px;color:var(--ink-soft);vertical-align:top;}
+td strong{color:var(--ink);font-weight:600;}
+.media-block{margin:24px 0;padding:20px;background:var(--cream);border-top:3px solid var(--brass);}
+.media-byline{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--brass);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:12px;}
+.media-iframe-wrap{position:relative;width:100%;padding-bottom:56.25%;margin-bottom:8px;}
+.media-iframe-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:2px;}
+.audio-wrap iframe{width:100%;height:80px;border:0;border-radius:2px;}
+.media-caption{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--ink-muted);margin-top:8px;}
+.media-img{width:100%;border-radius:2px;display:block;margin-top:16px;}
+.quiz-q{margin-bottom:28px;break-inside:avoid;border-left:3px solid var(--rule);padding-left:18px;}
+.qnum{font-family:'Playfair Display',serif;font-size:22px;color:var(--brass);font-weight:700;margin-bottom:6px;}
+.qtext{font-size:14px;color:var(--ink);margin-bottom:12px;font-weight:500;}
+.opts{list-style:none;}
+.opt{display:flex;align-items:baseline;gap:10px;padding:6px 0;font-size:13px;color:var(--ink-soft);border-bottom:1px solid var(--cream);}
+.opt:last-child{border-bottom:none;}
+.letter{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--cream);color:var(--brass);font-size:11px;font-weight:700;flex-shrink:0;}
+.legend-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:28px;font-weight:700;margin-bottom:8px;}
+.legend-sub{color:var(--text-secondary);font-size:14px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid rgba(197,167,111,.25);}
+.legend-q{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid rgba(197,167,111,.12);break-inside:avoid;}
+.legend-q .head{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:4px;}
+.legend-q .answer{font-size:14px;color:var(--text-primary);font-weight:600;margin-bottom:4px;}
+.legend-q .explain{font-size:13px;color:var(--text-secondary);font-style:italic;}
+.flash-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+.flash-grid-card{border:1px solid var(--rule);}
+.flash-grid-front{background:var(--navy);color:var(--gold);padding:14px 16px;font-family:'Playfair Display',serif;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;}
+.flash-grid-num{background:var(--brass);color:var(--navy);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;}
+.flash-grid-back{background:var(--paper);color:var(--ink-soft);padding:12px 16px;font-size:12px;line-height:1.5;}
+.flash-grid-ref{font-size:10px;color:var(--ink-muted);margin-top:6px;font-style:italic;}
+.flip-container{max-width:600px;margin:0 auto 24px;}
+.flip-card{background:var(--navy);border-top:3px solid var(--gold);padding:48px 40px;text-align:center;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;}
+.flip-front-label{font-size:9px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;font-weight:700;}
+.flip-front-text{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;}
+.flip-back-text{font-size:14px;color:var(--text-primary);line-height:1.6;display:none;}
+.flip-card.flipped{background:var(--navy-mid);}
+.flip-card.flipped .flip-front-text{display:none;}
+.flip-card.flipped .flip-back-text{display:block;}
+.flip-hint{text-align:center;font-size:11px;color:var(--ink-muted);margin-top:8px;font-style:italic;}
+.flip-nav{display:flex;justify-content:center;align-items:center;gap:20px;margin-top:16px;}
+.flip-btn{background:var(--navy);color:var(--gold);border:1px solid var(--brass);padding:8px 22px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;cursor:pointer;text-transform:uppercase;}
+.flip-btn:hover{background:var(--brass);color:var(--navy);}
+.flip-counter{font-size:12px;color:var(--ink-muted);font-weight:600;}
+.flip-dots{display:flex;gap:6px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
+.flip-dot{width:8px;height:8px;border-radius:50%;background:var(--rule);cursor:pointer;}
+.flip-dot.active{background:var(--gold);}
+.cut-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0;}
+.cut-card{border:1px dashed var(--rule);break-inside:avoid;}
+.cut-card .term{background:var(--navy);color:var(--gold);padding:14px 16px;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;}
+.cut-card .def{background:var(--paper);color:var(--ink-soft);padding:12px 16px;font-size:12px;line-height:1.5;}
+@media print{body{background:#fff;font-size:11pt;}.topbar,.sidebar{display:none!important;}main{margin:0;max-width:100%;}.page{padding:.6in .85in;margin:0;break-before:always;}.page:first-of-type{break-before:auto;}.cover{min-height:11in;break-after:always;}-webkit-print-color-adjust:exact;print-color-adjust:exact;.flip-container{display:none;}h1,h2,h3,.subsec-title,.subsec-tag,.crumb,.figure-title,.subhead{break-inside:avoid;break-after:avoid;}.callout,.num-card,.cards-row,.cut-card,.quiz-q,.legend-q{break-inside:avoid;}p,li{orphans:3;widows:3;}.legend-page{break-before:always;}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-logo"><span class="your-company">Your Company</span></div>
+  <div class="topbar-section">Section D &middot; Psychology of the Client Conversation</div>
+  <div class="topbar-links">
+    <a href="#cover">Top</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#flash-grid">Study Cards</a>
+  </div>
+</header>
+
+<aside class="sidebar">
+  <div class="sidebar-title">Section D &middot; Psychology</div>
+  <ul class="sidebar-list">
+    <li class="sidebar-group-label">Overview</li>
+    <li><a href="#cover"><span class="code">D</span>Cover</a></li>
+    <li><a href="#d-media"><span class="code">&#9654;</span>Briefings</a></li>
+    <li><a href="#d-slides"><span class="code">&#9674;</span>Slides (D)</a></li>
+    <li class="sidebar-group-label">Decision Framework</li>
+    <li><a href="#d1"><span class="code">D.1</span>Why Psychology Matters</a></li>
+    <li><a href="#d2"><span class="code">D.2</span>Rational vs. Emotional</a></li>
+    <li><a href="#d3"><span class="code">D.3</span>The Four Lenses</a></li>
+    <li class="sidebar-group-label">Discovery Skills</li>
+    <li><a href="#d4"><span class="code">D.4</span>Listening for the Unspoken</a></li>
+    <li><a href="#d5"><span class="code">D.5</span>Building Trust</a></li>
+    <li><a href="#d6"><span class="code">D.6</span>Price Resistance</a></li>
+    <li><a href="#d7"><span class="code">D.7</span>Handling Objections</a></li>
+    <li class="sidebar-group-label">Communication</li>
+    <li><a href="#d8"><span class="code">D.8</span>Reading the Room</a></li>
+    <li><a href="#d9"><span class="code">D.9</span>Communication Style</a></li>
+    <li><a href="#d10"><span class="code">D.10</span>The Advocate Role</a></li>
+    <li><a href="#d11"><span class="code">D.11</span>When to Push Back</a></li>
+    <li><a href="#d12"><span class="code">D.12</span>Follow-Up Psychology</a></li>
+    <li class="sidebar-group-label">Assessment</li>
+    <li><a href="#quiz"><span class="code">&#10003;</span>Quiz (15 Q)</a></li>
+    <li><a href="#legend1"><span class="code">&#9745;</span>Answer Legend</a></li>
+    <li><a href="#flash-grid"><span class="code">&#9635;</span>Flashcard Grid</a></li>
+    <li><a href="#flip-cards"><span class="code">&#9654;</span>Flip Cards</a></li>
+    <li><a href="#cut-cards"><span class="code">&#9986;</span>Cut Cards</a></li>
+  </ul>
+</aside>
+
+<main>
+
+<div class="page cover" id="cover">
+  <div class="cover-eyebrow"><span class="your-company">Your Company</span> Sales &amp; Proposal Development Training Guide &middot; 2026 Edition</div>
+  <div class="cover-letter">D</div>
+  <div class="cover-title">Psychology of the Client Conversation</div>
+  <div class="cover-sub">Understanding what the client actually needs. The psychology behind every successful <span class="your-company">Your Company</span> engagement.</div>
+  <div class="cover-rule"></div>
+  <div class="nav-cards">
+    <a class="nav-card" href="#d1"><div class="nav-card-code">D.1</div><div class="nav-card-title">Why Psychology Matters</div></a>
+    <a class="nav-card" href="#d2"><div class="nav-card-code">D.2</div><div class="nav-card-title">Rational vs. Emotional</div></a>
+    <a class="nav-card" href="#d3"><div class="nav-card-code">D.3</div><div class="nav-card-title">The Four Lenses</div></a>
+    <a class="nav-card" href="#d4"><div class="nav-card-code">D.4</div><div class="nav-card-title">Listening for the Unspoken</div></a>
+    <a class="nav-card" href="#d5"><div class="nav-card-code">D.5</div><div class="nav-card-title">Building Trust</div></a>
+    <a class="nav-card" href="#d6"><div class="nav-card-code">D.6</div><div class="nav-card-title">Price Resistance</div></a>
+    <a class="nav-card" href="#d7"><div class="nav-card-code">D.7</div><div class="nav-card-title">Handling Objections</div></a>
+    <a class="nav-card" href="#d8"><div class="nav-card-code">D.8</div><div class="nav-card-title">Reading the Room</div></a>
+    <a class="nav-card" href="#d9"><div class="nav-card-code">D.9</div><div class="nav-card-title">Communication Style</div></a>
+    <a class="nav-card" href="#d10"><div class="nav-card-code">D.10</div><div class="nav-card-title">The Advocate Role</div></a>
+    <a class="nav-card" href="#d11"><div class="nav-card-code">D.11</div><div class="nav-card-title">When to Push Back</div></a>
+    <a class="nav-card" href="#d12"><div class="nav-card-code">D.12</div><div class="nav-card-title">Follow-Up Psychology</div></a>
+  </div>
+  <div class="cover-credit"><span class="your-company">Your Company</span> Associates, Inc. &middot; [Company Address] &middot; Internal Use Only &middot; 2026</div>
+</div>
+
+<div class="page" id="d-media">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> BRIEFINGS</div>
+  <div class="subsec-tag">Watch and Listen</div>
+  <h2 class="subsec-title">Section Briefings</h2>
+  <div class="subsec-lede">Watch the video, listen to the podcast, then read the section. The psychology of the client conversation in three formats.</div>
+  <div class="media-block">
+    <div class="media-byline">Video &middot; The Architecture of Listening</div>
+    <div class="media-iframe-wrap"><video controls preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;border-radius:2px;"><source src="media/d/video.mp4" type="video/mp4"></video></div>
+    <div class="media-caption">Understanding what the client actually needs through active listening and psychological frameworks.</div>
+  </div>
+  <div class="media-block">
+    <div class="media-byline">Audio &middot; Win Bids with Made, Paid, Loved</div>
+    <div class="audio-wrap"><audio controls preload="metadata" style="width:100%;display:block;"><source src="media/d/audio.m4a" type="audio/mp4"></audio></div>
+    <div class="media-caption">The emotional drivers behind every institutional buying decision, narrated.</div>
+  </div>
+  <div class="figure-title" style="margin-top:32px;">Section D &middot; Psychology Infographic</div>
+  <img class="media-img" src="media/d/infographic.png" alt="Section D Psychology Infographic" loading="lazy">
+  <div class="figure-title" style="margin-top:32px;">Section D &middot; Concept Mind Map</div>
+  <img class="media-img" src="media/d/mindmap.png" alt="Section D Mind Map" loading="lazy">
+</div>
+
+<div class="page" id="d1">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> FOUNDATIONS</div>
+  <div class="subsec-tag">D.1 &middot; Why Psychology Matters</div>
+  <h2 class="subsec-title">Why Psychology Matters</h2>
+  <div class="subsec-lede">Every client conversation at <span class="your-company">Your Company</span> is a psychological event before it is a sales event. This section teaches you to hear what the client is not saying, respond to both emotional and rational needs, and position <span class="your-company">Your Company</span> as the trusted advocate every high-stakes project requires.</div>
+  <div class="section-body">
+    <p>Most people assume that professional services are won on credentials, price, and capability. In reality, they are won on trust, perceived understanding, and the client's confidence that you have genuinely heard them. <span class="your-company">Your Company</span> has six decades of project experience. That expertise is not enough on its own. What separates a firm that consistently wins from one that consistently writes good proposals and loses is the ability to connect to what the client actually cares about at a human level.</p>
+    <p>Psychology in the context of a client conversation does not mean manipulation. It means developing genuine curiosity about the person across the table, asking the questions that unlock real understanding, and structuring your response in a way that speaks to both what the client needs technically and what they need emotionally. A client who feels heard signs a proposal faster than a client who is impressed.</p>
+  </div>
+  <div class="callout expert">
+    <div class="label"><span class="icon">&#10078;</span> Authority in Practice</div>
+    <div class="body">"The sale is made when the customer is thinking, not when you are talking. Listen first, ask questions, listen again, pull that information out, then present opportunities for them to answer. Guide them. The written proposal then captures what you understood. That is the sequence."</div>
+    <div class="attrib">&middot; Marketing Director</div>
+  </div>
+  <div class="figure-title">Figure D.1.1 &middot; The Listening Standard at <span class="your-company">Your Company</span></div>
+  <div class="stat-row">
+    <div class="stat-cell"><div class="stat-num">40%</div><div class="stat-label">Max consultant talk time on a discovery call</div></div>
+    <div class="stat-cell"><div class="stat-num">2-3x</div><div class="stat-label">Client response length vs. question length</div></div>
+    <div class="stat-cell"><div class="stat-num">4</div><div class="stat-label">Psychological lenses applied on every project</div></div>
+    <div class="stat-cell"><div class="stat-num">1</div><div class="stat-label">Opportunity to make a first proposal impression</div></div>
+  </div>
+  <div class="section-body">
+    <p>The listening sequence is not passive. It moves through four stages: listen first without agenda, ask questions that dig one level deeper, listen again to what the answers reveal about what is unsaid, and then present the opportunity for the client to confirm or correct your understanding.</p>
+    <p>Understanding the psychology of the client conversation feeds directly into proposal construction. The first paragraph of every <span class="your-company">Your Company</span> proposal exists to prove that you were listening. The questions you ask in the discovery call become the sentences in the proposal's opening paragraph. The emotional driver you identify becomes the tone. The critical event you confirm becomes the urgency.</p>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">The client is not the technical expert. That is why they are coming to you. Never mistake a client's confidence in their own industry for expertise in foodservice or laundry design. They need your knowledge. Deliver it with authority, not with apology. And never deliver it before you have listened long enough to know which part of your knowledge applies.</div>
+  </div>
+</div>
+
+<div class="page" id="d2">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> DECISION FRAMEWORK</div>
+  <div class="subsec-tag">D.2 &middot; Rational vs. Emotional Decision Framework</div>
+  <h2 class="subsec-title">Rational vs. Emotional Decision Framework</h2>
+  <div class="subsec-lede">Every buying decision has two components: an emotional driver and a rational justification. The emotional driver is why the person actually wants to make the decision. The rational justification is what they tell their boss, their board, or their budget committee to defend a decision they have already emotionally committed to.</div>
+  <div class="section-body">
+    <p>Clients do not make purchase decisions the way they describe making them. The emotional decision typically happens first, often in the first conversation or even the first paragraph of a proposal, and the rational evaluation process provides the justification for what they have already decided emotionally. Your job is to win the emotional decision first and then arm the client with rational ammunition to defend it internally.</p>
+  </div>
+  <div class="figure-title">Figure D.2.1 &middot; The Three Emotional Drivers: Made, Paid, Loved</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num" style="font-size:22px;">&#9733;</div><div class="kicker">Driver One</div><div class="title">Made</div><div class="desc">The client wants to succeed professionally. They want this project to go well, to open on time, to function as promised. Made is about professional accomplishment and project success.</div></div>
+    <div class="num-card"><div class="num" style="font-size:22px;">&#9733;</div><div class="kicker">Driver Two</div><div class="title">Paid</div><div class="desc">About money, budget, and financial outcome. Protecting the budget from overruns, avoiding change orders, and demonstrating ROI to a board or funding authority.</div></div>
+    <div class="num-card"><div class="num" style="font-size:22px;">&#9733;</div><div class="kicker">Driver Three</div><div class="title">Loved</div><div class="desc">Recognition, reputation, and legacy. The staff who enjoy the new kitchen. The administrator who wants to feel proud in front of the board. The architect who wants the design recognized.</div></div>
+    <div class="num-card" style="background:var(--navy);border-top-color:var(--gold);"><div class="num" style="color:var(--gold);font-size:16px;">Apply</div><div class="kicker" style="color:var(--text-secondary);">How to Use</div><div class="title" style="color:#FFF;">In the Proposal</div><div class="desc" style="color:var(--text-secondary);">Identify which driver is dominant and address it directly in the opening paragraph. Generic proposals address none of them and resonate with no one.</div></div>
+  </div>
+  <div class="figure-title">Figure D.2.2 &middot; Champion vs. Check-Signer Communication Strategy</div>
+  <table>
+    <thead><tr><th>Audience</th><th>Primary Motivation</th><th>What They Want to Hear</th><th>Where in the Proposal</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Champion</strong> (user/operator)</td><td>Emotional: Made, Paid, Loved</td><td>This project will solve what frustrates you and make you successful</td><td>Opening paragraph: context and problem statement</td></tr>
+      <tr><td><strong>Check-Signer</strong> (owner/budget authority)</td><td>Rational: ROI, risk, timeline</td><td>This is a sound investment with a defensible scope and measurable outcomes</td><td>Fee section, phase deliverables, independence statement</td></tr>
+    </tbody>
+  </table>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">Identify which of the three emotional drivers is dominant for the person you are speaking with and address it directly in the opening paragraph. A proposal written for "Made" sounds different from one written for "Loved." Both are correct. Generic proposals address none of them.</div>
+  </div>
+</div>
+
+<div class="page" id="d3">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> DECISION FRAMEWORK</div>
+  <div class="subsec-tag">D.3 &middot; The Four Lenses</div>
+  <h2 class="subsec-title">The Four Lenses: Impact, Critical Event, Emotional, Rational</h2>
+  <div class="subsec-lede">Before writing a single word of a proposal, you must have clear answers to four categories of questions. These four lenses give you the complete picture of what the client actually needs, when they need it, why it matters to them personally, and how they will measure success.</div>
+  <div class="figure-title">Figure D.3.1 &middot; The Four Lenses Framework</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num">1</div><div class="kicker">Lens One</div><div class="title">Impact</div><div class="desc">What result does this project ultimately need to produce? The "so what" of the project. Not the feature, not the deliverable. The result that changes their world if this project succeeds.</div></div>
+    <div class="num-card"><div class="num">2</div><div class="kicker">Lens Two</div><div class="title">Critical Event</div><div class="desc">When must this be done and what happens if it is not? The deadline with real stakes. A date or milestone with real consequences, not a preferred timeline.</div></div>
+    <div class="num-card"><div class="num">3</div><div class="kicker">Lens Three</div><div class="title">Emotional</div><div class="desc">How will this project make the end user feel? Made, Paid, Loved: personal motivations behind the decision. The person, not the project.</div></div>
+    <div class="num-card"><div class="num">4</div><div class="kicker">Lens Four</div><div class="title">Rational</div><div class="desc">What are the measurable facts? Square footage, FTE, budget, timeline, headcount, meals-per-day. The concrete, unchanging facts that determine scope and fee.</div></div>
+  </div>
+  <div class="figure-title">Figure D.3.2 &middot; Four Lenses: Questions to Ask and What to Document</div>
+  <table>
+    <thead><tr><th>Lens</th><th>Key Question</th><th>Follow-Up</th><th>What You Document</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Impact</strong></td><td>What needs to be different when this project is done?</td><td>How will you know it succeeded?</td><td>The operational result the project must produce</td></tr>
+      <tr><td><strong>Critical Event</strong></td><td>When does this need to be complete?</td><td>What happens if it is not done by that date?</td><td>The date and the consequence of missing it</td></tr>
+      <tr><td><strong>Emotional</strong></td><td>How will a successful outcome affect you and your team?</td><td>Is there something you are trying to avoid?</td><td>The personal driver: made, paid, or loved</td></tr>
+      <tr><td><strong>Rational</strong></td><td>What are the physical dimensions and headcounts?</td><td>What is the approved budget range?</td><td>SF, FTE, meals/day, budget, timeline</td></tr>
+    </tbody>
+  </table>
+  <div class="callout files">
+    <div class="label"><span class="icon">&#9776;</span> From the Field: Critical Event Questions</div>
+    <div class="body"><strong>Question 1:</strong> "When does this project need to be complete?" (Client answers readily.)<br><br><strong>Question 2:</strong> "What happens if it is not complete by that date?" (This is the one that matters. Document this answer specifically.) The answer to Question 2 becomes the urgency that drives proposal priority and the schedule framing in the scope section.</div>
+  </div>
+</div>
+
+<div class="page" id="d4">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> DISCOVERY SKILLS</div>
+  <div class="subsec-tag">D.4 &middot; Listening for the Unspoken</div>
+  <h2 class="subsec-title">Listening for What the Client Is Not Saying</h2>
+  <div class="subsec-lede">The most valuable information in a client conversation is rarely stated directly. Clients hesitate to admit uncertainty, reveal budget constraints, acknowledge internal conflict, or express doubt. They use professional language that softens the real situation. Your job is to hear what is underneath that language.</div>
+  <div class="subhead">D.4.1 &middot; The Ishikawa Framework: Five Layers Deep</div>
+  <div class="section-body">
+    <p>The Ishikawa framework teaches you to ask "why" five times before you accept the stated need as the real need. A client who says they need a new kitchen is at layer one. The real need may be four or five layers deeper: they need to reduce staff turnover caused by an unsafe work environment, which is ultimately about protecting the director's employment by improving the facility's inspection record. Knowing the fifth-layer need produces a more powerful proposal than knowing only the first.</p>
+  </div>
+  <div class="figure-title">Figure D.4.1 &middot; The Five Whys: From Surface Need to Root Cause</div>
+  <div class="steps-grid">
+    <div class="step-item"><div class="step-num">1</div><div class="step-title">Surface Need</div><div class="step-desc">"I need to buy tissues." / "We need a new kitchen." The stated request that begins the conversation.</div></div>
+    <div class="step-item"><div class="step-num">2</div><div class="step-title">Symptom</div><div class="step-desc">"I have a runny nose." / "Our equipment is failing and staff are overwhelmed." The visible problem.</div></div>
+    <div class="step-item"><div class="step-num">3</div><div class="step-title">Condition</div><div class="step-desc">"I am getting sick." / "We had three health violations last year." The underlying condition producing the symptom.</div></div>
+    <div class="step-item"><div class="step-num">4</div><div class="step-title">Concern</div><div class="step-desc">"I might spread germs to others." / "This is becoming a liability issue." What the person is actually worried about.</div></div>
+    <div class="step-item"><div class="step-num">5</div><div class="step-title">Root Motivation</div><div class="step-desc">"I want to protect my family." / "I need to protect my employment by securing a flawless inspection record." The real driver.</div></div>
+  </div>
+  <div class="figure-title" style="margin-top:24px;">Figure D.4.2 &middot; Language Signals and What They Reveal</div>
+  <table>
+    <thead><tr><th>What the Client Says</th><th>What It Often Means</th><th>Your Response Strategy</th></tr></thead>
+    <tbody>
+      <tr><td><strong>"We just need something simple."</strong></td><td>Budget anxiety or past experience with scope creep</td><td>Confirm scope carefully before discussing fee; show how <span class="your-company">Your Company</span> phases work</td></tr>
+      <tr><td><strong>"We've had problems with consultants before."</strong></td><td>Trust is the primary obstacle</td><td>Ask what went wrong; listen; address the specific concern directly</td></tr>
+      <tr><td><strong>"We think our budget is around..."</strong></td><td>Budget not yet formally approved internally</td><td>Help them articulate the business case for their check-signer</td></tr>
+      <tr><td><strong>"Ideally we'd like to be done by..."</strong></td><td>Timeline is not firm; no critical event confirmed yet</td><td>Ask what happens if the ideal date is not met; find the real deadline</td></tr>
+      <tr><td><strong>"Our architect said we should call you."</strong></td><td>Inbound referral; relationship matters</td><td>Acknowledge the relationship; move quickly to scope confirmation</td></tr>
+      <tr><td><strong>"We got three other quotes."</strong></td><td>Fee is being compared; value differentiation is required</td><td>Do not compete on price; reinforce <span class="your-company">Your Company</span>'s independence and precision</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">Never finish a discovery call with uncertainty about: who makes the final decision, what the critical event is, and what budget range the client is working within. If any of these three are unclear, ask directly before closing: "Just so I can write a proposal that works for your situation, can you help me understand..."</div>
+  </div>
+</div>
+
+<div class="page" id="d5">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> DISCOVERY SKILLS</div>
+  <div class="subsec-tag">D.5 &middot; Building Trust</div>
+  <h2 class="subsec-title">Building Trust Before Building Anything</h2>
+  <div class="subsec-lede">Trust is not built through credentials. It is built through behavior. Clients assess whether they trust a consulting firm within the first conversation based on whether the firm listens more than it talks, asks questions that prove genuine understanding, and responds with precision rather than volume.</div>
+  <div class="section-body">
+    <p>The most common trust obstacle <span class="your-company">Your Company</span> faces in new client relationships is the assumption that the firm earns commissions from equipment sales. This misconception must be addressed early, specifically, and confidently: "We are completely fee-only. We don't sell equipment and we receive no commissions from manufacturers or dealers. Our only financial relationship is with you. That is why we can recommend whatever is best for your project and your budget without any conflict of interest."</p>
+  </div>
+  <div class="callout expert">
+    <div class="label"><span class="icon">&#10078;</span> On Independence and Trust</div>
+    <div class="body">"Our biggest differentiation is this: we are advocates. We don't sell equipment and a dealer does. When a client doesn't fully understand that distinction, the end product gets discounted. They go, 'yeah, it's a great kitchen, but why go with a consultant again?' The independence statement is not a legal disclaimer. It is the answer to that question before it is asked."</div>
+    <div class="attrib">&middot; Marketing Director</div>
+  </div>
+  <div class="figure-title">Figure D.5.1 &middot; Five Trust-Building Behaviors</div>
+  <div class="section-body">
+    <ol>
+      <li><strong>Responsive Execution:</strong> Calls returned within 24 to 36 hours. Emails acknowledged same day. Reliability in communication signals reliability in project execution. Clients equate the two.</li>
+      <li><strong>Concise and Factual:</strong> Direct, data-grounded communication without filler or hedging. When you do not know an answer, say you will find out by a specific time and then do it.</li>
+      <li><strong>Confident Authority:</strong> Precision, not volume. The consultant who speaks less but says more accurate things earns trust faster. Know the numbers, know the codes, know the sector.</li>
+      <li><strong>Demonstrate Before Asking:</strong> Never ask for the project before you have demonstrated value. Give something first: an insight, a relevant observation, a question that proves you have done your homework.</li>
+      <li><strong>Keep Every Commitment:</strong> If you say you will send the proposal by Thursday, it goes Thursday. Trust is destroyed more quickly by missed commitments than it is built by capabilities.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="page" id="d6">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> DISCOVERY SKILLS</div>
+  <div class="subsec-tag">D.6 &middot; Psychology of Price Resistance</div>
+  <h2 class="subsec-title">Psychology of Price Resistance</h2>
+  <div class="subsec-lede">Price resistance is not primarily about money. It is about perceived value, perceived risk, and perceived alternatives. Diagnosing which concern is present determines how you respond.</div>
+  <div class="figure-title">Figure D.6.1 &middot; The Four Roots of Price Resistance</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num">1</div><div class="kicker">Root One</div><div class="title">Value Gap</div><div class="desc">Client does not yet connect the fee to a concrete outcome. Cure: Add specific impact statements that tie the fee to what the project will actually produce.</div></div>
+    <div class="num-card"><div class="num">2</div><div class="kicker">Root Two</div><div class="title">Scope Confusion</div><div class="desc">Client does not understand what the fee actually includes. Cure: Walk through each phase and its specific deliverable clearly and completely.</div></div>
+    <div class="num-card"><div class="num">3</div><div class="kicker">Root Three</div><div class="title">False Comparison</div><div class="desc">Comparing <span class="your-company">Your Company</span> to a dealer-affiliated or less qualified firm. Cure: Clarify what independence means and why it matters for their project.</div></div>
+    <div class="num-card"><div class="num">4</div><div class="kicker">Root Four</div><div class="title">Budget Pressure</div><div class="desc">Internal constraint unrelated to the specific fee amount. Cure: Explore phasing or scope adjustment options that fit within their approved ceiling.</div></div>
+  </div>
+  <div class="section-body">
+    <p>When a client expresses fee concern, the first response is never a reduction. The first response is a question: <strong>"Help me understand what you are comparing it to."</strong> This single question reveals which of the four root causes is present. You cannot solve a problem you have not yet diagnosed. The worst response to price resistance is to immediately offer a discount.</p>
+  </div>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Watch Out</div>
+    <div class="body">Never respond to price resistance by apologizing for the fee. A fee at <span class="your-company">Your Company</span> is calculated from labor hours and sector-standard equipment benchmarks. It is not a guess and it is not inflated. When you apologize for or immediately retreat from a fee, you communicate that it was not based on sound methodology. Keep the fee. Explain the methodology. Explore legitimate alternatives if needed.</div>
+  </div>
+  <div class="callout expert">
+    <div class="label"><span class="icon">&#10078;</span> On Price and Caring</div>
+    <div class="body">"This is an expensive project, yes. And I want it to be perfect. Perfect for your budget and for what you need. This is not about nickel and diming. This is about creating the right outcome. That is what the fee pays for."</div>
+    <div class="attrib">&middot; Marketing Director</div>
+  </div>
+</div>
+
+<div class="page" id="d7">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> DISCOVERY SKILLS</div>
+  <div class="subsec-tag">D.7 &middot; Handling Objections</div>
+  <h2 class="subsec-title">Handling Objections Without Losing Authority</h2>
+  <div class="subsec-lede">An objection is information. It tells you what the client has not yet understood, what concern they have not yet resolved, or what they need before they can say yes. The goal is to receive the objection with composure, understand it fully, and respond with precision.</div>
+  <div class="figure-title">Figure D.7.1 &middot; The Four-Step Objection Response</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num">1</div><div class="kicker">Step One</div><div class="title">Acknowledge</div><div class="desc">Confirm you heard and understood the concern without agreeing that it is correct. Shows respect; does not concede ground. "That is a fair question."</div></div>
+    <div class="num-card"><div class="num">2</div><div class="kicker">Step Two</div><div class="title">Clarify</div><div class="desc">Ask one question to understand the specific root of the objection before responding. Prevents responding to the wrong concern. "Help me understand what you are comparing it to."</div></div>
+    <div class="num-card"><div class="num">3</div><div class="kicker">Step Three</div><div class="title">Respond</div><div class="desc">Address the actual concern with data, process, or reference. Targeted responses are more convincing than broad defenses. "Our fee is built from published sector rates and the specific SF of your project."</div></div>
+    <div class="num-card"><div class="num">4</div><div class="kicker">Step Four</div><div class="title">Confirm</div><div class="desc">Check that your response addressed the concern. Closes the loop; prevents unstated residual doubt. "Does that address what you were concerned about, or is there something else I can clarify?"</div></div>
+  </div>
+  <div class="figure-title">Figure D.7.2 &middot; Common Objections and Response Strategies</div>
+  <table>
+    <thead><tr><th>Objection</th><th>Root Concern</th><th>Effective Response</th></tr></thead>
+    <tbody>
+      <tr><td><strong>"We can get drawings from our equipment dealer for free."</strong></td><td>False comparison; does not understand independent consulting value</td><td>Explain the conflict of interest in dealer-produced drawings. Specifications reflect what they sell, not what you need.</td></tr>
+      <tr><td><strong>"Your timeline seems too long."</strong></td><td>Does not understand the phase deliverables or work involved</td><td>Walk through each phase and its specific deliverable. Show how timeline connects to critical event milestones.</td></tr>
+      <tr><td><strong>"We have done this before without a consultant."</strong></td><td>Questioning the necessity of the service</td><td>Ask what happened: change orders, health department flags, equipment problems post-opening? Address the specific experience.</td></tr>
+      <tr><td><strong>"Can you do it for less?"</strong></td><td>Budget constraint or fee not yet connected to value</td><td>Diagnose first. If budget constraint: explore phasing. If value disconnect: walk through what the fee includes and the cost of errors.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">The consultant who says "that is a great question, let me think about that for a moment" maintains far more authority than the one who blurts an immediate defensive response. Composure is authority. You do not have to answer every objection instantly. You have to answer it accurately.</div>
+  </div>
+</div>
+
+<div class="page" id="d8">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> COMMUNICATION</div>
+  <div class="subsec-tag">D.8 &middot; Reading the Room</div>
+  <h2 class="subsec-title">Reading the Room</h2>
+  <div class="subsec-lede">Reading the room is the skill of adjusting your communication, your pacing, and your content in real time based on what you observe in the client's responses and conversational signals. When you read the room accurately, the conversation feels natural and productive to the client.</div>
+  <div class="figure-title">Figure D.8.1 &middot; Client Signals and What They Mean</div>
+  <table>
+    <thead><tr><th>Signal</th><th>What It Typically Indicates</th><th>Adjustment to Make</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Short answers, monosyllabic responses</strong></td><td>Disengagement or discomfort with the current topic</td><td>Ask a more open-ended question; shift to a topic closer to their stated concern</td></tr>
+      <tr><td><strong>Long, detailed answers without prompting</strong></td><td>Strong engagement; the topic matters to them</td><td>Listen without interrupting; this is high-value information</td></tr>
+      <tr><td><strong>Repeated return to the same topic</strong></td><td>This is the real concern; it is not resolved</td><td>Stop and address it directly: "I notice we keep coming back to this. Let me make sure I understand it fully."</td></tr>
+      <tr><td><strong>Leaning forward, asking follow-up questions</strong></td><td>Active interest; increasing trust</td><td>Go deeper on the topic; this is your best material for proposal grounding</td></tr>
+      <tr><td><strong>Silence after a question</strong></td><td>Processing, uncertainty, or something unspoken</td><td>Do not fill silence immediately; give the client space to speak into it</td></tr>
+    </tbody>
+  </table>
+  <div class="section-body">
+    <p>In meetings with multiple stakeholders, each person in the room has different motivations and different concerns. Watch for who nods, who takes notes, and who asks clarifying questions. These are your engaged stakeholders. Watch also for who goes quiet or defers to others. These are often the decision influencers who have not yet been convinced. Confirm before leaving that all present had an opportunity to raise their specific questions.</p>
+  </div>
+</div>
+
+<div class="page" id="d9">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> COMMUNICATION</div>
+  <div class="subsec-tag">D.9 &middot; Communication Style Adaptation</div>
+  <h2 class="subsec-title">Communication Style Adaptation</h2>
+  <div class="subsec-lede">Different clients require different communication styles. Reading which client is in front of you and adjusting your communication style accordingly is a core professional skill at <span class="your-company">Your Company</span>.</div>
+  <div class="figure-title">Figure D.9.1 &middot; Three Client Communication Profiles</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num" style="font-size:22px;">1</div><div class="kicker">Profile One</div><div class="title">The Expert Client</div><div class="desc">Has domain knowledge. Knows the terminology. Has worked with consultants before. Wants precision, efficiency, and depth. Skip the basics. Use technical language correctly. Waste of their time signals disrespect.</div></div>
+    <div class="num-card"><div class="num" style="font-size:22px;">2</div><div class="kicker">Profile Two</div><div class="title">The First-Timer</div><div class="desc">Has never hired a foodservice or laundry design consultant. Does not know what the phases produce or why a fee is structured the way it is. Needs context before content. Patience here builds lasting trust.</div></div>
+    <div class="num-card"><div class="num" style="font-size:22px;">3</div><div class="kicker">Profile Three</div><div class="title">The Institutional Buyer</div><div class="desc">Operates through committees, procurement processes, and approval chains. Values compliance, documentation, and process. Less interested in creative framing; more interested in clear scope, timeline, and defensible fees.</div></div>
+    <div class="num-card" style="background:var(--navy);border-top-color:var(--gold);"><div class="num" style="color:var(--gold);font-size:14px;">Adapt</div><div class="kicker" style="color:var(--text-secondary);">How to Apply</div><div class="title" style="color:#FFF;">Real Time</div><div class="desc" style="color:var(--text-secondary);">You will not always know in advance which profile fits. The first two minutes of the conversation usually tell you. Pitching at the wrong level in either direction costs projects.</div></div>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">Match the client's language. If they call the facility a "kitchen," you call it a kitchen in conversation, even if you write "foodservice facility" in the proposal. Using jargon they do not use creates distance. Meeting them in their language creates connection. The technical precision lives in the written document.</div>
+  </div>
+</div>
+
+<div class="page" id="d10">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> COMMUNICATION</div>
+  <div class="subsec-tag">D.10 &middot; The Advocate Role</div>
+  <h2 class="subsec-title">The Advocate Role</h2>
+  <div class="subsec-lede"><span class="your-company">Your Company</span> is not a vendor. It is an independent consultant whose sole financial relationship is with the client and whose sole obligation is to the client's project outcomes. This is the advocate role: standing in the client's corner with no competing financial interest.</div>
+  <div class="section-body">
+    <p>Vendor-neutral means that <span class="your-company">Your Company</span>'s specifications are written to performance requirements, not to product brand names. When a product brand is specified, it is because it meets the operational requirements better than the alternatives, not because there is a financial relationship with the manufacturer. Every equipment recommendation is defensible by its technical merit.</p>
+    <p>When clients ask about equipment options, <span class="your-company">Your Company</span> presents a good-better-best framework that allows the client to make an informed decision based on budget, operational priorities, and tolerance for lifecycle maintenance costs. One critical message: every piece of equipment will eventually break. The question is not whether it breaks but how quickly and easily it is repaired when it does. The recommendation always includes a reliability and service response note, not just a price comparison.</p>
+  </div>
+  <div class="callout expert">
+    <div class="label"><span class="icon">&#10078;</span> On the Advocate Role</div>
+    <div class="body">"Our biggest thing is we are advocates. We don't sell equipment and a dealer does. The customer still doesn't fully trust us yet in many cases, and if we don't pay attention to that, the end result is they go, 'yeah, it's a great kitchen, but why go with a consultant again?' The answer to that question is this: because we were on your side the whole time."</div>
+    <div class="attrib">&middot; Marketing Director</div>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">When you deliver the proposal, draw the client's attention to the independence statement specifically. Do not assume they will read it carefully or understand its significance without context. Explain what it means and why it matters for their project: their specification will reflect what they need, not what someone else profits from.</div>
+  </div>
+</div>
+
+<div class="page" id="d11">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> COMMUNICATION</div>
+  <div class="subsec-tag">D.11 &middot; When to Push Back</div>
+  <h2 class="subsec-title">When and How to Push Back</h2>
+  <div class="subsec-lede">Advocacy sometimes requires disagreement. A client who insists on a kitchen layout that will not function operationally, a timeline that is not achievable, or a scope reduction that will create compliance risk needs to hear the truth, delivered with respect and documented in writing.</div>
+  <div class="section-body">
+    <p>Pushing back does not mean refusing to accommodate client preferences. It means making sure the client understands the professional implications of a decision before confirming that it is their decision to make. <span class="your-company">Your Company</span> does not override client decisions. It ensures they are informed ones.</p>
+  </div>
+  <div class="figure-title">Figure D.11.1 &middot; Situations Requiring Pushback and How to Frame It</div>
+  <table>
+    <thead><tr><th>Situation</th><th>Why Pushback Is Necessary</th><th>How to Frame It</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Client wants to eliminate the hand sink requirement</strong></td><td>Health code compliance; this is not optional</td><td>"I understand the space concern. I have to be direct with you: this item is required by code. Removing it is not an option we can design around without creating an inspection failure."</td></tr>
+      <tr><td><strong>Client insists on a 6-week design timeline for a 12-week scope</strong></td><td>Unrealistic timeline creates downstream liability</td><td>"I want to make sure we set this up for success. That timeline does not allow for the review cycles your project requires. Let me show you what is achievable and where we can compress."</td></tr>
+      <tr><td><strong>Client wants to remove the CA phase to save fee</strong></td><td>Construction Administration catches field errors; removing it shifts risk to client</td><td>"That is your choice and I respect it. I do want to make sure you understand what CA covers and what happens in the field without that oversight. Would you like me to walk through that before you decide?"</td></tr>
+      <tr><td><strong>Client requests vendor-specific specification without justification</strong></td><td>Compromises independence and may violate procurement rules</td><td>"I understand the preference. Our specifications need to be performance-based to protect your procurement process and our professional independence. I can note that product as the basis of design."</td></tr>
+    </tbody>
+  </table>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice: Document the Pushback</div>
+    <div class="body">When a client chooses to proceed contrary to a professional recommendation, the recommendation and the client's decision must be documented. This protects the client from a decision made without full information, and it protects <span class="your-company">Your Company</span> from liability. Document in Pipedrive and in some cases confirm in writing via email: "Per our conversation on [date], you have confirmed that you wish to proceed with [decision], understanding that [implication]. Please confirm this is correct."</div>
+  </div>
+</div>
+
+<div class="page" id="d12">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> COMMUNICATION</div>
+  <div class="subsec-tag">D.12 &middot; Follow-Up Psychology</div>
+  <h2 class="subsec-title">Psychology of Follow-Up</h2>
+  <div class="subsec-lede">Follow-up is not a sales technique. It is a relationship behavior. The consultant who follows up is communicating something more important than "have you made a decision?" They are communicating: I am thinking about your project. I am organized. I do what I said I would.</div>
+  <div class="section-body">
+    <p>Every proposal submission is followed by a 24-to-48-hour follow-up contact. This is Step 7 of the 10-Step Outreach Framework and it is non-negotiable. The purpose of the follow-up call is not to ask whether they received the proposal. It is to ask: "Did we address what you needed? Is there anything in the proposal you would like me to walk through?" This question opens a conversation that may surface the final objection standing between the client and a yes.</p>
+  </div>
+  <div class="figure-title">Figure D.12.1 &middot; The Follow-Up Timeline</div>
+  <div class="steps-grid">
+    <div class="step-item"><div class="step-num">Day 0</div><div class="step-title">Submit Proposal</div><div class="step-desc">Log dollar amount in Pipedrive immediately.</div></div>
+    <div class="step-item"><div class="step-num">24-48 Hrs</div><div class="step-title">Follow-Up Call</div><div class="step-desc">"Did we address what you needed? What can we clarify?"</div></div>
+    <div class="step-item"><div class="step-num">Week 1</div><div class="step-title">Email Check-In</div><div class="step-desc">Offer help with internal review process.</div></div>
+    <div class="step-item"><div class="step-num">Week 2</div><div class="step-title">Final Active Check</div><div class="step-desc">After 3 attempts, shift to long-term touch.</div></div>
+    <div class="step-item"><div class="step-num">Ongoing</div><div class="step-title">Quarterly Touch</div><div class="step-desc">Relationship stays warm for future projects. Every contact logged in Pipedrive: date, outcome, next action.</div></div>
+  </div>
+  <div class="section-body">
+    <p>The psychological distinction between follow-up that creates pressure and follow-up that creates relationship is this: pressure asks what the client has decided. Relationship asks what the client needs. Follow-up calls at <span class="your-company">Your Company</span> begin with an offer, not a request. "I wanted to make sure we had addressed everything you needed." Not: "We were hoping to get your decision."</p>
+  </div>
+  <div class="callout expert">
+    <div class="label"><span class="icon">&#10078;</span> On Follow-Up as Relationship</div>
+    <div class="body">"Follow-up is about creating the relationship, not about closing the sale. When you follow up to serve the client's needs, you are demonstrating the same qualities you will demonstrate throughout the project. A client who sees that in you before the contract is signed is far more likely to sign it."</div>
+    <div class="attrib">&middot; Marketing Director</div>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">Every proposal submission gets a 24-to-48-hour follow-up call. Every call gets logged in Pipedrive with the outcome noted. If the client is not reachable by phone, a follow-up email is sent with the same two questions: Did we address what you needed? What can we clarify? No proposal sits without a follow-up attempt.</div>
+  </div>
+</div>
+
+<div class="page" id="quiz">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag">&#10003; Comprehensive Test</div>
+  <h2 class="subsec-title">Psychology of the Client Conversation: Assessment</h2>
+  <div class="subsec-lede">15 questions. Do not check answers until you have completed the entire test. The Answer Legend follows on a separate page.</div>
+
+  <div class="quiz-q"><div class="qnum">D.1</div><div class="qtext">According to the <span class="your-company">Your Company</span> listening standard, what percentage of talk time should the consultant aim for in a discovery call?</div><ul class="opts"><li class="opt"><span class="letter">A</span>No more than 60% of the conversation</li><li class="opt"><span class="letter">B</span>No more than 40% of the conversation</li><li class="opt"><span class="letter">C</span>No more than 50% of the conversation</li><li class="opt"><span class="letter">D</span>No more than 25% of the conversation</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">D.2</div><div class="qtext">In the Rational vs. Emotional Decision Framework, which of the following best describes the role of rational data in a buying decision?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Rational data drives the initial decision and emotional factors confirm it afterward</li><li class="opt"><span class="letter">B</span>Rational and emotional data carry equal weight at every stage of the decision process</li><li class="opt"><span class="letter">C</span>Rational data provides the justification for a decision that was already made emotionally</li><li class="opt"><span class="letter">D</span>Rational data is used only by financial officers and has no relevance to operational stakeholders</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">D.3</div><div class="qtext">The "Made, Paid, Loved" framework describes which of the following?</div><ul class="opts"><li class="opt"><span class="letter">A</span>The three phases of a <span class="your-company">Your Company</span> proposal: narrative, scope, and fee</li><li class="opt"><span class="letter">B</span>The three types of clients: inbound, outbound, and referral</li><li class="opt"><span class="letter">C</span>The three rational metrics used in equipment budget calculations</li><li class="opt"><span class="letter">D</span>The three emotional drivers that motivate professional buying decisions</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">D.4</div><div class="qtext">What are the two parts of a Critical Event that a <span class="your-company">Your Company</span> consultant must identify and document?</div><ul class="opts"><li class="opt"><span class="letter">A</span>The project budget and the number of stakeholders involved in the decision</li><li class="opt"><span class="letter">B</span>The specific date of the event and what happens if that date is not met</li><li class="opt"><span class="letter">C</span>The architect's preferred timeline and the owner's preferred timeline</li><li class="opt"><span class="letter">D</span>The project kickoff date and the final punch list date</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">D.5</div><div class="qtext">Which of the following best describes the purpose of the Ishikawa (Five Whys) framework in a client conversation?</div><ul class="opts"><li class="opt"><span class="letter">A</span>To structure the proposal's five core phases in the correct sequence</li><li class="opt"><span class="letter">B</span>To move from the surface request to the deeper root need driving the client's decision</li><li class="opt"><span class="letter">C</span>To identify the five rational metrics required for fee calculation</li><li class="opt"><span class="letter">D</span>To document the client's five most important technical requirements</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">D.6</div><div class="qtext">A client says, "We can get drawings from our equipment dealer for free." What is the most appropriate first response?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Acknowledge the comment and explain how dealer-produced drawings differ from independent consulting specifications</li><li class="opt"><span class="letter">B</span>Offer to reduce the <span class="your-company">Your Company</span> fee to match what the dealer would charge</li><li class="opt"><span class="letter">C</span>Ask which dealer they are considering so you can explain the technical differences</li><li class="opt"><span class="letter">D</span>Agree that the dealer's drawings may be sufficient for their project needs</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">D.7</div><div class="qtext">According to the four-step objection response framework, what is the second step after acknowledging an objection?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Clarify: ask one question to understand the specific root of the objection before responding</li><li class="opt"><span class="letter">B</span>Respond: immediately provide the data or explanation that addresses the concern</li><li class="opt"><span class="letter">C</span>Confirm: ask whether your response addressed what the client was concerned about</li><li class="opt"><span class="letter">D</span>Document: log the objection in Pipedrive before continuing the conversation</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">D.8</div><div class="qtext">What does it typically indicate when a client gives short, monosyllabic responses during a discovery conversation?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Strong engagement with the topic; the client prefers concise communication</li><li class="opt"><span class="letter">B</span>Disengagement or discomfort with the current topic; adjustment is needed</li><li class="opt"><span class="letter">C</span>Budget anxiety; the client is hesitant to reveal their financial situation</li><li class="opt"><span class="letter">D</span>A signal that the client wants to end the conversation and review the proposal later</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">D.9</div><div class="qtext">What is the most important first question to ask when a client says "your fee seems high"?</div><ul class="opts"><li class="opt"><span class="letter">A</span>"Would you like us to reduce the scope to bring the fee in line with your budget?"</li><li class="opt"><span class="letter">B</span>"Help me understand what you are comparing it to."</li><li class="opt"><span class="letter">C</span>"What budget range were you expecting for this type of project?"</li><li class="opt"><span class="letter">D</span>"Can you tell me which phase of the scope you feel is overpriced?"</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">D.10</div><div class="qtext">Which of the following is the most accurate description of <span class="your-company">Your Company</span>'s position as an independent consultant?</div><ul class="opts"><li class="opt"><span class="letter">A</span><span class="your-company">Your Company</span> specifies preferred manufacturer brands based on long-standing vendor relationships</li><li class="opt"><span class="letter">B</span><span class="your-company">Your Company</span> receives no commissions from manufacturers or dealers and writes specifications based solely on the client's operational needs</li><li class="opt"><span class="letter">C</span><span class="your-company">Your Company</span> coordinates equipment purchases directly with dealers on behalf of the client to secure preferred pricing</li><li class="opt"><span class="letter">D</span><span class="your-company">Your Company</span> maintains preferred vendor lists that help clients source equipment faster and at lower cost</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">D.11</div><div class="qtext">When should a <span class="your-company">Your Company</span> consultant document a client's decision to proceed against a professional recommendation?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Only when the decision creates a legal liability risk for <span class="your-company">Your Company</span> specifically</li><li class="opt"><span class="letter">B</span>Only when the client has been informed three times and still refuses to change course</li><li class="opt"><span class="letter">C</span>Whenever a client chooses to proceed contrary to a professional recommendation, as standard practice</li><li class="opt"><span class="letter">D</span>Only when the decision involves a compliance issue; other decisions do not require documentation</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">D.12</div><div class="qtext">What is the standard follow-up timeline after a proposal is submitted at <span class="your-company">Your Company</span>?</div><ul class="opts"><li class="opt"><span class="letter">A</span>One week after submission, to allow the client time to review thoroughly</li><li class="opt"><span class="letter">B</span>Same day, to confirm receipt and address any immediate questions</li><li class="opt"><span class="letter">C</span>24 to 48 hours after submission, to ask whether the proposal addressed what the client needed</li><li class="opt"><span class="letter">D</span>Only after the client contacts <span class="your-company">Your Company</span> with questions; proactive follow-up is considered pressure</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">D.13</div><div class="qtext">When a client says "we think our budget is around...," what does this phrasing most likely indicate?</div><ul class="opts"><li class="opt"><span class="letter">A</span>The client has a firm budget but is testing whether the consultant will propose under it</li><li class="opt"><span class="letter">B</span>The budget has not yet been formally approved internally; advocacy with the check-signer may still be needed</li><li class="opt"><span class="letter">C</span>The client expects the consultant to propose at exactly that figure</li><li class="opt"><span class="letter">D</span>The client is comparing multiple proposals and using a common benchmark</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">D.14</div><div class="qtext">For an "Institutional Buyer" client profile, which communication approach is most effective?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Emotional framing focused on personal success and project recognition</li><li class="opt"><span class="letter">B</span>Process-oriented language emphasizing compliance, documentation, and clear deliverables</li><li class="opt"><span class="letter">C</span>Simplified explanations that assume no prior experience with consulting services</li><li class="opt"><span class="letter">D</span>Technical deep-dives using specialized equipment terminology to establish credibility</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">D.15</div><div class="qtext">When following up with a client whose proposal decision is pending due to a committee approval process, which approach best reflects <span class="your-company">Your Company</span>'s follow-up psychology?</div><ul class="opts"><li class="opt"><span class="letter">A</span>"We need a decision by Friday to hold your project timeline."</li><li class="opt"><span class="letter">B</span>"Is there anything I can provide that would help your internal review process?"</li><li class="opt"><span class="letter">C</span>"We have other projects starting soon and need to know if we should hold capacity."</li><li class="opt"><span class="letter">D</span>Do not follow up at all during committee review; wait for the client to reach out.</li></ul></div>
+</div>
+
+<div class="legend-page" id="legend1">
+  <div class="crumb" style="color:var(--text-secondary);">SECTION D <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag" style="color:var(--brass-soft);">&#9745; Answer Legend &middot; Part 1 of 2</div>
+  <div class="legend-title">Answers &middot; D.1 through D.8</div>
+  <div class="legend-sub">Do not review until the test is complete. Return to any subsection that surprised you.</div>
+  <div class="legend-q"><div class="head">D.1</div><div class="answer">Correct: B &middot; No more than 40% of the conversation</div><div class="explain">The Your Company listening standard sets 40% as the maximum talk time on a discovery call. The purpose is to create space for the client to reveal the information needed to write an accurate proposal. See D.1.</div></div>
+  <div class="legend-q"><div class="head">D.2</div><div class="answer">Correct: C &middot; Rational data provides the justification for a decision already made emotionally</div><div class="explain">Emotional decisions happen first; rational data justifies them afterward. Win the emotional decision first, then arm the client with rational ammunition to defend it internally. See D.2.</div></div>
+  <div class="legend-q"><div class="head">D.3</div><div class="answer">Correct: D &middot; The three emotional drivers that motivate professional buying decisions</div><div class="explain">Made = professional success; Paid = financial outcome; Loved = recognition and reputation. Identifying the dominant driver shapes how you frame the proposal's opening paragraph. See D.2.</div></div>
+  <div class="legend-q"><div class="head">D.4</div><div class="answer">Correct: B &middot; The specific date and what happens if that date is not met</div><div class="explain">A critical event has two essential components: the date itself and the consequence of missing it. The consequence question is the one most often skipped, and it is the one that reveals real urgency. See D.3.</div></div>
+  <div class="legend-q"><div class="head">D.5</div><div class="answer">Correct: B &middot; To move from the surface request to the deeper root need</div><div class="explain">The Ishikawa framework moves from a stated surface need to the underlying root cause by asking why repeatedly. Knowing the root produces a more resonant proposal. See D.4.</div></div>
+  <div class="legend-q"><div class="head">D.6</div><div class="answer">Correct: A &middot; Acknowledge and explain the structural difference</div><div class="explain">Acknowledge without conceding ground, then explain that dealer drawings reflect the dealer's inventory, not independent performance specifications. Reducing the fee without addressing this rewards misunderstanding. See D.5.</div></div>
+  <div class="legend-q"><div class="head">D.7</div><div class="answer">Correct: A &middot; Clarify: ask one question to understand the root of the objection</div><div class="explain">The four steps are: Acknowledge, Clarify, Respond, Confirm. Clarification comes before response because responding to the wrong concern is ineffective and can introduce new problems. See D.7.</div></div>
+  <div class="legend-q"><div class="head">D.8</div><div class="answer">Correct: B &middot; Disengagement or discomfort with the current topic</div><div class="explain">Short, minimal responses typically signal disengagement. When you notice this signal, shift the topic or ask a more open-ended question to re-engage. See D.8.</div></div>
+</div>
+
+<div class="legend-page" id="legend2">
+  <div class="crumb" style="color:var(--text-secondary);">SECTION D <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag" style="color:var(--brass-soft);">&#9745; Answer Legend &middot; Part 2 of 2</div>
+  <div class="legend-title">Answers &middot; D.9 through D.15</div>
+  <div class="legend-sub">The remaining answers with reasoning and subsection cross-references.</div>
+  <div class="legend-q"><div class="head">D.9</div><div class="answer">Correct: B &middot; "Help me understand what you are comparing it to."</div><div class="explain">Diagnosing the root of the objection before responding is the correct approach. This single question reveals which of the four roots is present. Never respond to price resistance without first diagnosing what is actually driving it. See D.6.</div></div>
+  <div class="legend-q"><div class="head">D.10</div><div class="answer">Correct: B &middot; No commissions; specifications based solely on client operational needs</div><div class="explain">Your Company is a fee-only independent consultant with no manufacturer or dealer affiliations. The independence statement in every proposal codifies this position. It is a fundamental differentiator, not a disclaimer. See D.10.</div></div>
+  <div class="legend-q"><div class="head">D.11</div><div class="answer">Correct: C &middot; Whenever a client proceeds contrary to a professional recommendation, as standard practice</div><div class="explain">Documentation of client decisions against professional advice is standard practice, not a situation-specific response. Documentation protects both the client and the firm. See D.11.</div></div>
+  <div class="legend-q"><div class="head">D.12</div><div class="answer">Correct: C &middot; 24 to 48 hours after submission</div><div class="explain">The Your Company standard is a 24-to-48-hour follow-up after every proposal submission, per Step 7 of the 10-Step Outreach Framework. The follow-up call asks whether the proposal addressed the client's needs, not whether they have made a decision. See D.12.</div></div>
+  <div class="legend-q"><div class="head">D.13</div><div class="answer">Correct: B &middot; The budget has not yet been formally approved internally</div><div class="explain">Tentative budget language signals that the number is not yet formally approved. The client may benefit from help articulating the business case for their check-signer. See D.4.</div></div>
+  <div class="legend-q"><div class="head">D.14</div><div class="answer">Correct: B &middot; Process-oriented language emphasizing compliance, documentation, and clear deliverables</div><div class="explain">Institutional buyers operate through committees, procurement processes, and approval chains. They value compliance, documentation, and process clarity above emotional or overly technical framing. See D.9.</div></div>
+  <div class="legend-q"><div class="head">D.15</div><div class="answer">Correct: B &middot; "Is there anything I can provide that would help your internal review process?"</div><div class="explain">This question serves the client's needs during their review process without applying pressure. Pressure implies urgency the consultant does not control. The correct approach creates relationship, not pressure. See D.12.</div></div>
+</div>
+
+<div class="page" id="flash-grid">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9670; Flashcards &middot; Reference Grid</div>
+  <h2 class="subsec-title">Fifteen Cards &middot; Front and Back</h2>
+  <div class="subsec-lede">Fifteen flashcards covering the key frameworks and concepts from Section D.</div>
+  <div class="flash-grid">
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">1</span>The Listening Standard</div><div class="flash-grid-back">No more than 40% consultant talk time on a discovery call. Client responses should be 2-3x longer than questions. Listen, ask, listen again, present opportunity, guide.<div class="flash-grid-ref">(D.1)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">2</span>Emotional vs. Rational Decision</div><div class="flash-grid-back">Emotional decisions happen first; rational data justifies them afterward. Win the emotional decision first, then arm the client with rational ammunition to defend it internally.<div class="flash-grid-ref">(D.2)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">3</span>Made, Paid, Loved</div><div class="flash-grid-back">Three emotional drivers: Made = professional success; Paid = financial outcome and budget protection; Loved = recognition, reputation, and legacy. Identify the dominant driver before writing the proposal.<div class="flash-grid-ref">(D.2)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">4</span>Champion vs. Check-Signer</div><div class="flash-grid-back">Champion (user/operator) responds to emotional impact. Check-Signer (owner/budget authority) responds to rational justification. Proposals must address both. Know who is in each role.<div class="flash-grid-ref">(D.2)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">5</span>The Four Lenses</div><div class="flash-grid-back">Impact: the result the project must produce. Critical Event: the date and consequence of missing it. Emotional: Made/Paid/Loved. Rational: SF, FTE, budget, timeline.<div class="flash-grid-ref">(D.3)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">6</span>Critical Event: Two Required Questions</div><div class="flash-grid-back">1. When does this project need to be complete? 2. What happens if it is not complete by that date? Both must be documented. The second question reveals the real urgency and stakes.<div class="flash-grid-ref">(D.3)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">7</span>Ishikawa / Five Whys</div><div class="flash-grid-back">Ask "why" five layers deep to move from the surface request to the root need. A client who needs "a new kitchen" may actually need to protect their employment by improving the inspection record.<div class="flash-grid-ref">(D.4)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">8</span>The Primary Trust Obstacle</div><div class="flash-grid-back">"You sell equipment." Address this early and clearly: "We are completely fee-only. We receive no commissions from manufacturers or dealers. Our only financial relationship is with you."<div class="flash-grid-ref">(D.5)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">9</span>Four Roots of Price Resistance</div><div class="flash-grid-back">1. Value Gap: fee not connected to outcome. 2. Scope Confusion: client does not understand inclusions. 3. False Comparison: comparing to a dealer. 4. Budget Pressure: internal constraint.<div class="flash-grid-ref">(D.6)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">10</span>Four-Step Objection Response</div><div class="flash-grid-back">1. Acknowledge: heard without conceding. 2. Clarify: ask one question to understand root. 3. Respond: address actual concern with precision. 4. Confirm: did that address what you were concerned about?<div class="flash-grid-ref">(D.7)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">11</span>Three Client Communication Profiles</div><div class="flash-grid-back">Expert Client: technical language, concise, respect their knowledge. First-Timer: context before content, explain the consulting model. Institutional Buyer: process, compliance, documentation, clear deliverables.<div class="flash-grid-ref">(D.9)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">12</span>The Advocate Role</div><div class="flash-grid-back">Your Company is fee-only with no manufacturer or dealer commissions. Specifications reflect only the client's operational needs. Recommendations are made based on technical merit alone. This is independent advocacy.<div class="flash-grid-ref">(D.10)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">13</span>Good, Better, Best Framework</div><div class="flash-grid-back">Present equipment options across three tiers. Always include reliability and service response data. Every piece of equipment eventually breaks; what matters is how quickly it is repaired. Client chooses; consultant informs.<div class="flash-grid-ref">(D.10)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">14</span>When Pushback Is Required</div><div class="flash-grid-back">1. Decision based on incomplete information. 2. Client preference creates compliance risk. 3. Timeline or budget is not achievable. 4. Scope reduction compromises quality. Document all pushback and client responses.<div class="flash-grid-ref">(D.11)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">15</span>Follow-Up: Relationship vs. Pressure</div><div class="flash-grid-back">Pressure asks what the client decided. Relationship asks what the client needs. Follow up within 24-48 hours with: "Did we address what you needed? What can I clarify?" Log every contact in Pipedrive.<div class="flash-grid-ref">(D.12)</div></div></div>
+  </div>
+</div>
+
+<div class="page" id="flip-cards">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9633; Flashcards &middot; Interactive</div>
+  <h2 class="subsec-title">Tap the Card to See the Answer</h2>
+  <div class="subsec-lede">Fifteen cards, one at a time. Read the front, attempt the back from memory, then tap to check.</div>
+  <div class="flip-container">
+    <div class="flip-card" id="flip-card" onclick="flipCard()">
+      <div class="flip-front-label" id="flip-label">Term &middot; Tap to Reveal</div>
+      <div class="flip-front-text" id="flip-front">The Listening Standard</div>
+      <div class="flip-back-text" id="flip-back">No more than 40% consultant talk time. Client responses should be 2-3x longer than questions. Listen, ask, listen again, present opportunity, guide. (D.1)</div>
+    </div>
+    <div class="flip-hint">Tap card to flip &middot; Use arrows to navigate</div>
+    <div class="flip-nav">
+      <button class="flip-btn" onclick="prevCard()">&#8592; Previous</button>
+      <span class="flip-counter" id="flip-counter">1 of 15</span>
+      <button class="flip-btn" onclick="nextCard()">Next &#8594;</button>
+    </div>
+    <div class="flip-dots" id="flip-dots"></div>
+  </div>
+</div>
+
+<div class="page" id="cut-cards">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9986; Printable Cut-Out Study Cards</div>
+  <h2 class="subsec-title">Print, Cut, Carry</h2>
+  <div class="subsec-lede">Fifteen cards arranged for printing. Cut along the borders. Keep them on your desk.</div>
+  <div class="cut-grid">
+    <div class="cut-card"><div class="term">The Listening Standard</div><div class="def">No more than 40% consultant talk time. Client responses should be 2-3x longer than questions. Listen, ask, listen again, present, guide.</div></div>
+    <div class="cut-card"><div class="term">Emotional vs. Rational</div><div class="def">Emotional decisions happen first. Rational data justifies them afterward. Win the emotion first; arm the client with rational ammunition to defend internally.</div></div>
+    <div class="cut-card"><div class="term">Made, Paid, Loved</div><div class="def">Made = professional success. Paid = financial/budget outcome. Loved = recognition and reputation. Identify the dominant driver before writing the proposal.</div></div>
+    <div class="cut-card"><div class="term">Champion vs. Check-Signer</div><div class="def">Champion: emotional impact. Check-Signer: rational justification, ROI, risk. Proposals must address both. Know who is in each role before submission.</div></div>
+    <div class="cut-card"><div class="term">The Four Lenses</div><div class="def">Impact, Critical Event, Emotional (Made/Paid/Loved), Rational (SF, FTE, budget). All four must be answered before writing the proposal.</div></div>
+    <div class="cut-card"><div class="term">Critical Event: Two Questions</div><div class="def">1. When does this project need to be complete? 2. What happens if it is not done by that date? The second question reveals real urgency.</div></div>
+    <div class="cut-card"><div class="term">Ishikawa / Five Whys</div><div class="def">Ask why five times to move from surface request to root need. Surface: "new kitchen." Root: "protect employment by securing a flawless inspection record."</div></div>
+    <div class="cut-card"><div class="term">The Primary Trust Obstacle</div><div class="def">"You sell equipment." Address early: "We are fee-only. No manufacturer commissions. Our only financial relationship is with you."</div></div>
+    <div class="cut-card"><div class="term">Four Roots of Price Resistance</div><div class="def">1. Value Gap. 2. Scope Confusion. 3. False Comparison. 4. Budget Pressure. Diagnose which root before responding. Never discount without diagnosing.</div></div>
+    <div class="cut-card"><div class="term">Four-Step Objection Response</div><div class="def">1. Acknowledge. 2. Clarify. 3. Respond. 4. Confirm. Skip none. Respond to the wrong concern and you create new problems.</div></div>
+    <div class="cut-card"><div class="term">Three Client Profiles</div><div class="def">Expert: technical, concise. First-Timer: context before content. Institutional Buyer: process, compliance, documentation, defensible fees.</div></div>
+    <div class="cut-card"><div class="term">The Advocate Role</div><div class="def">Fee-only. No manufacturer or dealer commissions. Specifications based solely on client operational needs. Recommendations by technical merit alone.</div></div>
+    <div class="cut-card"><div class="term">Good, Better, Best</div><div class="def">Present three equipment tiers. Always include reliability and service response data. Client chooses; consultant informs. Never decide for them.</div></div>
+    <div class="cut-card"><div class="term">When Pushback Is Required</div><div class="def">1. Incomplete information. 2. Compliance risk. 3. Unrealistic timeline/budget. 4. Scope reduction that compromises quality. Document all pushback in Pipedrive.</div></div>
+    <div class="cut-card"><div class="term">Follow-Up: Relationship, Not Pressure</div><div class="def">24-48 hours: "Did we address what you needed? What can I clarify?" Log every contact: date, outcome, next action. Three attempts, then quarterly touch.</div></div>
+  </div>
+</div>
+
+
+<!-- D-SLIDES -->
+<div class="page" id="d-slides">
+  <div class="crumb">SECTION D <span class="dot">&middot;</span> PRESENTATION</div>
+  <div class="subsec-tag">Full Slide Deck</div>
+  <h2 class="subsec-title">The Architecture of Discovery</h2>
+  <div class="subsec-lede">The complete presentation for this section. Each slide is embedded directly. Scroll through all 15 slides below.</div>
+  <style>.slide-img{width:100%;display:block;border-radius:2px;border:1px solid var(--rule);margin-bottom:8px;}</style>
+  <img class="slide-img" src="media/d/slides/slide01.png" alt="Slide 1 of 15" loading="lazy">
+  <img class="slide-img" src="media/d/slides/slide02.png" alt="Slide 2 of 15" loading="lazy">
+  <img class="slide-img" src="media/d/slides/slide03.png" alt="Slide 3 of 15" loading="lazy">
+  <img class="slide-img" src="media/d/slides/slide04.png" alt="Slide 4 of 15" loading="lazy">
+  <img class="slide-img" src="media/d/slides/slide05.png" alt="Slide 5 of 15" loading="lazy">
+  <img class="slide-img" src="media/d/slides/slide06.png" alt="Slide 6 of 15" loading="lazy">
+  <img class="slide-img" src="media/d/slides/slide07.png" alt="Slide 7 of 15" loading="lazy">
+  <img class="slide-img" src="media/d/slides/slide08.png" alt="Slide 8 of 15" loading="lazy">
+  <img class="slide-img" src="media/d/slides/slide09.png" alt="Slide 9 of 15" loading="lazy">
+  <img class="slide-img" src="media/d/slides/slide10.png" alt="Slide 10 of 15" loading="lazy">
+  <img class="slide-img" src="media/d/slides/slide11.png" alt="Slide 11 of 15" loading="lazy">
+  <img class="slide-img" src="media/d/slides/slide12.png" alt="Slide 12 of 15" loading="lazy">
+  <img class="slide-img" src="media/d/slides/slide13.png" alt="Slide 13 of 15" loading="lazy">
+  <img class="slide-img" src="media/d/slides/slide14.png" alt="Slide 14 of 15" loading="lazy">
+  <img class="slide-img" src="media/d/slides/slide15.png" alt="Slide 15 of 15" loading="lazy">
+</div>
+
+</main>
+
+<script>
+const cards=[
+  {front:'The Listening Standard',back:'No more than 40% consultant talk time on a discovery call. Client responses should be 2-3x longer than questions. Listen, ask, listen again, present opportunity, guide. (D.1)'},
+  {front:'Emotional vs. Rational Decision',back:'Emotional decisions happen first; rational data justifies them afterward. Win the emotional decision first, then arm the client with rational ammunition to defend it internally. (D.2)'},
+  {front:'Made, Paid, Loved',back:'Three emotional drivers: Made = professional success; Paid = financial outcome and budget protection; Loved = recognition, reputation, and legacy. Identify the dominant driver before writing the proposal. (D.2)'},
+  {front:'Champion vs. Check-Signer',back:'Champion (user/operator) responds to emotional impact. Check-Signer (owner/budget authority) responds to rational justification. Proposals must address both. Know who is in each role. (D.2)'},
+  {front:'The Four Lenses',back:'Impact: the result the project must produce. Critical Event: date and consequence of missing it. Emotional: Made/Paid/Loved. Rational: SF, FTE, budget, timeline. (D.3)'},
+  {front:'Critical Event: Two Required Questions',back:'1. When does this project need to be complete? 2. What happens if it is not complete by that date? Both must be documented. The second question reveals real urgency. (D.3)'},
+  {front:'Ishikawa / Five Whys',back:'Ask why five layers deep to move from the surface request to the root need. Knowing the root need produces a more powerful proposal than knowing only the stated request. (D.4)'},
+  {front:'The Primary Trust Obstacle',back:'"You sell equipment." Address early and clearly: "We are completely fee-only. No manufacturer commissions. Our only financial relationship is with you." (D.5)'},
+  {front:'Four Roots of Price Resistance',back:'1. Value Gap: fee not connected to outcome. 2. Scope Confusion: client does not understand inclusions. 3. False Comparison: comparing to a dealer. 4. Budget Pressure: internal constraint. (D.6)'},
+  {front:'Four-Step Objection Response',back:'1. Acknowledge: heard without conceding. 2. Clarify: ask one question to understand root. 3. Respond: address actual concern. 4. Confirm: did that address your concern? (D.7)'},
+  {front:'Three Client Communication Profiles',back:'Expert Client: technical, concise, respect their knowledge. First-Timer: context before content. Institutional Buyer: process, compliance, documentation, clear deliverables. (D.9)'},
+  {front:'The Advocate Role',back:'Your Company is fee-only with no manufacturer or dealer commissions. Specifications reflect only the client\'s operational needs. Recommendations based on technical merit alone. (D.10)'},
+  {front:'Good, Better, Best Framework',back:'Present equipment options across three tiers. Always include reliability and service response data in addition to cost. Client chooses; consultant informs. (D.10)'},
+  {front:'When Pushback Is Required',back:'1. Incomplete information. 2. Client preference creates compliance risk. 3. Timeline or budget not achievable. 4. Scope reduction compromises quality. Document all pushback. (D.11)'},
+  {front:'Follow-Up: Relationship vs. Pressure',back:'Pressure asks what client decided. Relationship asks what client needs. Follow up within 24-48 hours: "Did we address what you needed?" Log every contact in Pipedrive. (D.12)'}
+];
+let current=0,flipped=false;
+function buildDots(){const d=document.getElementById('flip-dots');d.innerHTML='';cards.forEach((_,i)=>{const dot=document.createElement('span');dot.className='flip-dot'+(i===0?' active':'');dot.onclick=()=>goToCard(i);d.appendChild(dot);});}
+function updateCard(){document.getElementById('flip-front').textContent=cards[current].front;document.getElementById('flip-back').textContent=cards[current].back;document.getElementById('flip-counter').textContent=(current+1)+' of '+cards.length;document.getElementById('flip-card').classList.remove('flipped');document.getElementById('flip-label').textContent='Term · Tap to Reveal';flipped=false;document.querySelectorAll('.flip-dot').forEach((d,i)=>d.classList.toggle('active',i===current));}
+function flipCard(){flipped=!flipped;document.getElementById('flip-card').classList.toggle('flipped',flipped);document.getElementById('flip-label').textContent=flipped?'Answer · Tap to Reset':'Term · Tap to Reveal';}
+function nextCard(){current=(current+1)%cards.length;updateCard();}
+function prevCard(){current=(current-1+cards.length)%cards.length;updateCard();}
+function goToCard(i){current=i;updateCard();}
+buildDots();
+const pages=document.querySelectorAll('main [id]');
+const links=document.querySelectorAll('.sidebar-list a');
+window.addEventListener('scroll',()=>{let active='';pages.forEach(p=>{if(window.scrollY>=p.offsetTop-80)active=p.id;});links.forEach(a=>{const href=a.getAttribute('href').replace('#','');a.classList.toggle('active',href===active);});});
+</script>
+</body>
+</html>

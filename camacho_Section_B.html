@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business OS &middot; Section B &middot; Industry Terminology &amp; Definitions &middot; 2026 Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1628;--navy-mid:#0f2040;--navy-top:#11354A;--gold:#C5A76F;--brass:#B8893B;--brass-soft:#D4AB5E;--cream:#F4EFE4;--cream-light:#FAF7F1;--paper:#FFFFFF;--ink:#162630;--ink-soft:#2C3B45;--ink-muted:#5D7079;--text-primary:#e8e0d0;--text-secondary:#b8aa90;--camacho-blue:#266889;--blue-tint:#EDF3F6;--green:#2F7D54;--green-tint:#E8F2EC;--red:#B23B2E;--red-tint:#F8E9E6;--rule:#D6CCB6;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Montserrat',sans-serif;background:var(--cream-light);color:var(--ink);font-size:15px;line-height:1.65;display:flex;}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:300;background:var(--navy);height:44px;display:flex;align-items:center;padding:0 20px;border-bottom:1px solid var(--brass);gap:16px;}
+.topbar-logo{font-family:'Playfair Display',serif;color:var(--gold);font-size:15px;font-weight:700;letter-spacing:.08em;}
+.topbar-section{color:var(--text-secondary);font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
+.topbar-links{margin-left:auto;display:flex;gap:20px;}
+.topbar-links a{color:var(--text-secondary);font-size:11px;text-decoration:none;letter-spacing:.08em;text-transform:uppercase;}
+.topbar-links a:hover{color:var(--gold);}
+.sidebar{position:fixed;top:44px;left:0;bottom:0;width:240px;background:var(--navy);overflow-y:auto;z-index:100;padding:28px 18px 40px 20px;box-sizing:border-box;border-right:1px solid rgba(197,167,111,.18);}
+.sidebar-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:0 8px 10px 8px;margin-bottom:16px;border-bottom:1px solid rgba(197,167,111,.22);}
+.sidebar-group-label{color:var(--gold);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:16px 8px 6px 8px;opacity:.9;}
+.sidebar-list{list-style:none;}
+.sidebar-list a{display:flex;align-items:baseline;gap:8px;color:#FFF;text-decoration:none;font-size:11px;padding:8px 8px 8px 6px;border-left:2px solid transparent;transition:all .15s;}
+.sidebar-list a .code{color:var(--gold);font-size:10px;min-width:26px;}
+.sidebar-list a:hover,.sidebar-list a.active{color:var(--gold);border-left-color:var(--gold);background:rgba(197,167,111,.06);}
+main{margin-left:240px;margin-top:44px;flex:1;max-width:960px;padding:0 0 80px;}
+.page{background:var(--paper);padding:56px 64px;margin-bottom:2px;}
+.page.cover{background:var(--navy);min-height:100vh;display:flex;flex-direction:column;padding:72px 72px 56px;}
+.legend-page{background:var(--navy);padding:56px 64px;margin-bottom:2px;}
+.cover-eyebrow{font-family:'Montserrat',sans-serif;color:var(--gold);font-size:10px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:28px;}
+.cover-letter{font-family:'Playfair Display',serif;color:var(--gold);font-size:120px;font-weight:700;line-height:1;margin-bottom:4px;}
+.cover-title{font-family:'Playfair Display',serif;color:#FFF;font-size:38px;font-weight:600;line-height:1.2;margin-bottom:12px;}
+.cover-sub{color:var(--text-secondary);font-size:14px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-bottom:48px;max-width:480px;}
+.cover-rule{height:1px;background:rgba(197,167,111,.3);margin-bottom:40px;}
+.nav-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:auto;}
+.nav-card{background:rgba(255,255,255,.05);border:1px solid rgba(197,167,111,.2);border-top:2px solid var(--gold);padding:16px 18px;text-decoration:none;}
+.nav-card-code{color:var(--gold);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;}
+.nav-card-title{color:#FFF;font-size:12px;font-weight:600;font-family:'Playfair Display',serif;}
+.cover-credit{margin-top:40px;color:var(--text-secondary);font-size:10px;letter-spacing:.08em;border-top:1px solid rgba(197,167,111,.15);padding-top:16px;}
+.crumb{font-size:10px;color:var(--ink-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;}
+.crumb .dot{margin:0 6px;color:var(--brass);}
+.subsec-tag{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--brass);letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.subsec-title{font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);font-weight:700;line-height:1.2;margin-bottom:16px;}
+.subsec-lede{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink-soft);line-height:1.55;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--rule);}
+.figure-title{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--brass);letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
+.section-body p{margin-bottom:16px;}
+.section-body ul{margin:0 0 16px 20px;}
+.section-body li{margin-bottom:6px;}
+.callout{margin:24px 0;padding:20px 22px;border-radius:2px;break-inside:avoid;}
+.callout .label{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:7px;margin-bottom:10px;}
+.callout .icon{font-size:14px;}
+.callout .body{font-size:14px;line-height:1.6;}
+.callout .attrib{font-size:11px;margin-top:10px;font-style:italic;opacity:.8;}
+.callout.expert{background:var(--navy);color:var(--text-primary);border-left:4px solid var(--gold);}
+.callout.expert .label{color:var(--gold);}
+.callout.expert .body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;}
+.callout.rule{background:var(--cream);border-left:4px solid var(--navy);}
+.callout.rule .label{color:var(--navy);}
+.callout.files{background:var(--blue-tint);border-left:4px solid var(--camacho-blue);}
+.callout.files .label{color:var(--camacho-blue);}
+.callout.best{background:var(--green-tint);border-left:4px solid var(--green);}
+.callout.best .label{color:var(--green);}
+.callout.warn{background:var(--red-tint);border-left:4px solid var(--red);}
+.callout.warn .label{color:var(--red);}
+.your-company{font-weight:700;color:#266889;}
+.cards-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:24px 0;}
+.num-card{background:var(--cream);border-top:3px solid var(--brass);padding:20px 22px;break-inside:avoid;}
+.num-card .num{font-family:'Playfair Display',serif;font-size:36px;color:var(--brass);font-weight:700;line-height:1;margin-bottom:4px;}
+.num-card .kicker{font-size:9px;color:var(--ink-muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;}
+.num-card .title{font-family:'Playfair Display',serif;font-size:15px;color:var(--navy);font-weight:600;margin-bottom:8px;}
+.num-card .desc{font-size:13px;color:var(--ink-soft);}
+.phase-row{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin:24px 0;}
+.phase-cell{background:var(--navy);padding:16px 12px;text-align:center;}
+.phase-abbr{font-family:'Playfair Display',serif;font-size:24px;color:var(--gold);font-weight:700;margin-bottom:6px;}
+.phase-name{font-size:10px;color:#FFF;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;}
+.phase-desc{font-size:11px;color:var(--text-secondary);line-height:1.4;}
+.audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:24px 0;border:1px solid var(--rule);}
+.audience-col{padding:20px 18px;border-right:1px solid var(--rule);}
+.audience-col:last-child{border-right:none;}
+.audience-type{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:4px;}
+.audience-label{font-size:9px;color:var(--brass);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;}
+.audience-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--ink-soft);line-height:1.5;margin-bottom:8px;}
+.audience-note{font-size:11px;color:var(--ink-muted);}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+thead{background:var(--navy);}
+thead th{color:var(--gold);font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:12px 14px;text-align:left;font-weight:700;}
+tbody tr:nth-child(even){background:var(--cream-light);}
+tbody tr:nth-child(odd){background:var(--paper);}
+td{padding:11px 14px;color:var(--ink-soft);vertical-align:top;}
+td strong{color:var(--ink);font-weight:600;}
+.media-block{margin:24px 0;padding:20px;background:var(--cream);border-top:3px solid var(--brass);}
+.media-byline{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--brass);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:12px;}
+.media-iframe-wrap{position:relative;width:100%;padding-bottom:56.25%;margin-bottom:8px;}
+.media-iframe-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:2px;}
+.audio-wrap iframe{width:100%;height:80px;border:0;border-radius:2px;}
+.media-caption{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--ink-muted);margin-top:8px;}
+.media-img{width:100%;border-radius:2px;display:block;margin-top:16px;}
+.quiz-q{margin-bottom:28px;break-inside:avoid;border-left:3px solid var(--rule);padding-left:18px;}
+.qnum{font-family:'Playfair Display',serif;font-size:22px;color:var(--brass);font-weight:700;margin-bottom:6px;}
+.qtext{font-size:14px;color:var(--ink);margin-bottom:12px;font-weight:500;}
+.opts{list-style:none;}
+.opt{display:flex;align-items:baseline;gap:10px;padding:6px 0;font-size:13px;color:var(--ink-soft);border-bottom:1px solid var(--cream);}
+.opt:last-child{border-bottom:none;}
+.letter{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--cream);color:var(--brass);font-size:11px;font-weight:700;flex-shrink:0;}
+.legend-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:28px;font-weight:700;margin-bottom:8px;}
+.legend-sub{color:var(--text-secondary);font-size:14px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid rgba(197,167,111,.25);}
+.legend-q{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid rgba(197,167,111,.12);break-inside:avoid;}
+.legend-q .head{font-family:'Montserrat',sans-serif;font-size:10px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:4px;}
+.legend-q .answer{font-size:14px;color:var(--text-primary);font-weight:600;margin-bottom:4px;}
+.legend-q .explain{font-size:13px;color:var(--text-secondary);font-style:italic;}
+.flash-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+.flash-grid-card{border:1px solid var(--rule);}
+.flash-grid-front{background:var(--navy);color:var(--gold);padding:14px 16px;font-family:'Playfair Display',serif;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;}
+.flash-grid-num{background:var(--brass);color:var(--navy);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;}
+.flash-grid-back{background:var(--paper);color:var(--ink-soft);padding:12px 16px;font-size:12px;line-height:1.5;}
+.flash-grid-ref{font-size:10px;color:var(--ink-muted);margin-top:6px;font-style:italic;}
+.flip-container{max-width:600px;margin:0 auto 24px;}
+.flip-card{background:var(--navy);border-top:3px solid var(--gold);padding:48px 40px;text-align:center;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;}
+.flip-front-label{font-size:9px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px;font-weight:700;}
+.flip-front-text{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;}
+.flip-back-text{font-size:14px;color:var(--text-primary);line-height:1.6;display:none;}
+.flip-card.flipped{background:var(--navy-mid);}
+.flip-card.flipped .flip-front-text{display:none;}
+.flip-card.flipped .flip-back-text{display:block;}
+.flip-hint{text-align:center;font-size:11px;color:var(--ink-muted);margin-top:8px;font-style:italic;}
+.flip-nav{display:flex;justify-content:center;align-items:center;gap:20px;margin-top:16px;}
+.flip-btn{background:var(--navy);color:var(--gold);border:1px solid var(--brass);padding:8px 22px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;cursor:pointer;text-transform:uppercase;}
+.flip-btn:hover{background:var(--brass);color:var(--navy);}
+.flip-counter{font-size:12px;color:var(--ink-muted);font-weight:600;}
+.flip-dots{display:flex;gap:6px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
+.flip-dot{width:8px;height:8px;border-radius:50%;background:var(--rule);cursor:pointer;}
+.flip-dot.active{background:var(--gold);}
+.cut-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0;}
+.cut-card{border:1px dashed var(--rule);break-inside:avoid;}
+.cut-card .term{background:var(--navy);color:var(--gold);padding:14px 16px;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;}
+.cut-card .def{background:var(--paper);color:var(--ink-soft);padding:12px 16px;font-size:12px;line-height:1.5;}
+@media print{body{background:#fff;font-size:11pt;}.topbar,.sidebar{display:none!important;}main{margin:0;max-width:100%;}.page{padding:.6in .85in;margin:0;break-before:always;}.page:first-of-type{break-before:auto;}.cover{min-height:11in;break-after:always;}-webkit-print-color-adjust:exact;print-color-adjust:exact;.flip-container{display:none;}h1,h2,h3,.subsec-title,.subsec-tag,.crumb,.figure-title{break-inside:avoid;break-after:avoid;}.callout,.num-card,.cards-row,.cut-card,.quiz-q,.legend-q{break-inside:avoid;}p,li{orphans:3;widows:3;}.legend-page{break-before:always;}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-logo"><span class="your-company">Your Company</span></div>
+  <div class="topbar-section">Section B &middot; Industry Terminology</div>
+  <div class="topbar-links">
+    <a href="#cover">Top</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#flash-grid">Study Cards</a>
+  </div>
+</header>
+
+<aside class="sidebar">
+  <div class="sidebar-title">Section B &middot; Terminology</div>
+  <ul class="sidebar-list">
+    <li class="sidebar-group-label">Overview</li>
+    <li><a href="#cover"><span class="code">B</span>Cover</a></li>
+    <li><a href="#b-media"><span class="code">&#9654;</span>Briefings</a></li>
+    <li><a href="#b-slides"><span class="code">&#9674;</span>Slides (B)</a></li>
+    <li class="sidebar-group-label">Content</li>
+    <li><a href="#b1"><span class="code">B.1</span>Why Language Matters</a></li>
+    <li><a href="#b2"><span class="code">B.2</span>Proposal &amp; Document Terms</a></li>
+    <li><a href="#b3"><span class="code">B.3</span>Design Phase Terms</a></li>
+    <li><a href="#b4"><span class="code">B.4</span>Kitchen &amp; Facility Terms</a></li>
+    <li><a href="#b5"><span class="code">B.5</span>Credentials &amp; Orgs</a></li>
+    <li><a href="#b6"><span class="code">B.6</span>Business &amp; Sales Terms</a></li>
+    <li><a href="#b7"><span class="code">B.7</span>Code &amp; Compliance</a></li>
+    <li><a href="#b8"><span class="code">B.8</span>Financial &amp; Fee Terms</a></li>
+    <li><a href="#b9"><span class="code">B.9</span>Using Language With Clients</a></li>
+    <li class="sidebar-group-label">Assessment</li>
+    <li><a href="#quiz"><span class="code">&#10003;</span>Quiz (15 Q)</a></li>
+    <li><a href="#legend1"><span class="code">&#9745;</span>Answer Legend</a></li>
+    <li><a href="#flash-grid"><span class="code">&#9635;</span>Flashcard Grid</a></li>
+    <li><a href="#flip-cards"><span class="code">&#9654;</span>Flip Cards</a></li>
+    <li><a href="#cut-cards"><span class="code">&#9986;</span>Cut Cards</a></li>
+  </ul>
+</aside>
+
+<main>
+
+<!-- COVER -->
+<div class="page cover" id="cover">
+  <div class="cover-eyebrow"><span class="your-company">Your Company</span> Sales &amp; Proposal Development Training Guide &middot; 2026 Edition</div>
+  <div class="cover-letter">B</div>
+  <div class="cover-title">Industry Terminology &amp; Definitions</div>
+  <div class="cover-sub">The professional language that signals authority, prevents misunderstanding, and separates credible consultants from everyone else in the room.</div>
+  <div class="cover-rule"></div>
+  <div class="nav-cards">
+    <a class="nav-card" href="#b1"><div class="nav-card-code">B.1</div><div class="nav-card-title">Why Language Matters</div></a>
+    <a class="nav-card" href="#b2"><div class="nav-card-code">B.2</div><div class="nav-card-title">Proposal &amp; Document Terms</div></a>
+    <a class="nav-card" href="#b3"><div class="nav-card-code">B.3</div><div class="nav-card-title">Design Phase Terminology</div></a>
+    <a class="nav-card" href="#b4"><div class="nav-card-code">B.4</div><div class="nav-card-title">Kitchen &amp; Facility Terms</div></a>
+    <a class="nav-card" href="#b5"><div class="nav-card-code">B.5</div><div class="nav-card-title">Credentials &amp; Organizations</div></a>
+    <a class="nav-card" href="#b6"><div class="nav-card-code">B.6</div><div class="nav-card-title">Business &amp; Sales Terms</div></a>
+    <a class="nav-card" href="#b7"><div class="nav-card-code">B.7</div><div class="nav-card-title">Code &amp; Compliance</div></a>
+    <a class="nav-card" href="#b8"><div class="nav-card-code">B.8</div><div class="nav-card-title">Financial &amp; Fee Terms</div></a>
+    <a class="nav-card" href="#b9"><div class="nav-card-code">B.9</div><div class="nav-card-title">Using Language With Clients</div></a>
+    <a class="nav-card" href="#quiz"><div class="nav-card-code">&#10003;</div><div class="nav-card-title">15-Question Assessment</div></a>
+    <a class="nav-card" href="#flash-grid"><div class="nav-card-code">&#9670;</div><div class="nav-card-title">Flashcard Grid</div></a>
+    <a class="nav-card" href="#cut-cards"><div class="nav-card-code">&#9986;</div><div class="nav-card-title">Cut Cards</div></a>
+  </div>
+  <div class="cover-credit"><span class="your-company">Your Company</span> Associates, Inc. &middot; [Company Address] &middot; Internal Use Only &middot; 2026</div>
+</div>
+
+<!-- MEDIA -->
+<div class="page" id="b-media">
+  <div class="crumb">SECTION B <span class="dot">&middot;</span> BRIEFINGS</div>
+  <div class="subsec-tag">Watch and Listen</div>
+  <h2 class="subsec-title">Section Briefings</h2>
+  <div class="subsec-lede">Watch the video, listen to the podcast, then read the section for the detail. The same terminology framework in three formats.</div>
+  <div class="media-block">
+    <div class="media-byline">Video &middot; The Instrument of Credibility: Mastering Industry Language</div>
+    <div class="media-iframe-wrap"><video controls preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;border-radius:2px;"><source src="media/b/video.mp4" type="video/mp4"></video></div>
+    <div class="media-caption">Why every word you choose signals whether you belong in the room.</div>
+  </div>
+  <div class="media-block">
+    <div class="media-byline">Audio &middot; Why Kitchen Consultants Never Say Blueprints</div>
+    <div class="audio-wrap"><audio controls preload="metadata" style="width:100%;display:block;"><source src="media/b/audio.m4a" type="audio/mp4"></audio></div>
+    <div class="media-caption">The full terminology framework, narrated. The same vocabulary in audio form.</div>
+  </div>
+  <div class="figure-title" style="margin-top:32px;">Section B &middot; Infographic</div>
+  <img class="media-img" src="media/b/infographic.png" alt="Section B Industry Terminology Infographic" loading="lazy">
+  <div class="figure-title" style="margin-top:32px;">Section B &middot; Concept Mind Map</div>
+  <img class="media-img" src="media/b/mindmap.png" alt="Section B Mind Map" loading="lazy">
+</div>
+
+
+<!-- B-SLIDES -->
+<div class="page" id="b-slides">
+  <div class="crumb">SECTION B <span class="dot">&middot;</span> PRESENTATION</div>
+  <div class="subsec-tag">Full Slide Deck</div>
+  <h2 class="subsec-title">Mastering Industry Terminology</h2>
+  <div class="subsec-lede">The complete presentation for this section. Each slide is embedded directly. Scroll through all 15 slides below.</div>
+  <style>.slide-img{width:100%;display:block;border-radius:2px;border:1px solid var(--rule);margin-bottom:8px;}</style>
+  <img class="slide-img" src="media/b/slides/slide01.png" alt="Slide 1 of 15" loading="lazy">
+  <img class="slide-img" src="media/b/slides/slide02.png" alt="Slide 2 of 15" loading="lazy">
+  <img class="slide-img" src="media/b/slides/slide03.png" alt="Slide 3 of 15" loading="lazy">
+  <img class="slide-img" src="media/b/slides/slide04.png" alt="Slide 4 of 15" loading="lazy">
+  <img class="slide-img" src="media/b/slides/slide05.png" alt="Slide 5 of 15" loading="lazy">
+  <img class="slide-img" src="media/b/slides/slide06.png" alt="Slide 6 of 15" loading="lazy">
+  <img class="slide-img" src="media/b/slides/slide07.png" alt="Slide 7 of 15" loading="lazy">
+  <img class="slide-img" src="media/b/slides/slide08.png" alt="Slide 8 of 15" loading="lazy">
+  <img class="slide-img" src="media/b/slides/slide09.png" alt="Slide 9 of 15" loading="lazy">
+  <img class="slide-img" src="media/b/slides/slide10.png" alt="Slide 10 of 15" loading="lazy">
+  <img class="slide-img" src="media/b/slides/slide11.png" alt="Slide 11 of 15" loading="lazy">
+  <img class="slide-img" src="media/b/slides/slide12.png" alt="Slide 12 of 15" loading="lazy">
+  <img class="slide-img" src="media/b/slides/slide13.png" alt="Slide 13 of 15" loading="lazy">
+  <img class="slide-img" src="media/b/slides/slide14.png" alt="Slide 14 of 15" loading="lazy">
+  <img class="slide-img" src="media/b/slides/slide15.png" alt="Slide 15 of 15" loading="lazy">
+</div>
+
+<!-- B.1 -->
+<div class="page" id="b1">
+  <div class="crumb">SECTION B <span class="dot">&middot;</span> FOUNDATIONS</div>
+  <div class="subsec-tag">B.1 &middot; Why Language Matters</div>
+  <h2 class="subsec-title">Why Industry Language Matters</h2>
+  <div class="subsec-lede">In professional consulting, the words you use are not decoration. They are instruments of credibility. Every term you choose signals whether you belong in the room or whether you are guessing your way through a conversation that costs your client millions of dollars.</div>
+  <div class="section-body">
+    <p>At <span class="your-company">Your Company</span>, vocabulary is a core professional skill ranked alongside proposal writing, fee calculation, and client communication. The language you use in emails, phone calls, proposals, and presentations determines whether clients perceive you as a trusted authority or a generic vendor reading from a script.</p>
+    <p>This section establishes the foundational terminology you will encounter daily. Every term defined here appears repeatedly in the Anja training notes, in client-facing documents, in the review process, and in internal communications. Misusing any of these terms is not a minor mistake: it signals to the client that you do not understand the work you are proposing to do.</p>
+  </div>
+  <div class="callout expert">
+    <div class="label"><span class="icon">&#10078;</span> Expert Insight</div>
+    <div class="body">"If you say 'blueprints' instead of 'construction documents,' the architect knows you are not from this world. If you confuse an RFP with an RFQ, the client wonders who trained you. Language is the first filter. Pass it or you never get to show what you actually know."</div>
+    <div class="attrib">&middot; Marketing Director</div>
+  </div>
+  <div class="figure-title">Figure B.1 &middot; The Three Consequences of Incorrect Terminology</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num">1</div><div class="kicker">Consequence</div><div class="title">Loss of Authority</div><div class="desc">Wrong terms destroy the expert status <span class="your-company">Your Company</span> has spent decades building.</div></div>
+    <div class="num-card"><div class="num">2</div><div class="kicker">Consequence</div><div class="title">Scope Confusion</div><div class="desc">Confusing phases or terms creates liability by promising deliverables in wrong phases.</div></div>
+    <div class="num-card"><div class="num">3</div><div class="kicker">Consequence</div><div class="title">Revenue Impact</div><div class="desc">Proposals with terminology errors get sent back, delaying pipeline velocity and revenue.</div></div>
+    <div class="num-card" style="background:var(--navy);border-top-color:var(--gold);"><div class="num" style="color:var(--gold);">Rule</div><div class="kicker" style="color:var(--text-secondary);">House Standard</div><div class="title" style="color:#FFF;">Zero Exceptions</div><div class="desc" style="color:var(--text-secondary);">There is no context in which "close enough" is acceptable in <span class="your-company">Your Company</span> communications.</div></div>
+  </div>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">Every term in this section must be used correctly in all <span class="your-company">Your Company</span> communications: proposals, cover letters, consultation agreements, emails, phone calls, and presentations. There are no exceptions, and there is no context in which "close enough" is acceptable.</div>
+  </div>
+</div>
+
+<!-- B.2 -->
+<div class="page" id="b2">
+  <div class="crumb">SECTION B <span class="dot">&middot;</span> TERMINOLOGY</div>
+  <div class="subsec-tag">B.2 &middot; Proposal &amp; Document Terms</div>
+  <h2 class="subsec-title">Proposal &amp; Document Terms</h2>
+  <div class="subsec-lede">These are the terms you will use most frequently. Every document that leaves <span class="your-company">Your Company</span> uses these terms precisely.</div>
+  <div class="figure-title">Figure B.2 &middot; Proposal &amp; Document Terminology Reference</div>
+  <table>
+    <thead><tr><th>Term</th><th>Definition</th><th>Why It Matters</th></tr></thead>
+    <tbody>
+      <tr><td><strong>RFP</strong></td><td>Request for Proposal. A formal document requesting a detailed proposal including scope, methodology, and fee. The response is a decision tool.</td><td>The majority of <span class="your-company">Your Company</span> work originates through RFPs.</td></tr>
+      <tr><td><strong>RFQ</strong></td><td>Request for Qualifications. Asks firms to demonstrate competency: resumes, past projects, credentials. No fee is quoted initially.</td><td>RFQs take ~4 hours each. Completing one is a competitive advantage since many competitors will not finish.</td></tr>
+      <tr><td><strong>Consultation Agreement</strong></td><td>The legal contract portion of a proposal. Defines scope, fee, phases, payment terms, and exclusions.</td><td>Every word has legal weight. Must match the cover letter exactly.</td></tr>
+      <tr><td><strong>Cover Letter</strong></td><td>The narrative portion of a proposal. Introduces project context, establishes authority, describes approach, and summarizes scope.</td><td>The first two paragraphs carry the most weight. No filler, no "we are pleased to present."</td></tr>
+      <tr><td><strong>Reference Line</strong></td><td>The line at the top of the proposal identifying the project by name, client, and project number. Copied verbatim from the client's RFP.</td><td>Must be identical each time it appears. Inconsistency signals carelessness.</td></tr>
+      <tr><td><strong>SF330</strong></td><td>Standard Form 330. A federal government form for architect and engineering qualifications submissions.</td><td>Narrative sections can be populated from existing proposals.</td></tr>
+      <tr><td><strong>Scope of Work</strong></td><td>Detailed description of all deliverables organized by design phase (SD, DD, CD, BN, CA).</td><td>What is not in the scope is not <span class="your-company">Your Company</span>'s responsibility. Precision protects the firm.</td></tr>
+      <tr><td><strong>Independence Statement</strong></td><td>Required paragraph affirming vendor-neutral status. Two versions: Foodservice and Laundry.</td><td>Not optional. Wrong version = review failure.</td></tr>
+      <tr><td><strong>Pre-Flight Checklist</strong></td><td>14-point quality assurance checklist applied before the review process.</td><td>No proposal moves to Anja without completing it.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Watch Out</div>
+    <div class="body"><strong>RFP and RFQ are not interchangeable.</strong> Calling an RFQ an RFP in your response signals that you did not read the request. Architects sometimes mislabel documents. Your job is to read the content and respond to what is actually being asked, regardless of the label.</div>
+  </div>
+</div>
+
+<!-- B.3 -->
+<div class="page" id="b3">
+  <div class="crumb">SECTION B <span class="dot">&middot;</span> TERMINOLOGY</div>
+  <div class="subsec-tag">B.3 &middot; Design Phase Terminology</div>
+  <h2 class="subsec-title">Design Phase Terminology</h2>
+  <div class="subsec-lede">Every <span class="your-company">Your Company</span> proposal is structured around the standard AEC design phases. These phases define the workflow, determine the fee, and establish deliverables. Know these cold.</div>
+  <div class="figure-title">Figure B.4 &middot; The Five Standard AEC Design Phases</div>
+  <div class="phase-row">
+    <div class="phase-cell"><div class="phase-abbr">SD</div><div class="phase-name">Schematic Design</div><div class="phase-desc">Layouts, block diagrams, order-of-magnitude estimates.</div></div>
+    <div class="phase-cell"><div class="phase-abbr">DD</div><div class="phase-name">Design Development</div><div class="phase-desc">Detailed Revit plans, data books, utility coordination.</div></div>
+    <div class="phase-cell"><div class="phase-abbr">CD</div><div class="phase-name">Construction Docs</div><div class="phase-desc">Bid-ready drawings, MasterSpec, connection plans.</div></div>
+    <div class="phase-cell"><div class="phase-abbr">BN</div><div class="phase-name">Bidding / Negotiation</div><div class="phase-desc">Bid evaluation, dealer coordination, addenda.</div></div>
+    <div class="phase-cell"><div class="phase-abbr">CA</div><div class="phase-name">Construction Admin</div><div class="phase-desc">Submittal review, RFIs, site inspections, punch list.</div></div>
+  </div>
+  <div class="figure-title" style="margin-top:24px;">Figure B.5 &middot; Additional Design Phase Terms</div>
+  <table>
+    <thead><tr><th>Term</th><th>Definition</th><th>Context</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Programming / Conceptual</strong></td><td>Optional early phase: establishing goals, confirming menus, creating block diagrams before design begins.</td><td>Complex new construction for large institutions.</td></tr>
+      <tr><td><strong>Equipment Survey</strong></td><td>Optional phase for renovations: inventorying existing equipment, evaluating condition, identifying non-compliance.</td><td>Renovation projects only. New construction skips this.</td></tr>
+      <tr><td><strong>Waterfall Structure</strong></td><td>Each phase must be completed and approved before the next begins. Client signs off at each gate.</td><td>Most <span class="your-company">Your Company</span> proposals use waterfall. "Upon written approval of [phase]..."</td></tr>
+      <tr><td><strong>30% / 60% / 90%</strong></td><td>Percentage milestones mapping to phases: SD = 30%, DD = 60%, CD = 90%. Government clients use this.</td><td>Map their percentage language to your phase abbreviations in the proposal.</td></tr>
+      <tr><td><strong>BIM / Clash Detection</strong></td><td>Building Information Modeling: 3D digital models for design coordination. Clash Detection finds conflicts before construction.</td><td><span class="your-company">Your Company</span> uses BIM (Revit) to coordinate with architectural and MEP systems.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body">When an RFP uses different phase names, map their language to yours: "Phase I: Schematic Design (referred to in the RFP as '30% Design Submittal')." This shows the client you read their document while maintaining <span class="your-company">Your Company</span>'s standard structure.</div>
+  </div>
+</div>
+
+<!-- B.4 -->
+<div class="page" id="b4">
+  <div class="crumb">SECTION B <span class="dot">&middot;</span> TERMINOLOGY</div>
+  <div class="subsec-tag">B.4 &middot; Kitchen &amp; Facility Terms</div>
+  <h2 class="subsec-title">Kitchen &amp; Facility Terms</h2>
+  <div class="subsec-lede">You are not designing kitchens, but you are writing proposals about them, discussing them with architects, and presenting them to clients. These terms describe the physical environment <span class="your-company">Your Company</span> designs.</div>
+  <div class="figure-title">Figure B.7 &middot; Kitchen &amp; Facility Terminology</div>
+  <table>
+    <thead><tr><th>Term</th><th>Definition</th><th>Proposal Context</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Exhaust Hood</strong></td><td>Ventilation canopy above cooking equipment. Captures heat, grease vapors, smoke. Includes fire suppression. Cost: ~$3,000+ per linear foot.</td><td>One of the most expensive kitchen components. Always paired with fire suppression discussion.</td></tr>
+      <tr><td><strong>Combi Oven</strong></td><td>Versatile oven combining convection, steam, and combination cooking. Can bake, roast, steam, poach, rethermalize. Some models are ventless.</td><td>Central to modern kitchen design. Ventless models eliminate the need for an exhaust hood.</td></tr>
+      <tr><td><strong>Three-Compartment Sink</strong></td><td>Commercial sink with three basins for wash-rinse-sanitize process. Required by health code for manual warewashing.</td><td>Health departments require these in most commercial kitchen types. Affects plumbing scope.</td></tr>
+      <tr><td><strong>FOG / Grease Interceptor</strong></td><td>Fat, Oil, and Grease management system. Grease interceptors capture FOG before it enters the municipal sewer. Prevents "fatbergs."</td><td>Sizing affects plumbing design. <span class="your-company">Your Company</span> coordinates with plumbing engineers during DD.</td></tr>
+      <tr><td><strong>Walk-In Cooler / Freezer</strong></td><td>Large insulated storage rooms at refrigeration (34-40 degrees F) or freezer (0 degrees F) temperatures.</td><td>Require significant floor space, structural support, and refrigeration infrastructure.</td></tr>
+      <tr><td><strong>Servery / Serving Line</strong></td><td>Front-of-house area where food is served. Can be cafeteria-style, pod-based, or scatter-style.</td><td>Design directly affects throughput. School lines must process students within a 30-minute window.</td></tr>
+      <tr><td><strong>Commissary</strong></td><td>Centralized production kitchen that prepares food for multiple satellite locations.</td><td>Among the largest, most complex project types. Heavy production equipment and logistics.</td></tr>
+      <tr><td><strong>Catering / Warming Kitchen</strong></td><td>Kitchen for receiving, holding, and rethermalizing pre-prepared food. Lower density. $200-$250/SF.</td><td>Different code requirements, reduced exhaust needs, lower fee structures than full-prep.</td></tr>
+      <tr><td><strong>UDS (Utility Distribution)</strong></td><td>Centralized overhead system consolidating gas, electric, water, drainage connections for cooking equipment.</td><td>Simplifies installation, reduces costs, enables flexible configurations. Can house hand sinks.</td></tr>
+      <tr><td><strong>AutoQuotes</strong></td><td>Industry-standard software for equipment lists and cost estimates. Contains manufacturer pricing data.</td><td>Drives the equipment budget, which drives the fee calculation.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout files">
+    <div class="label"><span class="icon">&#9776;</span> From the Files</div>
+    <div class="body"><strong>The Scrubber vs. Standard Hood.</strong> A standard exhaust hood vents grease-laden air outside the building. A "scrubber" system filters and cleans the air before releasing it, allowing ventilation to be routed back into the dining space without depositing grease on guests. This is critical in high-rise rooftop dining, open-concept restaurants, and outdoor seating areas adjacent to cooking. Knowing this distinction demonstrates technical depth in client conversations.</div>
+  </div>
+</div>
+
+<!-- B.5 -->
+<div class="page" id="b5">
+  <div class="crumb">SECTION B <span class="dot">&middot;</span> TERMINOLOGY</div>
+  <div class="subsec-tag">B.5 &middot; Credentials &amp; Organizations</div>
+  <h2 class="subsec-title">Professional Credentials &amp; Organizations</h2>
+  <div class="subsec-lede">Credentials are the shorthand of professional trust. Knowing what they mean allows you to recognize authority in the room and position <span class="your-company">Your Company</span>'s team correctly.</div>
+  <div class="figure-title">Figure B.8 &middot; Key Professional Credentials</div>
+  <table>
+    <thead><tr><th>Credential</th><th>Full Name</th><th>What It Means</th><th><span class="your-company">Your Company</span> Connection</th></tr></thead>
+    <tbody>
+      <tr><td><strong>FCSI</strong></td><td>Foodservice Consultants Society International</td><td>Global association for foodservice consultants. Requires demonstrated expertise and peer nomination.</td><td>James C. Your Company, FCSI, CSI. Appears on all proposals.</td></tr>
+      <tr><td><strong>CSI</strong></td><td>Construction Specifications Institute</td><td>Focused on construction specifications and project delivery standards.</td><td>Reinforces expertise in producing MasterSpec documents.</td></tr>
+      <tr><td><strong>AIA</strong></td><td>American Institute of Architects</td><td>Professional organization for licensed architects. AIA contracts are the industry standard.</td><td><span class="your-company">Your Company</span> often works under AIA contract structures.</td></tr>
+      <tr><td><strong>LEED AP</strong></td><td>Leadership in Energy and Environmental Design</td><td>Expertise in green building design and sustainable construction.</td><td>Relevant when projects have LEED certification requirements.</td></tr>
+      <tr><td><strong>PE</strong></td><td>Professional Engineer</td><td>Licensed engineer with stamp authority on engineering documents.</td><td><span class="your-company">Your Company</span> coordinates with PE-stamped MEP engineers.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout rule">
+    <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
+    <div class="body">James C. Your Company's credentials are always: <strong>James C. Your Company, FCSI, CSI</strong>. In that order, separated by commas. They appear on proposal cover letters, firm biographies, and resume submissions. Never abbreviate his name or omit the credentials in formal documents.</div>
+  </div>
+</div>
+
+<!-- B.6 -->
+<div class="page" id="b6">
+  <div class="crumb">SECTION B <span class="dot">&middot;</span> TERMINOLOGY</div>
+  <div class="subsec-tag">B.6 &middot; Business &amp; Sales Terms</div>
+  <h2 class="subsec-title">Business &amp; Sales Terms</h2>
+  <div class="subsec-lede">These terms define the commercial language used in <span class="your-company">Your Company</span>'s sales operations. They appear in CRM records, pipeline discussions, and strategic planning.</div>
+  <div class="figure-title">Figure B.9 &middot; Business &amp; Sales Terminology</div>
+  <table>
+    <thead><tr><th>Term</th><th>Definition</th><th>Application</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Pipeline / Pipedrive</strong></td><td>The total set of active prospects tracked in Pipedrive CRM through stages: Pending, Active, Won, Lost.</td><td>If it is not in Pipedrive, it does not exist. Update after every interaction.</td></tr>
+      <tr><td><strong>Inbound / Outbound</strong></td><td>Inbound: leads from established relationships. Outbound: leads from new business development and prospecting.</td><td>Inbound = technical response. Outbound = empathy + authority signaling + full framework.</td></tr>
+      <tr><td><strong>ICP</strong></td><td>Ideal Customer Profile. The type of organization that benefits most from <span class="your-company">Your Company</span>'s services.</td><td>Guides outbound prospecting toward highest win-probability opportunities.</td></tr>
+      <tr><td><strong>Critical Event</strong></td><td>The time-sensitive trigger creating urgency: bond deadline, school opening, accreditation inspection.</td><td>Identifying the critical event positions <span class="your-company">Your Company</span> as the firm that understands urgency.</td></tr>
+      <tr><td><strong>Impact Statement</strong></td><td>Concise description of the measurable change the project will produce. Opens the cover letter.</td><td>Replaces generic filler with project-specific authority.</td></tr>
+      <tr><td><strong>Go/No-Go</strong></td><td>Internal evaluation of whether to pursue an opportunity based on fit, capacity, fee viability, and strategy.</td><td>Not every RFP should get a response. Discipline protects team time.</td></tr>
+      <tr><td><strong>ROM</strong></td><td>Rough Order of Magnitude. Preliminary cost estimate using sector rates ($300-$350/SF).</td><td>Helps clients understand investment scale before design begins.</td></tr>
+      <tr><td><strong>MBE</strong></td><td>Certified Minority Business Enterprise. <span class="your-company">Your Company</span>'s certified status.</td><td>Competitive advantage in government and institutional projects. Listed on all proposals.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- B.7 -->
+<div class="page" id="b7">
+  <div class="crumb">SECTION B <span class="dot">&middot;</span> TERMINOLOGY</div>
+  <div class="subsec-tag">B.7 &middot; Code &amp; Compliance Terminology</div>
+  <h2 class="subsec-title">Code &amp; Compliance Terminology</h2>
+  <div class="subsec-lede">Code compliance is not optional. Every <span class="your-company">Your Company</span> proposal addresses code requirements. You need these terms to write accurately about what the project requires.</div>
+  <div class="figure-title">Figure B.10 &middot; Code &amp; Compliance Terms</div>
+  <table>
+    <thead><tr><th>Term</th><th>Definition</th><th>Relevance</th></tr></thead>
+    <tbody>
+      <tr><td><strong>AHJ</strong></td><td>Authority Having Jurisdiction. The local official who approves or rejects building plans and equipment installations.</td><td>Varies by location. <span class="your-company">Your Company</span> designs to the most restrictive standard.</td></tr>
+      <tr><td><strong>CFM</strong></td><td>Cubic Feet per Minute. Measurement of airflow volume for sizing exhaust hoods and ventilation.</td><td>Underestimating CFM = code violation. Overestimating = wasted money.</td></tr>
+      <tr><td><strong>UL 710</strong></td><td>Underwriters Laboratories safety standard for commercial cooking ventilation equipment.</td><td>Ventless equipment must have UL 710 certification to validate the claim.</td></tr>
+      <tr><td><strong>MasterSpec</strong></td><td>Specification writing system producing bid-ready procurement documents without referencing specific manufacturers.</td><td>Produced during CD phase. Ensures vendor-neutral, competitive bidding.</td></tr>
+      <tr><td><strong>MEP</strong></td><td>Mechanical, Electrical, Plumbing. The three engineering disciplines providing building infrastructure.</td><td>Every piece of equipment needs specific MEP connections. Coordination happens in DD and CD.</td></tr>
+      <tr><td><strong>RFI</strong></td><td>Request for Information. Formal question during construction when a conflict or ambiguity is found.</td><td>Reducing RFIs is a measure of design quality. Thorough DD and CD phases minimize them.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn">
+    <div class="label"><span class="icon">&#9888;</span> Watch Out</div>
+    <div class="body"><span class="your-company">Your Company</span> does not provide code compliance certification. The firm designs to code and coordinates with the AHJ, but does not stamp drawings, provide PE certifications, or issue building permits. Never promise code approval in a proposal; promise code-compliant design.</div>
+  </div>
+</div>
+
+<!-- B.8 -->
+<div class="page" id="b8">
+  <div class="crumb">SECTION B <span class="dot">&middot;</span> TERMINOLOGY</div>
+  <div class="subsec-tag">B.8 &middot; Financial &amp; Fee Terms</div>
+  <h2 class="subsec-title">Financial &amp; Fee Terms</h2>
+  <div class="subsec-lede">Fee calculation at <span class="your-company">Your Company</span> follows a precise logic. These terms define the financial framework you will use in every proposal.</div>
+  <div class="figure-title">Figure B.11 &middot; Fee Calculation Logic Flow</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num">1</div><div class="kicker">Step One</div><div class="title">Calculate Equipment Budget</div><div class="desc">Kitchen SF &times; Sector Rate = Equipment Budget. Example: 2,850 SF &times; $325 (Hospitality) = $926,250.</div></div>
+    <div class="num-card"><div class="num">2</div><div class="kicker">Step Two</div><div class="title">Calculate Consulting Fee</div><div class="desc">Equipment Budget &times; Fee % = Consulting Fee. Example: $926,250 &times; 5% = $46,312. Schools use 4%, all others use 5%.</div></div>
+  </div>
+  <div class="figure-title">Figure B.11a &middot; Sector Rates Per Square Foot</div>
+  <div class="cards-row">
+    <div class="num-card"><div class="num" style="font-size:24px;">$300</div><div class="kicker">Per SF</div><div class="title">Schools</div><div class="desc">K-12 and institutional education. 4% fee rate due to standardized, repeatable layouts.</div></div>
+    <div class="num-card"><div class="num" style="font-size:24px;">$325</div><div class="kicker">Per SF</div><div class="title">Hospitality</div><div class="desc">Hotels, restaurants, bars. Standard 5% fee rate.</div></div>
+    <div class="num-card"><div class="num" style="font-size:24px;">$350</div><div class="kicker">Per SF</div><div class="title">Correctional</div><div class="desc">Prisons and detention facilities. Highest rate due to security modifications and MEP density.</div></div>
+    <div class="num-card"><div class="num" style="font-size:24px;">$200</div><div class="kicker">Per SF</div><div class="title">Catering</div><div class="desc">Warming and catering kitchens. $200-$250/SF. Lower density, reduced code requirements.</div></div>
+  </div>
+  <div class="figure-title" style="margin-top:24px;">Figure B.12 &middot; Financial &amp; Fee Terminology</div>
+  <table>
+    <thead><tr><th>Term</th><th>Definition</th><th>Application</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Equipment Budget</strong></td><td>Estimated total equipment cost: Kitchen SF &times; Sector Rate.</td><td>Foundation of fee calculation. Must be accurate.</td></tr>
+      <tr><td><strong>Fee Percentage</strong></td><td>Percentage of equipment budget = consulting fee. Standard: 5%. Schools: 4%.</td><td>Deviations from standard require James's approval.</td></tr>
+      <tr><td><strong>Per Diem</strong></td><td>Daily flat rate for on-site services. <span class="your-company">Your Company</span> standard: $1,600/day.</td><td>Applies to CA phase site visits and inspections.</td></tr>
+      <tr><td><strong>Hourly Rates</strong></td><td>Project Principal: $200/hr. Project Manager: $170/hr. QC: $125/hr. Revit Operator: $90/hr.</td><td>Must be current and match the published schedule.</td></tr>
+      <tr><td><strong>50-Mile Rule</strong></td><td>Projects within 50 miles: no travel paragraph. Beyond 50 miles: travel is reimbursable.</td><td>Check project location before including or omitting travel language.</td></tr>
+      <tr><td><strong>COI</strong></td><td>Certificate of Insurance. Confirms liability, professional, and workers' comp coverage.</td><td>Handled by accounting. Two versions: with and without client named as additional insured.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- B.9 -->
+<div class="page" id="b9">
+  <div class="crumb">SECTION B <span class="dot">&middot;</span> APPLICATION</div>
+  <div class="subsec-tag">B.9 &middot; Using Language With Clients</div>
+  <h2 class="subsec-title">How to Use Industry Language With Clients</h2>
+  <div class="subsec-lede">Knowing the correct terminology is only half the skill. The other half is knowing when to use it, when to translate it, and how to calibrate to the person across the table.</div>
+  <div class="figure-title">Figure B.13 &middot; Language Calibration by Audience</div>
+  <div class="audience-grid">
+    <div class="audience-col">
+      <div class="audience-type">Architects &amp; Engineers</div>
+      <div class="audience-label">Full Technical Language</div>
+      <div class="audience-quote">"We will coordinate MEP loads during DD and produce MasterSpec procurement documents in CD."</div>
+      <div class="audience-note">Precision is respect. They expect the vocabulary.</div>
+    </div>
+    <div class="audience-col">
+      <div class="audience-type">Facility Directors &amp; Operators</div>
+      <div class="audience-label">Functional Language</div>
+      <div class="audience-quote">"We will produce detailed equipment plans showing every piece, where it plugs in, and how much power."</div>
+      <div class="audience-note">Explain what, not what it is called.</div>
+    </div>
+    <div class="audience-col">
+      <div class="audience-type">Executives &amp; Board Members</div>
+      <div class="audience-label">Strategic Language</div>
+      <div class="audience-quote">"Our process gives you budget certainty before construction. You review and approve at each step."</div>
+      <div class="audience-note">Outcomes, budgets, timelines.</div>
+    </div>
+  </div>
+  <div class="callout best">
+    <div class="label"><span class="icon">&#10003;</span> Best Practice</div>
+    <div class="body"><strong>Match the room, then elevate.</strong> Mirror the client's language level first. If they say "kitchen plans," you say "kitchen plans." Once rapport is established, introduce the precise term naturally: "When we produce the kitchen plans during Schematic Design, we call that the equipment layout." This teaches the client your language without talking down to them.</div>
+  </div>
+  <div class="callout expert">
+    <div class="label"><span class="icon">&#10078;</span> The Advocate Principle</div>
+    <div class="body">"We are their seeing eye dog. We walk them through the choices they are going to make. You are their guide. You are there to say: have you thought about this? Watch out for that curb. Watch out for the wall that is in front of you."</div>
+    <div class="attrib">&middot; Marketing Director</div>
+  </div>
+  <div class="figure-title" style="margin-top:24px;">Terms to Never Use in Client Communication</div>
+  <table>
+    <thead><tr><th>Forbidden Phrase</th><th>Why It Fails</th><th>Use Instead</th></tr></thead>
+    <tbody>
+      <tr><td><strong>"We are pleased to present..."</strong></td><td>Filler. Wastes the most valuable real estate in the proposal.</td><td>Open with the impact statement.</td></tr>
+      <tr><td><strong>"Blueprints"</strong></td><td>Outdated. Signals you are not from this world.</td><td>"Construction documents" or "drawings"</td></tr>
+      <tr><td><strong>"Estimate" (for budget)</strong></td><td>Implies uncertainty. A sector-rate calculation is not an estimate.</td><td>"Budget" based on sector rates</td></tr>
+      <tr><td><strong>Manufacturer names in proposals</strong></td><td><span class="your-company">Your Company</span> is vendor-neutral. Naming brands violates this standard.</td><td>Performance criteria: "10-gallon tilting skillet, electric, floor-mounted"</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- QUIZ -->
+<div class="page" id="quiz">
+  <div class="crumb">SECTION B <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag">&#10003; Comprehensive Test</div>
+  <h2 class="subsec-title">Section B Comprehensive Test</h2>
+  <div class="subsec-lede">15 questions covering Knowledge, Application, and Judgment. One correct answer each. A passing score is 12 correct. Below 10, re-read the subsections referenced in the answer legend.</div>
+
+  <div class="quiz-q"><div class="qnum">B.1</div><div class="qtext">What does "SD" stand for in the <span class="your-company">Your Company</span> design phase structure?</div><ul class="opts"><li class="opt"><span class="letter">A</span>System Design</li><li class="opt"><span class="letter">B</span>Scope Definition</li><li class="opt"><span class="letter">C</span>Schematic Design</li><li class="opt"><span class="letter">D</span>Structural Development</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">B.2</div><div class="qtext">What is the primary difference between an RFP and an RFQ?</div><ul class="opts"><li class="opt"><span class="letter">A</span>RFPs are for government, RFQs are for private sector</li><li class="opt"><span class="letter">B</span>An RFP requests a proposal with fees; an RFQ requests qualifications without fees</li><li class="opt"><span class="letter">C</span>An RFP is longer than an RFQ</li><li class="opt"><span class="letter">D</span>RFQs are electronic, RFPs are printed</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">B.3</div><div class="qtext">What is the sector rate per square foot for a correctional facility kitchen?</div><ul class="opts"><li class="opt"><span class="letter">A</span>$350 per square foot</li><li class="opt"><span class="letter">B</span>$300 per square foot</li><li class="opt"><span class="letter">C</span>$325 per square foot</li><li class="opt"><span class="letter">D</span>$250 per square foot</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">B.4</div><div class="qtext">What does FOG stand for?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Floor, Outlet, and Gas</li><li class="opt"><span class="letter">B</span>Facility Operations Guide</li><li class="opt"><span class="letter">C</span>Food-grade Operational Grading</li><li class="opt"><span class="letter">D</span>Fat, Oil, and Grease</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">B.5</div><div class="qtext">What does FCSI represent?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Federal Construction Standards Institute</li><li class="opt"><span class="letter">B</span>Foodservice Consultants Society International</li><li class="opt"><span class="letter">C</span>Facility Compliance and Safety International</li><li class="opt"><span class="letter">D</span>Food and Commercial Services Industry</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">B.6</div><div class="qtext">A client's RFP uses "30% Design Submittal" and "60% Design Submittal." What should you do?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Use only the client's percentage terminology</li><li class="opt"><span class="letter">B</span>Ignore their terminology and use only standard abbreviations</li><li class="opt"><span class="letter">C</span>Map their terms to yours: "Phase I: Schematic Design (referred to as 30% Design Submittal)"</li><li class="opt"><span class="letter">D</span>Ask the client to clarify before writing</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">B.7</div><div class="qtext">Project is 30 miles from the <span class="your-company">Your Company</span> office. Include a travel reimbursement paragraph?</div><ul class="opts"><li class="opt"><span class="letter">A</span>No, within the 50-mile radius</li><li class="opt"><span class="letter">B</span>Yes, always include travel</li><li class="opt"><span class="letter">C</span>Only if the client requests it</li><li class="opt"><span class="letter">D</span>Yes, at a reduced rate</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">B.8</div><div class="qtext">What is the Independence Statement?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Declaration that <span class="your-company">Your Company</span> operates without a parent company</li><li class="opt"><span class="letter">B</span>Confirmation that each office operates separately</li><li class="opt"><span class="letter">C</span>Statement that the proposal was prepared without help</li><li class="opt"><span class="letter">D</span>Affirmation that <span class="your-company">Your Company</span> does not sell equipment or receive manufacturer commissions</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">B.9</div><div class="qtext">A superintendent asks about "the kitchen plans." Best response?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Correct them: "We call those construction documents."</li><li class="opt"><span class="letter">B</span>Mirror their language, then introduce the precise term naturally</li><li class="opt"><span class="letter">C</span>Avoid technical terminology entirely</li><li class="opt"><span class="letter">D</span>Use full technical jargon: "SD phase Revit equipment plans"</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">B.10</div><div class="qtext">What is a combi oven?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Oven combining gas and electric heating</li><li class="opt"><span class="letter">B</span>Double-stacked conventional oven</li><li class="opt"><span class="letter">C</span>Versatile oven combining convection, steam, and combination cooking modes</li><li class="opt"><span class="letter">D</span>Commercial microwave with convection</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">B.11</div><div class="qtext">What does AHJ stand for?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Authority Having Jurisdiction</li><li class="opt"><span class="letter">B</span>Architectural and Housing Journal</li><li class="opt"><span class="letter">C</span>Approved Health and Janitorial</li><li class="opt"><span class="letter">D</span>American Hospitality Jurisdiction</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">B.12</div><div class="qtext">A proposal says "We will install Brand X combi ovens." What is wrong?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Combis are not for hospitality</li><li class="opt"><span class="letter">B</span>Should specify multiple brands</li><li class="opt"><span class="letter">C</span><span class="your-company">Your Company</span> designs, not installs</li><li class="opt"><span class="letter">D</span>Both: <span class="your-company">Your Company</span> designs (not installs) AND naming a brand violates vendor-neutral language</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">B.13</div><div class="qtext">Why is the school fee 4% instead of the standard 5%?</div><ul class="opts"><li class="opt"><span class="letter">A</span>School projects are always smaller</li><li class="opt"><span class="letter">B</span>Standardized layouts allow more efficient documentation, justifying the reduction</li><li class="opt"><span class="letter">C</span>Schools have lower equipment costs</li><li class="opt"><span class="letter">D</span>Government caps consulting fees</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">B.14</div><div class="qtext">Architect sends a document labeled "RFP" but it only asks for resumes and credentials. What do you do?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Submit a full proposal with fees since it says RFP</li><li class="opt"><span class="letter">B</span>Decline the opportunity</li><li class="opt"><span class="letter">C</span>Recognize it is an RFQ regardless of label, respond with qualifications, confirm with architect</li><li class="opt"><span class="letter">D</span>Include fees as a bonus</li></ul></div>
+
+  <div class="quiz-q"><div class="qnum">B.15</div><div class="qtext">Why does <span class="your-company">Your Company</span> use "Foodservice" in some proposals and "Food &amp; Beverage" in others?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Each triggers a different Independence Statement: Foodservice for institutional, F&amp;B for hospitality with bars</li><li class="opt"><span class="letter">B</span>They are interchangeable</li><li class="opt"><span class="letter">C</span>F&amp;B is for larger projects</li><li class="opt"><span class="letter">D</span>Foodservice is the older term</li></ul></div>
+</div>
+
+<!-- LEGEND 1 -->
+<div class="legend-page" id="legend1">
+  <div class="crumb" style="color:var(--text-secondary);">SECTION B <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag" style="color:var(--brass-soft);">&#9745; Answer Legend &middot; Part 1 of 2</div>
+  <div class="legend-title">Answers &middot; B.1 through B.8</div>
+  <div class="legend-sub">The correct answer is given for each question, followed by the reasoning and the subsection where the concept was taught. Return to any subsection that surprised you before moving to the flashcards.</div>
+  <div class="legend-q"><div class="head">B.1</div><div class="answer">Correct: C &middot; Schematic Design</div><div class="explain">SD = Schematic Design. First of five AEC phases. Involves layouts, block diagrams, and order-of-magnitude estimates. See B.3.</div></div>
+  <div class="legend-q"><div class="head">B.2</div><div class="answer">Correct: B &middot; RFP requests a proposal with fees; RFQ requests qualifications without fees</div><div class="explain">RFP = scope + fee. RFQ = qualifications only. Confusing them is a significant professional error. See B.2.</div></div>
+  <div class="legend-q"><div class="head">B.3</div><div class="answer">Correct: A &middot; $350 per square foot</div><div class="explain">Correctional = $350/SF, the highest rate, due to security modifications and high-density MEP requirements. See B.8.</div></div>
+  <div class="legend-q"><div class="head">B.4</div><div class="answer">Correct: D &middot; Fat, Oil, and Grease</div><div class="explain">FOG = Fat, Oil, and Grease. Must be captured by grease interceptors before entering municipal sewers. See B.4.</div></div>
+  <div class="legend-q"><div class="head">B.5</div><div class="answer">Correct: B &middot; Foodservice Consultants Society International</div><div class="explain">FCSI = Foodservice Consultants Society International. James C. Your Company holds this credential. See B.5.</div></div>
+  <div class="legend-q"><div class="head">B.6</div><div class="answer">Correct: C &middot; Map their terms to yours</div><div class="explain">Map client language to <span class="your-company">Your Company</span> phases. Shows you read their RFP while maintaining your standards. See B.3.</div></div>
+  <div class="legend-q"><div class="head">B.7</div><div class="answer">Correct: A &middot; No, within the 50-mile radius</div><div class="explain">The 50-Mile Rule: no travel paragraph for projects within 50 miles. See B.8.</div></div>
+  <div class="legend-q"><div class="head">B.8</div><div class="answer">Correct: D &middot; Affirmation that Your Company does not sell equipment or receive manufacturer commissions</div><div class="explain">The Independence Statement affirms vendor-neutral status. Two versions: Foodservice and Laundry. Wrong version = review failure. See B.2.</div></div>
+</div>
+
+<!-- LEGEND 2 -->
+<div class="legend-page" id="legend2">
+  <div class="crumb" style="color:var(--text-secondary);">SECTION B <span class="dot">&middot;</span> ASSESSMENT</div>
+  <div class="subsec-tag" style="color:var(--brass-soft);">&#9745; Answer Legend &middot; Part 2 of 2</div>
+  <div class="legend-title">Answers &middot; B.9 through B.15</div>
+  <div class="legend-sub">The remaining answers, with reasoning and subsection cross-references. Review every question you missed against its source subsection before moving on to the flashcards.</div>
+  <div class="legend-q"><div class="head">B.9</div><div class="answer">Correct: B &middot; Mirror their language, then introduce the precise term naturally</div><div class="explain">Match the room, then elevate. Build rapport first, then introduce precise terms. See B.9.</div></div>
+  <div class="legend-q"><div class="head">B.10</div><div class="answer">Correct: C &middot; Versatile oven combining convection, steam, and combination cooking modes</div><div class="explain">Combi = convection + steam + combo. Some models are ventless. Ventless combis eliminate the need for an exhaust hood. See B.4.</div></div>
+  <div class="legend-q"><div class="head">B.11</div><div class="answer">Correct: A &middot; Authority Having Jurisdiction</div><div class="explain">AHJ = Authority Having Jurisdiction. The local official who approves building plans. Varies by location. See B.7.</div></div>
+  <div class="legend-q"><div class="head">B.12</div><div class="answer">Correct: D &middot; Both errors: Your Company designs (not installs) AND naming a brand violates vendor-neutral language</div><div class="explain">Two failures in one sentence. <span class="your-company">Your Company</span> designs; dealers and contractors install. And brand names never appear in proposals. See B.7 and B.9.</div></div>
+  <div class="legend-q"><div class="head">B.13</div><div class="answer">Correct: B &middot; Standardized layouts allow more efficient documentation, justifying the reduction</div><div class="explain">K-12 uses standardized, repeatable layouts enabling efficient documentation. The lower fee reflects efficiency, not lower quality. See B.8.</div></div>
+  <div class="legend-q"><div class="head">B.14</div><div class="answer">Correct: C &middot; Recognize it is an RFQ regardless of label, respond with qualifications, confirm with architect</div><div class="explain">Read content, not labels. Confirm with the architect. This demonstrates attention to detail and protects against submitting the wrong format. See B.2.</div></div>
+  <div class="legend-q"><div class="head">B.15</div><div class="answer">Correct: A &middot; Each triggers a different Independence Statement</div><div class="explain">Not interchangeable. "Foodservice" = institutional. "Food &amp; Beverage" = hospitality with bar components. Each requires a different Independence Statement paragraph. Using the wrong one = wrong legal language. See B.2.</div></div>
+</div>
+
+<!-- FLASHCARD GRID -->
+<div class="page" id="flash-grid">
+  <div class="crumb">SECTION B <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9670; Flashcards &middot; Reference Grid</div>
+  <h2 class="subsec-title">Fifteen Cards &middot; Front and Back</h2>
+  <div class="subsec-lede">Fifteen flashcards covering the working vocabulary of Section B. Read the front, recall the back, then check. Use the interactive flip cards for active practice.</div>
+  <div class="flash-grid">
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">1</span>RFP vs. RFQ</div><div class="flash-grid-back">RFP = scope + methodology + fee. A decision tool. RFQ = qualifications only, no fee. Never confuse them.<div class="flash-grid-ref">(B.2)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">2</span>Five Design Phases</div><div class="flash-grid-back">SD (Schematic Design), DD (Design Development), CD (Construction Docs), BN (Bidding/Negotiation), CA (Construction Admin).<div class="flash-grid-ref">(B.3)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">3</span>Independence Statement</div><div class="flash-grid-back">Required in every proposal. Two versions: Foodservice and Laundry. Wrong version = review failure.<div class="flash-grid-ref">(B.2)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">4</span>Sector Rates ($/SF)</div><div class="flash-grid-back">Schools $300. Hospitality $325. Correctional $350. Catering $200-$250. Fee: 5% (schools: 4%).<div class="flash-grid-ref">(B.8)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">5</span>FOG</div><div class="flash-grid-back">Fat, Oil, and Grease. Byproducts of commercial cooking captured by grease interceptors before entering municipal sewers.<div class="flash-grid-ref">(B.4)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">6</span>AHJ</div><div class="flash-grid-back">Authority Having Jurisdiction. The local government official who approves or rejects building plans. Varies by location.<div class="flash-grid-ref">(B.7)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">7</span>FCSI</div><div class="flash-grid-back">Foodservice Consultants Society International. Global professional association. James C. Your Company, FCSI, CSI. Always in that order.<div class="flash-grid-ref">(B.5)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">8</span>Combi Oven</div><div class="flash-grid-back">Convection + steam + combination cooking in one unit. Some models are ventless, eliminating the need for an exhaust hood.<div class="flash-grid-ref">(B.4)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">9</span>The 50-Mile Rule</div><div class="flash-grid-back">Within 50 miles: no travel paragraph. Beyond 50 miles: travel is reimbursable. Check project location before writing.<div class="flash-grid-ref">(B.8)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">10</span>Vendor-Neutral Language</div><div class="flash-grid-back">Never name specific manufacturers in proposals. Specify by performance criteria only. "10-gallon tilting skillet, electric, floor-mounted."<div class="flash-grid-ref">(B.9)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">11</span>BIM / Clash Detection</div><div class="flash-grid-back">Building Information Modeling: 3D Revit models for coordination. Clash Detection finds conflicts before construction begins.<div class="flash-grid-ref">(B.3)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">12</span>MEP</div><div class="flash-grid-back">Mechanical, Electrical, Plumbing. Every piece of equipment needs specific MEP connections. Coordination in DD and CD phases.<div class="flash-grid-ref">(B.7)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">13</span>Critical Event</div><div class="flash-grid-back">Time-sensitive trigger: bond deadline, school opening, accreditation inspection. Identifying it positions Your Company as urgency-aware.<div class="flash-grid-ref">(B.6)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">14</span>AutoQuotes</div><div class="flash-grid-back">Industry-standard software for detailed equipment lists and cost estimates. Drives the equipment budget, which drives the fee.<div class="flash-grid-ref">(B.4)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">15</span>Foodservice vs. F&amp;B</div><div class="flash-grid-back">Not interchangeable. Each triggers a different Independence Statement. Foodservice = institutional. F&amp;B = hospitality with bar components.<div class="flash-grid-ref">(B.9)</div></div></div>
+  </div>
+</div>
+
+<!-- FLIP CARDS -->
+<div class="page" id="flip-cards">
+  <div class="crumb">SECTION B <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9633; Flashcards &middot; Interactive</div>
+  <h2 class="subsec-title">Tap the Card to See the Answer</h2>
+  <div class="subsec-lede">Fifteen cards, one at a time. Read the front, attempt the back from memory, then tap to check. Review at Day 1, 3, 7, and 21.</div>
+  <div class="flip-container">
+    <div class="flip-card" id="flip-card" onclick="flipCard()">
+      <div class="flip-front-label" id="flip-label">Term &middot; Tap to Reveal</div>
+      <div class="flip-front-text" id="flip-front">RFP vs. RFQ</div>
+      <div class="flip-back-text" id="flip-back">RFP = scope + methodology + fee. A decision tool. RFQ = qualifications only, no fee. Never confuse them. (B.2)</div>
+    </div>
+    <div class="flip-hint">Tap card to flip &middot; Use arrows to navigate</div>
+    <div class="flip-nav">
+      <button class="flip-btn" onclick="prevCard()">&#8592; Previous</button>
+      <span class="flip-counter" id="flip-counter">1 of 15</span>
+      <button class="flip-btn" onclick="nextCard()">Next &#8594;</button>
+    </div>
+    <div class="flip-dots" id="flip-dots"></div>
+  </div>
+</div>
+
+<!-- CUT CARDS -->
+<div class="page" id="cut-cards">
+  <div class="crumb">SECTION B <span class="dot">&middot;</span> STUDY TOOLS</div>
+  <div class="subsec-tag">&#9986; Printable Cut-Out Study Cards</div>
+  <h2 class="subsec-title">Print, Cut, Carry</h2>
+  <div class="subsec-lede">Fifteen cards arranged for printing. Cut along the borders. Keep them on your desk. Within thirty days, the terminology will be automatic.</div>
+  <div class="cut-grid">
+    <div class="cut-card"><div class="term">RFP vs. RFQ</div><div class="def">RFP = proposal with scope, methodology, and fee. RFQ = qualifications only, no fee quoted. Read the content, not the label.</div></div>
+    <div class="cut-card"><div class="term">Five Design Phases</div><div class="def">SD (Schematic Design), DD (Design Development), CD (Construction Docs), BN (Bidding/Negotiation), CA (Construction Admin).</div></div>
+    <div class="cut-card"><div class="term">Independence Statement</div><div class="def">Required in every proposal. Affirms vendor-neutral status. Two versions: Foodservice and Laundry. Wrong version = review failure.</div></div>
+    <div class="cut-card"><div class="term">Sector Rates ($/SF)</div><div class="def">Schools $300 (4% fee). Hospitality $325 (5%). Correctional $350 (5%). Catering $200-$250 (5%).</div></div>
+    <div class="cut-card"><div class="term">FOG</div><div class="def">Fat, Oil, and Grease. Captured by grease interceptors before entering municipal sewers. Prevents "fatbergs."</div></div>
+    <div class="cut-card"><div class="term">AHJ</div><div class="def">Authority Having Jurisdiction. Local official who approves building plans. Varies by location. Design to the most restrictive standard.</div></div>
+    <div class="cut-card"><div class="term">FCSI</div><div class="def">Foodservice Consultants Society International. James C. Your Company, FCSI, CSI. Always in that order on formal documents.</div></div>
+    <div class="cut-card"><div class="term">Combi Oven</div><div class="def">Convection + steam + combination cooking. Some models are ventless, eliminating the need for an exhaust hood.</div></div>
+    <div class="cut-card"><div class="term">The 50-Mile Rule</div><div class="def">Within 50 miles: no travel paragraph. Beyond 50 miles: travel is reimbursable. Check location before writing.</div></div>
+    <div class="cut-card"><div class="term">Vendor-Neutral Language</div><div class="def">Never name specific manufacturers. Specify by performance criteria only: "10-gallon tilting skillet, electric, floor-mounted."</div></div>
+    <div class="cut-card"><div class="term">BIM / Clash Detection</div><div class="def">3D Revit models for design coordination. Clash Detection finds conflicts before construction. Prevents costly field changes.</div></div>
+    <div class="cut-card"><div class="term">MEP</div><div class="def">Mechanical, Electrical, Plumbing. Every piece of equipment needs specific connections. Coordination in DD and CD phases.</div></div>
+    <div class="cut-card"><div class="term">Critical Event</div><div class="def">Time-sensitive trigger: bond deadline, school opening, accreditation inspection. Identifies urgency for the client.</div></div>
+    <div class="cut-card"><div class="term">AutoQuotes</div><div class="def">Industry-standard equipment list and cost estimation software. Drives the equipment budget, which drives the fee.</div></div>
+    <div class="cut-card"><div class="term">Foodservice vs. Food &amp; Beverage</div><div class="def">Not interchangeable. Each triggers a different Independence Statement. Foodservice = institutional. F&amp;B = hospitality with bar components.</div></div>
+  </div>
+</div>
+
+</main>
+
+<script>
+const cards=[
+  {front:'RFP vs. RFQ',back:'RFP = scope + methodology + fee. A decision tool. RFQ = qualifications only, no fee. Never confuse them. (B.2)'},
+  {front:'Five Design Phases',back:'SD (Schematic Design), DD (Design Development), CD (Construction Docs), BN (Bidding/Negotiation), CA (Construction Admin). (B.3)'},
+  {front:'Independence Statement',back:'Required in every proposal. Affirms vendor-neutral status. Two versions: Foodservice and Laundry. Wrong version = review failure. (B.2)'},
+  {front:'Sector Rates ($/SF)',back:'Schools $300 (4% fee). Hospitality $325 (5%). Correctional $350 (5%). Catering $200-$250 (5%). (B.8)'},
+  {front:'FOG',back:'Fat, Oil, and Grease. Captured by grease interceptors before entering municipal sewers. Prevents fatbergs. (B.4)'},
+  {front:'AHJ',back:'Authority Having Jurisdiction. Local official who approves building plans. Varies by location. Design to the most restrictive standard. (B.7)'},
+  {front:'FCSI',back:'Foodservice Consultants Society International. James C. Your Company, FCSI, CSI. Always in that order on formal documents. (B.5)'},
+  {front:'Combi Oven',back:'Convection + steam + combination cooking. Some models are ventless, eliminating the need for an exhaust hood. (B.4)'},
+  {front:'The 50-Mile Rule',back:'Within 50 miles: no travel paragraph. Beyond 50 miles: travel is reimbursable. Check location before writing. (B.8)'},
+  {front:'Vendor-Neutral Language',back:'Never name specific manufacturers. Specify by performance criteria only. (B.9)'},
+  {front:'BIM / Clash Detection',back:'3D Revit models for design coordination. Clash Detection finds conflicts before construction. (B.3)'},
+  {front:'MEP',back:'Mechanical, Electrical, Plumbing. Every piece of equipment needs specific connections. Coordination in DD and CD phases. (B.7)'},
+  {front:'Critical Event',back:'Time-sensitive trigger: bond deadline, school opening, accreditation inspection. Positions Your Company as urgency-aware. (B.6)'},
+  {front:'AutoQuotes',back:'Industry-standard equipment list and cost estimation software. Drives the equipment budget, which drives the fee. (B.4)'},
+  {front:'Foodservice vs. Food & Beverage',back:'Not interchangeable. Each triggers a different Independence Statement. Foodservice = institutional. F&B = hospitality with bar components. (B.9)'}
+];
+let current=0,flipped=false;
+function buildDots(){const d=document.getElementById('flip-dots');d.innerHTML='';cards.forEach((_,i)=>{const dot=document.createElement('span');dot.className='flip-dot'+(i===0?' active':'');dot.onclick=()=>goToCard(i);d.appendChild(dot);});}
+function updateCard(){document.getElementById('flip-front').textContent=cards[current].front;document.getElementById('flip-back').textContent=cards[current].back;document.getElementById('flip-counter').textContent=(current+1)+' of '+cards.length;document.getElementById('flip-card').classList.remove('flipped');document.getElementById('flip-label').textContent='Term · Tap to Reveal';flipped=false;document.querySelectorAll('.flip-dot').forEach((d,i)=>d.classList.toggle('active',i===current));}
+function flipCard(){flipped=!flipped;document.getElementById('flip-card').classList.toggle('flipped',flipped);document.getElementById('flip-label').textContent=flipped?'Answer · Tap to Reset':'Term · Tap to Reveal';}
+function nextCard(){current=(current+1)%cards.length;updateCard();}
+function prevCard(){current=(current-1+cards.length)%cards.length;updateCard();}
+function goToCard(i){current=i;updateCard();}
+buildDots();
+const pages=document.querySelectorAll('main [id]');
+const links=document.querySelectorAll('.sidebar-list a');
+window.addEventListener('scroll',()=>{let active='';pages.forEach(p=>{if(window.scrollY>=p.offsetTop-80)active=p.id;});links.forEach(a=>{const href=a.getAttribute('href').replace('#','');a.classList.toggle('active',href===active);});});
+</script>
+</body>
+</html>

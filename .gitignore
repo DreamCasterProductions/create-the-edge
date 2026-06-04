@@ -1,0 +1,20 @@
+# Raw source asset folders — large media files, not for git
+Section A - assets/
+Section B - assets/
+Section K - Assets/
+Section L - Assets/
+Section M - Assets/
+Section N - Assets/
+Sections C - assets/
+Sections D - assets/
+Sections G - Assets/
+Sections H - Assets/
+Sections I - assets/
+Sections J - assets/
+AI Build Instructions/
+AI Build Instructions Updated 1_11/
+Fee charts/
+
+# OS
+.DS_Store
+Thumbs.db
