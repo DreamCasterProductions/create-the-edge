@@ -30,8 +30,8 @@
   --brass:#B8893B;
   --brass-soft:#D4AB5E;
   --brass-tint:#FBF5E8;
-  --navy:#0F2E3E;
-  --navy-tint:#1B4055;
+  --navy:#0a1628;
+  --navy-mid:#0f2040;--navy-tint:#0a1628;
   --green:#2F7D54;
   --green-tint:#EDF7F2;
   --red:#B23B2E;
@@ -108,7 +108,7 @@ strong,b{font-weight:600;color:var(--ink)}
 .cover{
   min-height:100vh;
   width:100%;
-  background:linear-gradient(165deg,#11354A 0%,#0A2538 60%,#08202F 100%);
+  background:#0a1628;
   color:#F0E8D0;
   padding:64px 72px 56px;
   position:relative;
@@ -911,7 +911,7 @@ h4.heading-sub{
    PRINT
    ---------------------------- */
 @media print{
-  body{background:#0A2538;font-size:11pt}
+  body{background:#0a1628;font-size:11pt}
   .page{box-shadow:none;border:none;margin:0 !important;padding:56px 84px 64px !important;max-width:none !important;page-break-before:always;background:#FFFFFF}
   .page:first-of-type{page-break-before:auto}
   .cover{min-height:100vh;height:auto;padding:48px 56px 36px;page-break-after:always;page-break-before:auto;margin:0 !important;width:100%;max-width:none !important;box-sizing:border-box}
@@ -1109,6 +1109,14 @@ html { background: #0a1628 !important; }
 .sidebar-list a .code { color: #C5A76F !important; }
 .sidebar-list a:hover, .sidebar-list a.active { color: #C5A76F !important; border-left-color: #C5A76F !important; background: rgba(197,167,111,.06) !important; }
 
+
+
+/* === COLOR MATCH TO STANDARD === */
+:root {
+  --navy:#0a1628 !important;
+  --navy-mid:#0f2040 !important;
+  --gold:#C5A76F !important;
+}
 
 /* ===== FORCE MATCH MODULE K LAYOUT ===== */
 
@@ -1355,7 +1363,7 @@ body{background:#0a1628 !important;}
           <stop offset="1" stop-color="#226040"/>
         </linearGradient>
         <linearGradient id="ig4" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#0F2E3E"/>
+          <stop offset="0" stop-color="#0a1628"/>
           <stop offset="1" stop-color="#08202C"/>
         </linearGradient>
       </defs>
@@ -1613,7 +1621,7 @@ body{background:#0a1628 !important;}
       <!-- Left: Rational -->
       <rect x="30" y="20" width="350" height="320" fill="#E4F0F7" stroke="#266889" stroke-width="1" rx="4"/>
       <text x="205" y="55" text-anchor="middle" font-family="Montserrat" font-size="11" letter-spacing="4" font-weight="700" fill="#266889">RATIONAL · 50%</text>
-      <text x="205" y="85" text-anchor="middle" font-family="Playfair Display" font-size="22" font-weight="700" fill="#0F2E3E">The Metrics</text>
+      <text x="205" y="85" text-anchor="middle" font-family="Playfair Display" font-size="22" font-weight="700" fill="#0a1628">The Metrics</text>
       <text x="205" y="105" text-anchor="middle" font-family="Cormorant Garamond" font-size="14" font-style="italic" fill="#5D7079">What the numbers tell you</text>
       <g font-family="Montserrat" font-size="11" fill="#162630">
         <circle cx="60" cy="140" r="4" fill="#266889"/><text x="74" y="144">Square Footage  ·  50,000 SF School</text>
@@ -1627,7 +1635,7 @@ body{background:#0a1628 !important;}
       <!-- Right: Emotional -->
       <rect x="420" y="20" width="350" height="320" fill="#FBF5E8" stroke="#B8893B" stroke-width="1" rx="4"/>
       <text x="595" y="55" text-anchor="middle" font-family="Montserrat" font-size="11" letter-spacing="4" font-weight="700" fill="#B8893B">EMOTIONAL · 50%</text>
-      <text x="595" y="85" text-anchor="middle" font-family="Playfair Display" font-size="22" font-weight="700" fill="#0F2E3E">The Meaning</text>
+      <text x="595" y="85" text-anchor="middle" font-family="Playfair Display" font-size="22" font-weight="700" fill="#0a1628">The Meaning</text>
       <text x="595" y="105" text-anchor="middle" font-family="Cormorant Garamond" font-size="14" font-style="italic" fill="#5D7079">What success would feel like</text>
       <g font-family="Montserrat" font-size="11" fill="#162630">
         <circle cx="450" cy="140" r="4" fill="#B8893B"/><text x="464" y="144">Made  ·  outcomes that change lives</text>
@@ -1823,7 +1831,7 @@ body{background:#0a1628 !important;}
       <!-- Paragraph 1 -->
       <rect x="40" y="30" width="340" height="220" fill="#E4F0F7" stroke="#266889" stroke-width="1.5" rx="4"/>
       <text x="210" y="60" text-anchor="middle" font-family="Montserrat" font-size="11" letter-spacing="3" font-weight="700" fill="#266889">PARAGRAPH 1 · CONTEXT</text>
-      <text x="210" y="92" text-anchor="middle" font-family="Playfair Display" font-size="36" font-weight="800" fill="#0F2E3E">Why?</text>
+      <text x="210" y="92" text-anchor="middle" font-family="Playfair Display" font-size="36" font-weight="800" fill="#0a1628">Why?</text>
       <text x="60" y="135" font-family="Montserrat" font-size="11" fill="#162630">• Names the project + facility type</text>
       <text x="60" y="158" font-family="Montserrat" font-size="11" fill="#162630">• States the operational driver</text>
       <text x="60" y="181" font-family="Montserrat" font-size="11" fill="#162630">• Activates the primary pillar</text>
@@ -1832,7 +1840,7 @@ body{background:#0a1628 !important;}
       <!-- Paragraph 2 -->
       <rect x="420" y="30" width="340" height="220" fill="#FBF5E8" stroke="#B8893B" stroke-width="1.5" rx="4"/>
       <text x="590" y="60" text-anchor="middle" font-family="Montserrat" font-size="11" letter-spacing="3" font-weight="700" fill="#B8893B">PARAGRAPH 2 · SCOPE</text>
-      <text x="590" y="92" text-anchor="middle" font-family="Playfair Display" font-size="36" font-weight="800" fill="#0F2E3E">What?</text>
+      <text x="590" y="92" text-anchor="middle" font-family="Playfair Display" font-size="36" font-weight="800" fill="#0a1628">What?</text>
       <text x="440" y="135" font-family="Montserrat" font-size="11" fill="#162630">• Names the five phases</text>
       <text x="440" y="158" font-family="Montserrat" font-size="11" fill="#162630">• Lists the primary deliverables</text>
       <text x="440" y="181" font-family="Montserrat" font-size="11" fill="#162630">• Identifies Create The Edge team members</text>
@@ -1942,7 +1950,7 @@ body{background:#0a1628 !important;}
       <rect x="184" y="80" width="180" height="50" fill="#1A4D67"/>
       <text x="274" y="105" text-anchor="middle" font-family="Playfair Display" font-size="16" font-weight="700" fill="#fff">DD</text>
       <text x="274" y="123" text-anchor="middle" font-family="Montserrat" font-size="10" fill="#E4F0F7">25%</text>
-      <rect x="364" y="80" width="216" height="50" fill="#0F2E3E"/>
+      <rect x="364" y="80" width="216" height="50" fill="#0a1628"/>
       <text x="472" y="105" text-anchor="middle" font-family="Playfair Display" font-size="16" font-weight="700" fill="#fff">CD</text>
       <text x="472" y="123" text-anchor="middle" font-family="Montserrat" font-size="10" fill="#B8893B">30% · highest risk</text>
       <rect x="580" y="80" width="72" height="50" fill="#B8893B"/>
@@ -1952,15 +1960,15 @@ body{background:#0a1628 !important;}
       <text x="706" y="105" text-anchor="middle" font-family="Playfair Display" font-size="16" font-weight="700" fill="#fff">CA</text>
       <text x="706" y="123" text-anchor="middle" font-family="Montserrat" font-size="10" fill="#EDF7F2">15%</text>
       <!-- Below: labels and shields -->
-      <text x="112" y="170" text-anchor="middle" font-family="Playfair Display" font-size="13" font-weight="700" fill="#0F2E3E">Schematic Design</text>
+      <text x="112" y="170" text-anchor="middle" font-family="Playfair Display" font-size="13" font-weight="700" fill="#0a1628">Schematic Design</text>
       <text x="112" y="190" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="11" fill="#266889">Prevents congestion &amp; oversizing</text>
-      <text x="274" y="170" text-anchor="middle" font-family="Playfair Display" font-size="13" font-weight="700" fill="#0F2E3E">Design Development</text>
+      <text x="274" y="170" text-anchor="middle" font-family="Playfair Display" font-size="13" font-weight="700" fill="#0a1628">Design Development</text>
       <text x="274" y="190" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="11" fill="#266889">Prevents MEP conflicts</text>
-      <text x="472" y="170" text-anchor="middle" font-family="Playfair Display" font-size="13" font-weight="700" fill="#0F2E3E">Construction Documents</text>
+      <text x="472" y="170" text-anchor="middle" font-family="Playfair Display" font-size="13" font-weight="700" fill="#0a1628">Construction Documents</text>
       <text x="472" y="190" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="11" fill="#266889">Prevents contractor disputes</text>
-      <text x="616" y="170" text-anchor="middle" font-family="Playfair Display" font-size="13" font-weight="700" fill="#0F2E3E">Bid / Negotiate</text>
+      <text x="616" y="170" text-anchor="middle" font-family="Playfair Display" font-size="13" font-weight="700" fill="#0a1628">Bid / Negotiate</text>
       <text x="616" y="190" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="11" fill="#266889">Prevents overpayment</text>
-      <text x="706" y="170" text-anchor="middle" font-family="Playfair Display" font-size="13" font-weight="700" fill="#0F2E3E">Construction Admin</text>
+      <text x="706" y="170" text-anchor="middle" font-family="Playfair Display" font-size="13" font-weight="700" fill="#0a1628">Construction Admin</text>
       <text x="706" y="190" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="11" fill="#266889">Prevents install drift</text>
       <!-- Risk markers -->
       <g font-family="Montserrat" font-size="10" fill="#162630">
@@ -2320,7 +2328,7 @@ body{background:#0a1628 !important;}
       <!-- Method A -->
       <rect x="30" y="30" width="240" height="220" fill="#E4F0F7" stroke="#266889" stroke-width="1.5" rx="4"/>
       <text x="150" y="60" text-anchor="middle" font-family="Montserrat" font-size="11" letter-spacing="3" font-weight="700" fill="#266889">METHOD A</text>
-      <text x="150" y="90" text-anchor="middle" font-family="Playfair Display" font-size="20" font-weight="700" fill="#0F2E3E">SF × Sector Rate</text>
+      <text x="150" y="90" text-anchor="middle" font-family="Playfair Display" font-size="20" font-weight="700" fill="#0a1628">SF × Sector Rate</text>
       <text x="150" y="115" text-anchor="middle" font-family="Cormorant Garamond" font-size="13" font-style="italic" fill="#5D7079">Used on new construction</text>
       <line x1="60" y1="135" x2="240" y2="135" stroke="#266889" stroke-width="0.5"/>
       <text x="150" y="160" text-anchor="middle" font-family="Montserrat" font-size="11" fill="#162630">Step 1: Kitchen SF × $/SF</text>
@@ -2330,7 +2338,7 @@ body{background:#0a1628 !important;}
       <!-- Method B -->
       <rect x="280" y="30" width="240" height="220" fill="#FBF5E8" stroke="#B8893B" stroke-width="1.5" rx="4"/>
       <text x="400" y="60" text-anchor="middle" font-family="Montserrat" font-size="11" letter-spacing="3" font-weight="700" fill="#B8893B">METHOD B</text>
-      <text x="400" y="90" text-anchor="middle" font-family="Playfair Display" font-size="20" font-weight="700" fill="#0F2E3E">Equip Budget × %</text>
+      <text x="400" y="90" text-anchor="middle" font-family="Playfair Display" font-size="20" font-weight="700" fill="#0a1628">Equip Budget × %</text>
       <text x="400" y="115" text-anchor="middle" font-family="Cormorant Garamond" font-size="13" font-style="italic" fill="#5D7079">Used on short-cycle / equip-only</text>
       <line x1="310" y1="135" x2="490" y2="135" stroke="#B8893B" stroke-width="0.5"/>
       <text x="400" y="160" text-anchor="middle" font-family="Montserrat" font-size="11" fill="#162630">Step 1: Equipment budget</text>
@@ -2340,7 +2348,7 @@ body{background:#0a1628 !important;}
       <!-- Method C -->
       <rect x="530" y="30" width="240" height="220" fill="#EDF7F2" stroke="#2F7D54" stroke-width="1.5" rx="4"/>
       <text x="650" y="60" text-anchor="middle" font-family="Montserrat" font-size="11" letter-spacing="3" font-weight="700" fill="#2F7D54">METHOD C</text>
-      <text x="650" y="90" text-anchor="middle" font-family="Playfair Display" font-size="20" font-weight="700" fill="#0F2E3E">Laundry 15-lb</text>
+      <text x="650" y="90" text-anchor="middle" font-family="Playfair Display" font-size="20" font-weight="700" fill="#0a1628">Laundry 15-lb</text>
       <text x="650" y="115" text-anchor="middle" font-family="Cormorant Garamond" font-size="13" font-style="italic" fill="#5D7079">Used on laundry/linen scope</text>
       <line x1="560" y1="135" x2="740" y2="135" stroke="#2F7D54" stroke-width="0.5"/>
       <text x="650" y="160" text-anchor="middle" font-family="Montserrat" font-size="11" fill="#162630">Step 1: Keys × 15 lbs</text>
