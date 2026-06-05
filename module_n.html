@@ -261,7 +261,7 @@ select{cursor:pointer;background-image:none;}
   <div class="cover-eyebrow">Create The Edge &middot; Sales &amp; Proposal Development Training Guide &middot; 2026 Edition</div>
   <div class="cover-letter">N</div>
   <div class="cover-title">Calculation Tools</div>
-  <div class="cover-sub">Four precision calculators reproduced exactly from the master spreadsheets: fee chart with population-driven method, laundry sizing with dual-scenario comparison, five-phase labor allocation by person and phase, and current team structure reference.</div>
+  <div class="cover-sub">Four precision calculators reproduced exactly from the master spreadsheets: fee chart with population-driven method, specialty service line sizing with dual-scenario comparison, five-phase labor allocation by person and phase, and current team structure reference.</div>
   <div class="cover-rule"></div>
   <div class="nav-cards">
     <a class="nav-card" href="#n1">
@@ -303,7 +303,7 @@ select{cursor:pointer;background-image:none;}
 
   <div class="callout rule-b">
     <div class="cl-label">&#8887; Accuracy Rules</div>
-    <div class="cl-body">All formulas are reproduced exactly from the source spreadsheets. Where a source spreadsheet rounds up to the nearest whole number (laundry equipment counts), this calculator does the same using the identical ceiling function. Never override a calculated field manually; change the inputs and let the calculator recompute.</div>
+    <div class="cl-body">All formulas are reproduced exactly from the source spreadsheets. Where a source spreadsheet rounds up to the nearest whole number (specialty service line equipment counts), this calculator does the same using the identical ceiling function. Never override a calculated field manually; change the inputs and let the calculator recompute.</div>
   </div>
 
   <div class="callout expert">
@@ -492,7 +492,7 @@ select{cursor:pointer;background-image:none;}
         <div class="calc-output col-right" id="phs-prog">$2,187</div>
       </div>
       <div class="calc-row row-3col">
-        <div class="row-label">Schematic Design (SD)</div>
+        <div class="row-label">Conceptual Design (SD)</div>
         <div class="calc-output" id="phs-sd-pct">18.0%</div>
         <div class="calc-output col-right" id="phs-sd">$5,623</div>
       </div>
@@ -502,7 +502,7 @@ select{cursor:pointer;background-image:none;}
         <div class="calc-output col-right" id="phs-dd">$10,934</div>
       </div>
       <div class="calc-row row-3col">
-        <div class="row-label">Construction Documents (CD)</div>
+        <div class="row-label">Project Documents (CD)</div>
         <div class="calc-output" id="phs-cd-pct">22.0%</div>
         <div class="calc-output col-right" id="phs-cd">$6,873</div>
       </div>
@@ -512,7 +512,7 @@ select{cursor:pointer;background-image:none;}
         <div class="calc-output col-right" id="phs-bn">$937</div>
       </div>
       <div class="calc-row row-3col">
-        <div class="row-label">Construction Administration (CA)</div>
+        <div class="row-label">Implementation Administration (CA)</div>
         <div class="calc-output" id="phs-ca-pct">15.0%</div>
         <div class="calc-output col-right" id="phs-ca">$4,686</div>
       </div>
@@ -536,7 +536,7 @@ select{cursor:pointer;background-image:none;}
 
 <!-- ============================================================
      N.2  LAUNDRY SIZING CALCULATOR
-     Source: laundry_sizing_calculator.xlsx
+     Source: specialty service line_sizing_calculator.xlsx
      Logic: Keys × lbs/day ÷ working hours = lbs/hr → CEILING(lbs/hr / machine lbs/hr)
      Two-scenario side-by-side, direct override, equipment sizing
      ============================================================ -->
@@ -544,13 +544,13 @@ select{cursor:pointer;background-image:none;}
   <div class="crumb">Section N <span class="dot">&middot;</span> Calculation Tools <span class="dot">&middot;</span> N.2</div>
   <div class="subsec-tag">N.2 &middot; Laundry Sizing Calculator</div>
   <h2 class="subsec-title">Laundry Sizing Calculator</h2>
-  <div class="subsec-lede">Two-scenario comparison using the 15-lb standard. Enter room keys and the calculator derives daily laundry volume, hourly capacity, and the number of washers and dryers required. Adjust machine capacity and cycle time to match specified equipment.</div>
+  <div class="subsec-lede">Two-scenario comparison using the 15-lb standard. Enter room keys and the calculator derives daily specialty service line volume, hourly capacity, and the number of washers and dryers required. Adjust machine capacity and cycle time to match specified equipment.</div>
 
   <div class="how-to-use">
     <div class="htu-title">&#9998; How to Use This Calculator</div>
     <div class="htu-body">
       <strong>Standard mode:</strong> Enter lbs per person (default 15) and room keys. The calculator multiplies to get total lbs, divides by working hours for hourly demand, then rounds up to get equipment counts.<br><br>
-      <strong>Override mode:</strong> If you already know total daily pounds (from a client-provided survey or existing laundry records), enter it in the <strong>Direct Total Lbs Override</strong> field. When populated, it replaces the keys calculation.<br><br>
+      <strong>Override mode:</strong> If you already know total daily pounds (from a client-provided survey or existing specialty service line records), enter it in the <strong>Direct Total Lbs Override</strong> field. When populated, it replaces the keys calculation.<br><br>
       <strong>Equipment counts</strong> use CEILING: machines needed = &lceil;lbs per working hour &divide; machine lbs per hour&rceil;. Adjust machine capacity and cycle time to match the specified equipment model.
     </div>
     <ul class="htu-steps">
@@ -745,7 +745,7 @@ select{cursor:pointer;background-image:none;}
       </thead>
       <tbody>
         <tr>
-          <td>Schematic Design</td><td>SD</td>
+          <td>Conceptual Design</td><td>SD</td>
           <td style="text-align:right;"><input type="number" id="fee-sd" value="6350" min="0" oninput="calcLabor()" style="width:100px;text-align:right;"></td>
           <td style="text-align:right;" id="sumhrs-sd">25.17</td>
           <td style="text-align:right;" id="sumcost-sd">$6,350</td>
@@ -759,7 +759,7 @@ select{cursor:pointer;background-image:none;}
           <td style="text-align:right;" id="pctchk-dd" class="calc-output">1.000</td>
         </tr>
         <tr>
-          <td>Construction Documents</td><td>CD</td>
+          <td>Project Documents</td><td>CD</td>
           <td style="text-align:right;"><input type="number" id="fee-cd" value="9525" min="0" oninput="calcLabor()" style="width:100px;text-align:right;"></td>
           <td style="text-align:right;" id="sumhrs-cd">46.48</td>
           <td style="text-align:right;" id="sumcost-cd">$9,525</td>
@@ -773,7 +773,7 @@ select{cursor:pointer;background-image:none;}
           <td style="text-align:right;" id="pctchk-bn" class="calc-output">1.000</td>
         </tr>
         <tr>
-          <td>Construction Administration</td><td>CA</td>
+          <td>Implementation Administration</td><td>CA</td>
           <td style="text-align:right;"><input type="number" id="fee-ca" value="4762.5" min="0" oninput="calcLabor()" style="width:100px;text-align:right;"></td>
           <td style="text-align:right;" id="sumhrs-ca">21.03</td>
           <td style="text-align:right;" id="sumcost-ca">$4,763</td>
@@ -902,7 +902,7 @@ select{cursor:pointer;background-image:none;}
       <tr><td><strong>[Team Member] Austerman, FCSI</strong></td><td>Westfield, IN</td><td>Production / Design / QA Floater</td><td style="text-align:right;">$200/hr</td></tr>
       <tr><td><strong>Louise Howard</strong></td><td>Sun River, OR</td><td>CA / Backup Designer</td><td style="text-align:right;">$200/hr</td></tr>
       <tr><td><strong>Annlyn Fletcher, FCSI</strong></td><td>Savannah, TN</td><td>Quality Care Coordinator</td><td style="text-align:right;">$200/hr</td></tr>
-      <tr><td><strong>Peg Harper</strong></td><td>Mobile, AL</td><td>Construction Administration Manager</td><td style="text-align:right;">$200/hr</td></tr>
+      <tr><td><strong>Peg Harper</strong></td><td>Mobile, AL</td><td>Implementation Administration Manager</td><td style="text-align:right;">$200/hr</td></tr>
     </tbody>
   </table>
 
@@ -1063,7 +1063,7 @@ function buildPhaseDetailTables(){
   var container = document.getElementById('phase-detail-tables');
   if(!container) return;
   var html = '';
-  var phaseNames = {sd:'SD – Schematic Design',dd:'DD – Design Development',cd:'CD – Construction Documents',bn:'BN – Bidding / Negotiations',ca:'CA – Construction Administration'};
+  var phaseNames = {sd:'SD – Conceptual Design',dd:'DD – Design Development',cd:'CD – Project Documents',bn:'BN – Bidding / Negotiations',ca:'CA – Implementation Administration'};
   PHASES.forEach(function(ph){
     html += '<div class="calc-wrapper">';
     html += '<div class="calc-title-bar"><h3>'+phaseNames[ph]+'</h3>';
