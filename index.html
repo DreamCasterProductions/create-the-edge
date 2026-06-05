@@ -265,6 +265,11 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
 .viewer-frame {
   flex: 1; border: none; width: 100%; min-height: 0;
 }
+
+/* PDF Download button */
+.pdf-btn{display:inline-flex;align-items:center;gap:5px;font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--gold);border:1px solid rgba(197,167,111,.35);padding:4px 10px;border-radius:2px;text-decoration:none;transition:all .15s;background:rgba(197,167,111,.06);}
+.pdf-btn:hover{background:rgba(197,167,111,.18);border-color:var(--gold);}
+
 </style>
 </head>
 <body>
@@ -302,7 +307,7 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
       <p class="card-code">Module A &middot; A.1&ndash;A.8</p>
       <h2 class="card-title">Role Overview &amp; Orientation</h2>
       <p class="card-desc">The Business Standard. Anatomy of a won deal, the consultant's mindset, and what separates elite performers from the field.</p>
-      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 12-Q Quiz</span><span class="card-arrow">&#8594;</span></div>
+      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 12-Q Quiz</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-A-Role-Overview-Orientation.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
     </a>
 
     <a class="card" href="module_b.html">
@@ -311,7 +316,7 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
       <p class="card-code">Module B &middot; B.1&ndash;B.9</p>
       <h2 class="card-title">Industry Terminology</h2>
       <p class="card-desc">Mastering the Language of Authority. The vocabulary that signals expertise and builds institutional credibility before a word of the proposal is read.</p>
-      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; Quiz</span><span class="card-arrow">&#8594;</span></div>
+      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; Quiz</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-B-Industry-Terminology.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
     </a>
 
     <div class="category-divider"><span>Sales &amp; Proposal Framework</span></div>
@@ -322,7 +327,7 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
       <p class="card-code">Module C &middot; C.1&ndash;C.12</p>
       <h2 class="card-title">Sales &amp; Marketing</h2>
       <p class="card-desc">The Authority Blueprint. Diagnostic selling, revenue architecture, and the lifecycle framework that turns relationships into recurring engagements.</p>
-      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; Quiz</span><span class="card-arrow">&#8594;</span></div>
+      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; Quiz</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-C-Sales-Marketing.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
     </a>
 
     <a class="card" href="module_d.html">
@@ -331,7 +336,7 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
       <p class="card-code">Module D</p>
       <h2 class="card-title">Client Psychology</h2>
       <p class="card-desc">The Architecture of Influence. Reading the decision-making framework behind every client conversation and calibrating your approach accordingly.</p>
-      <div class="card-footer"><span class="card-meta">Quiz &middot; Flashcards</span><span class="card-arrow">&#8594;</span></div>
+      <div class="card-footer"><span class="card-meta">Quiz &middot; Flashcards</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-D-Client-Psychology.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
     </a>
 
     <a class="card" href="module_e.html">
@@ -340,7 +345,7 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
       <p class="card-code">Module E</p>
       <h2 class="card-title">Discovery</h2>
       <p class="card-desc">The forensic discipline of uncovering what clients actually need versus what they say they need.</p>
-      <div class="card-footer"><span class="card-meta">Guide &middot; Flashcards</span><span class="card-arrow">&#8594;</span></div>
+      <div class="card-footer"><span class="card-meta">Guide &middot; Flashcards</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-E-Discovery-Information-Gathering.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
     </a>
 
     <a class="card" href="module_f.html">
@@ -349,7 +354,7 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
       <p class="card-code">Module F</p>
       <h2 class="card-title">Procurement Documents</h2>
       <p class="card-desc">RFP vs. RFQ. How to read procurement intent and position a response that wins before the committee convenes.</p>
-      <div class="card-footer"><span class="card-meta">Guide &middot; Flashcards</span><span class="card-arrow">&#8594;</span></div>
+      <div class="card-footer"><span class="card-meta">Guide &middot; Flashcards</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-F-Procurement-Documents.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
     </a>
 
     <a class="card" href="module_g.html">
@@ -358,7 +363,7 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
       <p class="card-code">Module G &middot; G.1&ndash;G.24</p>
       <h2 class="card-title">Proposal Writing Mastery</h2>
       <p class="card-desc">Engineered Proposal Mastery. The complete system for constructing bulletproof proposals that close at the highest fee tier.</p>
-      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span></div>
+      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-G-Proposal-Writing-Mastery.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
     </a>
 
     <div class="category-divider"><span>Fee Engineering &amp; Compliance</span></div>
@@ -369,7 +374,7 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
       <p class="card-code">Module H &middot; H.0&ndash;H.12</p>
       <h2 class="card-title">Fee Calculation</h2>
       <p class="card-desc">Precision Fee Engineering. The 5-phase labor model, Delta [Major Transportation Hospitality Project] methodology, and the arithmetic of profitable project delivery.</p>
-      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span></div>
+      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-H-Fee-Calculation-Pricing.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
     </a>
 
     <a class="card" href="module_i.html">
@@ -378,7 +383,7 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
       <p class="card-code">Module I &middot; I.0&ndash;I.12</p>
       <h2 class="card-title">Code &amp; Compliance</h2>
       <p class="card-desc">Kitchen Compliance &amp; Code Intelligence. The regulatory landscape that shapes every commercial kitchen design decision.</p>
-      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span></div>
+      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-I-Code-Compliance.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
     </a>
 
     <div class="category-divider"><span>Strategy &amp; Operations</span></div>
@@ -389,7 +394,7 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
       <p class="card-code">Module J &middot; J.0&ndash;J.10</p>
       <h2 class="card-title">Meeting Evaluation &amp; SWOT</h2>
       <p class="card-desc">The Strategic Decision Engine. Real-world SWOT analysis applied to competitive positioning, including a live Golf Tournament case study.</p>
-      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span></div>
+      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-J-Meeting-Evaluation-SWOT.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
     </a>
 
     <a class="card" href="module_k.html">
@@ -398,7 +403,7 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
       <p class="card-code">Module K &middot; K.0&ndash;K.11</p>
       <h2 class="card-title">File Naming &amp; Digital Vault</h2>
       <p class="card-desc">The Digital Vault protocol. How institutional-grade file architecture protects project integrity and accelerates team performance.</p>
-      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span></div>
+      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-K-File-Naming-Systems.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
     </a>
 
     <div class="category-divider"><span>Reference &amp; Tools</span></div>
@@ -413,7 +418,7 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
       <div class="card-footer">
         <span class="card-meta">Video &middot; Podcast &middot; Flashcards</span>
         <span class="card-arrow">&#8594;</span>
-      </div>
+      <a class="pdf-btn" href="pdfs/CTE-Module-L-Master-Glossary.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
     </a>
 
     <!-- M: LIVE -->
@@ -426,7 +431,7 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
       <div class="card-footer">
         <span class="card-meta">Video &middot; Podcast &middot; Flashcards</span>
         <span class="card-arrow">&#8594;</span>
-      </div>
+      <a class="pdf-btn" href="pdfs/CTE-Module-M-Reference-Section.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
     </a>
 
     <a class="card" href="module_n.html">
@@ -435,7 +440,7 @@ a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
       <p class="card-code">Module N</p>
       <h2 class="card-title">Calculation Tools</h2>
       <p class="card-desc">The precision instruments of fee engineering: laundry sizing, 5-phase labor, Delta [Major Transportation Hospitality Project] calculator, and team structure templates.</p>
-      <div class="card-footer"><span class="card-meta">Interactive Calculators</span><span class="card-arrow">&#8594;</span></div>
+      <div class="card-footer"><span class="card-meta">Interactive Calculators</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-N-Calculation-Tools.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
     </a>
 
   </div>
