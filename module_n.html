@@ -212,6 +212,18 @@ select{cursor:pointer;background-image:none;}
 .summary-value.green{color:#7FD4A0;}
 .summary-value.warn{color:#FFCB6B;}
 
+/* TEAM STRUCTURE EDITABLE */
+.section-heading-input{font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);font-weight:600;width:100%;border:none;border-bottom:1px solid var(--rule);padding:6px 0;margin:32px 0 14px;background:transparent;outline:none;display:block;}
+.section-heading-input:focus{border-bottom-color:var(--brass);}
+.section-heading-input::placeholder{color:var(--ink-muted);font-style:italic;font-family:'Playfair Display',serif;}
+.team-edit-table td{padding:6px 8px;vertical-align:middle;}
+.team-edit-table input.team-input,.team-edit-table select.team-select{font-size:12px;padding:5px 8px;width:100%;}
+.team-edit-table .team-custom-title{margin-top:4px;display:none;}
+.title-cell{min-width:160px;}
+.team-rate{text-align:right;}
+.add-row-btn{background:transparent;color:var(--brass);border:1px dashed var(--brass);padding:7px 18px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;margin:4px 0 28px;display:block;width:100%;text-align:center;}
+.add-row-btn:hover{background:rgba(197,167,111,.07);}
+
 /* PRINT */
 @media print{
   body{background:#fff;}
@@ -282,10 +294,10 @@ select{cursor:pointer;background-image:none;}
     <a class="nav-card" href="#n4">
       <div class="nav-card-code">N.4</div>
       <div class="nav-card-title">Team Structure Reference</div>
-      <div class="nav-card-sub">Current <span class="your-company" style="color:var(--gold)">Create The Edge</span> team: leadership, accounting, marketing, project teams, production management.</div>
+      <div class="nav-card-sub">Add your team by section: names, credentials, locations, titles, and billable rates. Fully editable with add-row option.</div>
     </a>
   </div>
-  <div class="cover-credit"><span class="your-company" style="color:var(--gold)">Create The Edge</span> USA &middot; [City, State] &middot; 2026 Edition &middot; Internal Use Only</div>
+  <div class="cover-credit"><span class="your-company" style="color:var(--gold)">Create The Edge</span> USA &middot; 2026 Edition &middot; Internal Use Only</div>
 </div>
 
 <!-- N.0 HOW TO USE -->
@@ -309,7 +321,7 @@ select{cursor:pointer;background-image:none;}
   <div class="callout expert">
     <div class="cl-label">&#10077; Expert Perspective</div>
     <div class="cl-body">"The fee is not a guess. It is a calculation. When you can show a client exactly how you arrived at a number from their square footage, the conversation shifts from negotiation to confirmation."</div>
-    <div class="cl-attrib">&middot; [Department Manager] Kuechenmeister, VP Business Development</div>
+    <div class="cl-attrib">&middot; <em>Create The Edge</em> OS &middot; The Proposal Standard</div>
   </div>
 </div>
 
@@ -803,12 +815,12 @@ select{cursor:pointer;background-image:none;}
         </tr>
       </thead>
       <tbody>
-        <tr><td class="name-cell"><input type="text" id="p1-name" value="Company Owner, FCSI, President" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p1-rate" value="275" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
-        <tr><td class="name-cell"><input type="text" id="p2-name" value="Brett Daniel, FCSI, Vice President" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p2-rate" value="250" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
-        <tr><td class="name-cell"><input type="text" id="p3-name" value="Ben Pierce, FCSI Assoc., Project Manager" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p3-rate" value="225" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
-        <tr><td class="name-cell"><input type="text" id="p4-name" value="Josh McComb, Project Coordinator" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p4-rate" value="150" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
-        <tr><td class="name-cell"><input type="text" id="p5-name" value="Howard Stanford, FCSI, Production Manager" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p5-rate" value="250" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
-        <tr><td class="name-cell"><input type="text" id="p6-name" value="Annlyn Fletcher, FCSI Assoc., QC / Specs Writer" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p6-rate" value="200" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
+        <tr><td class="name-cell"><input type="text" id="p1-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p1-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
+        <tr><td class="name-cell"><input type="text" id="p2-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p2-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
+        <tr><td class="name-cell"><input type="text" id="p3-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p3-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
+        <tr><td class="name-cell"><input type="text" id="p4-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p4-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
+        <tr><td class="name-cell"><input type="text" id="p5-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p5-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
+        <tr><td class="name-cell"><input type="text" id="p6-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p6-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
       </tbody>
     </table>
   </div>
@@ -823,92 +835,29 @@ select{cursor:pointer;background-image:none;}
 </div>
 
 <!-- ============================================================
-     N.4  TEAM STRUCTURE REFERENCE
-     Source: Team_Structure_Template.xlsx
+     N.4  TEAM STRUCTURE (GENERIC EDITABLE)
      ============================================================ -->
 <div class="page" id="n4">
   <div class="crumb">Section N <span class="dot">&middot;</span> Calculation Tools <span class="dot">&middot;</span> N.4</div>
   <div class="subsec-tag">N.4 &middot; Team Structure Reference</div>
-  <h2 class="subsec-title">Team Structure &mdash; September 2025</h2>
-  <div class="subsec-lede">Current <span class="your-company">Create The Edge</span> team organized by function. Use for SF 330 personnel sections, proposal team pages, and internal resource planning. Rates from the 2026 Rate Schedule apply to all billable personnel.</div>
+  <h2 class="subsec-title">Team Structure</h2>
+  <div class="subsec-lede">Add your team organized by function. Use for SF 330 personnel sections, proposal team pages, and internal resource planning. Enter names, credentials, office locations, job titles, and billable rates. Add rows as needed in each section.</div>
 
-  <h3 class="heading-rule">Leadership</h3>
-  <table class="phase-summary">
-    <thead><tr><th>Name &amp; Credentials</th><th>Location</th><th>Title</th><th style="text-align:right;">Rate (2026)</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Company CEO</strong></td><td>[City, State]</td><td>CEO / CFO</td><td style="text-align:right;">Principal</td></tr>
-      <tr><td><strong>Company Owner, FCSI, CSI</strong></td><td>[City, State]</td><td>President</td><td style="text-align:right;">$275/hr &middot; $1,500/day</td></tr>
-      <tr><td><strong>[Department Manager] Kuechenmeister, FCSI, LEED Green Assoc., WELL AP</strong></td><td>[City, State]</td><td>VP Business Development</td><td style="text-align:right;">Senior PM</td></tr>
-      <tr><td><strong>Jennifer Murphy, FCSI, LEED AP</strong></td><td>Charlotte, NC</td><td>Resource Director</td><td style="text-align:right;">Senior PM</td></tr>
-    </tbody>
-  </table>
+  <div class="how-to-use">
+    <div class="htu-title">&#9998; How to Fill In This Section</div>
+    <div class="htu-body">
+      <strong>Section titles</strong> are editable — click and type your own (e.g. Leadership, Project Team 1).<br><br>
+      <strong>Each row:</strong> enter name and credentials, office location, select a job title from the dropdown (choose Custom to enter your own), and enter the billable rate.<br><br>
+      <strong>Add Row</strong> button at the bottom of each section adds a blank row. Fill in and repeat.
+    </div>
+  </div>
 
-  <h3 class="heading-rule">Accounting &amp; Administration</h3>
-  <table class="phase-summary">
-    <thead><tr><th>Name</th><th>Location</th><th>Title</th><th style="text-align:right;">Function</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Company Administrator</strong></td><td>[City, State]</td><td>Accounting / Admin</td><td style="text-align:right;">Internal</td></tr>
-      <tr><td><strong>Tami Williams</strong></td><td>[City, State]</td><td>Accounts Receivable Manager &middot; Office Manager</td><td style="text-align:right;">Internal</td></tr>
-      <tr><td><strong>Jackie Bass</strong></td><td>[City, State]</td><td>Accounts Receivable Specialist</td><td style="text-align:right;">Internal</td></tr>
-    </tbody>
-  </table>
-
-  <h3 class="heading-rule">Marketing &amp; Sales</h3>
-  <table class="phase-summary">
-    <thead><tr><th>Name</th><th>Location</th><th>Title</th><th style="text-align:right;">Function</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Kip Serfozo</strong></td><td>[City, State]</td><td>Business Development Manager</td><td style="text-align:right;">Sales</td></tr>
-      <tr><td><strong>Misty Klein</strong></td><td>[City, State]</td><td>Sales Manager</td><td style="text-align:right;">Sales</td></tr>
-    </tbody>
-  </table>
-
-  <h3 class="heading-rule">Project Team 1</h3>
-  <table class="phase-summary">
-    <thead><tr><th>Name &amp; Credentials</th><th>Location</th><th>Title</th><th style="text-align:right;">2026 Rate</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Brett Daniel, FCSI</strong></td><td>[City, State]</td><td>Vice President &middot; Sr. Project Manager</td><td style="text-align:right;">$250/hr &middot; $1,700/day</td></tr>
-      <tr><td><strong>Ben Pierce, FCSI Assoc.</strong></td><td>[City, State]</td><td>Project Manager</td><td style="text-align:right;">$225/hr &middot; $1,600/day</td></tr>
-      <tr><td><strong>Kirk Byers</strong></td><td>[City, State]</td><td>Project Coordinator</td><td style="text-align:right;">$150/hr</td></tr>
-      <tr><td><strong>Josh McComb</strong></td><td>Ft. Wayne, IN</td><td>Project Coordinator</td><td style="text-align:right;">$150/hr</td></tr>
-      <tr><td><strong>Donald Berglund</strong></td><td>[City, State]</td><td>Production Coordinator</td><td style="text-align:right;">$150/hr</td></tr>
-    </tbody>
-  </table>
-
-  <h3 class="heading-rule">Project Team 2</h3>
-  <table class="phase-summary">
-    <thead><tr><th>Name &amp; Credentials</th><th>Location</th><th>Title</th><th style="text-align:right;">2026 Rate</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Robert Scheibly, FCSI</strong></td><td>Climax, GA</td><td>Sr. Project Manager</td><td style="text-align:right;">$250/hr &middot; $1,700/day</td></tr>
-      <tr><td><strong>Erin Lambert, FCSI Assoc.</strong></td><td>Birmingham, AL</td><td>Project Manager <span style="font-size:11px;color:var(--ink-muted);">&middot; Schools in AL</span></td><td style="text-align:right;">$225/hr &middot; $1,600/day</td></tr>
-      <tr><td><strong>Courtney Majors</strong></td><td>[City, State]</td><td>Project Coordinator</td><td style="text-align:right;">$150/hr</td></tr>
-      <tr><td><strong>[Project Coordinator] [Project Coordinator]</strong></td><td>Bowling Green, KY</td><td>Project Coordinator</td><td style="text-align:right;">$150/hr</td></tr>
-    </tbody>
-  </table>
-
-  <h3 class="heading-rule">Project Team 3</h3>
-  <table class="phase-summary">
-    <thead><tr><th>Name &amp; Credentials</th><th>Location</th><th>Title</th><th style="text-align:right;">2026 Rate</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Jennifer Taylor</strong></td><td>Elba, AL</td><td>Sr. Project Manager <span style="font-size:11px;color:var(--ink-muted);">&middot; CMS Projects</span></td><td style="text-align:right;">$250/hr &middot; $1,700/day</td></tr>
-      <tr><td><strong>Danny Chadwick, FCSI Assoc.</strong></td><td>York, SC</td><td>Project Coordinator <span style="font-size:11px;color:var(--ink-muted);">&middot; CMS Projects</span></td><td style="text-align:right;">$150/hr</td></tr>
-    </tbody>
-  </table>
-
-  <h3 class="heading-rule">Production Management</h3>
-  <table class="phase-summary">
-    <thead><tr><th>Name &amp; Credentials</th><th>Location</th><th>Title</th><th style="text-align:right;">2026 Rate</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Howard Stanford, FCSI, NOMA</strong></td><td>Lutz (Tampa), FL</td><td>Operations Director</td><td style="text-align:right;">$250/hr &middot; $1,700/day</td></tr>
-      <tr><td><strong>[Team Member] Austerman, FCSI</strong></td><td>Westfield, IN</td><td>Production / Design / QA Floater</td><td style="text-align:right;">$200/hr</td></tr>
-      <tr><td><strong>Louise Howard</strong></td><td>Sun River, OR</td><td>CA / Backup Designer</td><td style="text-align:right;">$200/hr</td></tr>
-      <tr><td><strong>Annlyn Fletcher, FCSI</strong></td><td>Savannah, TN</td><td>Quality Care Coordinator</td><td style="text-align:right;">$200/hr</td></tr>
-      <tr><td><strong>Peg Harper</strong></td><td>Mobile, AL</td><td>Implementation Administration Manager</td><td style="text-align:right;">$200/hr</td></tr>
-    </tbody>
-  </table>
+  <!-- Sections populated by buildTeamStructure() JS -->
+  <div id="team-sections-container"></div>
 
   <div class="callout info">
     <div class="cl-label">&#9432; Team Note</div>
-    <div class="cl-body">Team structure current as of September 2025. For SF 330 personnel sections, always verify current credentials and titles with [Department Manager] before submission. Billable rates apply to all client-chargeable time; internal administration is not billed.</div>
+    <div class="cl-body">Always verify current credentials and titles with the audit manager before submission. Billable rates apply to all client-chargeable time; internal administration is not billed.</div>
   </div>
 </div>
 
@@ -1042,22 +991,16 @@ window.calcLaundry = function(){
 var PHASES = ['sd','dd','cd','bn','ca'];
 var PNAMES = ['sd','dd','cd','bn','ca'];
 
-/* DEFAULT COMMITMENTS from spreadsheet */
+/* DEFAULT COMMITMENTS — start at zero; user fills in per project */
 var DEFAULT_PCTS = {
-  sd: [0.10, 0.90, 0.00, 0.00, 0.00, 0.00],
-  dd: [0.06, 0.32, 0.29, 0.33, 0.00, 0.00],
-  cd: [0.05, 0.42, 0.10, 0.32, 0.11, 0.00],
-  bn: [0.00, 0.00, 0.00, 1.00, 0.00, 0.00],
-  ca: [0.12, 0.42, 0.00, 0.00, 0.00, 0.46]
+  sd: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00],
+  dd: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00],
+  cd: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00],
+  bn: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00],
+  ca: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
 };
 
-var PHASE_NOTES = {
-  sd: 'SD: JC 10%, BD 90%',
-  dd: 'DD: 6 meetings; JC 6%, BD 32%, BP 29%, JM 33%',
-  cd: 'CD: 8 meetings; JC 5%, BD 42%, BP 10%, JM 32%, HS 11%',
-  bn: 'BN: JM 100%',
-  ca: 'CA: JC 12%, BD 42%, AL 46%'
-};
+/* PHASE_NOTES removed — badge display removed per generic template */
 
 function buildPhaseDetailTables(){
   var container = document.getElementById('phase-detail-tables');
@@ -1066,8 +1009,7 @@ function buildPhaseDetailTables(){
   var phaseNames = {sd:'SD – Conceptual Design',dd:'DD – Design Development',cd:'CD – Project Documents',bn:'BN – Bidding / Negotiations',ca:'CA – Implementation Administration'};
   PHASES.forEach(function(ph){
     html += '<div class="calc-wrapper">';
-    html += '<div class="calc-title-bar"><h3>'+phaseNames[ph]+'</h3>';
-    html += '<span class="phase-badge" id="note-'+ph+'">'+PHASE_NOTES[ph]+'</span></div>';
+    html += '<div class="calc-title-bar"><h3>'+phaseNames[ph]+'</h3></div>';
     html += '<table class="person-table">';
     html += '<thead><tr><th>Person</th><th>Rate</th><th>Commitment %</th><th>Hours</th><th>Cost</th></tr></thead>';
     html += '<tbody id="tbody-'+ph+'">';
@@ -1150,6 +1092,89 @@ window.calcLabor = function(){
   if(badge) badge.textContent = sv('lc-proj');
 };
 
+/* ═══════════════════════════════════════════════════════════
+   N.4  TEAM STRUCTURE (GENERIC EDITABLE)
+   ═══════════════════════════════════════════════════════════ */
+var TEAM_SECTIONS_CONFIG = [
+  {id:'ts1', ph:'(Section Title, e.g. Leadership)',                  rows:4},
+  {id:'ts2', ph:'(Section Title, e.g. Accounting & Administration)', rows:3},
+  {id:'ts3', ph:'(Section Title, e.g. Marketing & Sales)',           rows:2},
+  {id:'ts4', ph:'(Section Title, e.g. Project Team 1)',              rows:5},
+  {id:'ts5', ph:'(Section Title, e.g. Project Team 2)',              rows:4},
+  {id:'ts6', ph:'(Section Title, e.g. Project Team 3)',              rows:2},
+  {id:'ts7', ph:'(Section Title, e.g. Production Management)',       rows:5}
+];
+
+var TITLE_OPTS = [
+  'President / CEO',
+  'Vice President',
+  'Senior Project Manager',
+  'Project Manager',
+  'Project Coordinator',
+  'Production Manager',
+  'Operations Director',
+  'Business Development Manager',
+  'Accounts Receivable Manager',
+  'Accounts Receivable Specialist',
+  'Office Manager',
+  'Sales Manager',
+  'QC / Specs Writer',
+  'Designer / CAD Operator',
+  'CA / Backup Designer',
+  'Resource Director',
+  'Implementation Administration Manager',
+  'Quality Care Coordinator',
+  'Production / Design / QA Floater'
+];
+
+function buildTitleCellHTML() {
+  var sel = '<select class="team-select" onchange="handleTitleSelect(this)">';
+  sel += '<option value="">(Select Job Title)</option>';
+  TITLE_OPTS.forEach(function(t){ sel += '<option value="'+t+'">'+t+'</option>'; });
+  sel += '<option value="custom">Custom...</option></select>';
+  sel += '<input type="text" class="team-custom-title team-input" placeholder="Enter custom title">';
+  return '<td class="title-cell">' + sel + '</td>';
+}
+
+function buildTeamRowHTML() {
+  return '<td><input type="text" class="team-input" placeholder="(Name) (Credentials)"></td>' +
+         '<td><input type="text" class="team-input" placeholder="(Office Location)"></td>' +
+         buildTitleCellHTML() +
+         '<td><input type="text" class="team-input team-rate" placeholder="$000.00"></td>';
+}
+
+function buildTeamStructure() {
+  var container = document.getElementById('team-sections-container');
+  if (!container) return;
+  var html = '';
+  TEAM_SECTIONS_CONFIG.forEach(function(sec) {
+    html += '<input type="text" class="section-heading-input" placeholder="'+sec.ph+'">';
+    html += '<table class="phase-summary team-edit-table">';
+    html += '<thead><tr><th>Name &amp; Credentials</th><th>Office Location</th><th>Job Title</th><th style="text-align:right;">Rate</th></tr></thead>';
+    html += '<tbody id="'+sec.id+'-body">';
+    for (var i = 0; i < sec.rows; i++) {
+      html += '<tr class="team-row">'+buildTeamRowHTML()+'</tr>';
+    }
+    html += '</tbody></table>';
+    html += '<button class="add-row-btn" onclick="addTeamRow(\''+sec.id+'-body\')">+ Add Row</button>';
+  });
+  container.innerHTML = html;
+}
+
+window.handleTitleSelect = function(sel) {
+  var customInput = sel.parentElement.querySelector('.team-custom-title');
+  if (customInput) customInput.style.display = sel.value === 'custom' ? 'block' : 'none';
+};
+
+window.addTeamRow = function(tbodyId) {
+  var tbody = document.getElementById(tbodyId);
+  if (!tbody) return;
+  var tr = document.createElement('tr');
+  tr.className = 'team-row';
+  tr.innerHTML = buildTeamRowHTML();
+  tbody.appendChild(tr);
+};
+
 /* SCROLL SPY */
 var secIds = ['cover','n-intro','n1','n2','n3','n4'];
 var sideLinks = document.querySelectorAll('.sidebar-list a');
@@ -1165,6 +1190,7 @@ window.addEventListener('scroll',function(){
 
 /* INIT */
 buildPhaseDetailTables();
+buildTeamStructure();
 calcFee();
 calcLaundry();
 calcLabor();
