@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -16,7 +16,6 @@
   --green:#2F7D54; --green-tint:#E8F2EC;
   --red:#B23B2E; --red-tint:#F8E9E6;
   --rule:#D6CCB6;
-  /* Calculator input/output */
   --input-bg:#EDF3F6; --input-border:#266889;
   --output-bg:#0a1628; --output-text:#C5A76F;
   --calc-row-even:#FAF7F1; --calc-row-odd:#FFFFFF;
@@ -34,11 +33,11 @@ body{font-family:'Montserrat',sans-serif;background:var(--navy);color:var(--ink)
 .topbar-right a:hover{color:var(--gold);}
 
 /* SIDEBAR */
-.sidebar{position:fixed;top:52px;left:0;bottom:0;width:244px;background:var(--navy);overflow-y:auto;z-index:100;padding:28px 22px 40px 26px;border-right:1px solid rgba(197,167,111,.2);}
+.sidebar{position:fixed;top:52px;left:0;bottom:0;width:244px;background:var(--navy);overflow-y:auto;z-index:100;padding:28px 18px 40px 20px;box-sizing:border-box;border-right:1px solid rgba(197,167,111,.2);}
 .sidebar-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(197,167,111,.22);}
-.sidebar-group{color:var(--gold);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:14px 0 6px 2px;}
+.sidebar-group{color:var(--gold);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:14px 8px 6px 8px;opacity:.9;}
 .sidebar-list{list-style:none;}
-.sidebar-list a{display:flex;align-items:baseline;gap:8px;color:#FFFFFF;text-decoration:none;font-size:11px;padding:5px 0 5px 6px;border-left:2px solid transparent;transition:all .15s;}
+.sidebar-list a{display:flex;align-items:baseline;gap:8px;color:#FFFFFF;text-decoration:none;font-size:11px;padding:8px 8px 8px 6px;border-left:2px solid transparent;transition:all .15s;}
 .sidebar-list a .code{color:var(--brass);font-size:10px;min-width:28px;flex-shrink:0;}
 .sidebar-list a:hover,.sidebar-list a.active{color:var(--gold);border-left-color:var(--gold);background:rgba(197,167,111,.06);}
 
@@ -70,7 +69,6 @@ main{margin-left:244px;margin-top:52px;flex:1;max-width:none;width:calc(100% - 2
 .subsec-title{font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);font-weight:700;line-height:1.2;margin-bottom:16px;}
 .subsec-lede{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--ink-soft);line-height:1.55;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--rule);}
 .heading-rule{font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);font-weight:600;margin:32px 0 14px;padding-bottom:6px;border-bottom:1px solid var(--rule);}
-.Create The Edge{font-weight:700;color:#266889;text-transform:lowercase;}
 
 /* HOW TO USE BOX */
 .how-to-use{background:var(--navy);color:var(--text-primary);padding:24px 28px;margin:0 0 32px;border-left:4px solid var(--gold);}
@@ -89,9 +87,7 @@ main{margin-left:244px;margin-top:52px;flex:1;max-width:none;width:calc(100% - 2
 .ls-output{background:var(--output-bg);}
 .ls-auto{background:var(--navy);border:1px solid var(--rule);}
 
-/* ============================================================
-   CALCULATOR SHARED COMPONENTS
-   ============================================================ */
+/* CALCULATOR SHARED */
 .calc-wrapper{margin:0 0 40px;}
 .calc-title-bar{background:var(--navy);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;}
 .calc-title-bar h3{font-family:'Playfair Display',serif;color:var(--gold);font-size:16px;font-weight:700;margin:0;}
@@ -154,7 +150,7 @@ select{cursor:pointer;background-image:none;}
 .pct-bar-wrap{height:6px;background:rgba(0,0,0,.08);border-radius:3px;margin-top:4px;overflow:hidden;}
 .pct-bar{height:6px;background:var(--brass);border-radius:3px;transition:width .3s;}
 
-/* TWO/THREE COL GRIDS */
+/* COLUMN GRIDS */
 .row-2col{grid-template-columns:1fr 1fr;}
 .row-3col{grid-template-columns:2fr 1fr 1fr;}
 .row-4col{grid-template-columns:2fr 1fr 1fr 1fr;}
@@ -209,8 +205,6 @@ select{cursor:pointer;background-image:none;}
 .summary-label{color:var(--text-secondary);font-size:12px;}
 .summary-value{color:#fff;font-weight:700;font-size:14px;text-align:right;}
 .summary-value.gold{color:var(--gold);font-family:'Playfair Display',serif;font-size:18px;}
-.summary-value.green{color:#7FD4A0;}
-.summary-value.warn{color:#FFCB6B;}
 
 /* TEAM STRUCTURE EDITABLE */
 .section-heading-input{font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);font-weight:600;width:100%;border:none;border-bottom:1px solid var(--rule);padding:6px 0;margin:32px 0 14px;background:transparent;outline:none;display:block;}
@@ -223,6 +217,21 @@ select{cursor:pointer;background-image:none;}
 .team-rate{text-align:right;}
 .add-row-btn{background:transparent;color:var(--brass);border:1px dashed var(--brass);padding:7px 18px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;margin:4px 0 28px;display:block;width:100%;text-align:center;}
 .add-row-btn:hover{background:rgba(197,167,111,.07);}
+
+/* BAR SIZE BADGE */
+.bar-size-badge{display:inline-block;padding:4px 12px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:2px;}
+.bar-size-badge.small{background:var(--green-tint);color:var(--green);}
+.bar-size-badge.medium{background:var(--warn-bg);color:var(--brass);}
+.bar-size-badge.large{background:var(--blue-tint);color:var(--camacho-blue);}
+
+/* ADD AREA ROW BUTTON */
+.add-area-btn{background:transparent;color:var(--camacho-blue);border:1px dashed var(--camacho-blue);padding:7px 18px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;margin:4px 0 0;display:block;width:100%;text-align:center;}
+.add-area-btn:hover{background:rgba(38,104,137,.07);}
+
+/* ADDITIONAL EQUIPMENT TABLE */
+.equip-add-table{width:100%;border-collapse:collapse;font-size:12px;}
+.equip-add-table td{padding:7px 10px;border-bottom:1px solid var(--rule);vertical-align:middle;background:var(--paper);}
+.equip-add-table td:nth-child(even){background:var(--calc-row-even);}
 
 .topbar-back{display:flex;align-items:center;gap:5px;color:var(--gold);font-size:11px;font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(197,167,111,.35);padding:5px 14px;white-space:nowrap;flex-shrink:0;transition:background .15s;}
 .topbar-back:hover{background:rgba(197,167,111,.12);}
@@ -245,11 +254,11 @@ select{cursor:pointer;background-image:none;}
   <div class="topbar-logo"><span class="your-company">Create The Edge</span> USA</div>
   <div class="topbar-section">Module N &middot; Calculation Tools</div>
   <div class="topbar-right">
-    <a href="#cover">Cover</a>
+    <a href="#n4">Team</a>
+    <a href="#n3">Labor</a>
     <a href="#n1">Fee Chart</a>
     <a href="#n2">Laundry</a>
-    <a href="#n3">5-Phase Labor</a>
-    <a href="#n4">Team</a>
+    <a href="#n5">Bar Seats</a>
   </div>
 </header>
 
@@ -261,12 +270,16 @@ select{cursor:pointer;background-image:none;}
     <li><a href="#cover"><span class="code">N</span>Cover</a></li>
     <li><a href="#n-intro"><span class="code">N.0</span>How to Use</a></li>
   </ul>
+  <div class="sidebar-group">Team &amp; Rates</div>
+  <ul class="sidebar-list">
+    <li><a href="#n4"><span class="code">N.4</span>Team Structure</a></li>
+    <li><a href="#n3"><span class="code">N.3</span>6-Phase Labor</a></li>
+  </ul>
   <div class="sidebar-group">Calculators</div>
   <ul class="sidebar-list">
     <li><a href="#n1"><span class="code">N.1</span>Fee Chart Calculator</a></li>
     <li><a href="#n2"><span class="code">N.2</span>Laundry Sizing</a></li>
-    <li><a href="#n3"><span class="code">N.3</span>5-Phase Labor</a></li>
-    <li><a href="#n4"><span class="code">N.4</span>Team Structure</a></li>
+    <li><a href="#n5"><span class="code">N.5</span>Bar Seat Calculator</a></li>
   </ul>
 </aside>
 
@@ -276,28 +289,33 @@ select{cursor:pointer;background-image:none;}
   <div class="cover-eyebrow">Create The Edge &middot; Sales &amp; Proposal Development Training Guide &middot; 2026 Edition</div>
   <div class="cover-letter">N</div>
   <div class="cover-title">Calculation Tools</div>
-  <div class="cover-sub">Four precision calculators reproduced exactly from the master spreadsheets: fee chart with population-driven method, specialty service line sizing with dual-scenario comparison, five-phase labor allocation by person and phase, and current team structure reference.</div>
+  <div class="cover-sub">Five precision calculators: team structure reference, six-phase labor allocation, fee chart with population-driven method, specialty service line sizing, and bar seat-count budget calculator.</div>
   <div class="cover-rule"></div>
   <div class="nav-cards">
+    <a class="nav-card" href="#n4">
+      <div class="nav-card-code">N.4</div>
+      <div class="nav-card-title">Team Structure</div>
+      <div class="nav-card-sub">Editable team roster by section: names, credentials, locations, titles, and billable rates.</div>
+    </a>
+    <a class="nav-card" href="#n3">
+      <div class="nav-card-code">N.3</div>
+      <div class="nav-card-title">6-Phase Labor Calculator</div>
+      <div class="nav-card-sub">Personnel rates, phase fee input, commitment percentages, calculated hours and cost.</div>
+    </a>
     <a class="nav-card" href="#n1">
       <div class="nav-card-code">N.1</div>
       <div class="nav-card-title">Fee Chart Calculator</div>
-      <div class="nav-card-sub">Population &rarr; SF &rarr; Equipment Budget &rarr; Fee. Sector rates, phase split, site visit billing.</div>
+      <div class="nav-card-sub">Population to SF to equipment budget to fee. Sector rates, phase split, site visit billing.</div>
     </a>
     <a class="nav-card" href="#n2">
       <div class="nav-card-code">N.2</div>
       <div class="nav-card-title">Laundry Sizing Calculator</div>
       <div class="nav-card-sub">15-lb rule, dual scenario, washer and dryer equipment counts, override mode.</div>
     </a>
-    <a class="nav-card" href="#n3">
-      <div class="nav-card-code">N.3</div>
-      <div class="nav-card-title">5-Phase Labor Calculator</div>
-      <div class="nav-card-sub">Phase fee input, person-by-person commitment %, calculated hours and cost, percent check.</div>
-    </a>
-    <a class="nav-card" href="#n4">
-      <div class="nav-card-code">N.4</div>
-      <div class="nav-card-title">Team Structure Reference</div>
-      <div class="nav-card-sub">Add your team by section: names, credentials, locations, titles, and billable rates. Fully editable with add-row option.</div>
+    <a class="nav-card" href="#n5">
+      <div class="nav-card-code">N.5</div>
+      <div class="nav-card-title">Bar Seat Calculator</div>
+      <div class="nav-card-sub">Seat-count classification (Small / Medium / Large) and rate-based bar budget in addition to SF method.</div>
     </a>
   </div>
   <div class="cover-credit"><span class="your-company" style="color:var(--gold)">Create The Edge</span> USA &middot; 2026 Edition &middot; Internal Use Only</div>
@@ -311,14 +329,14 @@ select{cursor:pointer;background-image:none;}
   <div class="subsec-lede">Every calculator in this module replicates the exact logic of the master <span class="your-company">Create The Edge</span> spreadsheets. Enter values in the blue input fields. All other fields calculate automatically. No formula knowledge required.</div>
 
   <div class="legend-strip">
-    <div class="legend-item"><div class="legend-swatch ls-input"></div><span><strong>Blue field</strong> &mdash; Input (you type here)</span></div>
-    <div class="legend-item"><div class="legend-swatch ls-output"></div><span><strong>Dark field</strong> &mdash; Calculated result</span></div>
-    <div class="legend-item"><div class="legend-swatch ls-auto"></div><span><strong>Grey field</strong> &mdash; Auto-calculated sub-value</span></div>
+    <div class="legend-item"><div class="legend-swatch ls-input"></div><span><strong>Blue field</strong>: Input (you type here)</span></div>
+    <div class="legend-item"><div class="legend-swatch ls-output"></div><span><strong>Dark field</strong>: Calculated result</span></div>
+    <div class="legend-item"><div class="legend-swatch ls-auto"></div><span><strong>Grey field</strong>: Auto-calculated sub-value</span></div>
   </div>
 
   <div class="callout rule-b">
-    <div class="cl-label">&#8887; Accuracy Rules</div>
-    <div class="cl-body">All formulas are reproduced exactly from the source spreadsheets. Where a source spreadsheet rounds up to the nearest whole number (specialty service line equipment counts), this calculator does the same using the identical ceiling function. Never override a calculated field manually; change the inputs and let the calculator recompute.</div>
+    <div class="cl-label">&#8887; Recommended Order</div>
+    <div class="cl-body">Start with <strong>N.4 Team Structure</strong> to enter your personnel roster. Then complete <strong>N.3 Labor Calculator</strong> with each person's rate and phase commitments. Use those figures to inform <strong>N.1 Fee Chart</strong> and <strong>N.5 Bar Seat Calculator</strong>. The laundry calculator (N.2) is independent and can be run at any time.</div>
   </div>
 
   <div class="callout expert">
@@ -329,9 +347,170 @@ select{cursor:pointer;background-image:none;}
 </div>
 
 <!-- ============================================================
+     N.4  TEAM STRUCTURE (moved first — enter team before rates)
+     ============================================================ -->
+<div class="page" id="n4">
+  <div class="crumb">Section N <span class="dot">&middot;</span> Calculation Tools <span class="dot">&middot;</span> N.4</div>
+  <div class="subsec-tag">N.4 &middot; Team Structure Reference</div>
+  <h2 class="subsec-title">Team Structure</h2>
+  <div class="subsec-lede">Add your team organized by function. Use for SF 330 personnel sections, proposal team pages, and internal resource planning. Enter names, credentials, office locations, job titles, and billable rates. Add rows as needed in each section.</div>
+
+  <div class="how-to-use">
+    <div class="htu-title">&#9998; How to Fill In This Section</div>
+    <div class="htu-body">
+      <strong>Section titles</strong> are editable: click and type your own (e.g. Leadership, Project Team 1).<br><br>
+      <strong>Each row:</strong> enter name and credentials, office location, select a job title from the dropdown (choose Custom to enter your own), and enter the billable rate.<br><br>
+      <strong>Add Row</strong> button at the bottom of each section adds a blank row. Fill in and repeat.
+    </div>
+  </div>
+
+  <div id="team-sections-container"></div>
+
+  <div class="callout info">
+    <div class="cl-label">&#9432; Team Note</div>
+    <div class="cl-body">Always verify current credentials and titles with the audit manager before submission. Billable rates apply to all client-chargeable time; internal administration is not billed.</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     N.3  6-PHASE LABOR CALCULATOR
+     Phases: Prog, SD, DD, CD, BN, CA
+     ============================================================ -->
+<div class="page" id="n3">
+  <div class="crumb">Section N <span class="dot">&middot;</span> Calculation Tools <span class="dot">&middot;</span> N.3</div>
+  <div class="subsec-tag">N.3 &middot; 6-Phase Labor Calculator</div>
+  <h2 class="subsec-title">6-Phase Labor Calculator</h2>
+  <div class="subsec-lede">Phase-by-phase labor allocation across all six project phases. Enter the fee for each phase and each person's commitment percentage. Hours and costs calculate automatically. The Percent Check column validates that commitment percentages sum to 1.000 per phase.</div>
+
+  <div class="how-to-use">
+    <div class="htu-title">&#9998; How to Use This Calculator</div>
+    <div class="htu-body">
+      <strong>Personnel Rates:</strong> Enter each team member's name and hourly rate. Pull these from N.4 Team Structure.<br><br>
+      <strong>Phase Fee:</strong> Enter the dollar fee allocated to each phase (from your fee proposal).<br><br>
+      <strong>Commitment %:</strong> For each person in each phase, enter the decimal percentage of that phase they will work (e.g., 0.10 = 10%). Percentages across all people for each phase must sum to 1.000.<br><br>
+      <strong>Hours formula:</strong> Hours = (Phase Fee &times; Commitment%) &divide; Rate
+    </div>
+    <ul class="htu-steps">
+      <li data-n="1">Enter each person's name and hourly rate in the Personnel Rates section</li>
+      <li data-n="2">Enter Phase Fee for each of the six phases (Prog, SD, DD, CD, BN, CA)</li>
+      <li data-n="3">Enter commitment % for each person per phase (must sum to 1.000 per phase)</li>
+      <li data-n="4">Review the Phase Summary table for total hours and cost by phase</li>
+      <li data-n="5">Percent Check column shows 1.000 = valid; any other value = re-check percentages</li>
+    </ul>
+  </div>
+
+  <!-- PHASE SUMMARY TABLE -->
+  <div class="calc-wrapper">
+    <div class="calc-title-bar">
+      <h3>Phase Summary</h3>
+      <span class="phase-badge" id="lc-proj-badge">Project</span>
+    </div>
+    <div style="padding:0 0 2px;">
+      <div class="calc-row row-2col" style="background:var(--navy);">
+        <div class="row-label">Project Name / Reference</div>
+        <div><input type="text" id="lc-proj" value="" placeholder="(Project Name)" oninput="calcLabor()" style="font-weight:600;"></div>
+      </div>
+    </div>
+    <table class="phase-summary" id="phase-summary-table">
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>Code</th>
+          <th style="text-align:right;">Phase Fee Input</th>
+          <th style="text-align:right;">Calc'd Hours</th>
+          <th style="text-align:right;">Calc'd Cost</th>
+          <th style="text-align:right;">Pct Check</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Program / Concept</td><td>Prog</td>
+          <td style="text-align:right;"><input type="number" id="fee-prog" value="0" min="0" oninput="calcLabor()" style="width:100px;text-align:right;"></td>
+          <td style="text-align:right;" id="sumhrs-prog">0.00</td>
+          <td style="text-align:right;" id="sumcost-prog">$0</td>
+          <td style="text-align:right;" id="pctchk-prog" class="calc-output">0.000</td>
+        </tr>
+        <tr>
+          <td>Conceptual Design</td><td>SD</td>
+          <td style="text-align:right;"><input type="number" id="fee-sd" value="0" min="0" oninput="calcLabor()" style="width:100px;text-align:right;"></td>
+          <td style="text-align:right;" id="sumhrs-sd">0.00</td>
+          <td style="text-align:right;" id="sumcost-sd">$0</td>
+          <td style="text-align:right;" id="pctchk-sd" class="calc-output">0.000</td>
+        </tr>
+        <tr>
+          <td>Design Development</td><td>DD</td>
+          <td style="text-align:right;"><input type="number" id="fee-dd" value="0" min="0" oninput="calcLabor()" style="width:100px;text-align:right;"></td>
+          <td style="text-align:right;" id="sumhrs-dd">0.00</td>
+          <td style="text-align:right;" id="sumcost-dd">$0</td>
+          <td style="text-align:right;" id="pctchk-dd" class="calc-output">0.000</td>
+        </tr>
+        <tr>
+          <td>Project Documents</td><td>CD</td>
+          <td style="text-align:right;"><input type="number" id="fee-cd" value="0" min="0" oninput="calcLabor()" style="width:100px;text-align:right;"></td>
+          <td style="text-align:right;" id="sumhrs-cd">0.00</td>
+          <td style="text-align:right;" id="sumcost-cd">$0</td>
+          <td style="text-align:right;" id="pctchk-cd" class="calc-output">0.000</td>
+        </tr>
+        <tr>
+          <td>Bidding / Negotiations</td><td>BN</td>
+          <td style="text-align:right;"><input type="number" id="fee-bn" value="0" min="0" oninput="calcLabor()" style="width:100px;text-align:right;"></td>
+          <td style="text-align:right;" id="sumhrs-bn">0.00</td>
+          <td style="text-align:right;" id="sumcost-bn">$0</td>
+          <td style="text-align:right;" id="pctchk-bn" class="calc-output">0.000</td>
+        </tr>
+        <tr>
+          <td>Implementation Administration</td><td>CA</td>
+          <td style="text-align:right;"><input type="number" id="fee-ca" value="0" min="0" oninput="calcLabor()" style="width:100px;text-align:right;"></td>
+          <td style="text-align:right;" id="sumhrs-ca">0.00</td>
+          <td style="text-align:right;" id="sumcost-ca">$0</td>
+          <td style="text-align:right;" id="pctchk-ca" class="calc-output">0.000</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2"><strong>Total Professional Fee</strong></td>
+          <td style="text-align:right;"><strong id="total-fee">$0</strong></td>
+          <td style="text-align:right;"><strong id="total-hrs">0.00</strong></td>
+          <td style="text-align:right;"><strong id="total-cost">$0</strong></td>
+          <td style="text-align:right;"><strong id="total-pctchk">6.000</strong></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- PERSONNEL RATES -->
+  <div class="calc-wrapper">
+    <div class="calc-title-bar"><h3>Personnel Rates ($/hr)</h3><span class="phase-badge">Inputs</span></div>
+    <table class="person-table">
+      <thead>
+        <tr>
+          <th style="min-width:200px;">Person / Role</th>
+          <th>Rate ($/hr)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="name-cell"><input type="text" id="p1-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p1-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
+        <tr><td class="name-cell"><input type="text" id="p2-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p2-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
+        <tr><td class="name-cell"><input type="text" id="p3-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p3-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
+        <tr><td class="name-cell"><input type="text" id="p4-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p4-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
+        <tr><td class="name-cell"><input type="text" id="p5-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p5-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
+        <tr><td class="name-cell"><input type="text" id="p6-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p6-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PHASE DETAIL TABLES (built by JS) -->
+  <div id="phase-detail-tables"></div>
+
+  <div class="callout rule-b">
+    <div class="cl-label">&#8887; Percent Check Rule</div>
+    <div class="cl-body">The Percent Check column in each phase must equal exactly <strong>1.000</strong>. A value below 1.000 means you have unallocated fee. A value above 1.000 means the commitments exceed the budget. Adjust individual percentages until each phase checks to 1.000 before using hours figures in a proposal or internal resource plan.</div>
+  </div>
+</div>
+
+<!-- ============================================================
      N.1  FEE CHART CALCULATOR
-     Source: Fee_Chart.xlsx
-     Logic: Population → participation → seats → SF → equipment budget → fee
+     Logic: Population to SF to equipment budget to fee
      ============================================================ -->
 <div class="page" id="n1">
   <div class="crumb">Section N <span class="dot">&middot;</span> Calculation Tools <span class="dot">&middot;</span> N.1</div>
@@ -342,15 +521,15 @@ select{cursor:pointer;background-image:none;}
   <div class="how-to-use">
     <div class="htu-title">&#9998; How to Use This Calculator</div>
     <div class="htu-body">
-      <strong>Method A (Population-Driven):</strong> Enter population and participation rate; the calculator derives seats, square footage, and equipment budget. Adjust the $ per SF and fee percentage to match the project sector.
-      <br><br><strong>Manual area entry (right column):</strong> Type specific square footages and $/SF for each discrete area (kitchen, bar, market, etc.). The equipment total and fee calculate from those figures.
+      <strong>Method A (Population-Driven):</strong> Enter population and participation rate; the calculator derives seats, square footage, and equipment budget. Adjust the $ per SF and fee percentage to match the project sector.<br><br>
+      <strong>Manual area entry (right column):</strong> Type specific square footages and $/SF for each discrete area (kitchen, bar, market, etc.). Use <strong>+ Add Area</strong> to include additional spaces. The equipment total and fee calculate from those figures.
     </div>
     <ul class="htu-steps">
-      <li data-n="1">Enter project name and population in <strong>Project Inputs</strong></li>
+      <li data-n="1">Enter project name and population in Project Inputs</li>
       <li data-n="2">Adjust participation rate (default 35%) and SF/seat (default 18)</li>
       <li data-n="3">Set $/SF and fee % to match sector rates from the Fee Chart 2026</li>
-      <li data-n="4">Enter individual area square footages and $/SF in the <strong>Area Breakdown</strong></li>
-      <li data-n="5">The <strong>Proposed Fee</strong> panel shows the rounded fee to use in proposals</li>
+      <li data-n="4">Enter individual area square footages and $/SF in the Area Breakdown; use + Add Area for more spaces</li>
+      <li data-n="5">The Proposed Fee panel shows the rounded fee to use in proposals</li>
     </ul>
   </div>
 
@@ -363,7 +542,7 @@ select{cursor:pointer;background-image:none;}
     <div class="calc-grid">
       <div class="calc-row row-2col">
         <div class="row-label">Project Name</div>
-        <div><input type="text" id="fc-name" value="Test Project" oninput="calcFee()"></div>
+        <div><input type="text" id="fc-name" value="" placeholder="(Project Name)" oninput="calcFee()"></div>
       </div>
       <div class="calc-row row-2col">
         <div class="row-label">Population <span class="sublabel">Total people served by this facility</span></div>
@@ -414,7 +593,7 @@ select{cursor:pointer;background-image:none;}
         <div class="calc-output" id="fc-kitbudget">$1,206,900</div>
       </div>
       <div class="calc-row row-2col">
-        <div class="row-label">Fee % <span class="sublabel">5&ndash;7% typical; see sector rates</span></div>
+        <div class="row-label">Fee % <span class="sublabel">5 to 7% typical; see sector rates</span></div>
         <div><input type="number" id="fc-feepct" value="0.06" step="0.005" min="0.01" max="0.15" oninput="calcFee()"></div>
       </div>
       <div class="calc-row row-2col subtotal-row">
@@ -424,7 +603,7 @@ select{cursor:pointer;background-image:none;}
     </div>
   </div>
 
-  <!-- AREA BREAKDOWN -->
+  <!-- AREA BREAKDOWN - dynamic rows -->
   <div class="calc-wrapper">
     <div class="calc-title-bar">
       <h3>Area Breakdown &amp; Equipment Budget</h3>
@@ -437,46 +616,42 @@ select{cursor:pointer;background-image:none;}
         <div class="row-label col-right">$ / SF</div>
         <div class="row-label col-right">Total $</div>
       </div>
-      <!-- Row: Kitchen -->
       <div class="calc-row row-4col">
         <div><input type="text" id="area1-name" value="Kitchen" oninput="calcFee()"></div>
         <div><input type="number" id="area1-sf" value="1721" min="0" oninput="calcFee()" class="col-right"></div>
         <div><input type="number" id="area1-rate" value="325" min="0" oninput="calcFee()" class="col-right"></div>
         <div class="calc-output col-right" id="area1-total">$559,325</div>
       </div>
-      <!-- Row: Bar -->
       <div class="calc-row row-4col">
         <div><input type="text" id="area2-name" value="Bar" oninput="calcFee()"></div>
         <div><input type="number" id="area2-sf" value="270" min="0" oninput="calcFee()"></div>
         <div><input type="number" id="area2-rate" value="175" min="0" oninput="calcFee()"></div>
         <div class="calc-output col-right" id="area2-total">$47,250</div>
       </div>
-      <!-- Row: Market -->
       <div class="calc-row row-4col">
         <div><input type="text" id="area3-name" value="Market / Store" oninput="calcFee()"></div>
         <div><input type="number" id="area3-sf" value="104" min="0" oninput="calcFee()"></div>
         <div><input type="number" id="area3-rate" value="175" min="0" oninput="calcFee()"></div>
         <div class="calc-output col-right" id="area3-total">$18,200</div>
       </div>
-      <!-- Row: Area 4 -->
       <div class="calc-row row-4col">
         <div><input type="text" id="area4-name" value="Area 4" oninput="calcFee()"></div>
         <div><input type="number" id="area4-sf" value="0" min="0" oninput="calcFee()"></div>
         <div><input type="number" id="area4-rate" value="0" min="0" oninput="calcFee()"></div>
         <div class="calc-output col-right" id="area4-total">$0</div>
       </div>
-      <!-- Row: Area 5 -->
       <div class="calc-row row-4col">
         <div><input type="text" id="area5-name" value="Area 5" oninput="calcFee()"></div>
         <div><input type="number" id="area5-sf" value="0" min="0" oninput="calcFee()"></div>
         <div><input type="number" id="area5-rate" value="0" min="0" oninput="calcFee()"></div>
         <div class="calc-output col-right" id="area5-total">$0</div>
       </div>
-      <div class="calc-row row-4col result-row">
+      <div class="calc-row row-4col result-row" id="area-result-row">
         <div class="row-label" style="grid-column:span 3;">Equipment Total (Area Method)</div>
         <div class="row-output" id="fc-equip-total">$624,775</div>
       </div>
     </div>
+    <button class="add-area-btn" onclick="addAreaRow()">+ Add Area</button>
   </div>
 
   <!-- FEE OUTPUT -->
@@ -537,7 +712,7 @@ select{cursor:pointer;background-image:none;}
         <div></div>
       </div>
       <div class="calc-row result-row">
-        <div class="row-label" style="font-size:13px;color:var(--text-secondary);">&#9654; Fee to Use in Proposal (Area Method) &mdash; Round to nearest $250</div>
+        <div class="row-label" style="font-size:13px;color:var(--text-secondary);">&#9654; Fee to Use in Proposal (Area Method): Round to nearest $250</div>
         <div class="row-output" id="fc-final-fee" style="font-family:'Playfair Display',serif;font-size:26px;color:#FFFFFF;">$31,250</div>
       </div>
     </div>
@@ -545,15 +720,12 @@ select{cursor:pointer;background-image:none;}
 
   <div class="callout best">
     <div class="cl-label">&#10003; Best Practice</div>
-    <div class="cl-body">Always present the rounded Area Method fee in the proposal (right column in the master spreadsheet), not the Population Method fee. The population method is a sanity check. The area-by-area breakdown is the defensible number because it ties to specific designed spaces. Round up to the nearest $250 for clean proposal presentation.</div>
+    <div class="cl-body">Always present the rounded Area Method fee in the proposal, not the Population Method fee. The population method is a sanity check. The area-by-area breakdown is the defensible number because it ties to specific designed spaces. Round up to the nearest $250 for clean proposal presentation.</div>
   </div>
 </div>
 
 <!-- ============================================================
      N.2  LAUNDRY SIZING CALCULATOR
-     Source: specialty service line_sizing_calculator.xlsx
-     Logic: Keys × lbs/day ÷ working hours = lbs/hr → CEILING(lbs/hr / machine lbs/hr)
-     Two-scenario side-by-side, direct override, equipment sizing
      ============================================================ -->
 <div class="page" id="n2">
   <div class="crumb">Section N <span class="dot">&middot;</span> Calculation Tools <span class="dot">&middot;</span> N.2</div>
@@ -565,31 +737,29 @@ select{cursor:pointer;background-image:none;}
     <div class="htu-title">&#9998; How to Use This Calculator</div>
     <div class="htu-body">
       <strong>Standard mode:</strong> Enter lbs per person (default 15) and room keys. The calculator multiplies to get total lbs, divides by working hours for hourly demand, then rounds up to get equipment counts.<br><br>
-      <strong>Override mode:</strong> If you already know total daily pounds (from a client-provided survey or existing specialty service line records), enter it in the <strong>Direct Total Lbs Override</strong> field. When populated, it replaces the keys calculation.<br><br>
-      <strong>Equipment counts</strong> use CEILING: machines needed = &lceil;lbs per working hour &divide; machine lbs per hour&rceil;. Adjust machine capacity and cycle time to match the specified equipment model.
+      <strong>Override mode:</strong> If you already know total daily pounds (from a client-provided survey or existing specialty service line records), enter it in the Direct Total Lbs Override field. When populated, it replaces the keys calculation.<br><br>
+      <strong>Additional Equipment:</strong> Use the section below to add any supplemental equipment items with quantity and unit cost.
     </div>
     <ul class="htu-steps">
       <li data-n="1">Enter lbs/person (15 = standard hotel; 20 = luxury; 3 = correctional)</li>
       <li data-n="2">Enter room keys for Scenario 1 and optionally Scenario 2</li>
       <li data-n="3">Leave Direct Override blank (use keys calculation) or enter a known daily lbs figure</li>
       <li data-n="4">Adjust washer/dryer capacity and cycle time to match actual specified equipment</li>
-      <li data-n="5">Read equipment counts at the bottom of each scenario column</li>
+      <li data-n="5">Add any additional equipment items in the Additional Equipment section below</li>
     </ul>
   </div>
 
   <div class="calc-wrapper">
     <div class="calc-title-bar">
-      <h3>Laundry Sizing &mdash; Dual Scenario</h3>
+      <h3>Laundry Sizing: Dual Scenario</h3>
       <span class="phase-badge">Laundry</span>
     </div>
     <div class="calc-grid">
-      <!-- HEADER ROW -->
       <div class="calc-row" style="display:grid;grid-template-columns:2fr 1fr 1fr;background:var(--navy-mid);">
         <div class="row-label" style="color:var(--gold);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;"></div>
         <div style="text-align:right;color:var(--gold);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding-right:4px;">Scenario 1</div>
         <div style="text-align:right;color:var(--text-secondary);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding-right:4px;">Scenario 2</div>
       </div>
-      <!-- INPUTS -->
       <div class="calc-row" style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;align-items:center;">
         <div class="row-label">Lbs of Laundry Per Person / Key <span class="sublabel">15 = standard; 20 = luxury; 3 = correctional</span></div>
         <div><input type="number" id="lbs1" value="15" min="1" oninput="calcLaundry()" class="col-right"></div>
@@ -605,8 +775,6 @@ select{cursor:pointer;background-image:none;}
         <div><input type="number" id="override1" value="" min="0" placeholder="blank = auto" oninput="calcLaundry()"></div>
         <div><input type="number" id="override2" value="" min="0" placeholder="blank = auto" oninput="calcLaundry()"></div>
       </div>
-
-      <!-- DERIVED -->
       <div class="calc-row" style="display:grid;grid-template-columns:2fr 1fr 1fr;background:var(--navy-mid);">
         <div class="row-label" style="color:var(--gold);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;">Daily Volume</div>
         <div></div><div></div>
@@ -616,7 +784,7 @@ select{cursor:pointer;background-image:none;}
         <div class="calc-output col-right" id="totlbs1">2,880</div>
         <div class="calc-output col-right" id="totlbs2">2,250</div>
       </div>
-      <div class="calc-row" style="display:grid;grid-template-columns:2fr 1fr 1fr;background:var(--calc-row-even);">
+      <div class="calc-row" style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;background:var(--calc-row-even);align-items:center;">
         <div class="row-label">Working Hours Per Day</div>
         <div><input type="number" id="hrs1" value="7" min="1" max="24" oninput="calcLaundry()"></div>
         <div><input type="number" id="hrs2" value="7" min="1" max="24" oninput="calcLaundry()"></div>
@@ -631,10 +799,8 @@ select{cursor:pointer;background-image:none;}
         <div class="calc-output col-right" id="rounded1">412</div>
         <div class="calc-output col-right" id="rounded2">322</div>
       </div>
-
-      <!-- EQUIPMENT SIZING -->
       <div class="calc-row" style="display:grid;grid-template-columns:2fr 1fr 1fr;background:var(--navy-mid);">
-        <div class="row-label" style="color:var(--gold);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;">Equipment Sizing &mdash; Washers</div>
+        <div class="row-label" style="color:var(--gold);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;">Equipment Sizing: Washers</div>
         <div></div><div></div>
       </div>
       <div class="calc-row" style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;background:var(--calc-row-odd);align-items:center;">
@@ -662,10 +828,8 @@ select{cursor:pointer;background-image:none;}
         <div class="row-output" id="wmachines1">2</div>
         <div class="row-output" id="wmachines2">2</div>
       </div>
-
-      <!-- DRYERS -->
       <div class="calc-row" style="display:grid;grid-template-columns:2fr 1fr 1fr;background:var(--navy-mid);">
-        <div class="row-label" style="color:var(--gold);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;">Equipment Sizing &mdash; Dryers</div>
+        <div class="row-label" style="color:var(--gold);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;">Equipment Sizing: Dryers</div>
         <div></div><div></div>
       </div>
       <div class="calc-row" style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;background:var(--calc-row-odd);align-items:center;">
@@ -696,171 +860,165 @@ select{cursor:pointer;background-image:none;}
     </div>
   </div>
 
+  <!-- ADDITIONAL EQUIPMENT -->
+  <div class="calc-wrapper">
+    <div class="calc-title-bar">
+      <h3>Additional Equipment</h3>
+      <span class="phase-badge">Optional</span>
+    </div>
+    <div class="calc-grid">
+      <div class="calc-row section-header" style="display:grid;grid-template-columns:3fr 1fr 1fr 1fr;">
+        <div class="row-label">Equipment Name</div>
+        <div class="row-label col-right">Qty</div>
+        <div class="row-label col-right">Cost Each</div>
+        <div class="row-label col-right">Total</div>
+      </div>
+    </div>
+    <table class="equip-add-table">
+      <tbody id="equip-tbody"></tbody>
+    </table>
+    <button class="add-row-btn" onclick="addEquipRow()">+ Add Equipment</button>
+    <div class="calc-grid">
+      <div class="calc-row result-row" style="display:grid;grid-template-columns:1fr auto;">
+        <div class="row-label" style="color:var(--text-secondary);">Additional Equipment Total</div>
+        <div class="row-output" id="equip-grand-total">$0</div>
+      </div>
+    </div>
+  </div>
+
   <div class="callout info">
     <div class="cl-label">&#9432; Formula Reference</div>
     <div class="cl-body"><strong>Total Lbs =</strong> Keys &times; Lbs/Person (or override value)<br>
     <strong>Lbs/Hr =</strong> Total Lbs &divide; Working Hours<br>
     <strong>Machine Lbs/Hr =</strong> Capacity &times; (60 &divide; Cycle Minutes)<br>
-    <strong>Machines Needed =</strong> &lceil;Lbs/Hr &divide; Machine Lbs/Hr&rceil; (ceiling, rounds up)<br>
+    <strong>Machines Needed =</strong> Ceiling(Lbs/Hr &divide; Machine Lbs/Hr)<br>
     <strong>Loads/Day =</strong> Total Lbs &divide; Machine Capacity</div>
   </div>
 </div>
 
 <!-- ============================================================
-     N.3  5-PHASE LABOR CALCULATOR
-     Source: 5_Phase_Labor_Calculator.xlsx
-     Logic: Phase Fee ÷ (Σ Rate×Pct) = total hours; hours = fee * pct_person / rate_person
-     Hours per person = (Phase Fee × commitment%) / rate
+     N.5  BAR SEAT CALCULATOR (new)
+     Small = 12 seats or under / Medium = 13-17 / Large = 18+
      ============================================================ -->
-<div class="page" id="n3">
-  <div class="crumb">Section N <span class="dot">&middot;</span> Calculation Tools <span class="dot">&middot;</span> N.3</div>
-  <div class="subsec-tag">N.3 &middot; 5-Phase Labor Calculator</div>
-  <h2 class="subsec-title">5-Phase Labor Calculator</h2>
-  <div class="subsec-lede">Phase-by-phase labor allocation using the Major Transportation Hospitality Project master model. Enter the fee for each phase and each person's commitment percentage. Hours and costs calculate from the exact formula in the source spreadsheet. The Percent Check column validates that commitment percentages sum to 1.000.</div>
+<div class="page" id="n5">
+  <div class="crumb">Section N <span class="dot">&middot;</span> Calculation Tools <span class="dot">&middot;</span> N.5</div>
+  <div class="subsec-tag">N.5 &middot; Bar Seat Calculator</div>
+  <h2 class="subsec-title">Bar Seat Calculator</h2>
+  <div class="subsec-lede">Classify your bar by seat count and calculate the seat-based equipment budget in addition to the square footage method used in N.1. Enter your firm's standard rate per seat for each bar size category. The calculator detects the category automatically and applies the correct rate.</div>
 
   <div class="how-to-use">
     <div class="htu-title">&#9998; How to Use This Calculator</div>
     <div class="htu-body">
-      <strong>Phase Fee:</strong> Enter the dollar fee allocated to each phase (from your fee proposal).<br><br>
-      <strong>Commitment %:</strong> For each person in each phase, enter the decimal percentage of that phase they will work (e.g., 0.10 = 10%). Percentages across all people for each phase must sum to 1.000 for the percent check to pass.<br><br>
-      <strong>Hours formula:</strong> Hours = (Phase Fee &times; Commitment%) &divide; Rate<br>
-      <strong>Cost formula:</strong> Cost = Hours &times; Rate = Phase Fee &times; Commitment%
+      <strong>Step 1:</strong> Enter the total number of bar seats. The calculator classifies the bar as Small, Medium, or Large automatically.<br><br>
+      <strong>Step 2:</strong> Enter your firm's standard rate per seat for each size category. Only the applicable category rate is used in the calculation.<br><br>
+      <strong>Step 3:</strong> The seat total (seats &times; rate) is shown separately from the square footage total. The combined bar budget adds both methods together. Cross-reference the bar row in N.1 for the SF figure.
     </div>
     <ul class="htu-steps">
-      <li data-n="1">Enter project name at top and set each person's hourly rate in the Rates row</li>
-      <li data-n="2">Enter Phase Fee for each phase (SD, DD, CD, BN, CA)</li>
-      <li data-n="3">Enter commitment % for each person per phase (must sum to 1.000 per phase)</li>
-      <li data-n="4">Review the Phase Summary table at the top for total hours and cost by phase</li>
-      <li data-n="5">Percent Check column shows 1.00 = valid; any other value = re-check your percentages</li>
+      <li data-n="1">Enter total bar seat count</li>
+      <li data-n="2">Enter your standard $/seat rate for Small (12 or under), Medium (13 to 17), and Large (18 or above)</li>
+      <li data-n="3">Bar is auto-classified and the applicable rate is displayed</li>
+      <li data-n="4">Read the seat total and combined bar budget below</li>
     </ul>
   </div>
 
-  <!-- PHASE SUMMARY TABLE -->
+  <!-- BAR SEAT INPUT -->
   <div class="calc-wrapper">
     <div class="calc-title-bar">
-      <h3>Phase Summary</h3>
-      <span class="phase-badge" id="lc-proj-badge">Project</span>
+      <h3>Bar Seat Input &amp; Classification</h3>
+      <span class="phase-badge">Inputs</span>
     </div>
-    <div style="padding:0 0 2px;">
-      <div class="calc-row row-2col" style="background:var(--navy);">
-        <div class="row-label">Project Name / Reference</div>
-        <div><input type="text" id="lc-proj" value="Major Transportation Hospitality Project (TPA) - Tampa, FL" oninput="calcLabor()" style="font-weight:600;"></div>
+    <div class="calc-grid">
+      <div class="calc-row row-2col">
+        <div class="row-label">Number of Bar Seats</div>
+        <div><input type="number" id="bar-seats" value="0" min="0" oninput="calcBarSeats()"></div>
+      </div>
+      <div class="calc-row row-2col section-header">
+        <div class="row-label">Bar Classification</div>
+        <div class="row-label" style="text-align:right;color:var(--text-secondary);font-size:10px;">Auto-detected</div>
+      </div>
+      <div class="calc-row row-2col">
+        <div class="row-label">Size Category <span class="sublabel">Small = 12 or under &nbsp;|&nbsp; Medium = 13 to 17 &nbsp;|&nbsp; Large = 18 or above</span></div>
+        <div style="text-align:right;padding:4px 0;"><span id="bar-category-badge" class="bar-size-badge">--</span></div>
       </div>
     </div>
-    <table class="phase-summary" id="phase-summary-table">
-      <thead>
-        <tr>
-          <th>Phase</th>
-          <th>Code</th>
-          <th style="text-align:right;">Phase Fee Input</th>
-          <th style="text-align:right;">Calc'd Hours</th>
-          <th style="text-align:right;">Calc'd Cost</th>
-          <th style="text-align:right;">Pct Check</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Conceptual Design</td><td>SD</td>
-          <td style="text-align:right;"><input type="number" id="fee-sd" value="6350" min="0" oninput="calcLabor()" style="width:100px;text-align:right;"></td>
-          <td style="text-align:right;" id="sumhrs-sd">25.17</td>
-          <td style="text-align:right;" id="sumcost-sd">$6,350</td>
-          <td style="text-align:right;" id="pctchk-sd" class="calc-output">1.000</td>
-        </tr>
-        <tr>
-          <td>Design Development</td><td>DD</td>
-          <td style="text-align:right;"><input type="number" id="fee-dd" value="9525" min="0" oninput="calcLabor()" style="width:100px;text-align:right;"></td>
-          <td style="text-align:right;" id="sumhrs-dd">47.50</td>
-          <td style="text-align:right;" id="sumcost-dd">$9,525</td>
-          <td style="text-align:right;" id="pctchk-dd" class="calc-output">1.000</td>
-        </tr>
-        <tr>
-          <td>Project Documents</td><td>CD</td>
-          <td style="text-align:right;"><input type="number" id="fee-cd" value="9525" min="0" oninput="calcLabor()" style="width:100px;text-align:right;"></td>
-          <td style="text-align:right;" id="sumhrs-cd">46.48</td>
-          <td style="text-align:right;" id="sumcost-cd">$9,525</td>
-          <td style="text-align:right;" id="pctchk-cd" class="calc-output">1.000</td>
-        </tr>
-        <tr>
-          <td>Bidding / Negotiations</td><td>BN</td>
-          <td style="text-align:right;"><input type="number" id="fee-bn" value="1587.5" min="0" oninput="calcLabor()" style="width:100px;text-align:right;"></td>
-          <td style="text-align:right;" id="sumhrs-bn">10.58</td>
-          <td style="text-align:right;" id="sumcost-bn">$1,588</td>
-          <td style="text-align:right;" id="pctchk-bn" class="calc-output">1.000</td>
-        </tr>
-        <tr>
-          <td>Implementation Administration</td><td>CA</td>
-          <td style="text-align:right;"><input type="number" id="fee-ca" value="4762.5" min="0" oninput="calcLabor()" style="width:100px;text-align:right;"></td>
-          <td style="text-align:right;" id="sumhrs-ca">21.03</td>
-          <td style="text-align:right;" id="sumcost-ca">$4,763</td>
-          <td style="text-align:right;" id="pctchk-ca" class="calc-output">1.000</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="2"><strong>Total Professional Fee</strong></td>
-          <td style="text-align:right;"><strong id="total-fee">$31,750</strong></td>
-          <td style="text-align:right;"><strong id="total-hrs">150.77</strong></td>
-          <td style="text-align:right;"><strong id="total-cost">$31,750</strong></td>
-          <td style="text-align:right;"><strong id="total-pctchk">5.000</strong></td>
-        </tr>
-      </tfoot>
-    </table>
   </div>
 
-  <!-- RATES ROW -->
+  <!-- RATE INPUTS BY CATEGORY -->
   <div class="calc-wrapper">
-    <div class="calc-title-bar"><h3>Personnel Rates ($/hr)</h3><span class="phase-badge">Inputs</span></div>
-    <table class="person-table">
-      <thead>
-        <tr>
-          <th style="min-width:200px;">Person / Role</th>
-          <th>Rate ($/hr)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td class="name-cell"><input type="text" id="p1-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p1-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
-        <tr><td class="name-cell"><input type="text" id="p2-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p2-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
-        <tr><td class="name-cell"><input type="text" id="p3-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p3-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
-        <tr><td class="name-cell"><input type="text" id="p4-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p4-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
-        <tr><td class="name-cell"><input type="text" id="p5-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p5-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
-        <tr><td class="name-cell"><input type="text" id="p6-name" value="" placeholder="(Name / Role)" oninput="calcLabor()" style="width:100%;"></td><td><input type="number" id="p6-rate" value="0" placeholder="000.00" min="0" oninput="calcLabor()" style="width:80px;text-align:right;"></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- PHASE DETAIL TABLES -->
-  <div id="phase-detail-tables"></div>
-
-  <div class="callout rule-b">
-    <div class="cl-label">&#8887; Percent Check Rule</div>
-    <div class="cl-body">The Percent Check column in each phase must equal exactly <strong>1.000</strong>. A value below 1.000 means you have unallocated fee. A value above 1.000 means the commitments exceed the budget. Adjust individual percentages until each phase checks to 1.000 before using hours figures in a proposal or internal resource plan.</div>
-  </div>
-</div>
-
-<!-- ============================================================
-     N.4  TEAM STRUCTURE (GENERIC EDITABLE)
-     ============================================================ -->
-<div class="page" id="n4">
-  <div class="crumb">Section N <span class="dot">&middot;</span> Calculation Tools <span class="dot">&middot;</span> N.4</div>
-  <div class="subsec-tag">N.4 &middot; Team Structure Reference</div>
-  <h2 class="subsec-title">Team Structure</h2>
-  <div class="subsec-lede">Add your team organized by function. Use for SF 330 personnel sections, proposal team pages, and internal resource planning. Enter names, credentials, office locations, job titles, and billable rates. Add rows as needed in each section.</div>
-
-  <div class="how-to-use">
-    <div class="htu-title">&#9998; How to Fill In This Section</div>
-    <div class="htu-body">
-      <strong>Section titles</strong> are editable — click and type your own (e.g. Leadership, Project Team 1).<br><br>
-      <strong>Each row:</strong> enter name and credentials, office location, select a job title from the dropdown (choose Custom to enter your own), and enter the billable rate.<br><br>
-      <strong>Add Row</strong> button at the bottom of each section adds a blank row. Fill in and repeat.
+    <div class="calc-title-bar">
+      <h3>Your Standard Rate Per Seat (by Category)</h3>
+      <span class="phase-badge">Your Rates</span>
+    </div>
+    <div class="calc-grid">
+      <div class="calc-row section-header" style="display:grid;grid-template-columns:1fr 1fr 1fr;">
+        <div class="row-label">Category</div>
+        <div class="row-label col-right">Seat Range</div>
+        <div class="row-label col-right">Your $/Seat Rate</div>
+      </div>
+      <div class="calc-row" style="display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;">
+        <div class="row-label">Small Bar</div>
+        <div class="row-label col-right" style="font-size:12px;color:var(--ink-muted);">12 seats or under</div>
+        <div><input type="number" id="bar-small-rate" value="0" min="0" placeholder="0.00" oninput="calcBarSeats()" class="col-right"></div>
+      </div>
+      <div class="calc-row" style="display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;">
+        <div class="row-label">Medium Bar</div>
+        <div class="row-label col-right" style="font-size:12px;color:var(--ink-muted);">13 to 17 seats</div>
+        <div><input type="number" id="bar-med-rate" value="0" min="0" placeholder="0.00" oninput="calcBarSeats()" class="col-right"></div>
+      </div>
+      <div class="calc-row" style="display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;">
+        <div class="row-label">Large Bar</div>
+        <div class="row-label col-right" style="font-size:12px;color:var(--ink-muted);">18 seats or above</div>
+        <div><input type="number" id="bar-lrg-rate" value="0" min="0" placeholder="0.00" oninput="calcBarSeats()" class="col-right"></div>
+      </div>
     </div>
   </div>
 
-  <!-- Sections populated by buildTeamStructure() JS -->
-  <div id="team-sections-container"></div>
+  <!-- BAR BUDGET OUTPUT -->
+  <div class="calc-wrapper">
+    <div class="calc-title-bar">
+      <h3>Bar Budget Output</h3>
+      <span class="phase-badge">Result</span>
+    </div>
+    <div class="calc-grid">
+      <div class="calc-row row-2col">
+        <div class="row-label">Applicable Rate (based on seat count)</div>
+        <div class="calc-output col-right" id="bar-seat-rate-display">--</div>
+      </div>
+      <div class="calc-row row-2col">
+        <div class="row-label">Calculation <span class="sublabel">Number of seats &times; applicable rate</span></div>
+        <div class="calc-output col-right" id="bar-seat-formula">0 seats &times; $0 = $0</div>
+      </div>
+      <div class="calc-row row-2col subtotal-row">
+        <div class="row-label">Seat-Based Total</div>
+        <div class="calc-output col-right" id="bar-seat-total">$0</div>
+      </div>
+      <div class="calc-row row-2col section-header">
+        <div class="row-label">Cross-Reference: N.1 Bar Area SF Budget</div>
+        <div></div>
+      </div>
+      <div class="calc-row row-2col">
+        <div class="row-label">Bar SF Budget (from N.1 Area Breakdown: Bar row)</div>
+        <div class="calc-output col-right" id="bar-sf-ref">$0</div>
+      </div>
+      <div class="calc-row result-row" style="display:grid;grid-template-columns:1fr auto;">
+        <div class="row-label" style="color:var(--text-secondary);">Combined Bar Budget (SF method + Seat method)</div>
+        <div class="row-output" id="bar-combined">$0</div>
+      </div>
+    </div>
+  </div>
 
   <div class="callout info">
-    <div class="cl-label">&#9432; Team Note</div>
-    <div class="cl-body">Always verify current credentials and titles with the audit manager before submission. Billable rates apply to all client-chargeable time; internal administration is not billed.</div>
+    <div class="cl-label">&#9432; How to Use This Figure in Proposals</div>
+    <div class="cl-body">The seat-based calculation provides an additional data point for bar design fees separate from the square footage method. Compare both totals and present the higher figure, or average them, depending on client type and project complexity. Store your firm's standard rates per category so every bar project produces a consistent, defensible estimate.</div>
+  </div>
+
+  <div class="callout rule-b">
+    <div class="cl-label">&#8887; Bar Size Classifications</div>
+    <div class="cl-body">
+      <strong>Small Bar (12 seats or under):</strong> Intimate bar program, limited back-of-bar equipment, typically one bartender station.<br>
+      <strong>Medium Bar (13 to 17 seats):</strong> Moderate bar program, dual bartender capability, expanded back-bar.<br>
+      <strong>Large Bar (18 seats or above):</strong> Full-service bar program, multiple stations, full draft and spirits systems.
+    </div>
   </div>
 </div>
 
@@ -869,22 +1027,38 @@ select{cursor:pointer;background-image:none;}
 (function(){
 'use strict';
 
-/* ── UTILITIES ─────────────────────────────────────────────── */
+/* UTILITIES */
 function v(id){ var el=document.getElementById(id); return el?parseFloat(el.value)||0:0; }
 function sv(id){ var el=document.getElementById(id); return el?el.value||'':''; }
 function set(id,val){ var el=document.getElementById(id); if(el) el.innerHTML=val; }
 function fmt$(n){ return '$'+Math.round(n).toLocaleString(); }
-function fmt$d(n){ return '$'+n.toLocaleString(undefined,{minimumFractionDigits:0,maximumFractionDigits:0}); }
 function fmt2(n){ return n.toFixed(2); }
 function fmtpct(n){ return (n*100).toFixed(1)+'%'; }
 function ceil(n){ return Math.ceil(n); }
 function round250(n){ return Math.round(n/250)*250; }
 
-/* ═══════════════════════════════════════════════════════════
-   N.1  FEE CHART CALCULATOR
-   ═══════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════
+   N.1  FEE CHART CALCULATOR (dynamic area rows)
+   ═══════════════════════════════════════════════════════ */
+var areaCount = 5;
+
+window.addAreaRow = function(){
+  areaCount++;
+  var i = areaCount;
+  var resultRow = document.getElementById('area-result-row');
+  if(!resultRow) return;
+  var div = document.createElement('div');
+  div.className = 'calc-row row-4col';
+  div.innerHTML =
+    '<div><input type="text" id="area'+i+'-name" value="Area '+i+'" oninput="calcFee()"></div>' +
+    '<div><input type="number" id="area'+i+'-sf" value="0" min="0" oninput="calcFee()" class="col-right"></div>' +
+    '<div><input type="number" id="area'+i+'-rate" value="0" min="0" oninput="calcFee()" class="col-right"></div>' +
+    '<div class="calc-output col-right" id="area'+i+'-total">$0</div>';
+  resultRow.parentNode.insertBefore(div, resultRow);
+  calcFee();
+};
+
 window.calcFee = function(){
-  /* POPULATION METHOD */
   var pop   = v('fc-pop');
   var part  = v('fc-part');
   var adp   = pop * part;
@@ -899,18 +1073,17 @@ window.calcFee = function(){
   var fepct = v('fc-feepct');
   var calcf = kitbdg * fepct;
 
-  set('fc-adp', Math.round(adp).toLocaleString());
-  set('fc-peak', Math.round(peak).toLocaleString());
-  set('fc-lunch', Math.round(lunch).toLocaleString());
-  set('fc-ineff', '0.85');
-  set('fc-seats', Math.round(seats).toLocaleString());
-  set('fc-totalsf', Math.round(totsf).toLocaleString());
+  set('fc-adp',       Math.round(adp).toLocaleString());
+  set('fc-peak',      Math.round(peak).toLocaleString());
+  set('fc-lunch',     Math.round(lunch).toLocaleString());
+  set('fc-ineff',     '0.85');
+  set('fc-seats',     Math.round(seats).toLocaleString());
+  set('fc-totalsf',   Math.round(totsf).toLocaleString());
   set('fc-kitbudget', fmt$(kitbdg));
-  set('fc-calcfee', fmt$(calcf));
+  set('fc-calcfee',   fmt$(calcf));
 
-  /* AREA METHOD */
   var equipTotal = 0;
-  for(var i=1;i<=5;i++){
+  for(var i=1;i<=areaCount;i++){
     var sf   = v('area'+i+'-sf');
     var rate = v('area'+i+'-rate');
     var tot  = sf * rate;
@@ -924,28 +1097,53 @@ window.calcFee = function(){
   var areafee = equipTotal * ap;
   set('fc-areafee', fmt$(areafee));
 
-  /* PHASE SPLIT – from spreadsheet: Prog 7%, SD 18%, DD 35%, CD 22%, BN 3%, CA 15% */
-  var phases = [
-    {id:'prog', pct:0.07},
-    {id:'sd',   pct:0.18},
-    {id:'dd',   pct:0.35},
-    {id:'cd',   pct:0.22},
-    {id:'bn',   pct:0.03},
-    {id:'ca',   pct:0.15}
+  var phaseList = [
+    {id:'prog',pct:0.07},{id:'sd',pct:0.18},{id:'dd',pct:0.35},
+    {id:'cd',pct:0.22},{id:'bn',pct:0.03},{id:'ca',pct:0.15}
   ];
-  phases.forEach(function(p){
+  phaseList.forEach(function(p){
     set('phs-'+p.id+'-pct', fmtpct(p.pct));
     set('phs-'+p.id, fmt$(areafee * p.pct));
   });
 
-  /* FINAL ROUNDED FEE */
   var finalFee = round250(areafee);
   set('fc-final-fee', fmt$(finalFee));
+
+  /* Keep bar seat cross-reference in sync */
+  if(window.calcBarSeats) calcBarSeats();
 };
 
-/* ═══════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════
    N.2  LAUNDRY SIZING CALCULATOR
-   ═══════════════════════════════════════════════════════════ */
+   ═══════════════════════════════════════════════════════ */
+var equipItemCount = 0;
+
+window.addEquipRow = function(){
+  equipItemCount++;
+  var i = equipItemCount;
+  var tbody = document.getElementById('equip-tbody');
+  if(!tbody) return;
+  var tr = document.createElement('tr');
+  tr.innerHTML =
+    '<td style="width:50%;"><input type="text" id="eq'+i+'-name" placeholder="(Equipment Name)" oninput="calcEquipTotal()" style="width:100%;font-size:12px;padding:5px 8px;background:var(--input-bg);border:1px solid var(--input-border);color:var(--camacho-blue);font-family:\'Montserrat\',sans-serif;outline:none;"></td>' +
+    '<td style="width:12%;"><input type="number" id="eq'+i+'-qty" value="1" min="0" oninput="calcEquipTotal()" style="width:100%;text-align:right;font-size:12px;padding:5px 8px;background:var(--input-bg);border:1px solid var(--input-border);color:var(--camacho-blue);font-family:\'Montserrat\',sans-serif;outline:none;"></td>' +
+    '<td style="width:22%;"><input type="number" id="eq'+i+'-cost" value="0" min="0" placeholder="0" oninput="calcEquipTotal()" style="width:100%;text-align:right;font-size:12px;padding:5px 8px;background:var(--input-bg);border:1px solid var(--input-border);color:var(--camacho-blue);font-family:\'Montserrat\',sans-serif;outline:none;"></td>' +
+    '<td style="width:16%;text-align:right;font-size:13px;font-weight:700;color:var(--navy);padding:7px 10px;" id="eq'+i+'-total">$0</td>';
+  tbody.appendChild(tr);
+};
+
+window.calcEquipTotal = function(){
+  var total = 0;
+  for(var i=1;i<=equipItemCount;i++){
+    var qty  = v('eq'+i+'-qty');
+    var cost = v('eq'+i+'-cost');
+    var t = qty * cost;
+    total += t;
+    set('eq'+i+'-total', fmt$(t));
+  }
+  set('equip-grand-total', fmt$(total));
+};
+
 window.calcLaundry = function(){
   [1,2].forEach(function(s){
     var lbs   = v('lbs'+s);
@@ -962,7 +1160,6 @@ window.calcLaundry = function(){
     set('lbshr'+s,   lbshr.toFixed(1));
     set('rounded'+s, rounded.toLocaleString());
 
-    /* WASHERS */
     var wcap  = v('wcap'+s) || 200;
     var wcyc  = v('wcyc'+s) || 45;
     var wlbshr= wcap * (60/wcyc);
@@ -972,7 +1169,6 @@ window.calcLaundry = function(){
     set('wloads'+s,    ceil(wloads).toLocaleString());
     set('wmachines'+s, wmach.toLocaleString());
 
-    /* DRYERS */
     var dcap  = v('dcap'+s) || 200;
     var dcyc  = v('dcyc'+s) || 60;
     var dlbshr= dcap * (60/dcyc);
@@ -984,32 +1180,33 @@ window.calcLaundry = function(){
   });
 };
 
-/* ═══════════════════════════════════════════════════════════
-   N.3  5-PHASE LABOR CALCULATOR
-   Phases: SD, DD, CD, BN, CA
-   People: p1..p6 each with name, rate, and pct per phase
-   Hours per person = (Phase Fee × commitment%) / rate
-   Cost per person  = Phase Fee × commitment%
-   ═══════════════════════════════════════════════════════════ */
-var PHASES = ['sd','dd','cd','bn','ca'];
-var PNAMES = ['sd','dd','cd','bn','ca'];
+/* ═══════════════════════════════════════════════════════
+   N.3  6-PHASE LABOR CALCULATOR
+   Phases: prog, sd, dd, cd, bn, ca
+   ═══════════════════════════════════════════════════════ */
+var PHASES = ['prog','sd','dd','cd','bn','ca'];
 
-/* DEFAULT COMMITMENTS — start at zero; user fills in per project */
 var DEFAULT_PCTS = {
-  sd: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00],
-  dd: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00],
-  cd: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00],
-  bn: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00],
-  ca: [0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
+  prog:[0.00,0.00,0.00,0.00,0.00,0.00],
+  sd:  [0.00,0.00,0.00,0.00,0.00,0.00],
+  dd:  [0.00,0.00,0.00,0.00,0.00,0.00],
+  cd:  [0.00,0.00,0.00,0.00,0.00,0.00],
+  bn:  [0.00,0.00,0.00,0.00,0.00,0.00],
+  ca:  [0.00,0.00,0.00,0.00,0.00,0.00]
 };
-
-/* PHASE_NOTES removed — badge display removed per generic template */
 
 function buildPhaseDetailTables(){
   var container = document.getElementById('phase-detail-tables');
   if(!container) return;
   var html = '';
-  var phaseNames = {sd:'SD – Conceptual Design',dd:'DD – Design Development',cd:'CD – Project Documents',bn:'BN – Bidding / Negotiations',ca:'CA – Implementation Administration'};
+  var phaseNames = {
+    prog:'Prog – Program / Concept',
+    sd:'SD – Conceptual Design',
+    dd:'DD – Design Development',
+    cd:'CD – Project Documents',
+    bn:'BN – Bidding / Negotiations',
+    ca:'CA – Implementation Administration'
+  };
   PHASES.forEach(function(ph){
     html += '<div class="calc-wrapper">';
     html += '<div class="calc-title-bar"><h3>'+phaseNames[ph]+'</h3></div>';
@@ -1019,18 +1216,18 @@ function buildPhaseDetailTables(){
     for(var i=1;i<=6;i++){
       var defPct = DEFAULT_PCTS[ph][i-1];
       html += '<tr>';
-      html += '<td class="name-cell" id="lcname-'+ph+'-'+i+'">–</td>';
-      html += '<td id="lcrate-'+ph+'-'+i+'">–</td>';
+      html += '<td class="name-cell" id="lcname-'+ph+'-'+i+'">-</td>';
+      html += '<td id="lcrate-'+ph+'-'+i+'">-</td>';
       html += '<td><input type="number" id="pct-'+ph+'-'+i+'" value="'+defPct.toFixed(2)+'" min="0" max="1" step="0.01" class="person-pct-input col-right" oninput="calcLabor()"></td>';
-      html += '<td id="hrs-'+ph+'-'+i+'" style="text-align:right;">–</td>';
-      html += '<td id="cost-'+ph+'-'+i+'" style="text-align:right;">–</td>';
+      html += '<td id="hrs-'+ph+'-'+i+'" style="text-align:right;">-</td>';
+      html += '<td id="cost-'+ph+'-'+i+'" style="text-align:right;">-</td>';
       html += '</tr>';
     }
     html += '</tbody>';
     html += '<tfoot><tr><td colspan="2"><strong>Phase Total</strong></td>';
-    html += '<td id="totpct-'+ph+'" style="text-align:right;font-weight:700;">–</td>';
-    html += '<td id="tothrs-'+ph+'" style="text-align:right;font-weight:700;">–</td>';
-    html += '<td id="totcost2-'+ph+'" style="text-align:right;font-weight:700;">–</td>';
+    html += '<td id="totpct-'+ph+'" style="text-align:right;font-weight:700;">-</td>';
+    html += '<td id="tothrs-'+ph+'" style="text-align:right;font-weight:700;">-</td>';
+    html += '<td id="totcost2-'+ph+'" style="text-align:right;font-weight:700;">-</td>';
     html += '</tr></tfoot></table></div>';
   });
   container.innerHTML = html;
@@ -1049,11 +1246,10 @@ window.calcLabor = function(){
       var pct  = v('pct-'+ph+'-'+i);
       var name = sv('p'+i+'-name');
 
-      /* Update name and rate display in detail table */
       var nameEl = document.getElementById('lcname-'+ph+'-'+i);
-      if(nameEl) nameEl.textContent = name;
+      if(nameEl) nameEl.textContent = name || '-';
       var rateEl = document.getElementById('lcrate-'+ph+'-'+i);
-      if(rateEl) rateEl.textContent = rate > 0 ? '$'+rate+'/hr' : '–';
+      if(rateEl) rateEl.textContent = rate > 0 ? '$'+rate+'/hr' : '-';
 
       sumPct += pct;
       if(rate > 0 && pct > 0){
@@ -1064,40 +1260,75 @@ window.calcLabor = function(){
         set('hrs-'+ph+'-'+i,  fmt2(hrs));
         set('cost-'+ph+'-'+i, fmt$(cost));
       } else {
-        set('hrs-'+ph+'-'+i,  '–');
-        set('cost-'+ph+'-'+i, '–');
+        set('hrs-'+ph+'-'+i,  '-');
+        set('cost-'+ph+'-'+i, '-');
       }
     }
 
     totalHrsAll += sumHrs;
 
-    /* Phase summary row */
     var pctChkEl = document.getElementById('pctchk-'+ph);
     if(pctChkEl){
       pctChkEl.textContent = sumPct.toFixed(3);
       var diff = Math.abs(sumPct - 1.0);
-      pctChkEl.style.color = diff < 0.001 ? 'var(--green)' : 'var(--red)';
+      pctChkEl.style.color = diff < 0.001 ? 'var(--green)' : (sumPct === 0 ? 'var(--ink-muted)' : 'var(--red)');
     }
-    set('sumhrs-'+ph, fmt2(sumHrs));
-    set('sumcost-'+ph, fmt$(sumCost));
-    set('totpct-'+ph, sumPct.toFixed(3));
-    set('tothrs-'+ph, fmt2(sumHrs));
-    set('totcost2-'+ph, fmt$(sumCost));
+    set('sumhrs-'+ph,    fmt2(sumHrs));
+    set('sumcost-'+ph,   fmt$(sumCost));
+    set('totpct-'+ph,    sumPct.toFixed(3));
+    set('tothrs-'+ph,    fmt2(sumHrs));
+    set('totcost2-'+ph,  fmt$(sumCost));
   });
 
-  set('total-fee',     '$'+totalFeeAll.toLocaleString());
-  set('total-hrs',     fmt2(totalHrsAll));
-  set('total-cost',    '$'+totalFeeAll.toLocaleString());
-  set('total-pctchk',  PHASES.length.toFixed(3));
+  set('total-fee',    '$'+totalFeeAll.toLocaleString());
+  set('total-hrs',    fmt2(totalHrsAll));
+  set('total-cost',   '$'+totalFeeAll.toLocaleString());
+  set('total-pctchk', PHASES.length.toFixed(3));
 
-  /* Update badge */
   var badge = document.getElementById('lc-proj-badge');
-  if(badge) badge.textContent = sv('lc-proj');
+  if(badge) badge.textContent = sv('lc-proj') || 'Project';
 };
 
-/* ═══════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════
+   N.5  BAR SEAT CALCULATOR
+   ═══════════════════════════════════════════════════════ */
+window.calcBarSeats = function(){
+  var seats     = v('bar-seats');
+  var smallRate = v('bar-small-rate');
+  var medRate   = v('bar-med-rate');
+  var lrgRate   = v('bar-lrg-rate');
+
+  var cat, rate, badgeClass;
+  if(seats === 0){
+    cat = '--'; rate = 0; badgeClass = '';
+  } else if(seats <= 12){
+    cat = 'Small Bar (12 seats or under)'; rate = smallRate; badgeClass = 'small';
+  } else if(seats <= 17){
+    cat = 'Medium Bar (13 to 17 seats)'; rate = medRate; badgeClass = 'medium';
+  } else {
+    cat = 'Large Bar (18 seats or above)'; rate = lrgRate; badgeClass = 'large';
+  }
+
+  var seatTotal = seats * rate;
+  var badge = document.getElementById('bar-category-badge');
+  if(badge){
+    badge.textContent = cat;
+    badge.className = 'bar-size-badge' + (badgeClass ? ' '+badgeClass : '');
+  }
+  set('bar-seat-rate-display', rate > 0 ? '$'+rate.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})+'/seat' : '--');
+  set('bar-seat-formula', seats > 0 ? seats+' seats &times; $'+(rate||0)+' = '+fmt$(seatTotal) : '0 seats &times; $0 = $0');
+  set('bar-seat-total', fmt$(seatTotal));
+
+  var barSF   = v('area2-sf');
+  var barRate = v('area2-rate');
+  var sfTotal = barSF * barRate;
+  set('bar-sf-ref', fmt$(sfTotal));
+  set('bar-combined', fmt$(sfTotal + seatTotal));
+};
+
+/* ═══════════════════════════════════════════════════════
    N.4  TEAM STRUCTURE (GENERIC EDITABLE)
-   ═══════════════════════════════════════════════════════════ */
+   ═══════════════════════════════════════════════════════ */
 var TEAM_SECTIONS_CONFIG = [
   {id:'ts1', ph:'(Section Title, e.g. Leadership)',                  rows:4},
   {id:'ts2', ph:'(Section Title, e.g. Accounting & Administration)', rows:3},
@@ -1109,53 +1340,42 @@ var TEAM_SECTIONS_CONFIG = [
 ];
 
 var TITLE_OPTS = [
-  'President / CEO',
-  'Vice President',
-  'Senior Project Manager',
-  'Project Manager',
-  'Project Coordinator',
-  'Production Manager',
-  'Operations Director',
-  'Business Development Manager',
-  'Accounts Receivable Manager',
-  'Accounts Receivable Specialist',
-  'Office Manager',
-  'Sales Manager',
-  'QC / Specs Writer',
-  'Designer / CAD Operator',
-  'CA / Backup Designer',
-  'Resource Director',
-  'Implementation Administration Manager',
-  'Quality Care Coordinator',
-  'Production / Design / QA Floater'
+  'President / CEO','Vice President','Senior Project Manager',
+  'Project Manager','Project Coordinator','Production Manager',
+  'Operations Director','Business Development Manager',
+  'Accounts Receivable Manager','Accounts Receivable Specialist',
+  'Office Manager','Sales Manager','QC / Specs Writer',
+  'Designer / CAD Operator','CA / Backup Designer',
+  'Resource Director','Implementation Administration Manager',
+  'Quality Care Coordinator','Production / Design / QA Floater'
 ];
 
-function buildTitleCellHTML() {
+function buildTitleCellHTML(){
   var sel = '<select class="team-select" onchange="handleTitleSelect(this)">';
   sel += '<option value="">(Select Job Title)</option>';
   TITLE_OPTS.forEach(function(t){ sel += '<option value="'+t+'">'+t+'</option>'; });
   sel += '<option value="custom">Custom...</option></select>';
   sel += '<input type="text" class="team-custom-title team-input" placeholder="Enter custom title">';
-  return '<td class="title-cell">' + sel + '</td>';
+  return '<td class="title-cell">'+sel+'</td>';
 }
 
-function buildTeamRowHTML() {
-  return '<td><input type="text" class="team-input" placeholder="(Name) (Credentials)"></td>' +
-         '<td><input type="text" class="team-input" placeholder="(Office Location)"></td>' +
-         buildTitleCellHTML() +
+function buildTeamRowHTML(){
+  return '<td><input type="text" class="team-input" placeholder="(Name) (Credentials)"></td>'+
+         '<td><input type="text" class="team-input" placeholder="(Office Location)"></td>'+
+         buildTitleCellHTML()+
          '<td><input type="text" class="team-input team-rate" placeholder="$000.00"></td>';
 }
 
-function buildTeamStructure() {
+function buildTeamStructure(){
   var container = document.getElementById('team-sections-container');
-  if (!container) return;
+  if(!container) return;
   var html = '';
-  TEAM_SECTIONS_CONFIG.forEach(function(sec) {
+  TEAM_SECTIONS_CONFIG.forEach(function(sec){
     html += '<input type="text" class="section-heading-input" placeholder="'+sec.ph+'">';
     html += '<table class="phase-summary team-edit-table">';
     html += '<thead><tr><th>Name &amp; Credentials</th><th>Office Location</th><th>Job Title</th><th style="text-align:right;">Rate</th></tr></thead>';
     html += '<tbody id="'+sec.id+'-body">';
-    for (var i = 0; i < sec.rows; i++) {
+    for(var i=0;i<sec.rows;i++){
       html += '<tr class="team-row">'+buildTeamRowHTML()+'</tr>';
     }
     html += '</tbody></table>';
@@ -1164,14 +1384,14 @@ function buildTeamStructure() {
   container.innerHTML = html;
 }
 
-window.handleTitleSelect = function(sel) {
-  var customInput = sel.parentElement.querySelector('.team-custom-title');
-  if (customInput) customInput.style.display = sel.value === 'custom' ? 'block' : 'none';
+window.handleTitleSelect = function(sel){
+  var ci = sel.parentElement.querySelector('.team-custom-title');
+  if(ci) ci.style.display = sel.value==='custom' ? 'block' : 'none';
 };
 
-window.addTeamRow = function(tbodyId) {
+window.addTeamRow = function(tbodyId){
   var tbody = document.getElementById(tbodyId);
-  if (!tbody) return;
+  if(!tbody) return;
   var tr = document.createElement('tr');
   tr.className = 'team-row';
   tr.innerHTML = buildTeamRowHTML();
@@ -1179,7 +1399,7 @@ window.addTeamRow = function(tbodyId) {
 };
 
 /* SCROLL SPY */
-var secIds = ['cover','n-intro','n1','n2','n3','n4'];
+var secIds = ['cover','n-intro','n4','n3','n1','n2','n5'];
 var sideLinks = document.querySelectorAll('.sidebar-list a');
 window.addEventListener('scroll',function(){
   var pos = window.pageYOffset + 120;
@@ -1188,7 +1408,9 @@ window.addEventListener('scroll',function(){
     var el = document.getElementById(id);
     if(el && el.getBoundingClientRect().top + window.pageYOffset - 80 <= pos) active = id;
   });
-  sideLinks.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+active); });
+  sideLinks.forEach(function(a){
+    a.classList.toggle('active', a.getAttribute('href')==='#'+active);
+  });
 },{passive:true});
 
 /* INIT */
@@ -1197,6 +1419,7 @@ buildTeamStructure();
 calcFee();
 calcLaundry();
 calcLabor();
+calcBarSeats();
 
 })();
 </script>
