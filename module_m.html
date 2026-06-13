@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -193,6 +193,8 @@ td strong{color:var(--ink);font-weight:600;}
 .cut-card .term{background:var(--navy);color:var(--gold);padding:14px 16px;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;}
 .cut-card .def{background:var(--paper);color:var(--ink-soft);padding:14px 16px;font-size:12px;line-height:1.5;}
 
+.topbar-back{display:flex;align-items:center;gap:5px;color:var(--gold);font-size:11px;font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(197,167,111,.35);padding:5px 14px;white-space:nowrap;flex-shrink:0;transition:background .15s;}
+.topbar-back:hover{background:rgba(197,167,111,.12);}
 /* PRINT */
 @media print{
   body{background:#fff;font-size:11pt;}
@@ -216,6 +218,7 @@ td strong{color:var(--ink);font-weight:600;}
 
 <!-- TOPBAR -->
 <header class="topbar">
+  <a class="topbar-back" href="index.html">&#8592; Main Menu</a>
   <div class="topbar-logo">Create The Edge</div>
   <div class="topbar-section">Module M &middot; Reference Section</div>
   <div class="topbar-right">
