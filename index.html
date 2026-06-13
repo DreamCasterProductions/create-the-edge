@@ -1,519 +1,934 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Create The Edge OS · 2026 Edition</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --navy:         #0a1628;
-  --navy-mid:     #0f2040;
-  --navy-top:     #11354A;
-  --gold:         #C5A76F;
-  --brass:        #B8893B;
-  --brass-soft:   #D4AB5E;
-  --cream:        #F4EFE4;
-  --cream-light:  #FAF7F1;
-  --paper:        #FFFFFF;
-  --ink:          #162630;
-  --ink-soft:     #2C3B45;
-  --ink-muted:    #5D7079;
-  --text-primary: #e8e0d0;
-  --text-secondary:#b8aa90;
-  --camacho-blue: #266889;
-  --blue-tint:    #EDF3F6;
-  --rule:         #D6CCB6;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create The Edge OS · 2026 Edition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:  #0a1628;
+      --gold:  #C5A76F;
+      --blue:  #266889;
+      --cream: #FAF7F1;
+      --rule:  #D6CCB6;
+      --sb:    260px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      display: flex;
+      min-height: 100vh;
+    }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Montserrat', sans-serif; background: var(--navy); color: var(--text-primary); min-height: 100vh; }
+    /* ── SIDEBAR ── */
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0;
+      width: var(--sb);
+      height: 100vh;
+      background: var(--navy);
+      overflow-y: auto;
+      z-index: 100;
+      padding: 28px 18px 60px 20px;
+      display: flex;
+      flex-direction: column;
+      scrollbar-width: thin;
+      scrollbar-color: #1e2f4a transparent;
+    }
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-thumb { background: #1e2f4a; border-radius: 2px; }
 
-/* ── TOPBAR ── */
-.topbar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
-  background: var(--navy); height: 52px;
-  display: flex; align-items: center; padding: 0 32px;
-  border-bottom: 1px solid rgba(197,167,111,.35);
-}
-.topbar-logo {
-  font-family: 'Playfair Display', serif;
-  color: var(--gold); font-size: 16px; font-weight: 700; letter-spacing: .1em;
-  text-decoration: none;
-}
-.topbar-subtitle {
-  margin-left: 20px;
-  color: var(--text-secondary); font-size: 10px; letter-spacing: .18em;
-  text-transform: uppercase; padding-top: 2px;
-}
-.topbar-right {
-  margin-left: auto;
-  color: var(--text-secondary); font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
-}
+    .sb-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 0 8px 6px;
+      border-bottom: 1px solid rgba(197,167,111,.2);
+      line-height: 1.4;
+    }
+    .sb-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      font-style: italic;
+      color: rgba(250,247,241,.38);
+      padding: 5px 8px 20px;
+    }
 
-/* ── HERO ── */
-.hero {
-  padding: 140px 40px 80px;
-  text-align: center;
-  background: linear-gradient(180deg, var(--navy) 0%, #091220 60%, #0a1628 100%);
-  border-bottom: 1px solid rgba(197,167,111,.2);
-  position: relative; overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(38,104,137,.18) 0%, transparent 70%);
-  pointer-events: none;
-}
-.hero-eyebrow {
-  font-size: 10px; letter-spacing: .26em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 20px;
-}
-.hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(32px, 5vw, 58px); font-weight: 700;
-  line-height: 1.15; color: var(--text-primary);
-  margin-bottom: 20px;
-}
-.hero-rule {
-  width: 60px; height: 1px; background: var(--gold);
-  margin: 24px auto; opacity: .7;
-}
-.hero-sub {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px; font-style: italic;
-  color: var(--text-secondary); max-width: 540px; margin: 0 auto;
-  line-height: 1.6;
-}
+    .mod-item { border-bottom: 1px solid rgba(197,167,111,.1); }
+    .mod-header { display: flex; align-items: stretch; }
+    .mod-link {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 4px 8px 8px;
+      color: rgba(250,247,241,.7);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.3;
+      transition: color .16s;
+    }
+    .mod-link:hover { color: var(--gold); }
+    .mod-link.disabled { opacity: .4; pointer-events: none; cursor: default; }
+    .mod-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 22px;
+      height: 22px;
+      background: rgba(197,167,111,.13);
+      border: 1px solid rgba(197,167,111,.28);
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .mod-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px 10px;
+      color: rgba(197,167,111,.35);
+      font-size: 8px;
+      line-height: 1;
+      transition: color .16s, transform .22s;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
+    .mod-toggle:hover { color: var(--gold); }
+    .mod-toggle[aria-expanded="true"] { transform: rotate(90deg); color: var(--gold); }
 
-/* ── PROGRESS BAR ── */
-.progress-bar {
-  background: rgba(255,255,255,.04);
-  border-top: 1px solid rgba(197,167,111,.12);
-  border-bottom: 1px solid rgba(197,167,111,.12);
-  padding: 22px 40px;
-  display: flex; align-items: center; justify-content: center; gap: 48px;
-  flex-wrap: wrap;
-}
-.progress-stat { text-align: center; }
-.progress-stat .num {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px; font-weight: 700; color: var(--gold);
-  display: block;
-}
-.progress-stat .label {
-  font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
-  color: var(--text-secondary); margin-top: 3px;
-}
+    .sub-list {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height .3s ease;
+      padding-left: 30px;
+    }
+    .sub-list.open { max-height: 900px; }
+    .sub-group {
+      font-size: 8px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(197,167,111,.32);
+      font-weight: 700;
+      padding: 9px 8px 3px;
+    }
+    .sub-list a {
+      display: block;
+      padding: 3px 8px;
+      color: rgba(250,247,241,.5);
+      font-size: 10px;
+      text-decoration: none;
+      transition: color .13s;
+      line-height: 1.4;
+    }
+    .sub-list a:hover { color: var(--gold); }
+    .sub-list a .sc {
+      color: rgba(197,167,111,.55);
+      font-size: 9px;
+      font-weight: 700;
+      margin-right: 4px;
+    }
+    .sub-pad { height: 8px; }
 
-/* ── MODULE GRID ── */
-.grid-container {
-  max-width: 1280px; margin: 0 auto;
-  padding: 60px 32px 100px;
-}
-.grid-heading {
-  font-family: 'Playfair Display', serif;
-  font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 32px; padding-bottom: 12px;
-  border-bottom: 1px solid rgba(197,167,111,.2);
-}
+    /* ── MAIN ── */
+    .main {
+      margin-left: var(--sb);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-}
+    .hero {
+      background: var(--navy);
+      padding: 68px 60px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -100px; right: -120px;
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(38,104,137,.16) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 50px;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.08;
+      margin-bottom: 8px;
+    }
+    .hero-sub {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: var(--gold);
+      margin-bottom: 26px;
+    }
+    .hero-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      color: rgba(250,247,241,.68);
+      max-width: 640px;
+      line-height: 1.72;
+      margin-bottom: 36px;
+    }
+    .stats { display: flex; gap: 40px; flex-wrap: wrap; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-lbl {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(250,247,241,.38);
+      margin-top: 5px;
+    }
 
-/* ── MODULE CARD BASE ── */
-.card {
-  background: var(--navy-mid);
-  border: 1px solid rgba(197,167,111,.18);
-  border-radius: 4px;
-  padding: 28px 28px 24px;
-  position: relative; overflow: hidden;
-  display: flex; flex-direction: column;
-}
+    .sec-head { padding: 44px 60px 22px; border-bottom: 1px solid var(--rule); }
+    .sec-head h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .sec-head p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: rgba(10,22,40,.5);
+    }
 
-/* CLICKABLE (live) card */
-a.card {
-  text-decoration: none; color: inherit; cursor: pointer;
-  transition: border-color .2s, transform .15s, box-shadow .2s;
-}
-a.card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  opacity: 0; transition: opacity .2s;
-}
-a.card:hover { border-color: rgba(197,167,111,.55); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,.4); }
-a.card:hover::before { opacity: 1; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 18px;
+      padding: 28px 60px 60px;
+      flex: 1;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      padding: 22px 24px 18px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow .2s, border-color .2s;
+    }
+    a.card { text-decoration: none; color: inherit; cursor: pointer; }
+    a.card:hover {
+      box-shadow: 0 6px 24px rgba(10,22,40,.09);
+      border-color: var(--blue);
+    }
+    .card-soon { opacity: .55; }
+    .card-top { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+    .card-letter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--navy);
+      border-radius: 4px;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .card-meta { flex: 1; min-width: 0; }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 2px;
+    }
+    .card-code {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+    .card-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      color: rgba(10,22,40,.62);
+      line-height: 1.62;
+      flex: 1;
+      margin-bottom: 14px;
+    }
+    .card-foot { display: flex; align-items: center; justify-content: space-between; }
+    .badge-live {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #267a4a;
+      background: rgba(38,122,74,.09);
+      border: 1px solid rgba(38,122,74,.22);
+      border-radius: 3px;
+      padding: 3px 7px;
+    }
+    .badge-soon {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(10,22,40,.38);
+      background: rgba(10,22,40,.05);
+      border: 1px solid rgba(10,22,40,.1);
+      border-radius: 3px;
+      padding: 3px 7px;
+    }
+    .card-arrow { font-size: 14px; color: var(--blue); opacity: .55; }
+    a.card:hover .card-arrow { opacity: 1; }
 
-/* NON-CLICKABLE (not yet built) card */
-div.card { opacity: .55; }
+    .site-foot {
+      background: var(--navy);
+      padding: 20px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .site-foot p { font-size: 11px; color: rgba(250,247,241,.3); }
 
-.card-letter {
-  font-family: 'Playfair Display', serif;
-  font-size: 38px; font-weight: 700;
-  color: var(--gold); opacity: .25;
-  position: absolute; top: 16px; right: 22px;
-  line-height: 1; pointer-events: none;
-}
-.card-badge {
-  display: inline-flex; align-items: center; gap: 5px;
-  font-size: 8px; letter-spacing: .18em; text-transform: uppercase;
-  padding: 3px 8px; border-radius: 2px; margin-bottom: 14px;
-  font-weight: 600; width: fit-content;
-}
-.badge-live   { background: rgba(47,125,84,.2);  color: #6FCF97; border: 1px solid rgba(47,125,84,.4); }
-.badge-build  { background: rgba(197,167,111,.1); color: var(--gold); border: 1px solid rgba(197,167,111,.3); }
-.badge-soon   { background: rgba(255,255,255,.05); color: var(--text-secondary); border: 1px solid rgba(255,255,255,.1); }
-
-.card-code {
-  font-size: 9px; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--text-secondary); margin-bottom: 6px;
-}
-.card-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 17px; font-weight: 600; line-height: 1.3;
-  color: var(--text-primary); margin-bottom: 10px;
-}
-.card-desc {
-  font-family: 'Cormorant Garamond', serif; font-style: italic;
-  font-size: 14px; line-height: 1.6;
-  color: var(--text-secondary); flex: 1;
-}
-.card-footer {
-  margin-top: 18px; padding-top: 14px;
-  border-top: 1px solid rgba(197,167,111,.12);
-  display: flex; align-items: center; justify-content: space-between;
-}
-.card-meta { font-size: 10px; color: var(--text-secondary); letter-spacing: .06em; }
-.card-arrow {
-  font-size: 13px; color: var(--gold); opacity: 0;
-  transition: opacity .2s, transform .2s;
-}
-a.card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
-
-/* ── CATEGORY DIVIDER ── */
-.category-divider {
-  grid-column: 1 / -1;
-  display: flex; align-items: center; gap: 14px;
-  margin: 16px 0 4px;
-}
-.category-divider span {
-  font-size: 9px; letter-spacing: .22em; text-transform: uppercase;
-  color: var(--gold); white-space: nowrap;
-}
-.category-divider::after {
-  content: ''; flex: 1; height: 1px;
-  background: rgba(197,167,111,.2);
-}
-
-/* ── FOOTER ── */
-.footer {
-  border-top: 1px solid rgba(197,167,111,.15);
-  padding: 28px 40px;
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 12px;
-}
-.footer-logo {
-  font-family: 'Playfair Display', serif;
-  color: var(--gold); font-size: 13px; font-weight: 700; letter-spacing: .08em;
-}
-.footer-meta {
-  font-size: 10px; color: var(--text-secondary);
-  letter-spacing: .1em; text-transform: uppercase;
-}
-.camacho { color: var(--camacho-blue); font-weight: 700; }
-
-@media (max-width: 600px) {
-  .topbar { padding: 0 20px; }
-  .topbar-subtitle { display: none; }
-  .hero { padding: 100px 24px 60px; }
-  .progress-bar { gap: 28px; padding: 18px 24px; }
-  .grid-container { padding: 40px 20px 60px; }
-  .grid { grid-template-columns: 1fr; }
-  .footer { padding: 20px 24px; }
-}
-
-/* ── SECTION VIEWER OVERLAY ── */
-.viewer-overlay {
-  display: none; position: fixed; inset: 0; z-index: 1000;
-  background: var(--navy); flex-direction: column;
-  animation: fadeIn .15s ease;
-}
-.viewer-overlay.open { display: flex; }
-@keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
-.viewer-bar {
-  background: var(--navy); height: 44px; flex-shrink: 0;
-  display: flex; align-items: center; padding: 0 20px; gap: 16px;
-  border-bottom: 1px solid rgba(197,167,111,.35);
-}
-.viewer-back {
-  background: none; border: 1px solid rgba(197,167,111,.45);
-  color: var(--gold); font-family: 'Montserrat', sans-serif;
-  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
-  padding: 5px 14px; border-radius: 2px; cursor: pointer;
-  transition: background .15s; white-space: nowrap;
-}
-.viewer-back:hover { background: rgba(197,167,111,.15); }
-.viewer-label {
-  color: var(--text-secondary); font-size: 11px; letter-spacing: .13em;
-  text-transform: uppercase; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-}
-.viewer-frame {
-  flex: 1; border: none; width: 100%; min-height: 0;
-}
-
-/* PDF Download button */
-.pdf-btn{display:inline-flex;align-items:center;gap:5px;font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--gold);border:1px solid rgba(197,167,111,.35);padding:4px 10px;border-radius:2px;text-decoration:none;transition:all .15s;background:rgba(197,167,111,.06);}
-.pdf-btn:hover{background:rgba(197,167,111,.18);border-color:var(--gold);}
-
-</style>
+    .mob-btn {
+      display: none;
+      position: fixed;
+      bottom: 20px; right: 20px;
+      z-index: 200;
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--gold);
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,.35);
+      align-items: center;
+      justify-content: center;
+    }
+    @media (max-width: 880px) {
+      .sidebar { transform: translateX(-100%); transition: transform .28s ease; }
+      .sidebar.mob-open { transform: translateX(0); }
+      .main { margin-left: 0; }
+      .mob-btn { display: flex; }
+      .hero { padding: 48px 24px 40px; }
+      .hero-title { font-size: 34px; }
+      .sec-head { padding: 32px 24px 18px; }
+      .grid { padding: 22px 20px 48px; gap: 14px; }
+      .site-foot { padding: 18px 24px; }
+    }
+  </style>
 </head>
 <body>
 
-<header class="topbar">
-  <a class="topbar-logo" href="index.html"><span class="your-company">Create The Edge</span></a>
-  <span class="topbar-subtitle">Create The Edge OS</span>
-  <span class="topbar-right">2026 Edition</span>
-</header>
+<!-- ═══ SIDEBAR ═══ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-brand">Create The Edge OS</div>
+  <div class="sb-tagline">14-Module Training Curriculum</div>
 
-<section class="hero">
-  <p class="hero-eyebrow">40+ Years of Sales Experience &middot; Proposals &middot; Operations &middot; Performance</p>
-  <div style="margin:0 auto 24px;text-align:center;">
-    <img src="media/logo-transparent.png" alt="Create The Edge OS" style="max-height:260px;max-width:70%;display:inline-block;mix-blend-mode:screen;filter:drop-shadow(0 0 30px rgba(197,167,111,0.6)) brightness(1.05);">
+  <nav>
+
+    <!-- A -->
+    <div class="mod-item">
+      <div class="mod-header">
+        <a class="mod-link" href="module_a.html"><span class="mod-badge">A</span>Role Overview &amp; Orientation</a>
+        <button class="mod-toggle" aria-expanded="false" data-sub="sub-a">&#9658;</button>
+      </div>
+      <div class="sub-list" id="sub-a">
+        <div class="sub-group">Foundations</div>
+        <a href="module_a.html#a0"><span class="sc">A.0</span>The Create The Edge Standard</a>
+        <a href="module_a.html#a1"><span class="sc">A.1</span>The Firm</a>
+        <a href="module_a.html#a2"><span class="sc">A.2</span>The Consultant's Role</a>
+        <div class="sub-group">Industry Context</div>
+        <a href="module_a.html#a3"><span class="sc">A.3</span>The Design Landscape</a>
+        <a href="module_a.html#a4"><span class="sc">A.4</span>Anatomy of a Won Deal</a>
+        <div class="sub-group">Excellence</div>
+        <a href="module_a.html#a5"><span class="sc">A.5</span>The Professional Identity</a>
+        <a href="module_a.html#a6"><span class="sc">A.6</span>Core Service Lines</a>
+        <div class="sub-group">Operations</div>
+        <a href="module_a.html#a7"><span class="sc">A.7</span>The Three-Day Standard</a>
+        <a href="module_a.html#a8"><span class="sc">A.8</span>Your First 90 Days</a>
+        <div class="sub-pad"></div>
+      </div>
+    </div>
+
+    <!-- B -->
+    <div class="mod-item">
+      <div class="mod-header">
+        <a class="mod-link" href="module_b.html"><span class="mod-badge">B</span>Industry Terminology</a>
+        <button class="mod-toggle" aria-expanded="false" data-sub="sub-b">&#9658;</button>
+      </div>
+      <div class="sub-list" id="sub-b">
+        <a href="module_b.html#b1"><span class="sc">B.1</span>Why Language Matters</a>
+        <a href="module_b.html#b2"><span class="sc">B.2</span>Proposal &amp; Document Terms</a>
+        <a href="module_b.html#b3"><span class="sc">B.3</span>Design Phase Terms</a>
+        <a href="module_b.html#b4"><span class="sc">B.4</span>Project &amp; Engagement Terms</a>
+        <a href="module_b.html#b5"><span class="sc">B.5</span>Credentials &amp; Orgs</a>
+        <a href="module_b.html#b6"><span class="sc">B.6</span>Business &amp; Sales Terms</a>
+        <a href="module_b.html#b7"><span class="sc">B.7</span>Code &amp; Compliance</a>
+        <a href="module_b.html#b8"><span class="sc">B.8</span>Financial &amp; Fee Terms</a>
+        <a href="module_b.html#b9"><span class="sc">B.9</span>Using Language With Clients</a>
+        <div class="sub-pad"></div>
+      </div>
+    </div>
+
+    <!-- C -->
+    <div class="mod-item">
+      <div class="mod-header">
+        <a class="mod-link" href="module_c.html"><span class="mod-badge">C</span>Sales &amp; Marketing</a>
+        <button class="mod-toggle" aria-expanded="false" data-sub="sub-c">&#9658;</button>
+      </div>
+      <div class="sub-list" id="sub-c">
+        <a href="module_c.html#c1"><span class="sc">C.1</span>Sales Philosophy</a>
+        <a href="module_c.html#c2"><span class="sc">C.2</span>The Sales Funnel</a>
+        <a href="module_c.html#c3"><span class="sc">C.3</span>Lead Sources</a>
+        <a href="module_c.html#c4"><span class="sc">C.4</span>Marketing's Role</a>
+        <a href="module_c.html#c5"><span class="sc">C.5</span>CRM</a>
+        <a href="module_c.html#c6"><span class="sc">C.6</span>10-Step Outreach</a>
+        <a href="module_c.html#c7"><span class="sc">C.7</span>Rule of Five</a>
+        <a href="module_c.html#c8"><span class="sc">C.8</span>Precision Selling</a>
+        <a href="module_c.html#c9"><span class="sc">C.9</span>SPICED Framework</a>
+        <a href="module_c.html#c10"><span class="sc">C.10</span>Proposals as Tools</a>
+        <a href="module_c.html#c11"><span class="sc">C.11</span>Minority Business</a>
+        <a href="module_c.html#c12"><span class="sc">C.12</span>Trade Shows &amp; Events</a>
+        <div class="sub-pad"></div>
+      </div>
+    </div>
+
+    <!-- D -->
+    <div class="mod-item">
+      <div class="mod-header">
+        <a class="mod-link" href="module_d.html"><span class="mod-badge">D</span>Client Psychology</a>
+        <button class="mod-toggle" aria-expanded="false" data-sub="sub-d">&#9658;</button>
+      </div>
+      <div class="sub-list" id="sub-d">
+        <div class="sub-group">Decision Framework</div>
+        <a href="module_d.html#d1"><span class="sc">D.1</span>Why Psychology Matters</a>
+        <a href="module_d.html#d2"><span class="sc">D.2</span>Rational vs. Emotional</a>
+        <a href="module_d.html#d3"><span class="sc">D.3</span>The Four Lenses</a>
+        <div class="sub-group">Discovery Skills</div>
+        <a href="module_d.html#d4"><span class="sc">D.4</span>Listening for the Unspoken</a>
+        <a href="module_d.html#d5"><span class="sc">D.5</span>Building Trust</a>
+        <a href="module_d.html#d6"><span class="sc">D.6</span>Price Resistance</a>
+        <a href="module_d.html#d7"><span class="sc">D.7</span>Handling Objections</a>
+        <div class="sub-group">Communication</div>
+        <a href="module_d.html#d8"><span class="sc">D.8</span>Reading the Room</a>
+        <a href="module_d.html#d9"><span class="sc">D.9</span>Communication Style</a>
+        <a href="module_d.html#d10"><span class="sc">D.10</span>The Advocate Role</a>
+        <a href="module_d.html#d11"><span class="sc">D.11</span>When to Push Back</a>
+        <a href="module_d.html#d12"><span class="sc">D.12</span>Follow-Up Psychology</a>
+        <div class="sub-pad"></div>
+      </div>
+    </div>
+
+    <!-- E -->
+    <div class="mod-item">
+      <div class="mod-header">
+        <a class="mod-link" href="module_e.html"><span class="mod-badge">E</span>Discovery</a>
+        <button class="mod-toggle" aria-expanded="false" data-sub="sub-e">&#9658;</button>
+      </div>
+      <div class="sub-list" id="sub-e">
+        <a href="module_e.html#e1"><span class="sc">E.1</span>Why Discovery Comes First</a>
+        <a href="module_e.html#e2"><span class="sc">E.2</span>Reading RFP &amp; Drawings</a>
+        <a href="module_e.html#e3"><span class="sc">E.3</span>The One Prepared Call</a>
+        <a href="module_e.html#e4"><span class="sc">E.4</span>Five Things to Confirm</a>
+        <a href="module_e.html#e5"><span class="sc">E.5</span>The Questionnaire System</a>
+        <a href="module_e.html#e6"><span class="sc">E.6</span>Questionnaires by Sector</a>
+        <a href="module_e.html#e7"><span class="sc">E.7</span>When Info Is Missing</a>
+        <a href="module_e.html#e8"><span class="sc">E.8</span>Red Flags in Discovery</a>
+        <a href="module_e.html#e9"><span class="sc">E.9</span>Discovery Notes to Proposal</a>
+        <a href="module_e.html#e10"><span class="sc">E.10</span>Saving &amp; Organizing in Box</a>
+        <div class="sub-pad"></div>
+      </div>
+    </div>
+
+    <!-- F -->
+    <div class="mod-item">
+      <div class="mod-header">
+        <a class="mod-link" href="module_f.html"><span class="mod-badge">F</span>Procurement Documents</a>
+        <button class="mod-toggle" aria-expanded="false" data-sub="sub-f">&#9658;</button>
+      </div>
+      <div class="sub-list" id="sub-f">
+        <div class="sub-group">The Documents</div>
+        <a href="module_f.html#f1"><span class="sc">F.1</span>What Is an RFP</a>
+        <a href="module_f.html#f2"><span class="sc">F.2</span>What Is an RFQ</a>
+        <a href="module_f.html#f3"><span class="sc">F.3</span>Critical Differences</a>
+        <a href="module_f.html#f4"><span class="sc">F.4</span>How to Read an RFP</a>
+        <a href="module_f.html#f5"><span class="sc">F.5</span>How to Read an RFQ</a>
+        <a href="module_f.html#f6"><span class="sc">F.6</span>The SF330 Form</a>
+        <a href="module_f.html#f7"><span class="sc">F.7</span>Go / No-Go Framework</a>
+        <div class="sub-group">Responses</div>
+        <a href="module_f.html#f8"><span class="sc">F.8</span>Structuring the RFP Response</a>
+        <a href="module_f.html#f9"><span class="sc">F.9</span>Structuring the RFQ Response</a>
+        <a href="module_f.html#f10"><span class="sc">F.10</span>Common Mistakes</a>
+        <a href="module_f.html#f11"><span class="sc">F.11</span>File Naming &amp; Submission</a>
+        <div class="sub-pad"></div>
+      </div>
+    </div>
+
+    <!-- G -->
+    <div class="mod-item">
+      <div class="mod-header">
+        <a class="mod-link" href="module_g.html"><span class="mod-badge">G</span>Proposal Writing Mastery</a>
+        <button class="mod-toggle" aria-expanded="false" data-sub="sub-g">&#9658;</button>
+      </div>
+      <div class="sub-list" id="sub-g">
+        <div class="sub-group">Core Architecture</div>
+        <a href="module_g.html#g0"><span class="sc">G.0</span>Why Proposal Writing Matters</a>
+        <a href="module_g.html#g1"><span class="sc">G.1</span>The Four-Instrument Architecture</a>
+        <a href="module_g.html#g2"><span class="sc">G.2</span>Document Anatomy</a>
+        <a href="module_g.html#g3"><span class="sc">G.3</span>The Decision Matrix</a>
+        <a href="module_g.html#g4"><span class="sc">G.4</span>Made / Paid / Loved</a>
+        <a href="module_g.html#g5"><span class="sc">G.5</span>The Two-Paragraph Rule</a>
+        <a href="module_g.html#g6"><span class="sc">G.6</span>The Five-Phase Structure</a>
+        <div class="sub-group">Writing Mechanics</div>
+        <a href="module_g.html#g7"><span class="sc">G.7</span>The Cover Letter System</a>
+        <a href="module_g.html#g8"><span class="sc">G.8</span>Independence Paragraphs</a>
+        <a href="module_g.html#g9"><span class="sc">G.9</span>The Consultation Agreement</a>
+        <div class="sub-group">Fee Logic</div>
+        <a href="module_g.html#g10"><span class="sc">G.10</span>Fee Calculation Logic</a>
+        <a href="module_g.html#g11"><span class="sc">G.11</span>Working Fee Calculator</a>
+        <a href="module_g.html#g12"><span class="sc">G.12</span>Fee Structures</a>
+        <a href="module_g.html#g13"><span class="sc">G.13</span>Insurance &amp; Compliance</a>
+        <a href="module_g.html#g14"><span class="sc">G.14</span>Raising Flags</a>
+        <div class="sub-group">Walkthroughs</div>
+        <a href="module_g.html#g15"><span class="sc">G.15</span>Client Project Walkthrough</a>
+        <a href="module_g.html#g16"><span class="sc">G.16</span>F&amp;B Walkthrough</a>
+        <div class="sub-group">Operations</div>
+        <a href="module_g.html#g17"><span class="sc">G.17</span>Pre-Flight Checklist</a>
+        <a href="module_g.html#g18"><span class="sc">G.18</span>Common Errors</a>
+        <a href="module_g.html#g19"><span class="sc">G.19</span>Operational Standards</a>
+        <a href="module_g.html#g20"><span class="sc">G.20</span>The Ten Principles</a>
+        <div class="sub-pad"></div>
+      </div>
+    </div>
+
+    <!-- H -->
+    <div class="mod-item">
+      <div class="mod-header">
+        <a class="mod-link" href="module_h.html"><span class="mod-badge">H</span>Fee Calculation</a>
+        <button class="mod-toggle" aria-expanded="false" data-sub="sub-h">&#9658;</button>
+      </div>
+      <div class="sub-list" id="sub-h">
+        <div class="sub-group">Foundations</div>
+        <a href="module_h.html#h0"><span class="sc">H.0</span>Why Fee Calculation Decides</a>
+        <a href="module_h.html#h1"><span class="sc">H.1</span>Three Methods</a>
+        <a href="module_h.html#h2"><span class="sc">H.2</span>Method A: SF &times; Sector Rate</a>
+        <a href="module_h.html#h3"><span class="sc">H.3</span>Method B: Budget &times; %</a>
+        <div class="sub-group">The Sector Model</div>
+        <a href="module_h.html#h4"><span class="sc">H.4</span>Sector Rate Table</a>
+        <a href="module_h.html#h5"><span class="sc">H.5</span>Five-Phase Split</a>
+        <a href="module_h.html#h6"><span class="sc">H.6</span>2026 Labor Rate Card</a>
+        <div class="sub-group">Building the Number</div>
+        <a href="module_h.html#h7"><span class="sc">H.7</span>Fee Buildup Step by Step</a>
+        <a href="module_h.html#h8"><span class="sc">H.8</span>Meetings &amp; Reimbursables</a>
+        <a href="module_h.html#h9"><span class="sc">H.9</span>Retainers &amp; Payment Terms</a>
+        <div class="sub-group">Defending the Number</div>
+        <a href="module_h.html#h10"><span class="sc">H.10</span>When &amp; How to Adjust</a>
+        <a href="module_h.html#h11"><span class="sc">H.11</span>Ten Pricing Errors</a>
+        <a href="module_h.html#h12"><span class="sc">H.12</span>Fee Defense Checklist</a>
+        <div class="sub-pad"></div>
+      </div>
+    </div>
+
+    <!-- I -->
+    <div class="mod-item">
+      <div class="mod-header">
+        <a class="mod-link" href="module_i.html"><span class="mod-badge">I</span>Code &amp; Compliance</a>
+        <button class="mod-toggle" aria-expanded="false" data-sub="sub-i">&#9658;</button>
+      </div>
+      <div class="sub-list" id="sub-i">
+        <div class="sub-group">Foundations</div>
+        <a href="module_i.html#i1"><span class="sc">I.1</span>Why Compliance Comes First</a>
+        <a href="module_i.html#i2"><span class="sc">I.2</span>The Four Authorities (AHJ)</a>
+        <a href="module_i.html#i3"><span class="sc">I.3</span>The Code Stack</a>
+        <a href="module_i.html#i4"><span class="sc">I.4</span>Dual-Track Approval Path</a>
+        <div class="sub-group">Regulatory Authority</div>
+        <a href="module_i.html#i5"><span class="sc">I.5</span>Designing for Health Dept.</a>
+        <a href="module_i.html#i6"><span class="sc">I.6</span>NSF Certification</a>
+        <div class="sub-group">Critical Utilities</div>
+        <a href="module_i.html#i7"><span class="sc">I.7</span>Plumbing Priorities</a>
+        <a href="module_i.html#i8"><span class="sc">I.8</span>Exhaust Hoods &amp; Make-Up Air</a>
+        <a href="module_i.html#i9"><span class="sc">I.9</span>Fire Suppression</a>
+        <a href="module_i.html#i10"><span class="sc">I.10</span>Electrical Integrity</a>
+        <a href="module_i.html#i11"><span class="sc">I.11</span>ADA Accessibility</a>
+        <a href="module_i.html#i12"><span class="sc">I.12</span>Laundry &amp; Mechanical</a>
+        <div class="sub-group">Inspection Readiness</div>
+        <a href="module_i.html#i13"><span class="sc">I.13</span>Plan Review Package</a>
+        <a href="module_i.html#i14"><span class="sc">I.14</span>Inspection Readiness Checklist</a>
+        <div class="sub-pad"></div>
+      </div>
+    </div>
+
+    <!-- J -->
+    <div class="mod-item">
+      <div class="mod-header">
+        <a class="mod-link" href="module_j.html"><span class="mod-badge">J</span>Meeting Evaluation &amp; SWOT</a>
+        <button class="mod-toggle" aria-expanded="false" data-sub="sub-j">&#9658;</button>
+      </div>
+      <div class="sub-list" id="sub-j">
+        <div class="sub-group">Foundations</div>
+        <a href="module_j.html#j0"><span class="sc">J.0</span>Why the Debrief Decides</a>
+        <a href="module_j.html#j1"><span class="sc">J.1</span>What a SWOT Is</a>
+        <div class="sub-group">Four Quadrants</div>
+        <a href="module_j.html#j2"><span class="sc">J.2</span>Strengths</a>
+        <a href="module_j.html#j3"><span class="sc">J.3</span>Weaknesses</a>
+        <a href="module_j.html#j4"><span class="sc">J.4</span>Opportunities</a>
+        <a href="module_j.html#j5"><span class="sc">J.5</span>Threats</a>
+        <div class="sub-group">Running the Evaluation</div>
+        <a href="module_j.html#j6"><span class="sc">J.6</span>Running the Meeting Eval.</a>
+        <a href="module_j.html#j7"><span class="sc">J.7</span>Golf Tournament SWOT</a>
+        <a href="module_j.html#j8"><span class="sc">J.8</span>Turning SWOT into Action</a>
+        <div class="sub-group">Closing the Loop</div>
+        <a href="module_j.html#j9"><span class="sc">J.9</span>Following Up</a>
+        <a href="module_j.html#j10"><span class="sc">J.10</span>The Evaluation Checklist</a>
+        <div class="sub-pad"></div>
+      </div>
+    </div>
+
+    <!-- K — not built -->
+    <div class="mod-item">
+      <div class="mod-header">
+        <span class="mod-link disabled"><span class="mod-badge" style="opacity:.4">K</span>File Naming &amp; Digital Vault</span>
+      </div>
+    </div>
+
+    <!-- L -->
+    <div class="mod-item">
+      <div class="mod-header">
+        <a class="mod-link" href="module_l.html"><span class="mod-badge">L</span>Master Glossary</a>
+        <button class="mod-toggle" aria-expanded="false" data-sub="sub-l">&#9658;</button>
+      </div>
+      <div class="sub-list" id="sub-l">
+        <a href="module_l.html#alpha-a"><span class="sc">A–C</span>Terms A through C</a>
+        <a href="module_l.html#alpha-d"><span class="sc">D–F</span>Terms D through F</a>
+        <a href="module_l.html#alpha-g"><span class="sc">G–I</span>Terms G through I</a>
+        <a href="module_l.html#alpha-j"><span class="sc">J–M</span>Terms J through M</a>
+        <a href="module_l.html#alpha-n"><span class="sc">N–R</span>Terms N through R</a>
+        <a href="module_l.html#alpha-s"><span class="sc">S–Z</span>Terms S through Z</a>
+        <div class="sub-pad"></div>
+      </div>
+    </div>
+
+    <!-- M -->
+    <div class="mod-item">
+      <div class="mod-header">
+        <a class="mod-link" href="module_m.html"><span class="mod-badge">M</span>Reference Section</a>
+        <button class="mod-toggle" aria-expanded="false" data-sub="sub-m">&#9658;</button>
+      </div>
+      <div class="sub-list" id="sub-m">
+        <div class="sub-group">Proposal References</div>
+        <a href="module_m.html#m1"><span class="sc">M.1</span>Document Types Quick Guide</a>
+        <a href="module_m.html#m2"><span class="sc">M.2</span>Five-Phase Structure Reference</a>
+        <a href="module_m.html#m3"><span class="sc">M.3</span>Proposal Narrative Rules</a>
+        <a href="module_m.html#m4"><span class="sc">M.4</span>Standard Letter Templates</a>
+        <div class="sub-group">Fee References</div>
+        <a href="module_m.html#m5"><span class="sc">M.5</span>Master Fee Chart</a>
+        <a href="module_m.html#m6"><span class="sc">M.6</span>Rate Schedule 2026</a>
+        <a href="module_m.html#m7"><span class="sc">M.7</span>Sizing Formulas</a>
+        <div class="sub-group">Operational References</div>
+        <a href="module_m.html#m8"><span class="sc">M.8</span>Sector Quick Reference</a>
+        <a href="module_m.html#m9"><span class="sc">M.9</span>Pre-Flight Checklist</a>
+        <a href="module_m.html#m10"><span class="sc">M.10</span>Leadership &amp; Offices</a>
+        <div class="sub-pad"></div>
+      </div>
+    </div>
+
+    <!-- N -->
+    <div class="mod-item">
+      <div class="mod-header">
+        <a class="mod-link" href="module_n.html"><span class="mod-badge">N</span>Calculation Tools</a>
+        <button class="mod-toggle" aria-expanded="false" data-sub="sub-n">&#9658;</button>
+      </div>
+      <div class="sub-list" id="sub-n">
+        <a href="module_n.html#n1"><span class="sc">N.1</span>Fee Chart Calculator</a>
+        <a href="module_n.html#n2"><span class="sc">N.2</span>Laundry Sizing Calculator</a>
+        <a href="module_n.html#n3"><span class="sc">N.3</span>5-Phase Labor Calculator</a>
+        <a href="module_n.html#n4"><span class="sc">N.4</span>Team Structure</a>
+        <div class="sub-pad"></div>
+      </div>
+    </div>
+
+  </nav>
+</aside>
+
+<button class="mob-btn" id="mobBtn" aria-label="Toggle navigation">&#9776;</button>
+
+<!-- ═══ MAIN ═══ -->
+<main class="main">
+
+  <section class="hero">
+    <p class="hero-eyebrow">Professional Sales &amp; Proposal Training &nbsp;·&nbsp; 2026 Edition</p>
+    <h1 class="hero-title">Create The Edge OS</h1>
+    <p class="hero-sub">Commercial Foodservice &amp; Laundry Design Curriculum</p>
+    <p class="hero-body">
+      A 14-module professional training system built for commercial foodservice and laundry design consultants.
+      From orientation and client psychology through fee calculation, proposal writing, code compliance,
+      and digital operations: every module is a complete self-study environment with embedded media,
+      structured content, and an assessment system built to the standard elite consultants operate by.
+    </p>
+    <div class="stats">
+      <div>
+        <div class="stat-num">14</div>
+        <div class="stat-lbl">Modules</div>
+      </div>
+      <div>
+        <div class="stat-num">13</div>
+        <div class="stat-lbl">Live Now</div>
+      </div>
+      <div>
+        <div class="stat-num">60+</div>
+        <div class="stat-lbl">Years of Industry Expertise</div>
+      </div>
+      <div>
+        <div class="stat-num">200+</div>
+        <div class="stat-lbl">Reference Terms</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec-head">
+    <h2>Curriculum Modules</h2>
+    <p>Select a module to begin. Each contains video briefings, structured content, interactive calculators, and a 12–15 question assessment.</p>
   </div>
-  <div class="hero-rule"></div>
-  <p class="hero-sub">Built on 40+ years of real-world sales experience. Every module, framework, and tool in this system was earned in the field, refined in the room, and proven at the proposal table. This is not theory. This is what actually works.</p>
-</section>
 
-<div class="progress-bar">
-  <div class="progress-stat"><span class="num">14</span><span class="label">Total Modules</span></div>
-  <div class="progress-stat"><span class="num">14</span><span class="label">Live Now</span></div>
-  <div class="progress-stat"><span class="num">0</span><span class="label">In Production</span></div>
-</div>
-
-<main class="grid-container">
-  <p class="grid-heading">All Modules</p>
   <div class="grid">
 
-    <div class="category-divider"><span>Foundations &amp; Role Mastery</span></div>
-
     <a class="card" href="module_a.html">
-      <span class="card-letter">A</span>
-      <span class="card-badge badge-live">&#9679; Live</span>
-      <p class="card-code">Module A &middot; A.1&ndash;A.8</p>
-      <h2 class="card-title">Role Overview &amp; Orientation</h2>
-      <p class="card-desc">The Business Standard. Anatomy of a won deal, the consultant's mindset, and what separates elite performers from the field.</p>
-      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 12-Q Quiz</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-A-Role-Overview-Orientation.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
+      <div class="card-top">
+        <div class="card-letter">A</div>
+        <div class="card-meta">
+          <div class="card-title">Role Overview &amp; Orientation</div>
+          <div class="card-code">Module A</div>
+        </div>
+      </div>
+      <p class="card-desc">The foundational briefing. What the firm does, what consultants are responsible for, and the professional standards that define elite performance from day one.</p>
+      <div class="card-foot"><span class="badge-live">Live</span><span class="card-arrow">&#8594;</span></div>
     </a>
 
     <a class="card" href="module_b.html">
-      <span class="card-letter">B</span>
-      <span class="card-badge badge-live">&#9679; Live</span>
-      <p class="card-code">Module B &middot; B.1&ndash;B.9</p>
-      <h2 class="card-title">Industry Terminology</h2>
-      <p class="card-desc">Mastering the Language of Authority. The vocabulary that signals expertise and builds institutional credibility before a word of the proposal is read.</p>
-      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; Quiz</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-B-Industry-Terminology.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
+      <div class="card-top">
+        <div class="card-letter">B</div>
+        <div class="card-meta">
+          <div class="card-title">Industry Terminology</div>
+          <div class="card-code">Module B</div>
+        </div>
+      </div>
+      <p class="card-desc">Master the language of the trade. Proposals, procurement, design phases, codes, and financial terms — the complete professional lexicon used in every client engagement.</p>
+      <div class="card-foot"><span class="badge-live">Live</span><span class="card-arrow">&#8594;</span></div>
     </a>
 
-    <div class="category-divider"><span>Sales &amp; Proposal Framework</span></div>
-
     <a class="card" href="module_c.html">
-      <span class="card-letter">C</span>
-      <span class="card-badge badge-live">&#9679; Live</span>
-      <p class="card-code">Module C &middot; C.1&ndash;C.12</p>
-      <h2 class="card-title">Sales &amp; Marketing</h2>
-      <p class="card-desc">The Authority Blueprint. Diagnostic selling, revenue architecture, and the lifecycle framework that turns relationships into recurring engagements.</p>
-      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; Quiz</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-C-Sales-Marketing.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
+      <div class="card-top">
+        <div class="card-letter">C</div>
+        <div class="card-meta">
+          <div class="card-title">Sales &amp; Marketing</div>
+          <div class="card-code">Module C</div>
+        </div>
+      </div>
+      <p class="card-desc">The complete sales system. Funnel mechanics, CRM discipline, the Rule of Five, SPICED framework, and precision selling strategies from first contact through signed proposal.</p>
+      <div class="card-foot"><span class="badge-live">Live</span><span class="card-arrow">&#8594;</span></div>
     </a>
 
     <a class="card" href="module_d.html">
-      <span class="card-letter">D</span>
-      <span class="card-badge badge-live">&#9679; Live</span>
-      <p class="card-code">Module D</p>
-      <h2 class="card-title">Client Psychology</h2>
-      <p class="card-desc">The Architecture of Influence. Reading the decision-making framework behind every client conversation and calibrating your approach accordingly.</p>
-      <div class="card-footer"><span class="card-meta">Quiz &middot; Flashcards</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-D-Client-Psychology.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
+      <div class="card-top">
+        <div class="card-letter">D</div>
+        <div class="card-meta">
+          <div class="card-title">Client Psychology</div>
+          <div class="card-code">Module D</div>
+        </div>
+      </div>
+      <p class="card-desc">Read every room. Rational versus emotional buying signals, the four decision lenses, objection handling, trust architecture, and the psychology of follow-up.</p>
+      <div class="card-foot"><span class="badge-live">Live</span><span class="card-arrow">&#8594;</span></div>
     </a>
 
     <a class="card" href="module_e.html">
-      <span class="card-letter">E</span>
-      <span class="card-badge badge-live">&#9679; Live</span>
-      <p class="card-code">Module E</p>
-      <h2 class="card-title">Discovery</h2>
-      <p class="card-desc">The forensic discipline of uncovering what clients actually need versus what they say they need.</p>
-      <div class="card-footer"><span class="card-meta">Guide &middot; Flashcards</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-E-Discovery-Information-Gathering.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
+      <div class="card-top">
+        <div class="card-letter">E</div>
+        <div class="card-meta">
+          <div class="card-title">Discovery</div>
+          <div class="card-code">Module E</div>
+        </div>
+      </div>
+      <p class="card-desc">The prepared consultant wins. RFP and drawing analysis, structured questionnaires by sector, red-flag identification, and clean handoffs to the proposal phase.</p>
+      <div class="card-foot"><span class="badge-live">Live</span><span class="card-arrow">&#8594;</span></div>
     </a>
 
     <a class="card" href="module_f.html">
-      <span class="card-letter">F</span>
-      <span class="card-badge badge-live">&#9679; Live</span>
-      <p class="card-code">Module F</p>
-      <h2 class="card-title">Procurement Documents</h2>
-      <p class="card-desc">RFP vs. RFQ. How to read procurement intent and position a response that wins before the committee convenes.</p>
-      <div class="card-footer"><span class="card-meta">Guide &middot; Flashcards</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-F-Procurement-Documents.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
+      <div class="card-top">
+        <div class="card-letter">F</div>
+        <div class="card-meta">
+          <div class="card-title">Procurement Documents</div>
+          <div class="card-code">Module F</div>
+        </div>
+      </div>
+      <p class="card-desc">RFPs, RFQs, the SF330, and Go/No-Go frameworks. How to read, evaluate, and respond to every procurement instrument the public and private sectors issue.</p>
+      <div class="card-foot"><span class="badge-live">Live</span><span class="card-arrow">&#8594;</span></div>
     </a>
 
     <a class="card" href="module_g.html">
-      <span class="card-letter">G</span>
-      <span class="card-badge badge-live">&#9679; Live</span>
-      <p class="card-code">Module G &middot; G.1&ndash;G.24</p>
-      <h2 class="card-title">Proposal Writing Mastery</h2>
-      <p class="card-desc">Engineered Proposal Mastery. The complete system for constructing bulletproof proposals that close at the highest fee tier.</p>
-      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-G-Proposal-Writing-Mastery.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
+      <div class="card-top">
+        <div class="card-letter">G</div>
+        <div class="card-meta">
+          <div class="card-title">Proposal Writing Mastery</div>
+          <div class="card-code">Module G</div>
+        </div>
+      </div>
+      <p class="card-desc">The complete proposal engine. Four-instrument architecture, five-phase structure, fee logic, cover letter system, full-length walkthroughs, and the ten operating principles.</p>
+      <div class="card-foot"><span class="badge-live">Live</span><span class="card-arrow">&#8594;</span></div>
     </a>
 
-    <div class="category-divider"><span>Fee Engineering &amp; Compliance</span></div>
-
     <a class="card" href="module_h.html">
-      <span class="card-letter">H</span>
-      <span class="card-badge badge-live">&#9679; Live</span>
-      <p class="card-code">Module H &middot; H.0&ndash;H.12</p>
-      <h2 class="card-title">Fee Calculation</h2>
-      <p class="card-desc">Precision Fee Engineering. The 5-phase labor model, Delta [Major Transportation Hospitality Project] methodology, and the arithmetic of profitable project delivery.</p>
-      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-H-Fee-Calculation-Pricing.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
+      <div class="card-top">
+        <div class="card-letter">H</div>
+        <div class="card-meta">
+          <div class="card-title">Fee Calculation</div>
+          <div class="card-code">Module H</div>
+        </div>
+      </div>
+      <p class="card-desc">Build and defend the number. Sector rate tables, 2026 labor rate cards, step-by-step fee buildup, payment structures, and the ten pricing errors that kill margins.</p>
+      <div class="card-foot"><span class="badge-live">Live</span><span class="card-arrow">&#8594;</span></div>
     </a>
 
     <a class="card" href="module_i.html">
-      <span class="card-letter">I</span>
-      <span class="card-badge badge-live">&#9679; Live</span>
-      <p class="card-code">Module I &middot; I.0&ndash;I.12</p>
-      <h2 class="card-title">Code &amp; Compliance</h2>
-      <p class="card-desc">Kitchen Compliance &amp; Code Intelligence. The regulatory landscape that shapes every commercial kitchen design decision.</p>
-      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-I-Code-Compliance.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
+      <div class="card-top">
+        <div class="card-letter">I</div>
+        <div class="card-meta">
+          <div class="card-title">Code &amp; Compliance</div>
+          <div class="card-code">Module I</div>
+        </div>
+      </div>
+      <p class="card-desc">AHJ authority, the code stack, health department requirements, NSF certification, utilities, ADA, laundry and mechanical systems, and inspection readiness checklists.</p>
+      <div class="card-foot"><span class="badge-live">Live</span><span class="card-arrow">&#8594;</span></div>
     </a>
-
-    <div class="category-divider"><span>Strategy &amp; Operations</span></div>
 
     <a class="card" href="module_j.html">
-      <span class="card-letter">J</span>
-      <span class="card-badge badge-live">&#9679; Live</span>
-      <p class="card-code">Module J &middot; J.0&ndash;J.10</p>
-      <h2 class="card-title">Meeting Evaluation &amp; SWOT</h2>
-      <p class="card-desc">The Strategic Decision Engine. Real-world SWOT analysis applied to competitive positioning, including a live Golf Tournament case study.</p>
-      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-J-Meeting-Evaluation-SWOT.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
+      <div class="card-top">
+        <div class="card-letter">J</div>
+        <div class="card-meta">
+          <div class="card-title">Meeting Evaluation &amp; SWOT</div>
+          <div class="card-code">Module J</div>
+        </div>
+      </div>
+      <p class="card-desc">Post-engagement intelligence. SWOT analysis applied to sales meetings and events, debrief frameworks, and turning analysis into pipeline action.</p>
+      <div class="card-foot"><span class="badge-live">Live</span><span class="card-arrow">&#8594;</span></div>
     </a>
 
-    <a class="card" href="module_k.html">
-      <span class="card-letter">K</span>
-      <span class="card-badge badge-live">&#9679; Live</span>
-      <p class="card-code">Module K &middot; K.0&ndash;K.11</p>
-      <h2 class="card-title">File Naming &amp; Digital Vault</h2>
-      <p class="card-desc">The Digital Vault protocol. How institutional-grade file architecture protects project integrity and accelerates team performance.</p>
-      <div class="card-footer"><span class="card-meta">Video &middot; Podcast &middot; 15-Q Quiz</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-K-File-Naming-Systems.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
-    </a>
+    <div class="card card-soon">
+      <div class="card-top">
+        <div class="card-letter" style="opacity:.38">K</div>
+        <div class="card-meta">
+          <div class="card-title">File Naming &amp; Digital Vault</div>
+          <div class="card-code">Module K</div>
+        </div>
+      </div>
+      <p class="card-desc">The discipline of the digital file. Naming conventions, project folder structure, version control, storage protocols, and the three-business-day turnaround standard.</p>
+      <div class="card-foot"><span class="badge-soon">Coming Soon</span></div>
+    </div>
 
-    <div class="category-divider"><span>Reference &amp; Tools</span></div>
-
-    <!-- L: LIVE -->
     <a class="card" href="module_l.html">
-      <span class="card-letter">L</span>
-      <span class="card-badge badge-live">&#9679; Live</span>
-      <p class="card-code">Module L</p>
-      <h2 class="card-title">Master Glossary</h2>
-      <p class="card-desc">The Forensic Blueprint. Every term, acronym, and institutional phrase in the professional services lexicon, defined and cross-referenced.</p>
-      <div class="card-footer">
-        <span class="card-meta">Video &middot; Podcast &middot; Flashcards</span>
-        <span class="card-arrow">&#8594;</span>
-      <a class="pdf-btn" href="pdfs/CTE-Module-L-Master-Glossary.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
+      <div class="card-top">
+        <div class="card-letter">L</div>
+        <div class="card-meta">
+          <div class="card-title">Master Glossary</div>
+          <div class="card-code">Module L</div>
+        </div>
+      </div>
+      <p class="card-desc">The complete reference lexicon. 200-plus terms used across the training curriculum, organized alphabetically with context, sector notes, and a 15-question assessment.</p>
+      <div class="card-foot"><span class="badge-live">Live</span><span class="card-arrow">&#8594;</span></div>
     </a>
 
-    <!-- M: LIVE -->
     <a class="card" href="module_m.html">
-      <span class="card-letter">M</span>
-      <span class="card-badge badge-live">&#9679; Live</span>
-      <p class="card-code">Module M</p>
-      <h2 class="card-title">Reference Section</h2>
-      <p class="card-desc">The Blueprint of Consequence. Source documents, standards, and reference frameworks that underpin every client engagement.</p>
-      <div class="card-footer">
-        <span class="card-meta">Video &middot; Podcast &middot; Flashcards</span>
-        <span class="card-arrow">&#8594;</span>
-      <a class="pdf-btn" href="pdfs/CTE-Module-M-Reference-Section.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
+      <div class="card-top">
+        <div class="card-letter">M</div>
+        <div class="card-meta">
+          <div class="card-title">Reference Section</div>
+          <div class="card-code">Module M</div>
+        </div>
+      </div>
+      <p class="card-desc">Quick-reference documents for field use. Proposal types, fee charts, rate schedules, sizing formulas, sector guides, pre-flight checklists, and office contacts.</p>
+      <div class="card-foot"><span class="badge-live">Live</span><span class="card-arrow">&#8594;</span></div>
     </a>
 
     <a class="card" href="module_n.html">
-      <span class="card-letter">N</span>
-      <span class="card-badge badge-live">&#9679; Live</span>
-      <p class="card-code">Module N</p>
-      <h2 class="card-title">Calculation Tools</h2>
-      <p class="card-desc">The precision instruments of fee engineering: laundry sizing, 5-phase labor, Delta [Major Transportation Hospitality Project] calculator, and team structure templates.</p>
-      <div class="card-footer"><span class="card-meta">Interactive Calculators</span><span class="card-arrow">&#8594;</span><a class="pdf-btn" href="pdfs/CTE-Module-N-Calculation-Tools.pdf" download onclick="event.stopPropagation()">&#8659; PDF</a></div>
+      <div class="card-top">
+        <div class="card-letter">N</div>
+        <div class="card-meta">
+          <div class="card-title">Calculation Tools</div>
+          <div class="card-code">Module N</div>
+        </div>
+      </div>
+      <p class="card-desc">Live interactive calculators. Fee chart lookups, laundry sizing, five-phase labor allocation, and team structure modeling — engineered for real proposal work.</p>
+      <div class="card-foot"><span class="badge-live">Live</span><span class="card-arrow">&#8594;</span></div>
     </a>
 
   </div>
+
+  <footer class="site-foot">
+    <p>Create The Edge OS &nbsp;·&nbsp; 2026 Edition</p>
+    <p>Professional Sales &amp; Proposal Training</p>
+  </footer>
+
 </main>
 
-<footer class="footer">
-  <span class="footer-logo">Create The Edge OS</span>
-  <span class="footer-meta">Create The Edge OS Training Manual &middot; 2026 Edition &middot; Internal Use Only</span>
-</footer>
-
-<!-- Section viewer overlay — sections open here instead of navigating away -->
-<div class="viewer-overlay" id="viewer" role="dialog" aria-modal="true" aria-label="Section viewer">
-  <div class="viewer-bar">
-    <button class="viewer-back" id="viewer-back" onclick="closeViewer()">&#8592; Back to Manual</button>
-    <span class="viewer-label" id="viewer-label"></span>
-  </div>
-  <iframe class="viewer-frame" id="viewer-frame" src="" title="Section content" allowfullscreen></iframe>
-</div>
-
 <script>
-(function () {
-  var overlay  = document.getElementById('viewer');
-  var frame    = document.getElementById('viewer-frame');
-  var label    = document.getElementById('viewer-label');
-
-  function openViewer(url, title) {
-    label.textContent = title;
-    frame.src = url;
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    history.pushState({ viewer: url, title: title }, title,
-      '#' + url.replace(/\.html$/, ''));
-  }
-
-  window.closeViewer = function () {
-    overlay.classList.remove('open');
-    frame.src = '';
-    document.body.style.overflow = '';
-    history.pushState({}, document.title, window.location.pathname);
-  };
-
-  window.addEventListener('popstate', function (e) {
-    if (!e.state || !e.state.viewer) closeViewer();
-  });
-
-  // Intercept all live section card clicks
-  document.querySelectorAll('a.card').forEach(function (card) {
-    card.addEventListener('click', function (e) {
-      e.preventDefault();
-      var url   = card.getAttribute('href');
-      var code  = (card.querySelector('.card-code')  || {}).textContent || '';
-      var title = (card.querySelector('.card-title') || {}).textContent || '';
-      openViewer(url, code + ' · ' + title);
+  document.querySelectorAll('.mod-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var target = document.getElementById(btn.dataset.sub);
+      if (!target) return;
+      var isOpen = target.classList.contains('open');
+      document.querySelectorAll('.sub-list.open').forEach(function(el) { el.classList.remove('open'); });
+      document.querySelectorAll('.mod-toggle[aria-expanded="true"]').forEach(function(b) { b.setAttribute('aria-expanded','false'); });
+      if (!isOpen) {
+        target.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+      }
     });
   });
 
-  // Deep-link support: /index.html#camacho_Section_B opens that section
-  (function () {
-    if (!window.location.hash) return;
-    var url  = window.location.hash.slice(1) + '.html';
-    var card = document.querySelector('a.card[href="' + url + '"]');
-    if (card) {
-      var code  = (card.querySelector('.card-code')  || {}).textContent || '';
-      var title = (card.querySelector('.card-title') || {}).textContent || '';
-      openViewer(url, code + ' · ' + title);
+  var sidebar = document.getElementById('sidebar');
+  var mobBtn  = document.getElementById('mobBtn');
+  mobBtn.addEventListener('click', function() { sidebar.classList.toggle('mob-open'); });
+  document.addEventListener('click', function(e) {
+    if (!sidebar.contains(e.target) && e.target !== mobBtn) {
+      sidebar.classList.remove('mob-open');
     }
-  })();
-
-  // ESC key closes the viewer
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && overlay.classList.contains('open')) closeViewer();
   });
-})();
 </script>
 </body>
 </html>
