@@ -141,6 +141,23 @@ td strong{color:var(--ink);font-weight:600;}
 .opts{list-style:none;}
 .opt{display:flex;align-items:baseline;gap:10px;padding:6px 0;font-size:13px;color:var(--ink-soft);border-bottom:1px solid var(--cream);}
 .opt:last-child{border-bottom:none;}
+.opt{cursor:pointer;transition:background .12s,border-color .12s;}
+.opt:hover{background:var(--cream-light);}
+.opt.selected{background:var(--navy);color:var(--gold);border-left:3px solid var(--gold);font-weight:600;}
+.opt.correct{background:var(--green-tint);color:var(--green);border-left:3px solid var(--green);font-weight:600;cursor:default;}
+.opt.wrong{background:var(--red-tint);color:var(--red);border-left:3px solid var(--red);cursor:default;}
+.opt.reveal-correct{background:var(--green-tint);color:var(--green);border-left:3px solid var(--green);font-weight:600;cursor:default;}
+.quiz-submitted .opt:not(.correct):not(.wrong):not(.reveal-correct){cursor:default;opacity:.55;}
+.quiz-score-box{background:var(--navy);color:var(--text-primary);padding:24px 28px;border-left:4px solid var(--gold);margin:28px 0 8px;font-size:15px;line-height:1.6;}
+.quiz-score-box strong{color:var(--gold);font-size:20px;}
+.quiz-score-pass{color:#6ec98f;}
+.quiz-score-fail{color:#e07b70;}
+.quiz-action{margin:28px 0 8px;display:flex;gap:14px;align-items:center;}
+.quiz-btn{background:var(--navy);color:var(--gold);border:1px solid var(--brass);padding:11px 28px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;cursor:pointer;text-transform:uppercase;transition:background .15s;}
+.quiz-btn:hover{background:var(--brass);color:var(--navy);}
+.quiz-btn.secondary{background:transparent;color:var(--ink-muted);border-color:var(--rule);}
+.quiz-btn.secondary:hover{background:var(--cream);color:var(--ink);}
+.quiz-unanswered{color:var(--red);font-size:12px;font-weight:600;display:none;}
 .letter{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--cream);color:var(--brass);font-size:11px;font-weight:700;flex-shrink:0;}
 
 /* LEGEND */
@@ -658,6 +675,13 @@ td strong{color:var(--ink);font-weight:600;}
   <div class="quiz-q"><div class="qnum">11</div><div class="qtext">At the 90-day checkpoint, a new consultant should be able to:</div><ul class="opts"><li class="opt"><span class="letter">A</span>Lead all client engagements without supervision</li><li class="opt"><span class="letter">B</span>Design a complete client facility independently</li><li class="opt"><span class="letter">C</span>Run a complete proposal cycle with supervisor review</li><li class="opt"><span class="letter">D</span>Manage construction administration on a live project</li></ul></div>
 
   <div class="quiz-q"><div class="qnum">12</div><div class="qtext">The regulatory frameworks that shape commercial design decisions include:</div><ul class="opts"><li class="opt"><span class="letter">A</span>NSF, applicable safety code, applicable regulatory requirements, and ADA requirements</li><li class="opt"><span class="letter">B</span>OSHA, EPA, FDA, and USDA only</li><li class="opt"><span class="letter">C</span>Only the local building code</li><li class="opt"><span class="letter">D</span>No external codes; design standards are set by the firm</li></ul></div>
+
+  <div id="quiz-score"></div>
+  <div class="quiz-action">
+    <button class="quiz-btn" id="quiz-submit-btn" onclick="submitQuiz()">Submit &amp; See My Score</button>
+    <button class="quiz-btn secondary" id="quiz-reset-btn" onclick="resetQuiz()" style="display:none;">Reset Quiz</button>
+    <span class="quiz-unanswered" id="quiz-unanswered-msg">Answer all 12 questions before submitting.</span>
+  </div>
 </div>
 
 <!-- LEGEND 1 -->
@@ -757,31 +781,130 @@ td strong{color:var(--ink);font-weight:600;}
 </main>
 
 <script>
-const cards=[
-  {front:'The Create The Edge Standard',back:'Proposal quality is the ultimate protection. Protects the client (exact scope), the firm (correct risk pricing), and the project (operational blueprint). (A.0)'},
-  {front:'About Your Company',back:'Replace this card with your company's founding story, headquarters location, and primary service lines. This is your brand anchor. (A.1)'},
-  {front:'Commercial Professional Services Design',back:'Programming, layout, specification, and coordination of professional production operations environments. Restaurants, hotels, hospitals, universities, clubs, catering. (A.3, A.6)'},
-  {front:'Commercial Laundry Design',back:'Specification and layout of industrial-scale client inventory processing. Capacity calculation, utility engineering, equipment selection. Always starts with throughput. (A.3, A.6)'},
-  {front:'The Three-Day Standard',back:'RFP receipt to completed proposal in the client\'s inbox in three business days. Day 1: analysis. Day 2: fee and draft. Day 3: review and delivery. (A.7)'},
-  {front:'Anatomy of a Won Deal',back:'Five stages: Lead or invitation, Discovery, Proposal construction, Review and delivery, Follow-through. Win or lose, the file is correct. (A.4)'},
-  {front:'Proposal as Legal Document',back:'A Create The Edge proposal defines what will be delivered, at what fee, under what scope. Vague proposals create disputes. Precise proposals protect everyone. (A.5)'},
-  {front:'Five Phases of Professional Services Design',back:'Discovery and Programming, Conceptual Design, Design Development, Documentation, and Implementation Administration. The fee method in Section H is built around these phases. (A.6)'},
-  {front:'Throughput (Laundry)',back:'The foundational first question in specialty design consulting: pounds of client inventory per day, by category. All equipment, utility, and layout decisions follow from throughput. (A.6)'},
-  {front:'The Regulatory Backbone',back:'NSF, applicable safety code, applicable regulatory requirements, and ADA requirements. These shape every design decision before a single piece of equipment is specified. (A.3)'},
-  {front:'The Elite Consultant Disciplines',back:'Precision over speed. Proposal as legal document. Expertise in the room. Intellectual honesty: admit the knowledge gap, fill it correctly, on time. (A.5)'},
-  {front:'90-Day Orientation Goal',back:'Fluency in the method, not mastery. By Day 90: able to run a complete proposal cycle with supervisor review. Mastery follows fluency. (A.8)'}
+/* ── QUIZ ── */
+const CORRECT = {1:'B',2:'B',3:'C',4:'B',5:'C',6:'C',7:'B',8:'C',9:'C',10:'C',11:'C',12:'A'};
+const selected = {};
+
+document.querySelectorAll('#quiz .quiz-q').forEach(function(qEl, idx) {
+  var qNum = idx + 1;
+  qEl.querySelectorAll('.opt').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      if (document.getElementById('quiz').classList.contains('quiz-submitted')) return;
+      qEl.querySelectorAll('.opt').forEach(function(o) { o.classList.remove('selected'); });
+      opt.classList.add('selected');
+      selected[qNum] = opt.querySelector('.letter').textContent.trim();
+    });
+  });
+});
+
+function submitQuiz() {
+  var total = 12, answered = Object.keys(selected).length;
+  if (answered < total) {
+    var msg = document.getElementById('quiz-unanswered-msg');
+    msg.style.display = 'inline';
+    setTimeout(function(){ msg.style.display = 'none'; }, 3000);
+    return;
+  }
+  var score = 0;
+  var quizEl = document.getElementById('quiz');
+  quizEl.classList.add('quiz-submitted');
+
+  document.querySelectorAll('#quiz .quiz-q').forEach(function(qEl, idx) {
+    var qNum = idx + 1;
+    var correct = CORRECT[qNum];
+    var pick = selected[qNum];
+    qEl.querySelectorAll('.opt').forEach(function(opt) {
+      var letter = opt.querySelector('.letter').textContent.trim();
+      if (letter === correct && pick === correct) { opt.classList.add('correct'); }
+      else if (letter === pick && pick !== correct) { opt.classList.add('wrong'); }
+      else if (letter === correct && pick !== correct) { opt.classList.add('reveal-correct'); }
+    });
+    if (pick === correct) score++;
+  });
+
+  var pass = score >= 10;
+  var msg = pass
+    ? '<span class="quiz-score-pass">&#10003; Passing</span> &mdash; well done.'
+    : '<span class="quiz-score-fail">&#10007; Below passing</span> &mdash; review the answer legend and re-read the flagged sub-modules.';
+  document.getElementById('quiz-score').innerHTML =
+    '<div class="quiz-score-box">You scored <strong>' + score + ' of 12</strong>. ' + msg + '</div>';
+
+  document.getElementById('quiz-submit-btn').style.display = 'none';
+  document.getElementById('quiz-reset-btn').style.display = 'inline-block';
+  document.getElementById('quiz-score').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function resetQuiz() {
+  var quizEl = document.getElementById('quiz');
+  quizEl.classList.remove('quiz-submitted');
+  Object.keys(selected).forEach(function(k){ delete selected[k]; });
+  document.querySelectorAll('#quiz .opt').forEach(function(o) {
+    o.classList.remove('selected','correct','wrong','reveal-correct');
+  });
+  document.getElementById('quiz-score').innerHTML = '';
+  document.getElementById('quiz-submit-btn').style.display = 'inline-block';
+  document.getElementById('quiz-reset-btn').style.display = 'none';
+}
+
+/* ── FLIP CARDS ── */
+const cards = [
+  {front:'The Create The Edge Standard', back:'Proposal quality is the ultimate protection. Protects the client (exact scope), the firm (correct risk pricing), and the project (operational blueprint). (A.0)'},
+  {front:'Create The Edge Associates', back:'Commercial Foodservice Design and Commercial Laundry Design firm. Sectors: Hospitality, Healthcare, Higher Education, Private Clubs. Standard: 3-business-day turnaround, pre-flight review on every proposal. (A.1)'},
+  {front:'Commercial Foodservice Design', back:'Programming, layout, specification, and coordination of professional production operations environments. Restaurants, hotels, hospitals, universities, clubs, catering. (A.3, A.6)'},
+  {front:'Commercial Laundry Design', back:'Specification and layout of industrial-scale client inventory processing. Capacity calculation, utility engineering, equipment selection. Always starts with throughput. (A.3, A.6)'},
+  {front:'The Three-Day Standard', back:"RFP receipt to completed proposal in the client's inbox in three business days. Day 1: analysis. Day 2: fee and draft. Day 3: review and delivery. (A.7)"},
+  {front:'Anatomy of a Won Deal', back:'Five stages: Lead or invitation, Discovery, Proposal construction, Review and delivery, Follow-through. Win or lose, the file is correct. (A.4)'},
+  {front:'Proposal as Legal Document', back:'A Create The Edge proposal defines what will be delivered, at what fee, under what scope. Vague proposals create disputes. Precise proposals protect everyone. (A.5)'},
+  {front:'Five Phases of Design Engagement', back:'Discovery and Programming, Conceptual Design, Design Development, Documentation, and Implementation Administration. The fee method in Section H is built around these phases. (A.6)'},
+  {front:'Throughput (Laundry)', back:'The foundational first question in specialty design consulting: pounds of client inventory per day, by category. All equipment, utility, and layout decisions follow from throughput. (A.6)'},
+  {front:'The Regulatory Backbone', back:'NSF, applicable safety code, applicable regulatory requirements, and ADA requirements. These shape every design decision before a single piece of equipment is specified. (A.3)'},
+  {front:'The Elite Consultant Disciplines', back:'Precision over speed. Proposal as legal document. Expertise in the room. Intellectual honesty: admit the knowledge gap, fill it correctly, on time. (A.5)'},
+  {front:'90-Day Orientation Goal', back:'Fluency in the method, not mastery. By Day 90: able to run a complete proposal cycle with supervisor review. Mastery follows fluency. (A.8)'}
 ];
-let current=0,flipped=false;
-function buildDots(){const d=document.getElementById('flip-dots');d.innerHTML='';cards.forEach((_,i)=>{const dot=document.createElement('span');dot.className='flip-dot'+(i===0?' active':'');dot.onclick=()=>goToCard(i);d.appendChild(dot);});}
-function updateCard(){document.getElementById('flip-front').textContent=cards[current].front;document.getElementById('flip-back').textContent=cards[current].back;document.getElementById('flip-counter').textContent=(current+1)+' of '+cards.length;document.getElementById('flip-card').classList.remove('flipped');document.getElementById('flip-label').textContent='Term · Tap to Reveal';flipped=false;document.querySelectorAll('.flip-dot').forEach((d,i)=>d.classList.toggle('active',i===current));}
-function flipCard(){flipped=!flipped;document.getElementById('flip-card').classList.toggle('flipped',flipped);document.getElementById('flip-label').textContent=flipped?'Answer · Tap to Reset':'Term · Tap to Reveal';}
-function nextCard(){current=(current+1)%cards.length;updateCard();}
-function prevCard(){current=(current-1+cards.length)%cards.length;updateCard();}
-function goToCard(i){current=i;updateCard();}
+var current = 0, flipped = false;
+
+function buildDots() {
+  var d = document.getElementById('flip-dots');
+  if (!d) return;
+  d.innerHTML = '';
+  cards.forEach(function(_, i) {
+    var dot = document.createElement('span');
+    dot.className = 'flip-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = function(){ goToCard(i); };
+    d.appendChild(dot);
+  });
+}
+function updateCard() {
+  document.getElementById('flip-front').textContent = cards[current].front;
+  document.getElementById('flip-back').textContent = cards[current].back;
+  document.getElementById('flip-counter').textContent = (current + 1) + ' of ' + cards.length;
+  var card = document.getElementById('flip-card');
+  card.classList.remove('flipped');
+  document.getElementById('flip-label').textContent = 'Term · Tap to Reveal';
+  flipped = false;
+  document.querySelectorAll('.flip-dot').forEach(function(d, i){ d.classList.toggle('active', i === current); });
+}
+function flipCard() {
+  flipped = !flipped;
+  document.getElementById('flip-card').classList.toggle('flipped', flipped);
+  document.getElementById('flip-label').textContent = flipped ? 'Answer · Tap to Reset' : 'Term · Tap to Reveal';
+}
+function nextCard() { current = (current + 1) % cards.length; updateCard(); }
+function prevCard() { current = (current - 1 + cards.length) % cards.length; updateCard(); }
+function goToCard(i) { current = i; updateCard(); }
 buildDots();
-const pages=document.querySelectorAll('main [id]');
-const links=document.querySelectorAll('.sidebar-list a');
-window.addEventListener('scroll',()=>{let active='';pages.forEach(p=>{if(window.scrollY>=p.offsetTop-80)active=p.id;});links.forEach(a=>{const href=a.getAttribute('href').replace('#','');a.classList.toggle('active',href===active);});});
+
+/* ── SIDEBAR ACTIVE STATE ── */
+var pages = document.querySelectorAll('main [id]');
+var links = document.querySelectorAll('.sidebar-list a');
+window.addEventListener('scroll', function() {
+  var active = '';
+  pages.forEach(function(p){ if (window.scrollY >= p.offsetTop - 80) active = p.id; });
+  links.forEach(function(a){
+    var href = a.getAttribute('href').replace('#','');
+    a.classList.toggle('active', href === active);
+  });
+});
 </script>
 </body>
 </html>
