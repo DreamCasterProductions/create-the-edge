@@ -1,6 +1,6 @@
-# camacho Training Manual — Netlify config
-# Project: willowy-horse-ed9122
-# No password protection (removed). Static HTML deployment.
+# Create The Edge OS — Netlify config
+# Project: create-the-edge  Site: https://create-the-edge.netlify.app
+# Static HTML deployment, auto-deploys from GitHub main branch.
 
 [build]
   publish = "."
@@ -12,8 +12,28 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
-# Large HTML files (embedded video/audio) — increase cache lifetime
+# HTML cache
 [[headers]]
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=3600"
+
+# M4A audio — must declare correct MIME type or nosniff blocks playback
+[[headers]]
+  for = "/*.m4a"
+  [headers.values]
+    Content-Type = "audio/mp4"
+    Cache-Control = "public, max-age=86400"
+
+# MP4 video
+[[headers]]
+  for = "/*.mp4"
+  [headers.values]
+    Content-Type = "video/mp4"
+    Cache-Control = "public, max-age=86400"
+
+# JPEG slides and images
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
