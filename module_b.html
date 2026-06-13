@@ -98,9 +98,28 @@ td strong{color:var(--ink);font-weight:600;}
 .qnum{font-family:'Playfair Display',serif;font-size:22px;color:var(--brass);font-weight:700;margin-bottom:6px;}
 .qtext{font-size:14px;color:var(--ink);margin-bottom:12px;font-weight:500;}
 .opts{list-style:none;}
-.opt{display:flex;align-items:baseline;gap:10px;padding:6px 0;font-size:13px;color:var(--ink-soft);border-bottom:1px solid var(--cream);}
+.opt{display:flex;align-items:baseline;gap:10px;padding:6px 10px;font-size:13px;color:var(--ink-soft);border-bottom:1px solid var(--cream);cursor:pointer;transition:background .12s,border-color .12s;border-left:3px solid transparent;}
 .opt:last-child{border-bottom:none;}
+.opt:hover{background:var(--cream-light);}
+.opt.selected{background:var(--navy);color:var(--gold);border-left:3px solid var(--gold);font-weight:600;}
+.opt.selected .letter{background:var(--gold);color:var(--navy);}
+.opt.correct{background:var(--green-tint);color:var(--green);border-left:3px solid var(--green);font-weight:600;cursor:default;}
+.opt.correct .letter{background:var(--green);color:#fff;}
+.opt.wrong{background:var(--red-tint);color:var(--red);border-left:3px solid var(--red);cursor:default;}
+.opt.wrong .letter{background:var(--red);color:#fff;}
+.opt.reveal-correct{background:var(--green-tint);color:var(--green);border-left:3px solid var(--green);font-weight:600;cursor:default;}
+.opt.reveal-correct .letter{background:var(--green);color:#fff;}
 .letter{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--cream);color:var(--brass);font-size:11px;font-weight:700;flex-shrink:0;}
+.quiz-score-box{background:var(--navy);color:var(--text-primary);padding:24px 28px;border-left:4px solid var(--gold);margin:28px 0 8px;}
+.quiz-score-box .score-num{font-family:'Playfair Display',serif;font-size:48px;color:var(--gold);font-weight:700;line-height:1;}
+.quiz-score-box .score-label{font-size:12px;color:var(--text-secondary);letter-spacing:.1em;text-transform:uppercase;margin-top:4px;}
+.quiz-score-box .score-msg{font-size:14px;color:var(--text-primary);margin-top:12px;}
+.quiz-action{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:16px 0 24px;}
+.quiz-btn{background:var(--navy);color:var(--gold);border:1px solid var(--brass);padding:11px 28px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .15s,color .15s;}
+.quiz-btn:hover{background:var(--brass);color:var(--navy);}
+.quiz-btn.secondary{background:transparent;color:var(--ink-muted);border-color:var(--rule);}
+.quiz-btn.secondary:hover{background:var(--cream);color:var(--navy);}
+.quiz-unanswered{font-size:12px;color:var(--red);font-style:italic;display:none;}
 .legend-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:28px;font-weight:700;margin-bottom:8px;}
 .legend-sub{color:var(--text-secondary);font-size:14px;font-style:italic;font-family:'Cormorant Garamond',serif;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid rgba(197,167,111,.25);}
 .legend-q{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid rgba(197,167,111,.12);break-inside:avoid;}
@@ -199,7 +218,7 @@ td strong{color:var(--ink);font-weight:600;}
     <a class="nav-card" href="#flash-grid"><div class="nav-card-code">&#9670;</div><div class="nav-card-title">Flashcard Grid</div></a>
     <a class="nav-card" href="#cut-cards"><div class="nav-card-code">&#9986;</div><div class="nav-card-title">Cut Cards</div></a>
   </div>
-  <div class="cover-credit"><span class="your-company">Create The Edge</span> Associates, Inc. &middot; [Company Address] &middot; Internal Use Only &middot; 2026</div>
+  <div class="cover-credit"><span class="your-company">Create The Edge</span> Associates, Inc. &middot; Internal Use Only &middot; 2026</div>
 </div>
 
 <!-- MEDIA -->
@@ -209,47 +228,46 @@ td strong{color:var(--ink);font-weight:600;}
   <h2 class="subsec-title">Section Briefings</h2>
   <div class="subsec-lede">Watch the video, listen to the podcast, then read the module for the detail. The same terminology framework in three formats.</div>
   <div class="media-block">
-    <div class="media-byline">Video &middot; The Instrument of Credibility: Mastering Industry Language</div>
-    <div class="media-block" style="background:var(--navy);border:2px dashed rgba(197,167,111,.4);text-align:center;padding:48px 32px;">
-    <div style="color:var(--gold);font-size:36px;margin-bottom:12px;">&#9654;</div>
-    <div style="color:var(--gold);font-family:Montserrat,sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:8px;">Add Your Module Video</div>
-    <div style="color:var(--text-secondary);font-size:13px;font-family:Cormorant Garamond,serif;font-style:italic;">Upload your branded video briefing for this module.<br>Recommended: MP4, 16:9, under 500MB. Place in media/[module]/video.mp4</div>
-  </div>
+    <div class="media-byline">Video &middot; The Currency of Trust: Mastering Industry Language</div>
+    <div class="media-iframe-wrap">
+      <video controls style="position:absolute;inset:0;width:100%;height:100%;border-radius:2px;background:#000;" preload="metadata">
+        <source src="media/b/video.mp4" type="video/mp4">
+      </video>
+    </div>
     <div class="media-caption">Why every word you choose signals whether you belong in the room.</div>
   </div>
   <div class="media-block">
-    <div class="media-byline">Audio &middot; The Language That Signals Expertise</div>
-    <div class="audio-wrap" style="background:var(--cream);border:2px dashed rgba(184,137,59,.4);padding:24px 28px;text-align:center;">
-    <div style="color:var(--brass);font-size:22px;margin-bottom:8px;">&#127911;</div>
-    <div style="color:var(--brass);font-family:Montserrat,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:6px;">Add Your Podcast / Audio Briefing</div>
-    <div style="color:var(--ink-muted);font-size:12px;font-family:Cormorant Garamond,serif;font-style:italic;">Upload your branded audio for this module.<br>Recommended: M4A or MP3. Place in media/[module]/audio.m4a</div>
-  </div>
+    <div class="media-byline">Audio &middot; Precise Terminology Protects Your Consulting Fees</div>
+    <div class="audio-wrap">
+      <audio controls style="width:100%;display:block;" preload="metadata">
+        <source src="media/b/audio.m4a" type="audio/mp4">
+      </audio>
+    </div>
     <div class="media-caption">The full terminology framework, narrated. The same vocabulary in audio form.</div>
   </div>
-  <div class="figure-title" style="margin-top:32px;">Section B &middot; Infographic</div>
-  <div style="background:var(--cream);border:2px dashed rgba(184,137,59,.35);padding:48px 32px;text-align:center;border-radius:2px;margin-bottom:8px;">
-    <div style="color:var(--brass);font-size:28px;margin-bottom:10px;">&#128202;</div>
-    <div style="color:var(--brass);font-family:Montserrat,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:6px;">Add Your Infographic or Visual</div>
-    <div style="color:var(--ink-muted);font-size:12px;font-family:Cormorant Garamond,serif;font-style:italic;">Upload your branded infographic or mind map here.<br>Recommended: PNG, 1600px wide minimum.</div>
-  </div>
-  <div class="figure-title" style="margin-top:32px;">Section B &middot; Concept Mind Map</div>
-  <div style="background:var(--cream);border:2px dashed rgba(184,137,59,.35);padding:48px 32px;text-align:center;border-radius:2px;margin-bottom:8px;">
-    <div style="color:var(--brass);font-size:28px;margin-bottom:10px;">&#128202;</div>
-    <div style="color:var(--brass);font-family:Montserrat,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:6px;">Add Your Infographic or Visual</div>
-    <div style="color:var(--ink-muted);font-size:12px;font-family:Cormorant Garamond,serif;font-style:italic;">Upload your branded infographic or mind map here.<br>Recommended: PNG, 1600px wide minimum.</div>
-  </div>
+  <div class="figure-title" style="margin-top:32px;">Section B &middot; Professional Industry Terminology Guide</div>
+  <img class="media-img" src="media/b/infographic.jpg" alt="Module B: Professional Industry Terminology Guide">
 </div>
 
 
 <div class="page" id="b-slides">
   <div class="crumb">MODULE B <span class="dot">&middot;</span> PRESENTATION</div>
   <div class="subsec-tag">Presentation Slides</div>
-  <h2 class="subsec-title">Add Your Branded Slide Deck</h2>
-  <div class="subsec-lede">Upload your own presentation slides for this module. Export each slide as a PNG image (1707 &times; 960px recommended) and place them in <code>media/b/slides/</code> as slide01.png, slide02.png, etc.</div>
-  <div style="background:var(--navy);border:2px dashed rgba(197,167,111,.4);padding:64px 32px;text-align:center;border-radius:2px;">
-    <div style="color:var(--gold);font-size:40px;margin-bottom:16px;">&#9671;</div>
-    <div style="color:var(--gold);font-family:Montserrat,sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:10px;">Your Branded Slide Deck Goes Here</div>
-    <div style="color:var(--text-secondary);font-size:14px;font-family:Cormorant Garamond,serif;font-style:italic;max-width:480px;margin:0 auto;line-height:1.6;">Replace this section with your own presentation slides. Every module in Create The Edge OS has a dedicated slide slot ready for your branded content.</div>
+  <h2 class="subsec-title">The Language of Authority &middot; Slide Deck</h2>
+  <div class="subsec-lede">Twelve slides covering the complete industry terminology framework. Advance through each slide to reinforce the vocabulary before reading the sub-modules.</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:20px 0;">
+    <img src="media/b/slides/slide01.jpg" alt="Slide 1" style="width:100%;border-radius:2px;display:block;">
+    <img src="media/b/slides/slide02.jpg" alt="Slide 2" style="width:100%;border-radius:2px;display:block;">
+    <img src="media/b/slides/slide03.jpg" alt="Slide 3" style="width:100%;border-radius:2px;display:block;">
+    <img src="media/b/slides/slide04.jpg" alt="Slide 4" style="width:100%;border-radius:2px;display:block;">
+    <img src="media/b/slides/slide05.jpg" alt="Slide 5" style="width:100%;border-radius:2px;display:block;">
+    <img src="media/b/slides/slide06.jpg" alt="Slide 6" style="width:100%;border-radius:2px;display:block;">
+    <img src="media/b/slides/slide07.jpg" alt="Slide 7" style="width:100%;border-radius:2px;display:block;">
+    <img src="media/b/slides/slide08.jpg" alt="Slide 8" style="width:100%;border-radius:2px;display:block;">
+    <img src="media/b/slides/slide09.jpg" alt="Slide 9" style="width:100%;border-radius:2px;display:block;">
+    <img src="media/b/slides/slide10.jpg" alt="Slide 10" style="width:100%;border-radius:2px;display:block;">
+    <img src="media/b/slides/slide11.jpg" alt="Slide 11" style="width:100%;border-radius:2px;display:block;">
+    <img src="media/b/slides/slide12.jpg" alt="Slide 12" style="width:100%;border-radius:2px;display:block;">
   </div>
 </div>
 <!-- B.1 -->
@@ -373,7 +391,7 @@ td strong{color:var(--ink);font-weight:600;}
   <table>
     <thead><tr><th>Credential</th><th>Full Name</th><th>What It Means</th><th><span class="your-company">Create The Edge</span> Connection</th></tr></thead>
     <tbody>
-      <tr><td><strong>FCSI</strong></td><td>Professional Services Consultants Society International</td><td>Global association for professional consultants. Requires demonstrated expertise and peer nomination.</td><td>[Company Owner] C. Create The Edge, FCSI, CSI. Appears on all proposals.</td></tr>
+      <tr><td><strong>FCSI</strong></td><td>Professional Services Consultants Society International</td><td>Global association for professional consultants. Requires demonstrated expertise and peer nomination.</td><td>The firm's principal holds FCSI, CSI credentials. Appears on all proposals.</td></tr>
       <tr><td><strong>CSI</strong></td><td>Construction Specifications Institute</td><td>Focused on construction specifications and project delivery standards.</td><td>Reinforces expertise in producing MasterSpec documents.</td></tr>
       <tr><td><strong>AIA</strong></td><td>American Institute of Architects</td><td>Professional organization for licensed architects. AIA contracts are the industry standard.</td><td><span class="your-company">Create The Edge</span> often works under AIA contract structures.</td></tr>
       <tr><td><strong>LEED AP</strong></td><td>Leadership in Energy and Environmental Design</td><td>Expertise in green building design and sustainable construction.</td><td>Relevant when projects have LEED certification requirements.</td></tr>
@@ -382,7 +400,7 @@ td strong{color:var(--ink);font-weight:600;}
   </table>
   <div class="callout rule">
     <div class="label"><span class="icon">&#9638;</span> Rule of the House</div>
-    <div class="body">[Company Owner] C. Create The Edge's credentials are always: <strong>[Company Owner] C. Create The Edge, FCSI, CSI</strong>. In that order, separated by commas. They appear on proposal cover letters, firm biographies, and resume submissions. Never abbreviate his name or omit the credentials in formal documents.</div>
+    <div class="body">The firm's principal credentials are always listed as: <strong>Principal Consultant, FCSI, CSI</strong>. In that order, separated by commas. They appear on proposal cover letters, firm biographies, and resume submissions. Never omit the credentials in formal documents.</div>
   </div>
 </div>
 
@@ -396,7 +414,7 @@ td strong{color:var(--ink);font-weight:600;}
   <table>
     <thead><tr><th>Term</th><th>Definition</th><th>Application</th></tr></thead>
     <tbody>
-      <tr><td><strong>Pipeline / [CRM Software]</strong></td><td>The total set of active prospects tracked in [CRM Software] CRM through stages: Pending, Active, Won, Lost.</td><td>If it is not in [CRM Software], it does not exist. Update after every interaction.</td></tr>
+      <tr><td><strong>Pipeline / Pipedrive</strong></td><td>The total set of active prospects tracked in Pipedrive CRM through stages: Pending, Active, Won, Lost.</td><td>If it is not in Pipedrive, it does not exist. Update after every interaction.</td></tr>
       <tr><td><strong>Inbound / Outbound</strong></td><td>Inbound: leads from established relationships. Outbound: leads from new business development and prospecting.</td><td>Inbound = technical response. Outbound = empathy + authority signaling + full framework.</td></tr>
       <tr><td><strong>ICP</strong></td><td>Ideal Customer Profile. The type of organization that benefits most from <span class="your-company">Create The Edge</span>'s services.</td><td>Guides outbound prospecting toward highest win-probability opportunities.</td></tr>
       <tr><td><strong>Critical Event</strong></td><td>The time-sensitive trigger creating urgency: bond deadline, school opening, accreditation inspection.</td><td>Identifying the critical event positions <span class="your-company">Create The Edge</span> as the firm that understands urgency.</td></tr>
@@ -455,7 +473,7 @@ td strong{color:var(--ink);font-weight:600;}
     <thead><tr><th>Term</th><th>Definition</th><th>Application</th></tr></thead>
     <tbody>
       <tr><td><strong>Equipment Budget</strong></td><td>Estimated total equipment cost: Kitchen SF &times; Sector Rate.</td><td>Foundation of fee calculation. Must be accurate.</td></tr>
-      <tr><td><strong>Fee Percentage</strong></td><td>Percentage of equipment budget = consulting fee. Standard: 5%. Schools: 4%.</td><td>Deviations from standard require [Company Owner]'s approval.</td></tr>
+      <tr><td><strong>Fee Percentage</strong></td><td>Percentage of equipment budget = consulting fee. Standard: 5%. Schools: 4%.</td><td>Deviations from standard require Principal Consultant approval.</td></tr>
       <tr><td><strong>Per Diem</strong></td><td>Daily flat rate for on-site services. <span class="your-company">Create The Edge</span> standard: $1,600/day.</td><td>Applies to CA phase site visits and inspections.</td></tr>
       <tr><td><strong>Hourly Rates</strong></td><td>Project Principal: $200/hr. Project Manager: $170/hr. QC: $125/hr. Revit Operator: $90/hr.</td><td>Must be current and match the published schedule.</td></tr>
       <tr><td><strong>50-Mile Rule</strong></td><td>Projects within 50 miles: no travel paragraph. Beyond 50 miles: travel is reimbursable.</td><td>Check project location before including or omitting travel language.</td></tr>
@@ -548,6 +566,13 @@ td strong{color:var(--ink);font-weight:600;}
   <div class="quiz-q"><div class="qnum">B.14</div><div class="qtext">Architect sends a document labeled "RFP" but it only asks for resumes and credentials. What do you do?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Submit a full proposal with fees since it says RFP</li><li class="opt"><span class="letter">B</span>Decline the opportunity</li><li class="opt"><span class="letter">C</span>Recognize it is an RFQ regardless of label, respond with qualifications, confirm with architect</li><li class="opt"><span class="letter">D</span>Include fees as a bonus</li></ul></div>
 
   <div class="quiz-q"><div class="qnum">B.15</div><div class="qtext">Why does <span class="your-company">Create The Edge</span> use "Professional Services" in some proposals and "Food &amp; Beverage" in others?</div><ul class="opts"><li class="opt"><span class="letter">A</span>Each triggers a different Independence Statement: Professional Services for institutional, F&amp;B for hospitality with bars</li><li class="opt"><span class="letter">B</span>They are interchangeable</li><li class="opt"><span class="letter">C</span>F&amp;B is for larger projects</li><li class="opt"><span class="letter">D</span>Professional Services is the older term</li></ul></div>
+
+  <div id="quiz-score"></div>
+  <div class="quiz-action">
+    <button class="quiz-btn" id="quiz-submit-btn" onclick="submitQuiz()">Submit &amp; See My Score</button>
+    <button class="quiz-btn secondary" id="quiz-reset-btn" onclick="resetQuiz()" style="display:none;">Reset Quiz</button>
+    <span class="quiz-unanswered" id="quiz-unanswered-msg">Answer all 15 questions before submitting.</span>
+  </div>
 </div>
 
 <!-- LEGEND 1 -->
@@ -560,7 +585,7 @@ td strong{color:var(--ink);font-weight:600;}
   <div class="legend-q"><div class="head">B.2</div><div class="answer">Correct: B &middot; RFP requests a proposal with fees; RFQ requests qualifications without fees</div><div class="explain">RFP = scope + fee. RFQ = qualifications only. Confusing them is a significant professional error. See B.2.</div></div>
   <div class="legend-q"><div class="head">B.3</div><div class="answer">Correct: A &middot; $350 per square foot</div><div class="explain">Correctional = $350/SF, the highest rate, due to security modifications and high-density MEP requirements. See B.8.</div></div>
   <div class="legend-q"><div class="head">B.4</div><div class="answer">Correct: D &middot; Fat, Oil, and Grease</div><div class="explain">FOG = Fat, Oil, and Grease. Must be captured by grease interceptors before entering municipal sewers. See B.4.</div></div>
-  <div class="legend-q"><div class="head">B.5</div><div class="answer">Correct: B &middot; Professional Services Consultants Society International</div><div class="explain">FCSI = Professional Services Consultants Society International. [Company Owner] C. Create The Edge holds this credential. See B.5.</div></div>
+  <div class="legend-q"><div class="head">B.5</div><div class="answer">Correct: B &middot; Professional Services Consultants Society International</div><div class="explain">FCSI = Professional Services Consultants Society International. The firm's principal holds this credential. See B.5.</div></div>
   <div class="legend-q"><div class="head">B.6</div><div class="answer">Correct: C &middot; Map their terms to yours</div><div class="explain">Map client language to <span class="your-company">Create The Edge</span> phases. Shows you read their RFP while maintaining your standards. See B.3.</div></div>
   <div class="legend-q"><div class="head">B.7</div><div class="answer">Correct: A &middot; No, within the 50-mile radius</div><div class="explain">The 50-Mile Rule: no travel paragraph for projects within 50 miles. See B.8.</div></div>
   <div class="legend-q"><div class="head">B.8</div><div class="answer">Correct: D &middot; Affirmation that Create The Edge does not sell equipment or receive manufacturer commissions</div><div class="explain">The Independence Statement affirms vendor-neutral status. Confirm the correct version for your engagement context. Wrong version signals the reviewer you did not read the RFP. See B.2.</div></div>
@@ -594,7 +619,7 @@ td strong{color:var(--ink);font-weight:600;}
     <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">4</span>Sector Rates ($/SF)</div><div class="flash-grid-back">Schools $300. Hospitality $325. Correctional $350. Catering $200-$250. Fee: 5% (schools: 4%).<div class="flash-grid-ref">(B.8)</div></div></div>
     <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">5</span>FOG</div><div class="flash-grid-back">Fat, Oil, and Grease. Byproducts of commercial cooking captured by grease interceptors before entering municipal sewers.<div class="flash-grid-ref">(B.4)</div></div></div>
     <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">6</span>AHJ</div><div class="flash-grid-back">Authority Having Jurisdiction. The local government official who approves or rejects building plans. Varies by location.<div class="flash-grid-ref">(B.7)</div></div></div>
-    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">7</span>FCSI</div><div class="flash-grid-back">Professional Services Consultants Society International. Global professional association. [Company Owner] C. Create The Edge, FCSI, CSI. Always in that order.<div class="flash-grid-ref">(B.5)</div></div></div>
+    <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">7</span>FCSI</div><div class="flash-grid-back">Professional Services Consultants Society International. Global professional association. Credentials listed as: Principal Consultant, FCSI, CSI. Always in that order.<div class="flash-grid-ref">(B.5)</div></div></div>
     <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">8</span>Combi Oven</div><div class="flash-grid-back">Convection + steam + combination cooking in one unit. Some models are ventless, eliminating the need for an exhaust hood.<div class="flash-grid-ref">(B.4)</div></div></div>
     <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">9</span>The 50-Mile Rule</div><div class="flash-grid-back">Within 50 miles: no travel paragraph. Beyond 50 miles: travel is reimbursable. Check project location before writing.<div class="flash-grid-ref">(B.8)</div></div></div>
     <div class="flash-grid-card"><div class="flash-grid-front"><span class="flash-grid-num">10</span>Vendor-Neutral Language</div><div class="flash-grid-back">Never name specific manufacturers in proposals. Specify by performance criteria only. "10-gallon tilting skillet, electric, floor-mounted."<div class="flash-grid-ref">(B.9)</div></div></div>
@@ -641,7 +666,7 @@ td strong{color:var(--ink);font-weight:600;}
     <div class="cut-card"><div class="term">Sector Rates ($/SF)</div><div class="def">Schools $300 (4% fee). Hospitality $325 (5%). Correctional $350 (5%). Catering $200-$250 (5%).</div></div>
     <div class="cut-card"><div class="term">FOG</div><div class="def">Fat, Oil, and Grease. Captured by grease interceptors before entering municipal sewers. Prevents "fatbergs."</div></div>
     <div class="cut-card"><div class="term">AHJ</div><div class="def">Authority Having Jurisdiction. Local official who approves building plans. Varies by location. Design to the most restrictive standard.</div></div>
-    <div class="cut-card"><div class="term">FCSI</div><div class="def">Professional Services Consultants Society International. [Company Owner] C. Create The Edge, FCSI, CSI. Always in that order on formal documents.</div></div>
+    <div class="cut-card"><div class="term">FCSI</div><div class="def">Professional Services Consultants Society International. Credentials listed as: Principal Consultant, FCSI, CSI. Always in that order on formal documents.</div></div>
     <div class="cut-card"><div class="term">Combi Oven</div><div class="def">Convection + steam + combination cooking. Some models are ventless, eliminating the need for an exhaust hood.</div></div>
     <div class="cut-card"><div class="term">The 50-Mile Rule</div><div class="def">Within 50 miles: no travel paragraph. Beyond 50 miles: travel is reimbursable. Check location before writing.</div></div>
     <div class="cut-card"><div class="term">Vendor-Neutral Language</div><div class="def">Never name specific manufacturers. Specify by performance criteria only: "10-gallon tilting skillet, electric, floor-mounted."</div></div>
@@ -656,34 +681,124 @@ td strong{color:var(--ink);font-weight:600;}
 </main>
 
 <script>
-const cards=[
-  {front:'RFP vs. RFQ',back:'RFP = scope + methodology + fee. A decision tool. RFQ = qualifications only, no fee. Never confuse them. (B.2)'},
-  {front:'Five Design Phases',back:'SD (Conceptual Design), DD (Design Development), CD (Construction Docs), BN (Bidding/Negotiation), CA (Construction Admin). (B.3)'},
-  {front:'Independence Statement',back:'Required in every proposal. Affirms vendor-neutral status. Confirm the correct version for your engagement context. Wrong version signals the reviewer you did not read the RFP. (B.2)'},
-  {front:'Sector Rates ($/SF)',back:'Schools $300 (4% fee). Hospitality $325 (5%). Correctional $350 (5%). Catering $200-$250 (5%). (B.8)'},
-  {front:'FOG',back:'Fat, Oil, and Grease. Captured by grease interceptors before entering municipal sewers. Prevents fatbergs. (B.4)'},
-  {front:'AHJ',back:'Authority Having Jurisdiction. Local official who approves building plans. Varies by location. Design to the most restrictive standard. (B.7)'},
-  {front:'FCSI',back:'Professional Services Consultants Society International. [Company Owner] C. Create The Edge, FCSI, CSI. Always in that order on formal documents. (B.5)'},
-  {front:'Combi Oven',back:'Convection + steam + combination cooking. Some models are ventless, eliminating the need for an exhaust hood. (B.4)'},
-  {front:'The 50-Mile Rule',back:'Within 50 miles: no travel paragraph. Beyond 50 miles: travel is reimbursable. Check location before writing. (B.8)'},
-  {front:'Vendor-Neutral Language',back:'Never name specific manufacturers. Specify by performance criteria only. (B.9)'},
-  {front:'BIM / Clash Detection',back:'3D Revit models for design coordination. Clash Detection finds conflicts before construction. (B.3)'},
-  {front:'MEP',back:'Mechanical, Electrical, Plumbing. Every piece of equipment needs specific connections. Coordination in DD and CD phases. (B.7)'},
-  {front:'Critical Event',back:'Time-sensitive trigger: bond deadline, school opening, accreditation inspection. Positions Create The Edge as urgency-aware. (B.6)'},
-  {front:'AutoQuotes',back:'Industry-standard equipment list and cost estimation software. Drives the equipment budget, which drives the fee. (B.4)'},
-  {front:'Professional Services vs. Food & Beverage',back:'Not interchangeable. Each triggers a different Independence Statement. Professional Services = institutional. F&B = hospitality with bar components. (B.9)'}
+// ── INTERACTIVE QUIZ ─────────────────────────────────────────────
+var CORRECT = {1:"C",2:"B",3:"A",4:"D",5:"B",6:"C",7:"A",8:"D",9:"B",10:"C",11:"A",12:"D",13:"B",14:"C",15:"A"};
+var selected = {};
+var TOTAL = 15;
+
+document.querySelectorAll("#quiz .quiz-q").forEach(function(block, idx) {
+  var qNum = idx + 1;
+  block.querySelectorAll(".opt").forEach(function(opt) {
+    opt.addEventListener("click", function() {
+      if (opt.classList.contains("correct") || opt.classList.contains("wrong") || opt.classList.contains("reveal-correct")) return;
+      block.querySelectorAll(".opt").forEach(function(o) { o.classList.remove("selected"); });
+      opt.classList.add("selected");
+      selected[qNum] = opt.querySelector(".letter").textContent.trim();
+    });
+  });
+});
+
+function submitQuiz() {
+  var answered = Object.keys(selected).length;
+  if (answered < TOTAL) {
+    var msg = document.getElementById("quiz-unanswered-msg");
+    msg.style.display = "inline";
+    setTimeout(function() { msg.style.display = "none"; }, 3000);
+    return;
+  }
+  var score = 0;
+  document.querySelectorAll("#quiz .quiz-q").forEach(function(block, idx) {
+    var qNum = idx + 1;
+    var userAns = selected[qNum];
+    var correctAns = CORRECT[qNum];
+    block.querySelectorAll(".opt").forEach(function(opt) {
+      var letter = opt.querySelector(".letter").textContent.trim();
+      opt.classList.remove("selected");
+      if (letter === correctAns && userAns === correctAns) { opt.classList.add("correct"); score++; }
+      else if (letter === correctAns && userAns !== correctAns) { opt.classList.add("reveal-correct"); }
+      else if (letter === userAns && userAns !== correctAns) { opt.classList.add("wrong"); }
+    });
+  });
+  var resultMsg = score === TOTAL ? "Perfect score. You know this material cold." :
+    score >= 13 ? "Strong result. Review the questions you missed before moving to the flashcards." :
+    score >= 10 ? "Solid foundation. Return to the sub-modules flagged below before your next proposal." :
+    "Re-read the full module before your next proposal. Terminology errors are costly.";
+  document.getElementById("quiz-score").innerHTML =
+    '<div class="quiz-score-box"><div class="score-num">' + score + ' / ' + TOTAL + '</div>' +
+    '<div class="score-label">Questions Correct</div><div class="score-msg">' + resultMsg + '</div></div>';
+  document.getElementById("quiz-submit-btn").style.display = "none";
+  document.getElementById("quiz-reset-btn").style.display = "inline-block";
+}
+
+function resetQuiz() {
+  document.querySelectorAll("#quiz .quiz-q .opt").forEach(function(opt) {
+    opt.classList.remove("selected","correct","wrong","reveal-correct");
+  });
+  for (var k in selected) { delete selected[k]; }
+  document.getElementById("quiz-score").innerHTML = "";
+  document.getElementById("quiz-submit-btn").style.display = "inline-block";
+  document.getElementById("quiz-reset-btn").style.display = "none";
+}
+
+// ── FLIP CARDS ───────────────────────────────────────────────────
+var cards = [
+  {front:"RFP vs. RFQ", back:"RFP = scope + methodology + fee. A decision tool. RFQ = qualifications only, no fee. Never confuse them. (B.2)"},
+  {front:"Five Design Phases", back:"SD (Conceptual Design), DD (Design Development), CD (Construction Docs), BN (Bidding/Negotiation), CA (Construction Admin). (B.3)"},
+  {front:"Independence Statement", back:"Required in every proposal. Affirms vendor-neutral status. Confirm the correct version for your engagement context. (B.2)"},
+  {front:"Sector Rates ($/SF)", back:"Schools $300 (4% fee). Hospitality $325 (5%). Correctional $350 (5%). Catering $200-$250 (5%). (B.8)"},
+  {front:"FOG", back:"Fat, Oil, and Grease. Captured by grease interceptors before entering municipal sewers. Prevents fatbergs. (B.4)"},
+  {front:"AHJ", back:"Authority Having Jurisdiction. Local official who approves building plans. Varies by location. (B.7)"},
+  {front:"FCSI", back:"Professional Services Consultants Society International. Credentials listed as: Principal Consultant, FCSI, CSI. Always in that order. (B.5)"},
+  {front:"Combi Oven", back:"Convection + steam + combination cooking. Some models are ventless, eliminating the need for an exhaust hood. (B.4)"},
+  {front:"The 50-Mile Rule", back:"Within 50 miles: no travel paragraph. Beyond 50 miles: travel is reimbursable. (B.8)"},
+  {front:"Vendor-Neutral Language", back:"Never name specific manufacturers. Specify by performance criteria only. (B.9)"},
+  {front:"BIM / Clash Detection", back:"3D Revit models for design coordination. Clash Detection finds conflicts before construction. (B.3)"},
+  {front:"MEP", back:"Mechanical, Electrical, Plumbing. Every piece of equipment needs specific connections. Coordination in DD and CD phases. (B.7)"},
+  {front:"Critical Event", back:"Time-sensitive trigger: bond deadline, school opening, accreditation inspection. Positions Create The Edge as urgency-aware. (B.6)"},
+  {front:"AutoQuotes", back:"Industry-standard equipment list and cost estimation software. Drives the equipment budget, which drives the fee. (B.4)"},
+  {front:"Professional Services vs. F&B", back:"Not interchangeable. Each triggers a different Independence Statement. Professional Services = institutional. F&B = hospitality with bar components. (B.9)"}
 ];
-let current=0,flipped=false;
-function buildDots(){const d=document.getElementById('flip-dots');d.innerHTML='';cards.forEach((_,i)=>{const dot=document.createElement('span');dot.className='flip-dot'+(i===0?' active':'');dot.onclick=()=>goToCard(i);d.appendChild(dot);});}
-function updateCard(){document.getElementById('flip-front').textContent=cards[current].front;document.getElementById('flip-back').textContent=cards[current].back;document.getElementById('flip-counter').textContent=(current+1)+' of '+cards.length;document.getElementById('flip-card').classList.remove('flipped');document.getElementById('flip-label').textContent='Term · Tap to Reveal';flipped=false;document.querySelectorAll('.flip-dot').forEach((d,i)=>d.classList.toggle('active',i===current));}
-function flipCard(){flipped=!flipped;document.getElementById('flip-card').classList.toggle('flipped',flipped);document.getElementById('flip-label').textContent=flipped?'Answer · Tap to Reset':'Term · Tap to Reveal';}
-function nextCard(){current=(current+1)%cards.length;updateCard();}
-function prevCard(){current=(current-1+cards.length)%cards.length;updateCard();}
-function goToCard(i){current=i;updateCard();}
+var current = 0, flipped = false;
+function buildDots() {
+  var d = document.getElementById("flip-dots");
+  d.innerHTML = "";
+  cards.forEach(function(_, i) {
+    var dot = document.createElement("span");
+    dot.className = "flip-dot" + (i === 0 ? " active" : "");
+    (function(idx) { dot.onclick = function() { goToCard(idx); }; })(i);
+    d.appendChild(dot);
+  });
+}
+function updateCard() {
+  document.getElementById("flip-front").textContent = cards[current].front;
+  document.getElementById("flip-back").textContent = cards[current].back;
+  document.getElementById("flip-counter").textContent = (current + 1) + " of " + cards.length;
+  document.getElementById("flip-card").classList.remove("flipped");
+  document.getElementById("flip-label").textContent = "Term · Tap to Reveal";
+  flipped = false;
+  document.querySelectorAll(".flip-dot").forEach(function(d, i) { d.classList.toggle("active", i === current); });
+}
+function flipCard() {
+  flipped = !flipped;
+  document.getElementById("flip-card").classList.toggle("flipped", flipped);
+  document.getElementById("flip-label").textContent = flipped ? "Answer · Tap to Reset" : "Term · Tap to Reveal";
+}
+function nextCard() { current = (current + 1) % cards.length; updateCard(); }
+function prevCard() { current = (current - 1 + cards.length) % cards.length; updateCard(); }
+function goToCard(i) { current = i; updateCard(); }
 buildDots();
-const pages=document.querySelectorAll('main [id]');
-const links=document.querySelectorAll('.sidebar-list a');
-window.addEventListener('scroll',()=>{let active='';pages.forEach(p=>{if(window.scrollY>=p.offsetTop-80)active=p.id;});links.forEach(a=>{const href=a.getAttribute('href').replace('#','');a.classList.toggle('active',href===active);});});
+
+// ── SIDEBAR SCROLL SPY ───────────────────────────────────────────
+var pages = document.querySelectorAll("main [id]");
+var links = document.querySelectorAll(".sidebar-list a");
+window.addEventListener("scroll", function() {
+  var active = "";
+  pages.forEach(function(p) { if (window.scrollY >= p.offsetTop - 80) active = p.id; });
+  links.forEach(function(a) {
+    var href = a.getAttribute("href").replace("#","");
+    a.classList.toggle("active", href === active);
+  });
+});
 </script>
 </body>
 </html>
