@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>[Company Name] Section N · Calculation Tools · 2026 Edition</title>
+<title>Northstar Design Collaborative Section N · Calculation Tools · 2026 Edition</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -12,7 +12,7 @@
   --cream:#F4EFE4; --cream-light:#FAF7F1; --paper:#FFFFFF;
   --ink:#162630; --ink-soft:#2C3B45; --ink-muted:#5D7079;
   --text-primary:#e8e0d0; --text-secondary:#b8aa90;
-  --[Company Name]-blue:#266889; --blue-tint:#EDF3F6;
+  --brand-blue:#266889; --blue-tint:#EDF3F6;
   --green:#2F7D54; --green-tint:#E8F2EC;
   --red:#B23B2E; --red-tint:#F8E9E6;
   --rule:#D6CCB6;
@@ -118,7 +118,7 @@ input[type=number], input[type=text], select {
   font-family:'Montserrat',sans-serif;
   font-size:13px;
   font-weight:600;
-  color:var(--[Company Name]-blue);
+  color:var(--brand-blue);
   background:var(--input-bg);
   border:1px solid var(--input-border);
   padding:6px 10px;
@@ -192,8 +192,8 @@ select{cursor:pointer;background-image:none;}
 .callout.expert .cl-attrib{font-size:11px;margin-top:10px;font-style:italic;opacity:.8;}
 .callout.rule-b{background:var(--cream);border-left:4px solid var(--navy);}
 .callout.rule-b .cl-label{color:var(--navy);}
-.callout.info{background:var(--blue-tint);border-left:4px solid var(--[Company Name]-blue);}
-.callout.info .cl-label{color:var(--[Company Name]-blue);}
+.callout.info{background:var(--blue-tint);border-left:4px solid var(--brand-blue);}
+.callout.info .cl-label{color:var(--brand-blue);}
 .callout.best{background:var(--green-tint);border-left:4px solid var(--green);}
 .callout.best .cl-label{color:var(--green);}
 
@@ -222,11 +222,17 @@ select{cursor:pointer;background-image:none;}
 .bar-size-badge{display:inline-block;padding:4px 12px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:2px;}
 .bar-size-badge.small{background:var(--green-tint);color:var(--green);}
 .bar-size-badge.medium{background:var(--warn-bg);color:var(--brass);}
-.bar-size-badge.large{background:var(--blue-tint);color:var(--[Company Name]-blue);}
+.bar-size-badge.large{background:var(--blue-tint);color:var(--brand-blue);}
 
 /* ADD AREA ROW BUTTON */
-.add-area-btn{background:transparent;color:var(--[Company Name]-blue);border:1px dashed var(--[Company Name]-blue);padding:7px 18px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;margin:4px 0 0;display:block;width:100%;text-align:center;}
+.add-area-btn{background:transparent;color:var(--brand-blue);border:1px dashed var(--brand-blue);padding:7px 18px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;margin:4px 0 0;display:block;width:100%;text-align:center;}
 .add-area-btn:hover{background:rgba(38,104,137,.07);}
+
+/* LOAD SAMPLE PROJECT BUTTON */
+.sample-btn-bar{display:flex;align-items:center;gap:16px;margin:0 0 28px;padding:14px 18px;background:var(--navy-mid);border-left:4px solid var(--brass);}
+.sample-btn{background:var(--brass);color:var(--navy);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border:none;padding:9px 22px;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:background .15s;}
+.sample-btn:hover{background:var(--gold);}
+.sample-btn-note{color:var(--text-secondary);font-size:11px;line-height:1.45;}
 
 /* ADDITIONAL EQUIPMENT TABLE */
 .equip-add-table{width:100%;border-collapse:collapse;font-size:12px;}
@@ -247,11 +253,14 @@ select{cursor:pointer;background-image:none;}
 </style>
 </head>
 <body>
+<div id="portfolio-demo-banner" style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#0e1e0e;color:#7ec87e;font-family:'Montserrat',Helvetica,sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-align:center;padding:5px 1rem;border-bottom:1px solid #1f4020;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Portfolio Demonstration &nbsp;&middot;&nbsp; Synthetic Data &nbsp;&middot;&nbsp; No Confidential Client Information</div>
+<style>.topbar{top:26px!important;}.sidebar{top:70px!important;}main,.main-content{margin-top:70px!important;}</style>
+
 
 <!-- TOPBAR -->
 <header class="topbar">
   <a class="topbar-back" href="index.html">&#8592; Main Menu</a>
-  <div class="topbar-logo">[Company Name] USA</div>
+  <div class="topbar-logo">Northstar Design Collaborative USA</div>
   <div class="topbar-section">Module N &middot; Calculation Tools</div>
   <div class="topbar-right">
     <a href="#n4">Team</a>
@@ -286,7 +295,7 @@ select{cursor:pointer;background-image:none;}
 <main>
 <!-- COVER -->
 <div class="page cover" id="cover">
-  <div class="cover-eyebrow">[Company Name] &middot; Sales &amp; Proposal Development Training Guide &middot; 2026 Edition</div>
+  <div class="cover-eyebrow">Northstar Design Collaborative &middot; Sales &amp; Proposal Development Training Guide &middot; 2026 Edition</div>
   <div class="cover-letter">N</div>
   <div class="cover-title">Calculation Tools</div>
   <div class="cover-sub">Five precision calculators: team structure reference, six-phase labor allocation, fee chart with population-driven method, specialty service line sizing, and bar seat-count budget calculator.</div>
@@ -318,7 +327,7 @@ select{cursor:pointer;background-image:none;}
       <div class="nav-card-sub">Seat-count classification (Small / Medium / Large) and rate-based bar budget in addition to SF method.</div>
     </a>
   </div>
-  <div class="cover-credit"><span class="your-company" style="color:var(--gold)">[Company Name]</span> USA &middot; 2026 Edition &middot; Internal Use Only</div>
+  <div class="cover-credit"><span class="your-company" style="color:var(--gold)">Northstar Design Collaborative</span> USA &middot; 2026 Edition &middot; Internal Use Only</div>
 </div>
 
 <!-- N.0 HOW TO USE -->
@@ -326,7 +335,7 @@ select{cursor:pointer;background-image:none;}
   <div class="crumb">Section N <span class="dot">&middot;</span> Calculation Tools <span class="dot">&middot;</span> N.0</div>
   <div class="subsec-tag">N.0 &middot; Orientation</div>
   <h2 class="subsec-title">How to Use This Section</h2>
-  <div class="subsec-lede">Every calculator in this module replicates the exact logic of the master [Company Name] spreadsheets. Enter values in the blue input fields. All other fields calculate automatically. No formula knowledge required.</div>
+  <div class="subsec-lede">Every calculator in this module replicates the exact logic of the master Northstar Design Collaborative spreadsheets. Enter values in the blue input fields. All other fields calculate automatically. No formula knowledge required.</div>
 
   <div class="legend-strip">
     <div class="legend-item"><div class="legend-swatch ls-input"></div><span><strong>Blue field</strong>: Input (you type here)</span></div>
@@ -342,7 +351,7 @@ select{cursor:pointer;background-image:none;}
   <div class="callout expert">
     <div class="cl-label">&#10077; Expert Perspective</div>
     <div class="cl-body">"The fee is not a guess. It is a calculation. When you can show a client exactly how you arrived at a number from their square footage, the conversation shifts from negotiation to confirmation."</div>
-    <div class="cl-attrib">&middot; <em>[Company Name]</em> OS &middot; The Proposal Standard</div>
+    <div class="cl-attrib">&middot; <em>Northstar Design Collaborative</em> OS &middot; The Proposal Standard</div>
   </div>
 </div>
 
@@ -397,6 +406,12 @@ select{cursor:pointer;background-image:none;}
       <li data-n="4">Review the Phase Summary table for total hours and cost by phase</li>
       <li data-n="5">Percent Check column shows 1.000 = valid; any other value = re-check percentages</li>
     </ul>
+  </div>
+
+  <!-- LOAD SAMPLE PROJECT -->
+  <div class="sample-btn-bar">
+    <button class="sample-btn" onclick="loadSample()">&#9654; Load Sample Project</button>
+    <span class="sample-btn-note"><strong style="color:#fff;">Harborview Medical Center — Staff Cafeteria Renovation</strong><br>Healthcare · 1,800-person campus · $95,000 fee · 6-person team. Loads all calculators simultaneously with illustrative data.</span>
   </div>
 
   <!-- PHASE SUMMARY TABLE -->
@@ -1125,9 +1140,9 @@ window.addEquipRow = function(){
   if(!tbody) return;
   var tr = document.createElement('tr');
   tr.innerHTML =
-    '<td style="width:50%;"><input type="text" id="eq'+i+'-name" placeholder="(Equipment Name)" oninput="calcEquipTotal()" style="width:100%;font-size:12px;padding:5px 8px;background:var(--input-bg);border:1px solid var(--input-border);color:var(--[Company Name]-blue);font-family:\'Montserrat\',sans-serif;outline:none;"></td>' +
-    '<td style="width:12%;"><input type="number" id="eq'+i+'-qty" value="1" min="0" oninput="calcEquipTotal()" style="width:100%;text-align:right;font-size:12px;padding:5px 8px;background:var(--input-bg);border:1px solid var(--input-border);color:var(--[Company Name]-blue);font-family:\'Montserrat\',sans-serif;outline:none;"></td>' +
-    '<td style="width:22%;"><input type="number" id="eq'+i+'-cost" value="0" min="0" placeholder="0" oninput="calcEquipTotal()" style="width:100%;text-align:right;font-size:12px;padding:5px 8px;background:var(--input-bg);border:1px solid var(--input-border);color:var(--[Company Name]-blue);font-family:\'Montserrat\',sans-serif;outline:none;"></td>' +
+    '<td style="width:50%;"><input type="text" id="eq'+i+'-name" placeholder="(Equipment Name)" oninput="calcEquipTotal()" style="width:100%;font-size:12px;padding:5px 8px;background:var(--input-bg);border:1px solid var(--input-border);color:var(--brand-blue);font-family:\'Montserrat\',sans-serif;outline:none;"></td>' +
+    '<td style="width:12%;"><input type="number" id="eq'+i+'-qty" value="1" min="0" oninput="calcEquipTotal()" style="width:100%;text-align:right;font-size:12px;padding:5px 8px;background:var(--input-bg);border:1px solid var(--input-border);color:var(--brand-blue);font-family:\'Montserrat\',sans-serif;outline:none;"></td>' +
+    '<td style="width:22%;"><input type="number" id="eq'+i+'-cost" value="0" min="0" placeholder="0" oninput="calcEquipTotal()" style="width:100%;text-align:right;font-size:12px;padding:5px 8px;background:var(--input-bg);border:1px solid var(--input-border);color:var(--brand-blue);font-family:\'Montserrat\',sans-serif;outline:none;"></td>' +
     '<td style="width:16%;text-align:right;font-size:13px;font-weight:700;color:var(--navy);padding:7px 10px;" id="eq'+i+'-total">$0</td>';
   tbody.appendChild(tr);
 };
@@ -1396,6 +1411,88 @@ window.addTeamRow = function(tbodyId){
   tr.className = 'team-row';
   tr.innerHTML = buildTeamRowHTML();
   tbody.appendChild(tr);
+};
+
+/* ═══════════════════════════════════════════════════════
+   LOAD SAMPLE PROJECT — Harborview Medical Center
+   ═══════════════════════════════════════════════════════ */
+window.loadSample = function(){
+  /* ── N.3 Labor Calculator ── */
+  var lp = document.getElementById('lc-proj');
+  if(lp) lp.value = 'Harborview Medical Center — Staff Cafeteria Renovation';
+
+  var phases = {
+    prog:7600, sd:14250, dd:23750, cd:28500, bn:5700, ca:15200
+  };
+  Object.keys(phases).forEach(function(ph){
+    var el = document.getElementById('fee-'+ph);
+    if(el){ el.value = phases[ph]; }
+  });
+
+  var people = [
+    {name:'Principal',         rate:185},
+    {name:'Sr Project Manager',rate:160},
+    {name:'Sr Production',     rate:155},
+    {name:'Project Manager',   rate:140},
+    {name:'REVIT/CAD',         rate:110},
+    {name:'Administrative',    rate:70}
+  ];
+  people.forEach(function(p,i){
+    var ni = document.getElementById('p'+(i+1)+'-name');
+    var ri = document.getElementById('p'+(i+1)+'-rate');
+    if(ni) ni.value = p.name;
+    if(ri) ri.value = p.rate;
+  });
+
+  /* Default commitment % per phase per person (sum to 1.000 per phase) */
+  var pcts = {
+    prog:[0.35,0.25,0.15,0.15,0.05,0.05],
+    sd:  [0.20,0.25,0.25,0.15,0.10,0.05],
+    dd:  [0.15,0.20,0.30,0.20,0.10,0.05],
+    cd:  [0.10,0.15,0.25,0.25,0.20,0.05],
+    bn:  [0.30,0.30,0.15,0.15,0.00,0.10],
+    ca:  [0.25,0.35,0.15,0.15,0.00,0.10]
+  };
+  Object.keys(pcts).forEach(function(ph){
+    pcts[ph].forEach(function(val,i){
+      var el = document.getElementById('pct-'+ph+'-'+(i+1));
+      if(el) el.value = val.toFixed(2);
+    });
+  });
+  calcLabor();
+
+  /* ── N.1 Fee Chart Calculator ── */
+  var fields = {
+    'fc-name':   'Harborview Medical Center',
+    'fc-pop':    1800,
+    'fc-part':   0.40,
+    'fc-sfpseat':20,
+    'fc-sfrate': 465,
+    'fc-feepct': 0.055
+  };
+  Object.keys(fields).forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.value = fields[id];
+  });
+
+  /* Set main kitchen area to match project SF */
+  var a1sf = document.getElementById('area1-sf');
+  var a1r  = document.getElementById('area1-rate');
+  if(a1sf) a1sf.value = 2800;
+  if(a1r)  a1r.value  = 465;
+  var a2sf = document.getElementById('area2-sf');
+  var a2r  = document.getElementById('area2-rate');
+  if(a2sf) a2sf.value = 420;
+  if(a2r)  a2r.value  = 280;
+  var a3sf = document.getElementById('area3-sf');
+  var a3r  = document.getElementById('area3-rate');
+  if(a3sf) a3sf.value = 180;
+  if(a3r)  a3r.value  = 200;
+  calcFee();
+
+  /* Scroll to N.3 labor section */
+  var target = document.getElementById('n3');
+  if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
 };
 
 /* SCROLL SPY */
